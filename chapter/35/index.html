@@ -1,0 +1,105 @@
+<!DOCTYPE html><html lang="zh-CN"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="完整中文教程：从 Python 与数学基础，到机器学习、大模型部署、Agent 与 NVIDIA 算子实践。"><title>35 算子部署、评价与交付 · 手写与实践</title><link rel="stylesheet" href="/katex/katex.min.css"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/_astro/Book.ddZgooq8.css"></head> <body> <a class="skip" href="#main">跳转到正文</a> <header class="topbar" data-pagefind-ignore> <button id="menu-toggle" class="menu-toggle" aria-label="打开章节目录" aria-expanded="false" aria-controls="sidebar">☰</button> <a class="brand" href="/"><span class="brand-icon">∑</span><span>手写与实践<small>从 Python 到大模型</small></span></a> <nav class="top-links" aria-label="主导航"> <a href="/resources/">学习附件</a> <a href="/files/output/pdf/course-complete.pdf">完整 PDF <span>↗</span></a> <button id="search-open" class="search-trigger">搜索教程 <kbd>/</kbd></button> </nav> </header> <div id="menu-backdrop" class="menu-backdrop" hidden></div> <aside id="sidebar" class="sidebar" aria-label="章节目录" data-pagefind-ignore> <a class="nav-home" href="/">教程首页</a> <a class="nav-home" href="/overview/">阅读与运行指南</a> <section class="nav-group"> <div class="nav-group-title"><span>01</span>Python与计算基础</div>  <a class="chapter-link" href="/chapter/01/"><span>01</span>Python 基础</a><a class="chapter-link" href="/chapter/02/"><span>02</span>组织代码与数据处理</a><a class="chapter-link" href="/chapter/03/"><span>03</span>NumPy 与数据可视化</a> </section><section class="nav-group"> <div class="nav-group-title"><span>02</span>面向机器学习的数学基础</div> <a class="guide-link" href="/guide/2/">本部分运行指南</a> <a class="chapter-link" href="/chapter/04/"><span>04</span>函数与微积分入门</a><a class="chapter-link" href="/chapter/05/"><span>05</span>线性代数与向量计算</a><a class="chapter-link" href="/chapter/06/"><span>06</span>概率、统计与信息量</a><a class="chapter-link" href="/chapter/07/"><span>07</span>离散数学与算法思维</a> </section><section class="nav-group"> <div class="nav-group-title"><span>03</span>机器学习与深度学习</div> <a class="guide-link" href="/guide/3/">本部分运行指南</a> <a class="chapter-link" href="/chapter/08/"><span>08</span>机器学习任务与模型评价</a><a class="chapter-link" href="/chapter/09/"><span>09</span>模型如何学习与神经网络</a><a class="chapter-link" href="/chapter/10/"><span>10</span>PyTorch训练与模型管理</a><a class="chapter-link" href="/chapter/11/"><span>11</span>CNN与图像识别</a><a class="chapter-link" href="/chapter/12/"><span>12</span>NLP与序列建模</a><a class="chapter-link" href="/chapter/13/"><span>13</span>注意力与Transformer</a> </section><section class="nav-group"> <div class="nav-group-title"><span>04</span>大模型与部署</div> <a class="guide-link" href="/guide/4/">本部分运行指南</a> <a class="chapter-link" href="/chapter/14/"><span>14</span>语言模型与大模型结构</a><a class="chapter-link" href="/chapter/15/"><span>15</span>本地加载与对话输入</a><a class="chapter-link" href="/chapter/16/"><span>16</span>生成策略与KV缓存</a><a class="chapter-link" href="/chapter/17/"><span>17</span>资源预算、量化与参数适配</a><a class="chapter-link" href="/chapter/18/"><span>18</span>HTTP服务与部署实践</a><a class="chapter-link" href="/chapter/19/"><span>19</span>提示设计、评价与部署交付</a> </section><section class="nav-group"> <div class="nav-group-title"><span>05</span>Agent</div> <a class="guide-link" href="/guide/5/">本部分运行指南</a> <a class="chapter-link" href="/chapter/20/"><span>20</span>Agent 的组成与运行过程</a><a class="chapter-link" href="/chapter/21/"><span>21</span>编写第一个 Agent 循环</a><a class="chapter-link" href="/chapter/22/"><span>22</span>Rules：规则与执行边界</a><a class="chapter-link" href="/chapter/23/"><span>23</span>Skills：让任务方法可以复用</a><a class="chapter-link" href="/chapter/24/"><span>24</span>Knowledge：读取、检索与引用</a><a class="chapter-link" href="/chapter/25/"><span>25</span>状态、记忆与多步骤任务</a><a class="chapter-link" href="/chapter/26/"><span>26</span>组装完整课程学习助手</a><a class="chapter-link" href="/chapter/27/"><span>27</span>测试、评价与扩展</a> </section><section class="nav-group"> <div class="nav-group-title"><span>06</span>NVIDIA算子开发</div> <a class="guide-link" href="/guide/6/">本部分运行指南</a> <a class="chapter-link" href="/chapter/28/"><span>28</span>从推理瓶颈到 GPU 执行</a><a class="chapter-link" href="/chapter/29/"><span>29</span>第一个 CUDA 程序与数据布局</a><a class="chapter-link" href="/chapter/30/"><span>30</span>归约、共享内存与矩阵复用</a><a class="chapter-link" href="/chapter/31/"><span>31</span>用 Triton 实现融合 RMSNorm</a><a class="chapter-link" href="/chapter/32/"><span>32</span>Softmax、贪心选择与少算一步</a><a class="chapter-link" href="/chapter/33/"><span>33</span>性能测量与瓶颈分析</a><a class="chapter-link" href="/chapter/34/"><span>34</span>把融合算子接入真实推理</a><a class="chapter-link active" href="/chapter/35/" aria-current="page"><span>35</span>算子部署、评价与交付</a> </section> <section class="nav-group"><div class="nav-group-title">附录与练习</div> <a class="chapter-link" href="/appendix/01/">环境准备与复现</a><a class="chapter-link" href="/appendix/02/">学习路线与前置自测</a><a class="chapter-link" href="/appendix/03/">读懂后续工程代码</a><a class="chapter-link" href="/appendix/04/">数学符号与计算速查</a> <a class="chapter-link" href="/resource/506997cbbc41/">章节练习与产出验收</a> <a class="chapter-link" href="/resources/">全部代码与学习附件</a> </section> <div class="sidebar-note">六个部分 · 35 章<br>按自己的节奏，从第一章开始。</div> </aside> <div class="reading-layout"> <main id="main" class="main-content"> <div class="document-meta" data-pagefind-ignore><span>第 35 章</span><a href="https://github.com/cbt12123/handmade-llm/blob/simple/%E7%AC%AC%E5%85%AD%E9%83%A8%E5%88%86-NVIDIA%E7%AE%97%E5%AD%90%E5%BC%80%E5%8F%91/35-%E7%AE%97%E5%AD%90%E9%83%A8%E7%BD%B2%E8%AF%84%E4%BB%B7%E4%B8%8E%E4%BA%A4%E4%BB%98.md" target="_blank" rel="noopener noreferrer">GitHub 源文档 ↗</a></div> <details class="mobile-toc" data-pagefind-ignore><summary>本页目录</summary><a href="#351-服务由哪些部分组成">35.1 服务由哪些部分组成</a><a href="#352-启动可运行的gpu服务">35.2 启动可运行的GPU服务</a><a href="#353-从windows调用">35.3 从Windows调用</a><a href="#354-证明请求确实经过算子">35.4 证明请求确实经过算子</a><a href="#355-入口边界与恢复">35.5 入口边界与恢复</a><a href="#356-交付材料应该包含什么">35.6 交付材料应该包含什么</a><a href="#357-最后怎样判断采用与否">35.7 最后怎样判断采用与否</a><a href="#358-本章产出">35.8 本章产出</a></details><article class="prose" data-pagefind-body data-pagefind-weight="1"><h1 id="35-算子部署评价与交付" data-pagefind-meta="title">35 算子部署、评价与交付</h1>
+<p>这一章完成最终实践：HTTP 请求进入真实 Qwen 生成过程，默认使用自写融合 RMSNorm，返回模型输出与调用信息。保留 baseline 入口，方便同一环境对照或停用优化。</p>
+<h2 id="351-服务由哪些部分组成">35.1 服务由哪些部分组成</h2>
+<p>请求模型里的类型标注与 <code>Literal</code>、启动函数中的 <code>async</code> 和 <code>yield</code> 可查<a href="/appendix/03/#6-%E7%B1%BB%E5%9E%8B%E6%A0%87%E6%B3%A8%E4%B8%8E-async%E8%AF%BB%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%85%A5%E5%8F%A3%E5%86%8D%E8%A1%A5">工程 Python 附录第6节</a>。先区分一次启动与逐次请求，再读具体服务代码。</p>
+<p><img src="/files/images/part06-deployment.png" alt="算子进入HTTP推理服务" loading="lazy" decoding="async"></p>
+<p>启动时加载模型并预热融合路径；请求时编码提示词，在推理上下文中临时替换归一化，执行带 KV 缓存的贪心生成，然后恢复原实现。</p>
+<p>完整入口见<a href="/file/3499b72d8cb8/">35_server.py</a>。不需要把 CUDA 编译器、模型权重和 HTTP 逻辑全部塞进一个文件：各模块分别负责算子、适配、生成和服务。</p>
+<p>服务只开一个 worker，并用锁一次接受一个生成任务。模块方法的替换是进程共享状态，若并发请求一边替换、一边恢复，可能干扰彼此。当前设计用明确的串行边界处理这个问题，不把它当作高并发推理引擎。</p>
+<h2 id="352-启动可运行的gpu服务">35.2 启动可运行的GPU服务</h2>
+<p>在 WSL 终端执行，先将宿主目录换成自己的实际路径。下面命令复用现有镜像，不重新下载权重：</p>
+<pre><code class="language-bash">docker run --name handmade-llm-part06-service \
+  --gpus all --ipc=host \
+  -p 127.0.0.1:8003:8000 \
+  -e HF_HUB_OFFLINE=1 -e TRANSFORMERS_OFFLINE=1 \
+  -v /mnt/g/project/handmade-llm-normal:/workspace \
+  -v /mnt/g/models/qwen2_5_1.5b_instruct:/models/qwen:ro \
+  -w /workspace --entrypoint python3 \
+  vllm/vllm-openai:v0.20.1-cu129-ubuntu2404 \
+  -m uvicorn 35_server:app --app-dir script/part06 \
+  --host 0.0.0.0 --port 8000 --workers 1
+</code></pre>
+<p>看到 Application startup complete 后再测试。模型读取可能较慢，首次 Triton 调用还需编译；<code>/health</code> 可用代表启动预热已完成，不代表所有形状都编译好了。</p>
+<p>容器退出后，保留原容器可通过 <code>docker start -a handmade-llm-part06-service</code> 再次启动。创建同名新容器前先检查已有容器，不要直接复制命令反复创建。</p>
+<h2 id="353-从windows调用">35.3 从Windows调用</h2>
+<p>conda base 已有 requests，可在 VS Code 终端运行：</p>
+<pre><code class="language-python"><span class="hljs-keyword">import</span> requests
+
+session = requests.Session()
+session.trust_env = <span class="hljs-literal">False</span>  <span class="hljs-comment"># 本地请求不经过系统代理</span>
+response = session.post(
+    <span class="hljs-string">&#x27;http://127.0.0.1:8003/generate&#x27;</span>,
+    json={<span class="hljs-string">&#x27;prompt&#x27;</span>: <span class="hljs-string">&#x27;用一句话解释什么是矩阵。&#x27;</span>,
+          <span class="hljs-string">&#x27;backend&#x27;</span>: <span class="hljs-string">&#x27;fused&#x27;</span>, <span class="hljs-string">&#x27;max_new_tokens&#x27;</span>: <span class="hljs-number">32</span>},
+    timeout=(<span class="hljs-number">5</span>, <span class="hljs-number">180</span>),
+)
+response.raise_for_status()
+<span class="hljs-built_in">print</span>(response.json())
+session.close()
+</code></pre>
+<p><code>backend</code> 默认 fused，改为 baseline 就使用原方法。返回值包括 text、ids、输出 token 数、停止原因、生成耗时、替换模块数、自定义调用次数与回退次数。</p>
+<p>HTTP 服务遇到 EOS 会停止，返回的 token 数包含产生的 EOS，但展示文字会跳过特殊 token。没有产生 EOS 时，达到 max_new_tokens 后返回 length。不要把“达到长度限制”误写成“模型认为回答完成”。</p>
+<h2 id="354-证明请求确实经过算子">35.4 证明请求确实经过算子</h2>
+<pre><code class="language-powershell">python script/part06/<span class="hljs-number">35</span>_client.py <span class="hljs-literal">--url</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">8003</span>
+</code></pre>
+<p>客户端实际发送三条课程相关提示词，每条分别调用 baseline 与 fused，要求完整返回 IDs 相同。融合路径还必须满足：57个模块被替换、回退为零、自定义调用次数等于57乘生成步数。</p>
+<p>调用计数是应用内部证据，第33章的 Profiler 提供 GPU 执行证据，二者相互补充。本次请求均通过，保存于<a href="/file/a675d8d400f5/">35_http.json</a>，含真实返回内容与 IDs。</p>
+<p>计数器不会把返回 JSON 里的数字变成独立硬件测量；如果修改了适配器，仍要重新检查内核事件。也不能因为计数正确就省去输出一致性测试。</p>
+<h2 id="355-入口边界与恢复">35.5 入口边界与恢复</h2>
+<p>请求限制如下：prompt 为1～1200个字符；max_new_tokens 为1～128；编码后输入加生成预算不超过2048 token。字符与 token 不是一回事，所以先校验字符，再校验编码后的预算。</p>
+<p>不合法的 backend 或参数返回422，超上下文预算返回413，生成锁已占用返回429。业务方应处理这些状态，而不是把 HTTP 200 之外的结果当成空回答。</p>
+<p>上下文管理器在异常时恢复原方法，请求的 finally 释放锁。第33章验证过异常恢复，客户端检查了非法 backend 的422；这并不等于已经覆盖所有网络或硬件故障。</p>
+<p>要立即关闭优化，可以让请求使用 baseline；若计划长期部署，再把默认 backend 变成服务配置。不要通过改模型权重来停用算子，因为权重本来就没有变化。</p>
+<h2 id="356-交付材料应该包含什么">35.6 交付材料应该包含什么</h2>
+<table>
+<thead>
+<tr>
+<th>材料</th>
+<th>位置与用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>教学原理与支持范围</td>
+<td>本部分各章及运行指南</td>
+</tr>
+<tr>
+<td>原生CUDA源码</td>
+<td>assets/part06/cuda/，学习索引、归约与复用</td>
+</tr>
+<tr>
+<td>Triton与适配源码</td>
+<td>script/part06/，实际进入模型</td>
+</tr>
+<tr>
+<td>正确性与性能原始数据</td>
+<td>outputs/part06/，保留不利结果</td>
+</tr>
+<tr>
+<td>GPU环境与配置指纹</td>
+<td>28_environment.json 与34报告</td>
+</tr>
+<tr>
+<td>部署实际请求报告</td>
+<td>35_http.json，证明服务实际调用</td>
+</tr>
+<tr>
+<td>源码与报告指纹</td>
+<td>35_manifest.json，记录本次交付版本</td>
+</tr>
+</tbody>
+</table>
+<p>生成交付清单：</p>
+<pre><code class="language-powershell">python script/part06/<span class="hljs-number">35</span>_release.py
+</code></pre>
+<p>模型权重来自第四部分的本地副本，不放入 Git。编译产物、Profiler 大时间线和本地日志也不上传；保存源码、环境与小型结果，使读者能够重新生成它们。</p>
+<h2 id="357-最后怎样判断采用与否">35.7 最后怎样判断采用与否</h2>
+<p>如果目标是学习，原生 CUDA、分块 GEMM 和 Softmax 都有价值：它们把数据布局、同步与归约讲清楚。如果目标是服务加速，就必须再看目标输入的整段收益、正确性覆盖、已有成熟方案和维护成本。</p>
+<p>本次融合 RMSNorm 在短输入真实推理中起到了作用，但长输入收益有限。教程保留这种结果，是为了让读者学会选择优化对象，而不仅是模仿一个内核。</p>
+<p>继续做新的算子时，沿用同一过程：明确输入输出与精度约定，写参考实现，测试边界，建立多种基线，接入真实路径，检查实际调用，再测业务耗时。没有整体改善时，也应能给出解释与下一步，而不是只交一个能运行的函数。</p>
+<h2 id="358-本章产出">35.8 本章产出</h2>
+<p>完成默认使用自写算子的真实 HTTP 推理服务，保留对照与恢复方式，并交付源码、正确性报告、性能数据与复现清单。至此，课程从 Python、数学与模型训练，走到了 Agent 应用和推理底层优化的两条实践分支。</p>
+<h3 id="补充练习与验收">补充练习与验收</h3>
+<p>先独立完成<a href="/resource/04f7db737a68/#%E7%AC%AC35%E7%AB%A0">本章两道练习</a>，再核对参考答案和本章验收证据。记录自己的输入、结果与边界案例，不要求复制作者的实验数值。</p>
+<p><a href="/chapter/34/">上一章</a> · <a href="/guide/6/">返回本部分目录</a></p>
+</article> <nav class="chapter-pagination" aria-label="连续阅读" data-pagefind-ignore><a href="/chapter/34/"><small>← 上一章</small>34 把融合算子接入真实推理</a><a href="/"><small>阅读完成</small>回到课程目录 →</a></nav> <footer class="page-footer" data-pagefind-ignore>从 Python 基础到大模型应用与算子开发 <a href="https://github.com/cbt12123/handmade-llm/tree/simple" target="_blank" rel="noopener noreferrer">GitHub ↗</a></footer> </main> <aside class="page-toc" aria-label="本页目录" data-pagefind-ignore> <div class="toc-title">本页内容</div><a href="#351-服务由哪些部分组成">35.1 服务由哪些部分组成</a><a href="#352-启动可运行的gpu服务">35.2 启动可运行的GPU服务</a><a href="#353-从windows调用">35.3 从Windows调用</a><a href="#354-证明请求确实经过算子">35.4 证明请求确实经过算子</a><a href="#355-入口边界与恢复">35.5 入口边界与恢复</a><a href="#356-交付材料应该包含什么">35.6 交付材料应该包含什么</a><a href="#357-最后怎样判断采用与否">35.7 最后怎样判断采用与否</a><a href="#358-本章产出">35.8 本章产出</a><a class="toc-sub" href="#补充练习与验收">补充练习与验收</a> <a class="back-top" href="#main">回到顶部 ↑</a> </aside> </div> <dialog id="search-dialog" aria-label="搜索完整教程"> <div class="dialog-head"><strong>搜索教程</strong><button id="search-close" aria-label="关闭搜索">✕</button></div> <div id="search"></div><p class="search-hint">输入关键词，查找正文、公式说明、练习和附件。</p> </dialog> <dialog id="image-dialog" aria-label="查看大图"><button id="image-close" aria-label="关闭图片">✕</button><img alt=""><p></p></dialog> <script type="module" src="/_astro/Book.astro_astro_type_script_index_0_lang.SvhK8ezw.js"></script> </body> </html>

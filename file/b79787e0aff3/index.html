@@ -1,0 +1,401 @@
+<!DOCTYPE html><html lang="zh-CN"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="完整中文教程：从 Python 与数学基础，到机器学习、大模型部署、Agent 与 NVIDIA 算子实践。"><title>11_numpy_report.json · 手写与实践</title><link rel="stylesheet" href="/katex/katex.min.css"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/_astro/Book.ddZgooq8.css"></head> <body> <a class="skip" href="#main">跳转到正文</a> <header class="topbar" data-pagefind-ignore> <button id="menu-toggle" class="menu-toggle" aria-label="打开章节目录" aria-expanded="false" aria-controls="sidebar">☰</button> <a class="brand" href="/"><span class="brand-icon">∑</span><span>手写与实践<small>从 Python 到大模型</small></span></a> <nav class="top-links" aria-label="主导航"> <a href="/resources/">学习附件</a> <a href="/files/output/pdf/course-complete.pdf">完整 PDF <span>↗</span></a> <button id="search-open" class="search-trigger">搜索教程 <kbd>/</kbd></button> </nav> </header> <div id="menu-backdrop" class="menu-backdrop" hidden></div> <aside id="sidebar" class="sidebar" aria-label="章节目录" data-pagefind-ignore> <a class="nav-home" href="/">教程首页</a> <a class="nav-home" href="/overview/">阅读与运行指南</a> <section class="nav-group"> <div class="nav-group-title"><span>01</span>Python与计算基础</div>  <a class="chapter-link" href="/chapter/01/"><span>01</span>Python 基础</a><a class="chapter-link" href="/chapter/02/"><span>02</span>组织代码与数据处理</a><a class="chapter-link" href="/chapter/03/"><span>03</span>NumPy 与数据可视化</a> </section><section class="nav-group"> <div class="nav-group-title"><span>02</span>面向机器学习的数学基础</div> <a class="guide-link" href="/guide/2/">本部分运行指南</a> <a class="chapter-link" href="/chapter/04/"><span>04</span>函数与微积分入门</a><a class="chapter-link" href="/chapter/05/"><span>05</span>线性代数与向量计算</a><a class="chapter-link" href="/chapter/06/"><span>06</span>概率、统计与信息量</a><a class="chapter-link" href="/chapter/07/"><span>07</span>离散数学与算法思维</a> </section><section class="nav-group"> <div class="nav-group-title"><span>03</span>机器学习与深度学习</div> <a class="guide-link" href="/guide/3/">本部分运行指南</a> <a class="chapter-link" href="/chapter/08/"><span>08</span>机器学习任务与模型评价</a><a class="chapter-link" href="/chapter/09/"><span>09</span>模型如何学习与神经网络</a><a class="chapter-link" href="/chapter/10/"><span>10</span>PyTorch训练与模型管理</a><a class="chapter-link" href="/chapter/11/"><span>11</span>CNN与图像识别</a><a class="chapter-link" href="/chapter/12/"><span>12</span>NLP与序列建模</a><a class="chapter-link" href="/chapter/13/"><span>13</span>注意力与Transformer</a> </section><section class="nav-group"> <div class="nav-group-title"><span>04</span>大模型与部署</div> <a class="guide-link" href="/guide/4/">本部分运行指南</a> <a class="chapter-link" href="/chapter/14/"><span>14</span>语言模型与大模型结构</a><a class="chapter-link" href="/chapter/15/"><span>15</span>本地加载与对话输入</a><a class="chapter-link" href="/chapter/16/"><span>16</span>生成策略与KV缓存</a><a class="chapter-link" href="/chapter/17/"><span>17</span>资源预算、量化与参数适配</a><a class="chapter-link" href="/chapter/18/"><span>18</span>HTTP服务与部署实践</a><a class="chapter-link" href="/chapter/19/"><span>19</span>提示设计、评价与部署交付</a> </section><section class="nav-group"> <div class="nav-group-title"><span>05</span>Agent</div> <a class="guide-link" href="/guide/5/">本部分运行指南</a> <a class="chapter-link" href="/chapter/20/"><span>20</span>Agent 的组成与运行过程</a><a class="chapter-link" href="/chapter/21/"><span>21</span>编写第一个 Agent 循环</a><a class="chapter-link" href="/chapter/22/"><span>22</span>Rules：规则与执行边界</a><a class="chapter-link" href="/chapter/23/"><span>23</span>Skills：让任务方法可以复用</a><a class="chapter-link" href="/chapter/24/"><span>24</span>Knowledge：读取、检索与引用</a><a class="chapter-link" href="/chapter/25/"><span>25</span>状态、记忆与多步骤任务</a><a class="chapter-link" href="/chapter/26/"><span>26</span>组装完整课程学习助手</a><a class="chapter-link" href="/chapter/27/"><span>27</span>测试、评价与扩展</a> </section><section class="nav-group"> <div class="nav-group-title"><span>06</span>NVIDIA算子开发</div> <a class="guide-link" href="/guide/6/">本部分运行指南</a> <a class="chapter-link" href="/chapter/28/"><span>28</span>从推理瓶颈到 GPU 执行</a><a class="chapter-link" href="/chapter/29/"><span>29</span>第一个 CUDA 程序与数据布局</a><a class="chapter-link" href="/chapter/30/"><span>30</span>归约、共享内存与矩阵复用</a><a class="chapter-link" href="/chapter/31/"><span>31</span>用 Triton 实现融合 RMSNorm</a><a class="chapter-link" href="/chapter/32/"><span>32</span>Softmax、贪心选择与少算一步</a><a class="chapter-link" href="/chapter/33/"><span>33</span>性能测量与瓶颈分析</a><a class="chapter-link" href="/chapter/34/"><span>34</span>把融合算子接入真实推理</a><a class="chapter-link" href="/chapter/35/"><span>35</span>算子部署、评价与交付</a> </section> <section class="nav-group"><div class="nav-group-title">附录与练习</div> <a class="chapter-link" href="/appendix/01/">环境准备与复现</a><a class="chapter-link" href="/appendix/02/">学习路线与前置自测</a><a class="chapter-link" href="/appendix/03/">读懂后续工程代码</a><a class="chapter-link" href="/appendix/04/">数学符号与计算速查</a> <a class="chapter-link" href="/resource/506997cbbc41/">章节练习与产出验收</a> <a class="chapter-link" href="/resources/">全部代码与学习附件</a> </section> <div class="sidebar-note">六个部分 · 35 章<br>按自己的节奏，从第一章开始。</div> </aside> <div class="reading-layout"> <main id="main" class="main-content"> <div class="document-meta" data-pagefind-ignore><span>学习附件</span><a href="https://github.com/cbt12123/handmade-llm/blob/simple/outputs/part03/11_numpy_report.json" target="_blank" rel="noopener noreferrer">GitHub 源文档 ↗</a><a href="/files/outputs/part03/11_numpy_report.json" download>下载原文件 ↓</a></div> <article class="prose" data-pagefind-body data-pagefind-weight="0.3"><h1 data-pagefind-meta="title">11_numpy_report.json</h1><p class="source-path">outputs/part03/11_numpy_report.json</p><pre><code class="hljs language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;architecture&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;1x8x8 -&gt; conv8 valid3 -&gt; ReLU -&gt; pool2 -&gt; flatten72 -&gt; linear10&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;gradient_checks&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;sampled_finite_difference_max_errors&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;kernel&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">3.004635429348923e-11</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;conv_bias&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">2.523897757455984e-11</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;linear&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1.7729706591751437e-11</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;linear_bias&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">2.420090516874751e-11</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;input&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">4.12917269820845e-11</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;all_derivatives_torch_reference_max_error&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">8.881784197001252e-16</span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;best_epoch&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">58</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;history&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;train_loss&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+      <span class="hljs-number">2.076465265328127</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">1.830467705339806</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">1.5324848328251426</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">1.2309235923801423</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9847310693756804</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.7825134055328569</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.640296306147311</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.5421911457562762</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.4725905778066878</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.44248606589355854</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.3785658990350368</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.3447183641700217</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.3172068898654805</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.3071945833018549</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.2784554762611511</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.27221572969573327</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.2743998976700396</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.26519527064855086</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.22931468412746034</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.22004908225807224</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.20859881106171071</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.20125840340387038</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.20576889872758675</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.19154248509666033</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.18660314715396614</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.17371996717680563</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.18043126300972465</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.16124397639652996</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.16331847246276188</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.16101140145462742</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.15751257315915546</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.14864545869144455</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.14411521299738786</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.14617137926963022</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.13916741945087815</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.13169393815099648</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.1298296642178673</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.13081141490994436</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.13120354233932102</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.12127862717374668</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.11892229792184447</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.12150273316885099</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.12305242086343714</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.11099972758533629</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.11264362348070892</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.13149625753323005</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.10543339156487673</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.11028529476500554</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.10443777794445441</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.099202139480877</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.10138639483240311</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.10254628810174934</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.11248663262083806</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.10339477685150464</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.0934473292587718</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.1065752253103285</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.08809654702961175</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.08633472663034286</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.08865894282188283</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.08950269847980163</span>
+    <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;valid_loss&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+      <span class="hljs-number">2.095032018748031</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">1.850406196689909</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">1.5540202190119297</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">1.253244838181711</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">1.0141317972773414</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.8109349043945712</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.6578758987803048</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.5649110991061227</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.492888943900434</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.4635576452399156</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.40039119259925005</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.36417899472033466</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.33614897410296907</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.3370205109801222</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.30539158136993094</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.3065716953539484</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.32171850255417483</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.2940336812002143</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.2573142821973683</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.2401504736616327</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.24194711773844724</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.21972358335149886</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.22739179283619185</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.2187375073653644</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.21663146668524896</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.2016296399113173</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.2211553861675711</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.18795223527806929</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.20135216705718975</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.19263496849380524</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.18253299132047696</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.17488785585638997</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.17156480991323503</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.16619084763034445</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.17208284716008998</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.16743288679642182</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.15951898521480234</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.1622277492825208</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.167701956162382</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.14735258564171325</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.15026562211251246</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.15750285234577796</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.1580176260391883</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.14455375237341553</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.1464175050765256</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.16644070265074082</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.1330658697570342</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.1445715982071791</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.13088083400217213</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.1298456386701208</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.13413799264195836</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.13610218098866728</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.14993679344695884</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.1315520580603593</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.12578219967511728</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.1419578668150257</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.12053545706910232</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.12047862448669101</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.12787979531728852</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.12310251598077875</span>
+    <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;train_acc&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+      <span class="hljs-number">0.3203342618384401</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.5589600742804085</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.7316620241411328</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.7901578458681523</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.8235840297121634</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.8811513463324049</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.8820798514391829</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.8969359331476323</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9127205199628597</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9071494893221913</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9238625812441968</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9238625812441968</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9294336118848654</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9285051067780873</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9368616527390901</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9396471680594243</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9377901578458682</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9387186629526463</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9489322191272052</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9489322191272052</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9461467038068709</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9535747446610956</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9480037140204272</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9517177344475395</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9535747446610956</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9610027855153204</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9563602599814299</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9619312906220984</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9591457753017641</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.957288765088208</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.957288765088208</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9637883008356546</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9637883008356546</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9619312906220984</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9665738161559888</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.968430826369545</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.968430826369545</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9693593314763231</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9619312906220984</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.968430826369545</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.968430826369545</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9702878365831012</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9712163416898792</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9740018570102136</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9740018570102136</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9619312906220984</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9758588672237697</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9730733519034355</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9749303621169917</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9749303621169917</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9740018570102136</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9730733519034355</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9647168059424327</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9675023212627669</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9749303621169917</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9749303621169917</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9749303621169917</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9767873723305478</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9777158774373259</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9758588672237697</span>
+    <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;valid_acc&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+      <span class="hljs-number">0.28888888888888886</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.5444444444444444</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.7</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.8138888888888889</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.7861111111111111</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.8805555555555555</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.8861111111111111</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9027777777777778</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9194444444444444</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9027777777777778</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9333333333333333</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9416666666666667</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9361111111111111</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9388888888888889</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9416666666666667</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9333333333333333</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.925</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9361111111111111</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9444444444444444</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9472222222222222</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9444444444444444</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9527777777777777</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9444444444444444</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9472222222222222</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9416666666666667</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9527777777777777</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9416666666666667</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9583333333333334</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9472222222222222</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9527777777777777</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9583333333333334</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9611111111111111</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9666666666666667</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9638888888888889</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.95</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9555555555555556</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9666666666666667</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9583333333333334</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9555555555555556</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9777777777777777</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9666666666666667</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9583333333333334</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9555555555555556</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9666666666666667</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9694444444444444</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9555555555555556</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9722222222222222</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9583333333333334</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9722222222222222</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.975</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9527777777777777</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9583333333333334</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9583333333333334</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9722222222222222</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9694444444444444</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9694444444444444</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.975</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9722222222222222</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.9694444444444444</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-number">0.975</span>
+    <span class="hljs-punctuation">]</span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;test&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;accuracy&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.9638888888888889</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;macro_f1&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.9636713510156991</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;confusion_matrix&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+      <span class="hljs-punctuation">[</span>
+        <span class="hljs-number">35</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">1</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span>
+      <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-punctuation">[</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">33</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">1</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">1</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">1</span>
+      <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-punctuation">[</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">35</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span>
+      <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-punctuation">[</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">36</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">1</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span>
+      <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-punctuation">[</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">36</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span>
+      <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-punctuation">[</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">37</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span>
+      <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-punctuation">[</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">35</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">1</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span>
+      <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-punctuation">[</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">36</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span>
+      <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-punctuation">[</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">3</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">1</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">31</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span>
+      <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-punctuation">[</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">1</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">2</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">33</span>
+      <span class="hljs-punctuation">]</span>
+    <span class="hljs-punctuation">]</span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;reload_identical&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;split_sizes&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+    <span class="hljs-number">1077</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-number">360</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-number">360</span>
+  <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;training&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;NumPy only; SGD lr=0.08, batch=64, epochs=60; torch used only as derivative reference&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;environment&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;python&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;3.12.15&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;numpy&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;1.26.4&quot;</span>
+  <span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span></code></pre></article>  <footer class="page-footer" data-pagefind-ignore>从 Python 基础到大模型应用与算子开发 <a href="https://github.com/cbt12123/handmade-llm/tree/simple" target="_blank" rel="noopener noreferrer">GitHub ↗</a></footer> </main> <aside class="page-toc" aria-label="本页目录" data-pagefind-ignore>  <a class="back-top" href="#main">回到顶部 ↑</a> </aside> </div> <dialog id="search-dialog" aria-label="搜索完整教程"> <div class="dialog-head"><strong>搜索教程</strong><button id="search-close" aria-label="关闭搜索">✕</button></div> <div id="search"></div><p class="search-hint">输入关键词，查找正文、公式说明、练习和附件。</p> </dialog> <dialog id="image-dialog" aria-label="查看大图"><button id="image-close" aria-label="关闭图片">✕</button><img alt=""><p></p></dialog> <script type="module" src="/_astro/Book.astro_astro_type_script_index_0_lang.SvhK8ezw.js"></script> </body> </html>

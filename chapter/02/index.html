@@ -1,0 +1,279 @@
+<!DOCTYPE html><html lang="zh-CN"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="完整中文教程：从 Python 与数学基础，到机器学习、大模型部署、Agent 与 NVIDIA 算子实践。"><title>第 2 章：组织代码与数据处理 · 手写与实践</title><link rel="stylesheet" href="/katex/katex.min.css"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/_astro/Book.ddZgooq8.css"></head> <body> <a class="skip" href="#main">跳转到正文</a> <header class="topbar" data-pagefind-ignore> <button id="menu-toggle" class="menu-toggle" aria-label="打开章节目录" aria-expanded="false" aria-controls="sidebar">☰</button> <a class="brand" href="/"><span class="brand-icon">∑</span><span>手写与实践<small>从 Python 到大模型</small></span></a> <nav class="top-links" aria-label="主导航"> <a href="/resources/">学习附件</a> <a href="/files/output/pdf/course-complete.pdf">完整 PDF <span>↗</span></a> <button id="search-open" class="search-trigger">搜索教程 <kbd>/</kbd></button> </nav> </header> <div id="menu-backdrop" class="menu-backdrop" hidden></div> <aside id="sidebar" class="sidebar" aria-label="章节目录" data-pagefind-ignore> <a class="nav-home" href="/">教程首页</a> <a class="nav-home" href="/overview/">阅读与运行指南</a> <section class="nav-group"> <div class="nav-group-title"><span>01</span>Python与计算基础</div>  <a class="chapter-link" href="/chapter/01/"><span>01</span>Python 基础</a><a class="chapter-link active" href="/chapter/02/" aria-current="page"><span>02</span>组织代码与数据处理</a><a class="chapter-link" href="/chapter/03/"><span>03</span>NumPy 与数据可视化</a> </section><section class="nav-group"> <div class="nav-group-title"><span>02</span>面向机器学习的数学基础</div> <a class="guide-link" href="/guide/2/">本部分运行指南</a> <a class="chapter-link" href="/chapter/04/"><span>04</span>函数与微积分入门</a><a class="chapter-link" href="/chapter/05/"><span>05</span>线性代数与向量计算</a><a class="chapter-link" href="/chapter/06/"><span>06</span>概率、统计与信息量</a><a class="chapter-link" href="/chapter/07/"><span>07</span>离散数学与算法思维</a> </section><section class="nav-group"> <div class="nav-group-title"><span>03</span>机器学习与深度学习</div> <a class="guide-link" href="/guide/3/">本部分运行指南</a> <a class="chapter-link" href="/chapter/08/"><span>08</span>机器学习任务与模型评价</a><a class="chapter-link" href="/chapter/09/"><span>09</span>模型如何学习与神经网络</a><a class="chapter-link" href="/chapter/10/"><span>10</span>PyTorch训练与模型管理</a><a class="chapter-link" href="/chapter/11/"><span>11</span>CNN与图像识别</a><a class="chapter-link" href="/chapter/12/"><span>12</span>NLP与序列建模</a><a class="chapter-link" href="/chapter/13/"><span>13</span>注意力与Transformer</a> </section><section class="nav-group"> <div class="nav-group-title"><span>04</span>大模型与部署</div> <a class="guide-link" href="/guide/4/">本部分运行指南</a> <a class="chapter-link" href="/chapter/14/"><span>14</span>语言模型与大模型结构</a><a class="chapter-link" href="/chapter/15/"><span>15</span>本地加载与对话输入</a><a class="chapter-link" href="/chapter/16/"><span>16</span>生成策略与KV缓存</a><a class="chapter-link" href="/chapter/17/"><span>17</span>资源预算、量化与参数适配</a><a class="chapter-link" href="/chapter/18/"><span>18</span>HTTP服务与部署实践</a><a class="chapter-link" href="/chapter/19/"><span>19</span>提示设计、评价与部署交付</a> </section><section class="nav-group"> <div class="nav-group-title"><span>05</span>Agent</div> <a class="guide-link" href="/guide/5/">本部分运行指南</a> <a class="chapter-link" href="/chapter/20/"><span>20</span>Agent 的组成与运行过程</a><a class="chapter-link" href="/chapter/21/"><span>21</span>编写第一个 Agent 循环</a><a class="chapter-link" href="/chapter/22/"><span>22</span>Rules：规则与执行边界</a><a class="chapter-link" href="/chapter/23/"><span>23</span>Skills：让任务方法可以复用</a><a class="chapter-link" href="/chapter/24/"><span>24</span>Knowledge：读取、检索与引用</a><a class="chapter-link" href="/chapter/25/"><span>25</span>状态、记忆与多步骤任务</a><a class="chapter-link" href="/chapter/26/"><span>26</span>组装完整课程学习助手</a><a class="chapter-link" href="/chapter/27/"><span>27</span>测试、评价与扩展</a> </section><section class="nav-group"> <div class="nav-group-title"><span>06</span>NVIDIA算子开发</div> <a class="guide-link" href="/guide/6/">本部分运行指南</a> <a class="chapter-link" href="/chapter/28/"><span>28</span>从推理瓶颈到 GPU 执行</a><a class="chapter-link" href="/chapter/29/"><span>29</span>第一个 CUDA 程序与数据布局</a><a class="chapter-link" href="/chapter/30/"><span>30</span>归约、共享内存与矩阵复用</a><a class="chapter-link" href="/chapter/31/"><span>31</span>用 Triton 实现融合 RMSNorm</a><a class="chapter-link" href="/chapter/32/"><span>32</span>Softmax、贪心选择与少算一步</a><a class="chapter-link" href="/chapter/33/"><span>33</span>性能测量与瓶颈分析</a><a class="chapter-link" href="/chapter/34/"><span>34</span>把融合算子接入真实推理</a><a class="chapter-link" href="/chapter/35/"><span>35</span>算子部署、评价与交付</a> </section> <section class="nav-group"><div class="nav-group-title">附录与练习</div> <a class="chapter-link" href="/appendix/01/">环境准备与复现</a><a class="chapter-link" href="/appendix/02/">学习路线与前置自测</a><a class="chapter-link" href="/appendix/03/">读懂后续工程代码</a><a class="chapter-link" href="/appendix/04/">数学符号与计算速查</a> <a class="chapter-link" href="/resource/506997cbbc41/">章节练习与产出验收</a> <a class="chapter-link" href="/resources/">全部代码与学习附件</a> </section> <div class="sidebar-note">六个部分 · 35 章<br>按自己的节奏，从第一章开始。</div> </aside> <div class="reading-layout"> <main id="main" class="main-content"> <div class="document-meta" data-pagefind-ignore><span>第 02 章</span><a href="https://github.com/cbt12123/handmade-llm/blob/simple/%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86-Python%E4%B8%8E%E8%AE%A1%E7%AE%97%E5%9F%BA%E7%A1%80/02-%E7%BB%84%E7%BB%87%E4%BB%A3%E7%A0%81%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86.md" target="_blank" rel="noopener noreferrer">GitHub 源文档 ↗</a></div> <details class="mobile-toc" data-pagefind-ignore><summary>本页目录</summary><a href="#21-文件夹文件和工作目录">2.1 文件夹、文件和工作目录</a><a href="#22-将一段处理拆成函数">2.2 将一段处理拆成函数</a><a href="#23-模块与程序入口">2.3 模块与程序入口</a><a href="#24-包环境和依赖">2.4 包、环境和依赖</a><a href="#25-文本文件与编码">2.5 文本文件与编码</a><a href="#26-csv把表格读成记录">2.6 CSV：把表格读成记录</a><a href="#27-json保存带结构的数据">2.7 JSON：保存带结构的数据</a><a href="#28-清洗缺失值非法值与重复记录">2.8 清洗：缺失值、非法值与重复记录</a><a href="#29-保存处理结果并保留处理依据">2.9 保存处理结果并保留处理依据</a><a href="#210-调试异常与小范围验证">2.10 调试、异常与小范围验证</a><a href="#211-本章自检">2.11 本章自检</a></details><article class="prose" data-pagefind-body data-pagefind-weight="1"><h1 id="第-2-章组织代码与数据处理" data-pagefind-meta="title">第 2 章：组织代码与数据处理</h1>
+<p>上一章学习了变量、循环、函数和对象。这一章把这些工具用于文件和表格：找到数据，读入数据，检查和清理，再保存结果。环境继续使用 conda base + VS Code，不设置章末作品。</p>
+<p>本章所有 Python 代码块都可单独运行；需要数据的例子会先创建自己的小文件。请在学习文件夹中运行，示例会创建或覆盖明确命名的文件。输出里的文件绝对路径因机器而异。</p>
+<h2 id="21-文件夹文件和工作目录">2.1 文件夹、文件和工作目录</h2>
+<p>文件夹组织文件，路径描述文件在哪里。终端的当前工作目录是运行命令时所在的目录，不一定是代码文件所在的目录。</p>
+<p><img src="/files/images/part01-paths.png" alt="代码文件位置与工作目录" loading="lazy" decoding="async"></p>
+<pre><code class="language-python"><span class="hljs-keyword">from</span> pathlib <span class="hljs-keyword">import</span> Path
+
+<span class="hljs-built_in">print</span>(Path.cwd())
+folder = Path(<span class="hljs-string">&quot;learning_data&quot;</span>)
+folder.mkdir(exist_ok=<span class="hljs-literal">True</span>)
+path = folder / <span class="hljs-string">&quot;notes.txt&quot;</span>
+path.write_text(<span class="hljs-string">&quot;今天学习文件路径&quot;</span>, encoding=<span class="hljs-string">&quot;utf-8&quot;</span>)
+<span class="hljs-built_in">print</span>(path.exists())  <span class="hljs-comment"># True</span>
+<span class="hljs-built_in">print</span>(path.name)      <span class="hljs-comment"># notes.txt</span>
+<span class="hljs-built_in">print</span>(path.suffix)    <span class="hljs-comment"># .txt</span>
+<span class="hljs-built_in">print</span>(path.resolve())
+</code></pre>
+<p><code>Path</code> 表示路径；<code>/</code> 在这里连接路径片段，不是数字除法。<code>mkdir</code> 创建目录，<code>exist_ok=True</code> 允许目录已经存在。<code>resolve()</code> 显示绝对路径。</p>
+<p>如果 Windows 中路径含反斜杠，可写 <code>Path(r&quot;G:\study\data&quot;)</code>，前面的 r 避免把 <code>\n</code> 等解释成转义字符；也可写正斜杠 <code>Path(&quot;G:/study/data&quot;)</code>。</p>
+<p>在 <code>.py</code> 文件里，如果要始终使用脚本旁边的数据，可以通过 <code>Path(__file__).resolve().parent</code> 找到脚本所在目录。<code>__file__</code> 是当前文件路径，在交互窗口中不一定存在，因此先采用终端运行 <code>.py</code> 的方式。</p>
+<p><strong>随堂检查：</strong> 在另一个文件夹运行脚本，<code>Path(&quot;data.csv&quot;)</code> 从哪里找？从当前工作目录找，不是自动从脚本旁边找。</p>
+<h2 id="22-将一段处理拆成函数">2.2 将一段处理拆成函数</h2>
+<p>先建立一个可以手算核对的任务：给定几个人的成绩，计算平均分，并筛出及格的人。</p>
+<pre><code class="language-python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">mean_score</span>(<span class="hljs-params">scores</span>):
+    <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(scores) == <span class="hljs-number">0</span>:
+        <span class="hljs-keyword">raise</span> ValueError(<span class="hljs-string">&quot;成绩列表不能为空&quot;</span>)
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">sum</span>(scores) / <span class="hljs-built_in">len</span>(scores)
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">passed_students</span>(<span class="hljs-params">rows, threshold=<span class="hljs-number">60</span></span>):
+    result = []
+    <span class="hljs-keyword">for</span> row <span class="hljs-keyword">in</span> rows:
+        <span class="hljs-keyword">if</span> row[<span class="hljs-string">&quot;score&quot;</span>] &gt;= threshold:
+            result.append(row[<span class="hljs-string">&quot;name&quot;</span>])
+    <span class="hljs-keyword">return</span> result
+
+rows = [{<span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;小林&quot;</span>, <span class="hljs-string">&quot;score&quot;</span>: <span class="hljs-number">90</span>}, {<span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;小周&quot;</span>, <span class="hljs-string">&quot;score&quot;</span>: <span class="hljs-number">50</span>}]
+scores = [row[<span class="hljs-string">&quot;score&quot;</span>] <span class="hljs-keyword">for</span> row <span class="hljs-keyword">in</span> rows]
+<span class="hljs-built_in">print</span>(mean_score(scores))      <span class="hljs-comment"># 70.0</span>
+<span class="hljs-built_in">print</span>(passed_students(rows))   <span class="hljs-comment"># [&#x27;小林&#x27;]</span>
+</code></pre>
+<p><code>raise</code> 主动报告错误，避免空列表导致除以零。两个函数各负责一个明确操作，输入通过参数传入，结果通过 return 交回。这样可以单独核验某一步，而不必每次运行全部流程。</p>
+<p>先保持“一个函数解决一个具体问题”，不需要为几行代码设计复杂结构。</p>
+<h2 id="23-模块与程序入口">2.3 模块与程序入口</h2>
+<p>当一个文件越来越长时，可以把可复用函数放进另一个 <code>.py</code> 文件。下面创建 <code>helpers.py</code> 与 <code>main.py</code>，演示这种结构：</p>
+<pre><code class="language-text">python-study/
+├── helpers.py   ← 定义可复用函数
+└── main.py      ← 导入函数并组织执行流程
+</code></pre>
+<p>将这一段保存为 <code>helpers.py</code>：</p>
+<pre><code class="language-python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">double</span>(<span class="hljs-params">number</span>):
+    <span class="hljs-keyword">return</span> number * <span class="hljs-number">2</span>
+</code></pre>
+<p>将下一段保存为同目录的 <code>main.py</code>：</p>
+<pre><code class="language-python"><span class="hljs-keyword">from</span> helpers <span class="hljs-keyword">import</span> double
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">main</span>():
+    <span class="hljs-built_in">print</span>(double(<span class="hljs-number">6</span>))
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&quot;__main__&quot;</span>:
+    main()
+</code></pre>
+<p>在终端执行 <code>python main.py</code>，输出 <code>12</code>。直接运行 <a href="http://main.py">main.py</a> 时，<code>__name__</code> 为 <code>&quot;__main__&quot;</code>，因此调用 main；被另一个文件导入时，这个分支不执行。</p>
+<p>导入模块时，模块顶层的语句会执行，所以数据读取、用户输入等流程尽量放进 main。模块名不要与使用的库重名，例如不要把自己的文件叫 <code>csv.py</code> 或 <code>numpy.py</code>。</p>
+<h2 id="24-包环境和依赖">2.4 包、环境和依赖</h2>
+<p>标准库随 Python 提供，例如 pathlib、csv、json；第三方库由环境中的安装工具安装，例如 NumPy、Matplotlib。模块是代码组织单位，安装包可能包含多个模块，安装名与导入名也可能不同。</p>
+<p>继续在 VS Code 选择 base 解释器，并在终端确认：</p>
+<pre><code class="language-bash">conda activate base
+python -c <span class="hljs-string">&quot;import sys; print(sys.executable)&quot;</span>
+python -m pip show numpy matplotlib
+</code></pre>
+<p>第三方库缺失时，按第 1 章安装。清华镜像的一次性使用方式是：</p>
+<pre><code class="language-bash">python -m pip install numpy matplotlib -i https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple
+</code></pre>
+<p>镜像配置依据：<a href="https://mirrors.tuna.tsinghua.edu.cn/help/pypi/">清华 PyPI 镜像说明</a>。本章不更改 conda 渠道或升级 base 的全部包。</p>
+<p>可以在 <code>requirements.txt</code> 中逐行记录直接使用的第三方库，然后运行 <code>python -m pip install -r requirements.txt</code>。不要为了两三个库把整个 base 的全部包都当作项目必需依赖。后续模型章节再学习创建独立 conda 环境。</p>
+<h2 id="25-文本文件与编码">2.5 文本文件与编码</h2>
+<p>文本文件保存文字，编码决定文字怎样变成文件中的字节。读写时统一用 UTF-8，减少中文乱码。</p>
+<pre><code class="language-python"><span class="hljs-keyword">from</span> pathlib <span class="hljs-keyword">import</span> Path
+
+path = Path(<span class="hljs-string">&quot;reading_notes.txt&quot;</span>)
+path.write_text(<span class="hljs-string">&quot;Python\n数学\n机器学习\n&quot;</span>, encoding=<span class="hljs-string">&quot;utf-8&quot;</span>)
+text = path.read_text(encoding=<span class="hljs-string">&quot;utf-8&quot;</span>)
+lines = text.splitlines()
+<span class="hljs-built_in">print</span>(lines)  <span class="hljs-comment"># [&#x27;Python&#x27;, &#x27;数学&#x27;, &#x27;机器学习&#x27;]</span>
+</code></pre>
+<p><code>splitlines</code> 按换行拆分，不保留换行符。读一个小文件可以一次读完；较大的文件可以按行处理：</p>
+<pre><code class="language-python"><span class="hljs-keyword">from</span> pathlib <span class="hljs-keyword">import</span> Path
+
+path = Path(<span class="hljs-string">&quot;reading_lines.txt&quot;</span>)
+path.write_text(<span class="hljs-string">&quot;  Python  \n\n  数学  \n&quot;</span>, encoding=<span class="hljs-string">&quot;utf-8&quot;</span>)
+<span class="hljs-keyword">with</span> path.<span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;r&quot;</span>, encoding=<span class="hljs-string">&quot;utf-8&quot;</span>) <span class="hljs-keyword">as</span> file:
+    <span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> file:
+        cleaned = line.strip()
+        <span class="hljs-keyword">if</span> cleaned:
+            <span class="hljs-built_in">print</span>(cleaned)
+</code></pre>
+<p>输出两行 <code>Python</code>、<code>数学</code>。空字符串在 if 中被视为 False，因此空行被跳过。with 负责在离开代码块时关闭文件。</p>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>r</code></td>
+<td>读取；不存在时报告错误</td>
+</tr>
+<tr>
+<td><code>w</code></td>
+<td>写入；存在时清空旧内容</td>
+</tr>
+<tr>
+<td><code>a</code></td>
+<td>追加；保留旧内容，在末尾继续写</td>
+</tr>
+</tbody>
+</table>
+<p>本章使用自己创建的小文件，便于看清覆盖与追加的区别。</p>
+<h2 id="26-csv把表格读成记录">2.6 CSV：把表格读成记录</h2>
+<p>CSV 通常用逗号分列、用换行分行。使用 csv 标准库处理，避免直接 split 误拆带引号或带逗号的字段。</p>
+<pre><code class="language-python"><span class="hljs-keyword">import</span> csv
+<span class="hljs-keyword">from</span> pathlib <span class="hljs-keyword">import</span> Path
+
+path = Path(<span class="hljs-string">&quot;csv_demo.csv&quot;</span>)
+<span class="hljs-keyword">with</span> path.<span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;w&quot;</span>, encoding=<span class="hljs-string">&quot;utf-8&quot;</span>, newline=<span class="hljs-string">&quot;&quot;</span>) <span class="hljs-keyword">as</span> file:
+    writer = csv.writer(file)
+    writer.writerow([<span class="hljs-string">&quot;name&quot;</span>, <span class="hljs-string">&quot;score&quot;</span>])
+    writer.writerow([<span class="hljs-string">&quot;小林&quot;</span>, <span class="hljs-number">90</span>])
+    writer.writerow([<span class="hljs-string">&quot;小周&quot;</span>, <span class="hljs-number">75</span>])
+
+<span class="hljs-keyword">with</span> path.<span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;r&quot;</span>, encoding=<span class="hljs-string">&quot;utf-8&quot;</span>, newline=<span class="hljs-string">&quot;&quot;</span>) <span class="hljs-keyword">as</span> file:
+    rows = <span class="hljs-built_in">list</span>(csv.DictReader(file))
+
+<span class="hljs-built_in">print</span>(rows[<span class="hljs-number">0</span>])  <span class="hljs-comment"># {&#x27;name&#x27;: &#x27;小林&#x27;, &#x27;score&#x27;: &#x27;90&#x27;}</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-built_in">type</span>(rows[<span class="hljs-number">0</span>][<span class="hljs-string">&quot;score&quot;</span>]).__name__)  <span class="hljs-comment"># str</span>
+scores = [<span class="hljs-built_in">int</span>(row[<span class="hljs-string">&quot;score&quot;</span>]) <span class="hljs-keyword">for</span> row <span class="hljs-keyword">in</span> rows]
+<span class="hljs-built_in">print</span>(<span class="hljs-built_in">sum</span>(scores) / <span class="hljs-built_in">len</span>(scores))  <span class="hljs-comment"># 82.5</span>
+</code></pre>
+<p>DictReader 将列名作为字典的键，每行作为一个字典。文件里的数字依然是文本，需要明确转换成 int 或 float。<code>newline=&quot;&quot;</code> 让 csv 模块处理换行。</p>
+<p>如果文件由某些表格软件导出并带 UTF-8 BOM，可尝试读取时使用 <code>encoding=&quot;utf-8-sig&quot;</code>。先确认文件编码，不能通过随意更换编码证明数据正确。</p>
+<h2 id="27-json保存带结构的数据">2.7 JSON：保存带结构的数据</h2>
+<p>CSV 适合规则表格；JSON 可以表达字典中包含列表等嵌套结构。</p>
+<pre><code class="language-python"><span class="hljs-keyword">import</span> json
+<span class="hljs-keyword">from</span> pathlib <span class="hljs-keyword">import</span> Path
+
+record = {<span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;小林&quot;</span>, <span class="hljs-string">&quot;scores&quot;</span>: [<span class="hljs-number">80</span>, <span class="hljs-number">90</span>], <span class="hljs-string">&quot;active&quot;</span>: <span class="hljs-literal">True</span>}
+path = Path(<span class="hljs-string">&quot;student_record.json&quot;</span>)
+text = json.dumps(record, ensure_ascii=<span class="hljs-literal">False</span>, indent=<span class="hljs-number">2</span>)
+path.write_text(text, encoding=<span class="hljs-string">&quot;utf-8&quot;</span>)
+loaded = json.loads(path.read_text(encoding=<span class="hljs-string">&quot;utf-8&quot;</span>))
+<span class="hljs-built_in">print</span>(loaded[<span class="hljs-string">&quot;scores&quot;</span>])  <span class="hljs-comment"># [80, 90]</span>
+<span class="hljs-built_in">print</span>(loaded[<span class="hljs-string">&quot;active&quot;</span>])  <span class="hljs-comment"># True</span>
+</code></pre>
+<p>ensure_ascii=False 保留可读的中文，indent=2 让层级更清楚。JSON 文本里的布尔值写成 true/false，没有值写 null；读取后对应 Python 的 True/False/None。JSON 的键通常是字符串，不能随意保存函数、Path 或 NumPy 数组。</p>
+<p><strong>随堂检查：</strong> 一张学生成绩表用什么格式？CSV 比较自然。一个学生有多门成绩和嵌套信息？JSON 更容易表达。</p>
+<h2 id="28-清洗缺失值非法值与重复记录">2.8 清洗：缺失值、非法值与重复记录</h2>
+<p>清洗先确定规则，再写代码。下面采用这些规则：名字去掉两端空白；空名字、空成绩、不能转换的成绩、不在 0～100 的成绩都不进入均值；完全相同的“名字与成绩”记录只保留一次。</p>
+<p><img src="/files/images/part01-cleaning.png" alt="原始记录到清洗结果的流程" loading="lazy" decoding="async"></p>
+<pre><code class="language-python">raw_rows = [
+    {<span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot; 小林 &quot;</span>, <span class="hljs-string">&quot;score&quot;</span>: <span class="hljs-string">&quot;90&quot;</span>},
+    {<span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;小周&quot;</span>, <span class="hljs-string">&quot;score&quot;</span>: <span class="hljs-string">&quot;&quot;</span>},
+    {<span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;小吴&quot;</span>, <span class="hljs-string">&quot;score&quot;</span>: <span class="hljs-string">&quot;缺考&quot;</span>},
+    {<span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;小林&quot;</span>, <span class="hljs-string">&quot;score&quot;</span>: <span class="hljs-string">&quot;90&quot;</span>},
+    {<span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;小郑&quot;</span>, <span class="hljs-string">&quot;score&quot;</span>: <span class="hljs-string">&quot;120&quot;</span>},
+    {<span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;小何&quot;</span>, <span class="hljs-string">&quot;score&quot;</span>: <span class="hljs-string">&quot;70&quot;</span>},
+]
+
+clean_rows, rejected, seen = [], [], <span class="hljs-built_in">set</span>()
+<span class="hljs-keyword">for</span> row <span class="hljs-keyword">in</span> raw_rows:
+    name = row[<span class="hljs-string">&quot;name&quot;</span>].strip()
+    score_text = row[<span class="hljs-string">&quot;score&quot;</span>].strip()
+    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> name <span class="hljs-keyword">or</span> <span class="hljs-keyword">not</span> score_text:
+        rejected.append((row, <span class="hljs-string">&quot;缺失字段&quot;</span>))
+        <span class="hljs-keyword">continue</span>
+    <span class="hljs-keyword">try</span>:
+        score = <span class="hljs-built_in">float</span>(score_text)
+    <span class="hljs-keyword">except</span> ValueError:
+        rejected.append((row, <span class="hljs-string">&quot;成绩不是数字&quot;</span>))
+        <span class="hljs-keyword">continue</span>
+    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> <span class="hljs-number">0</span> &lt;= score &lt;= <span class="hljs-number">100</span>:
+        rejected.append((row, <span class="hljs-string">&quot;成绩超出范围&quot;</span>))
+        <span class="hljs-keyword">continue</span>
+    key = (name, score)
+    <span class="hljs-keyword">if</span> key <span class="hljs-keyword">in</span> seen:
+        rejected.append((row, <span class="hljs-string">&quot;重复记录&quot;</span>))
+        <span class="hljs-keyword">continue</span>
+    seen.add(key)
+    clean_rows.append({<span class="hljs-string">&quot;name&quot;</span>: name, <span class="hljs-string">&quot;score&quot;</span>: score})
+
+<span class="hljs-built_in">print</span>(clean_rows)
+<span class="hljs-built_in">print</span>(<span class="hljs-built_in">len</span>(rejected))  <span class="hljs-comment"># 4</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-built_in">sum</span>(row[<span class="hljs-string">&quot;score&quot;</span>] <span class="hljs-keyword">for</span> row <span class="hljs-keyword">in</span> clean_rows) / <span class="hljs-built_in">len</span>(clean_rows))  <span class="hljs-comment"># 80.0</span>
+</code></pre>
+<p>清洗结果为小林 90.0、小何 70.0。缺失成绩不能未经说明就变成 0，否则会改变均值含义。去重键也不是万能规则：同一个人可能有不同考试成绩，实际任务应根据学号、考试编号等确定记录身份。</p>
+<p>这个例子特意有有效行；实际处理应检查清洗后是否为空，再计算均值。</p>
+<h2 id="29-保存处理结果并保留处理依据">2.9 保存处理结果并保留处理依据</h2>
+<p>输出文件与原始文件分开，便于复查。以下独立例子演示写入已清洗的记录：</p>
+<pre><code class="language-python"><span class="hljs-keyword">import</span> csv
+<span class="hljs-keyword">from</span> pathlib <span class="hljs-keyword">import</span> Path
+
+rows = [{<span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;小林&quot;</span>, <span class="hljs-string">&quot;score&quot;</span>: <span class="hljs-number">90.0</span>}, {<span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;小何&quot;</span>, <span class="hljs-string">&quot;score&quot;</span>: <span class="hljs-number">70.0</span>}]
+folder = Path(<span class="hljs-string">&quot;processed_data&quot;</span>)
+folder.mkdir(exist_ok=<span class="hljs-literal">True</span>)
+path = folder / <span class="hljs-string">&quot;clean_scores.csv&quot;</span>
+<span class="hljs-keyword">with</span> path.<span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;w&quot;</span>, encoding=<span class="hljs-string">&quot;utf-8&quot;</span>, newline=<span class="hljs-string">&quot;&quot;</span>) <span class="hljs-keyword">as</span> file:
+    writer = csv.DictWriter(file, fieldnames=[<span class="hljs-string">&quot;name&quot;</span>, <span class="hljs-string">&quot;score&quot;</span>])
+    writer.writeheader()
+    writer.writerows(rows)
+<span class="hljs-built_in">print</span>(path.exists())  <span class="hljs-comment"># True</span>
+</code></pre>
+<p>处理记录至少说明：输入多少行、保留多少行、剔除什么原因、采用什么单位和规则。以后训练模型时，这些信息有助于判断效果改变来自数据还是算法。</p>
+<h2 id="210-调试异常与小范围验证">2.10 调试、异常与小范围验证</h2>
+<p>按照“路径 → 原始文字 → 转换后的值 → 清洗数量 → 输出”检查，中间哪里不对，就停在那里。不要用一个笼统的 except 把所有错误隐藏。</p>
+<pre><code class="language-python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">parse_score</span>(<span class="hljs-params">text</span>):
+    <span class="hljs-keyword">try</span>:
+        score = <span class="hljs-built_in">float</span>(text.strip())
+    <span class="hljs-keyword">except</span> ValueError:
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">None</span>
+    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> <span class="hljs-number">0</span> &lt;= score &lt;= <span class="hljs-number">100</span>:
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">None</span>
+    <span class="hljs-keyword">return</span> score
+
+<span class="hljs-keyword">assert</span> parse_score(<span class="hljs-string">&quot; 90 &quot;</span>) == <span class="hljs-number">90.0</span>
+<span class="hljs-keyword">assert</span> parse_score(<span class="hljs-string">&quot;&quot;</span>) <span class="hljs-keyword">is</span> <span class="hljs-literal">None</span>
+<span class="hljs-keyword">assert</span> parse_score(<span class="hljs-string">&quot;缺考&quot;</span>) <span class="hljs-keyword">is</span> <span class="hljs-literal">None</span>
+<span class="hljs-keyword">assert</span> parse_score(<span class="hljs-string">&quot;120&quot;</span>) <span class="hljs-keyword">is</span> <span class="hljs-literal">None</span>
+<span class="hljs-keyword">assert</span> parse_score(<span class="hljs-string">&quot;0&quot;</span>) == <span class="hljs-number">0.0</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;5 项检查通过&quot;</span>)
+</code></pre>
+<p><code>is None</code> 判断是否为没有值。不要写 <code>if score</code> 来判断是否有效，因为合法的 0 分同样会被当作 False。边界 0 与 100 也需要验证。</p>
+<p>在 VS Code 中给转换或筛选语句设置断点，观察当前 row、score_text、score。操作见<a href="https://code.visualstudio.com/docs/python/debugging">官方 Python 调试说明</a>。</p>
+<p>向 AI 求助时，可以给出两三行匿名样例、清洗规则、预期结果和实际结果，让它先找规则与代码不一致的位置。</p>
+<h2 id="211-本章自检">2.11 本章自检</h2>
+<table>
+<thead>
+<tr>
+<th>问题</th>
+<th>参考答案</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>相对路径的起点是什么？</td>
+<td>当前工作目录。</td>
+</tr>
+<tr>
+<td>为什么把处理步骤拆成函数？</td>
+<td>可以分别检查输入和输出，减少重复代码。</td>
+</tr>
+<tr>
+<td>为什么执行入口使用 <strong>name</strong> 判断？</td>
+<td>导入函数时不自动执行主流程。</td>
+</tr>
+<tr>
+<td>CSV 读取的 90 是数字吗？</td>
+<td>通常是字符串，需要转换。</td>
+</tr>
+<tr>
+<td>缺失成绩可以直接补 0 吗？</td>
+<td>需要任务依据；不能默认当作真实 0 分。</td>
+</tr>
+<tr>
+<td>去重前应确定什么？</td>
+<td>什么字段共同标识一条记录。</td>
+</tr>
+<tr>
+<td>为什么不直接覆盖原始文件？</td>
+<td>保留来源，便于复查处理过程。</td>
+</tr>
+</tbody>
+</table>
+<p>下一章把清洗后的数字组织成数组，并用图观察分布和关系。</p>
+<h3 id="补充练习与验收">补充练习与验收</h3>
+<p>先独立完成<a href="/resource/e2cac5d9affd/#%E7%AC%AC02%E7%AB%A0">本章两道练习</a>，再核对参考答案和本章验收证据。本部分不设章末作品。</p>
+<p><a href="/chapter/01/">上一章：Python 基础</a> · <a href="/chapter/03/">下一章：NumPy 与数据可视化</a></p>
+</article> <nav class="chapter-pagination" aria-label="连续阅读" data-pagefind-ignore><a href="/chapter/01/"><small>← 上一章</small>第 1 章：Python 基础</a><a href="/chapter/03/"><small>下一章 →</small>第 3 章：NumPy 与数据可视化</a></nav> <footer class="page-footer" data-pagefind-ignore>从 Python 基础到大模型应用与算子开发 <a href="https://github.com/cbt12123/handmade-llm/tree/simple" target="_blank" rel="noopener noreferrer">GitHub ↗</a></footer> </main> <aside class="page-toc" aria-label="本页目录" data-pagefind-ignore> <div class="toc-title">本页内容</div><a href="#21-文件夹文件和工作目录">2.1 文件夹、文件和工作目录</a><a href="#22-将一段处理拆成函数">2.2 将一段处理拆成函数</a><a href="#23-模块与程序入口">2.3 模块与程序入口</a><a href="#24-包环境和依赖">2.4 包、环境和依赖</a><a href="#25-文本文件与编码">2.5 文本文件与编码</a><a href="#26-csv把表格读成记录">2.6 CSV：把表格读成记录</a><a href="#27-json保存带结构的数据">2.7 JSON：保存带结构的数据</a><a href="#28-清洗缺失值非法值与重复记录">2.8 清洗：缺失值、非法值与重复记录</a><a href="#29-保存处理结果并保留处理依据">2.9 保存处理结果并保留处理依据</a><a href="#210-调试异常与小范围验证">2.10 调试、异常与小范围验证</a><a href="#211-本章自检">2.11 本章自检</a><a class="toc-sub" href="#补充练习与验收">补充练习与验收</a> <a class="back-top" href="#main">回到顶部 ↑</a> </aside> </div> <dialog id="search-dialog" aria-label="搜索完整教程"> <div class="dialog-head"><strong>搜索教程</strong><button id="search-close" aria-label="关闭搜索">✕</button></div> <div id="search"></div><p class="search-hint">输入关键词，查找正文、公式说明、练习和附件。</p> </dialog> <dialog id="image-dialog" aria-label="查看大图"><button id="image-close" aria-label="关闭图片">✕</button><img alt=""><p></p></dialog> <script type="module" src="/_astro/Book.astro_astro_type_script_index_0_lang.SvhK8ezw.js"></script> </body> </html>

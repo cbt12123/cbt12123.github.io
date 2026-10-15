@@ -1,0 +1,183 @@
+<!DOCTYPE html><html lang="zh-CN"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="完整中文教程：从 Python 与数学基础，到机器学习、大模型部署、Agent 与 NVIDIA 算子实践。"><title>第六部分：NVIDIA 算子开发 · 手写与实践</title><link rel="stylesheet" href="/katex/katex.min.css"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/_astro/Book.ddZgooq8.css"></head> <body> <a class="skip" href="#main">跳转到正文</a> <header class="topbar" data-pagefind-ignore> <button id="menu-toggle" class="menu-toggle" aria-label="打开章节目录" aria-expanded="false" aria-controls="sidebar">☰</button> <a class="brand" href="/"><span class="brand-icon">∑</span><span>手写与实践<small>从 Python 到大模型</small></span></a> <nav class="top-links" aria-label="主导航"> <a href="/resources/">学习附件</a> <a href="/files/output/pdf/course-complete.pdf">完整 PDF <span>↗</span></a> <button id="search-open" class="search-trigger">搜索教程 <kbd>/</kbd></button> </nav> </header> <div id="menu-backdrop" class="menu-backdrop" hidden></div> <aside id="sidebar" class="sidebar" aria-label="章节目录" data-pagefind-ignore> <a class="nav-home" href="/">教程首页</a> <a class="nav-home" href="/overview/">阅读与运行指南</a> <section class="nav-group"> <div class="nav-group-title"><span>01</span>Python与计算基础</div>  <a class="chapter-link" href="/chapter/01/"><span>01</span>Python 基础</a><a class="chapter-link" href="/chapter/02/"><span>02</span>组织代码与数据处理</a><a class="chapter-link" href="/chapter/03/"><span>03</span>NumPy 与数据可视化</a> </section><section class="nav-group"> <div class="nav-group-title"><span>02</span>面向机器学习的数学基础</div> <a class="guide-link" href="/guide/2/">本部分运行指南</a> <a class="chapter-link" href="/chapter/04/"><span>04</span>函数与微积分入门</a><a class="chapter-link" href="/chapter/05/"><span>05</span>线性代数与向量计算</a><a class="chapter-link" href="/chapter/06/"><span>06</span>概率、统计与信息量</a><a class="chapter-link" href="/chapter/07/"><span>07</span>离散数学与算法思维</a> </section><section class="nav-group"> <div class="nav-group-title"><span>03</span>机器学习与深度学习</div> <a class="guide-link" href="/guide/3/">本部分运行指南</a> <a class="chapter-link" href="/chapter/08/"><span>08</span>机器学习任务与模型评价</a><a class="chapter-link" href="/chapter/09/"><span>09</span>模型如何学习与神经网络</a><a class="chapter-link" href="/chapter/10/"><span>10</span>PyTorch训练与模型管理</a><a class="chapter-link" href="/chapter/11/"><span>11</span>CNN与图像识别</a><a class="chapter-link" href="/chapter/12/"><span>12</span>NLP与序列建模</a><a class="chapter-link" href="/chapter/13/"><span>13</span>注意力与Transformer</a> </section><section class="nav-group"> <div class="nav-group-title"><span>04</span>大模型与部署</div> <a class="guide-link" href="/guide/4/">本部分运行指南</a> <a class="chapter-link" href="/chapter/14/"><span>14</span>语言模型与大模型结构</a><a class="chapter-link" href="/chapter/15/"><span>15</span>本地加载与对话输入</a><a class="chapter-link" href="/chapter/16/"><span>16</span>生成策略与KV缓存</a><a class="chapter-link" href="/chapter/17/"><span>17</span>资源预算、量化与参数适配</a><a class="chapter-link" href="/chapter/18/"><span>18</span>HTTP服务与部署实践</a><a class="chapter-link" href="/chapter/19/"><span>19</span>提示设计、评价与部署交付</a> </section><section class="nav-group"> <div class="nav-group-title"><span>05</span>Agent</div> <a class="guide-link" href="/guide/5/">本部分运行指南</a> <a class="chapter-link" href="/chapter/20/"><span>20</span>Agent 的组成与运行过程</a><a class="chapter-link" href="/chapter/21/"><span>21</span>编写第一个 Agent 循环</a><a class="chapter-link" href="/chapter/22/"><span>22</span>Rules：规则与执行边界</a><a class="chapter-link" href="/chapter/23/"><span>23</span>Skills：让任务方法可以复用</a><a class="chapter-link" href="/chapter/24/"><span>24</span>Knowledge：读取、检索与引用</a><a class="chapter-link" href="/chapter/25/"><span>25</span>状态、记忆与多步骤任务</a><a class="chapter-link" href="/chapter/26/"><span>26</span>组装完整课程学习助手</a><a class="chapter-link" href="/chapter/27/"><span>27</span>测试、评价与扩展</a> </section><section class="nav-group"> <div class="nav-group-title"><span>06</span>NVIDIA算子开发</div> <a class="guide-link active" href="/guide/6/">本部分运行指南</a> <a class="chapter-link" href="/chapter/28/"><span>28</span>从推理瓶颈到 GPU 执行</a><a class="chapter-link" href="/chapter/29/"><span>29</span>第一个 CUDA 程序与数据布局</a><a class="chapter-link" href="/chapter/30/"><span>30</span>归约、共享内存与矩阵复用</a><a class="chapter-link" href="/chapter/31/"><span>31</span>用 Triton 实现融合 RMSNorm</a><a class="chapter-link" href="/chapter/32/"><span>32</span>Softmax、贪心选择与少算一步</a><a class="chapter-link" href="/chapter/33/"><span>33</span>性能测量与瓶颈分析</a><a class="chapter-link" href="/chapter/34/"><span>34</span>把融合算子接入真实推理</a><a class="chapter-link" href="/chapter/35/"><span>35</span>算子部署、评价与交付</a> </section> <section class="nav-group"><div class="nav-group-title">附录与练习</div> <a class="chapter-link" href="/appendix/01/">环境准备与复现</a><a class="chapter-link" href="/appendix/02/">学习路线与前置自测</a><a class="chapter-link" href="/appendix/03/">读懂后续工程代码</a><a class="chapter-link" href="/appendix/04/">数学符号与计算速查</a> <a class="chapter-link" href="/resource/506997cbbc41/">章节练习与产出验收</a> <a class="chapter-link" href="/resources/">全部代码与学习附件</a> </section> <div class="sidebar-note">六个部分 · 35 章<br>按自己的节奏，从第一章开始。</div> </aside> <div class="reading-layout"> <main id="main" class="main-content"> <div class="document-meta" data-pagefind-ignore><span>阅读指南</span><a href="https://github.com/cbt12123/handmade-llm/blob/simple/%E7%AC%AC%E5%85%AD%E9%83%A8%E5%88%86-NVIDIA%E7%AE%97%E5%AD%90%E5%BC%80%E5%8F%91/README.md" target="_blank" rel="noopener noreferrer">GitHub 源文档 ↗</a></div> <details class="mobile-toc" data-pagefind-ignore><summary>本页目录</summary><a href="#章节与产出">章节与产出</a><a href="#实际采用的环境">实际采用的环境</a><a href="#启动实验容器">启动实验容器</a><a href="#各章脚本与报告">各章脚本与报告</a><a href="#已验证的范围与结果">已验证的范围与结果</a><a href="#结束实验">结束实验</a><a href="#补充练习与验收">补充练习与验收</a></details><article class="prose" data-pagefind-body data-pagefind-weight="1"><h1 id="第六部分nvidia-算子开发" data-pagefind-meta="title">第六部分：NVIDIA 算子开发</h1>
+<p>这一部分先用原生 CUDA 学执行与数据复用，再用 Triton 实现融合 RMSNorm，最终接入已有 Qwen 模型与 HTTP 服务。目标是掌握如何判断一个算子是否值得用于真实推理。</p>
+<h2 id="章节与产出">章节与产出</h2>
+<table>
+<thead>
+<tr>
+<th>章</th>
+<th>内容</th>
+<th>产出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="/chapter/28/">28 从推理瓶颈到GPU执行</a></td>
+<td>模型调用位置、线程与内存、局部收益上限</td>
+<td>环境记录与成本估算</td>
+</tr>
+<tr>
+<td><a href="/chapter/29/">29 第一个CUDA程序与数据布局</a></td>
+<td>C++最小语法、索引、尾部与异步执行</td>
+<td>向量加法与内存检查</td>
+</tr>
+<tr>
+<td><a href="/chapter/30/">30 归约、共享内存与矩阵复用</a></td>
+<td>warp归约、同步、分块GEMM</td>
+<td>原生RMSNorm、GEMM与cuBLAS比较</td>
+</tr>
+<tr>
+<td><a href="/chapter/31/">31 用Triton实现融合RMSNorm</a></td>
+<td>融合、类型转换、布局与支持范围</td>
+<td>实际模型用的算子与多基线比较</td>
+</tr>
+<tr>
+<td><a href="/chapter/32/">32 Softmax、贪心选择与少算一步</a></td>
+<td>稳定Softmax、浮点反例、最后位置logits</td>
+<td>有条件减少计算的独立实验</td>
+</tr>
+<tr>
+<td><a href="/chapter/33/">33 性能测量与瓶颈分析</a></td>
+<td>预热、同步、交替采样、Profiler</td>
+<td>实际GPU调用证据</td>
+</tr>
+<tr>
+<td><a href="/chapter/34/">34 把融合算子接入真实推理</a></td>
+<td>可恢复替换、KV缓存、生成一致性</td>
+<td>完整推理对照与原始数据</td>
+</tr>
+<tr>
+<td><a href="/chapter/35/">35 算子部署、评价与交付</a></td>
+<td>默认融合HTTP服务、对照、边界与交付</td>
+<td>可调用服务与复现清单</td>
+</tr>
+</tbody>
+</table>
+<p>前置知识是第一部分的数组与函数、第二部分的矩阵与归约、第三部分的PyTorch，以及第四部分的模型加载、KV缓存与HTTP。不会 C++ 不妨先读第29章最小语法，再对照完整源码；不要求先学完另一门 C++ 课程。</p>
+<p>先做<a href="/appendix/02/#7-%E7%AC%AC%E5%85%AD%E9%83%A8%E5%88%86%E5%85%A5%E5%8F%A3%E5%85%88%E8%83%BD%E6%8F%8F%E8%BF%B0%E8%A6%81%E6%AF%94%E8%BE%83%E7%9A%84%E8%AE%A1%E7%AE%97">算子分支入口自测</a>，检查归约形状、精度与整体收益上限。无需先完成第五部分 Agent。第34章的临时方法替换可查<a href="/appendix/03/">工程 Python 补读</a>，归一化与成本公式可查<a href="/appendix/04/">数学速查</a>。</p>
+<h2 id="实际采用的环境">实际采用的环境</h2>
+<p>编辑与CPU脚本继续使用 Windows、conda base、VS Code。GPU脚本在WSL2 Ubuntu的Docker容器中执行；不要在Windows的CPU版PyTorch上运行后，把结果写成GPU验证通过。</p>
+<table>
+<thead>
+<tr>
+<th>用途</th>
+<th>本次环境</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>编辑、绘图与HTTP客户端</td>
+<td>Python 3.12.4、NumPy 1.26.4、Matplotlib 3.8.4、requests 2.32.2</td>
+</tr>
+<tr>
+<td>GPU</td>
+<td>RTX 4060 Ti 16GB，计算能力8.9，驱动591.86</td>
+</tr>
+<tr>
+<td>原生CUDA编译与内存检查</td>
+<td>已有 cuda-ops-dev:latest，nvcc 12.4.131，compute-sanitizer</td>
+</tr>
+<tr>
+<td>Triton、真实模型与服务</td>
+<td>已有 vllm/vllm-openai:v0.20.1-cu129-ubuntu2404</td>
+</tr>
+<tr>
+<td>容器Python库</td>
+<td>Python 3.12.13、PyTorch 2.11.0+cu129、Triton 3.6.0、Transformers 5.7.0</td>
+</tr>
+<tr>
+<td>模型</td>
+<td>本地 Qwen2.5-1.5B-Instruct，隐藏维度1536、28层、FP16</td>
+</tr>
+</tbody>
+</table>
+<p>这里借用 vLLM 镜像中的库运行 Transformers，没有调用 vLLM 推理引擎。两个镜像分别执行独立程序，没有把CUDA 12.4编译的扩展链接进CUDA 12.9的Torch。编译器与运行库的兼容问题不能靠“都是CUDA”忽略。</p>
+<p><code>cuda-ops-dev:latest</code> 是作者已有的本地镜像名，不是公共仓库的必备镜像。首次准备时，按<a href="/appendix/01/">环境准备与复现</a>配置 WSL、Docker 和 GPU，再用仓库的 <a href="/file/4b0b944491f8/">Dockerfile</a>构建 <code>handmade-llm-cuda:12.4.1</code>。它提供 nvcc、C++ 编译器、cuBLAS 开发文件与 compute-sanitizer；runtime 镜像通常不包含完整编译工具。实际版本仍以自己的报告为准。</p>
+<p>本次没有新增GPU环境、安装GPU库或下载模型。若base缺少绘图或客户端依赖，可使用清华镜像：</p>
+<pre><code class="language-powershell">conda activate base
+python <span class="hljs-literal">-m</span> pip install numpy matplotlib requests <span class="hljs-literal">-i</span> https://pypi.tuna.tsinghua.edu.cn/simple
+</code></pre>
+<p>第三方镜像只是下载来源，不代表版本兼容性已经验证。GPU版Torch和Triton应按目标CUDA环境安装，不用这条CPU侧命令代替。</p>
+<h2 id="启动实验容器">启动实验容器</h2>
+<p>下面使用作者本机路径，读者应替换成自己的目录。先在WSL执行 <code>docker images</code> 和 <code>docker ps -a</code> 检查已有镜像与容器。</p>
+<pre><code class="language-bash">docker run --name handmade-llm-part06-dev --gpus all --ipc=host \
+  -v /mnt/g/project/handmade-llm-normal:/workspace \
+  -w /workspace --entrypoint bash handmade-llm-cuda:12.4.1 \
+  -lc <span class="hljs-string">&#x27;sleep infinity&#x27;</span>
+</code></pre>
+<p>这条命令在当前终端持续运行。另开终端执行检查：</p>
+<p>已检查过作者原有 <code>cuda-ops-dev:latest</code> 的读者，也可将上面的镜像名替换成它；历史性能报告来自该原有镜像。</p>
+<pre><code class="language-bash">docker <span class="hljs-built_in">exec</span> handmade-llm-part06-dev python3 script/part06/29_cuda_examples.py --sanitize
+</code></pre>
+<p>默认架构sm_89对应本次GPU，换卡后通过脚本的 <code>--arch</code> 参数指定合适架构。</p>
+<p>接着启动运行容器，同样另开终端执行实验：</p>
+<pre><code class="language-bash">docker run --name handmade-llm-part06-runtime --gpus all --ipc=host \
+  -e HF_HUB_OFFLINE=1 -e TRANSFORMERS_OFFLINE=1 \
+  -v /mnt/g/project/handmade-llm-normal:/workspace \
+  -v /mnt/g/models/qwen2_5_1.5b_instruct:/models/qwen:ro \
+  -w /workspace --entrypoint bash \
+  vllm/vllm-openai:v0.20.1-cu129-ubuntu2404 -lc <span class="hljs-string">&#x27;sleep infinity&#x27;</span>
+</code></pre>
+<p><code>/models/qwen</code> 默认是模型目录；不同挂载目标可用容器环境变量 LLM_MODEL_PATH 指定。模型文件只读挂载，代码与小报告写入工作区。</p>
+<pre><code class="language-bash">docker <span class="hljs-built_in">exec</span> handmade-llm-part06-runtime python3 tools/verify_part06_gpu.py
+</code></pre>
+<p>这个入口依次记录GPU环境、验证与测量算子、测试选择步骤、测量真实模型并剖析。模型缓存复用在同一进程内，避免两次重新加载。运行期间不要同时启动其他GPU推理服务，减少相互干扰。</p>
+<h2 id="各章脚本与报告">各章脚本与报告</h2>
+<table>
+<thead>
+<tr>
+<th>命令或文件</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>python script/part06/28_cost_model.py</td>
+<td>CPU可执行的线程索引、逻辑字节与Amdahl估算</td>
+</tr>
+<tr>
+<td>29_cuda_examples.py --sanitize</td>
+<td>编译3个CUDA程序、cuBLAS对照及内存检查</td>
+</tr>
+<tr>
+<td>31_verify_and_benchmark.py</td>
+<td>多精度边界验证，eager/compile/Triton微基准</td>
+</tr>
+<tr>
+<td>32_selection.py</td>
+<td>argmax比较与浮点反例</td>
+</tr>
+<tr>
+<td>34_model_benchmark.py</td>
+<td>3种长度的真实推理、最后logits独立对照</td>
+</tr>
+<tr>
+<td>33_profile_model.py</td>
+<td>内核事件、回退次数与异常恢复</td>
+</tr>
+<tr>
+<td>35_server.py / 35_client.py</td>
+<td>服务与实际HTTP验收，详见第35章</td>
+</tr>
+<tr>
+<td>35_release.py</td>
+<td>源码和报告SHA-256交付清单</td>
+</tr>
+<tr>
+<td>tools/draw_part06.py</td>
+<td>从报告重建插图</td>
+</tr>
+</tbody>
+</table>
+<p>脚本位于根目录 <code>script/part06/</code>，原生源码见<a href="/resource/5018034eb341/">附件</a>，小报告在 <code>outputs/part06/</code>，插图在 <code>images/part06-*.png</code>。</p>
+<h2 id="已验证的范围与结果">已验证的范围与结果</h2>
+<p>原生CUDA三个程序均通过内存检查。教学分块GEMM比朴素实现快，但仍慢于cuBLAS。融合RMSNorm通过三种精度、边界形状与尺度检查，真实模型剖析观察到228次自写内核调用、零回退。</p>
+<p>这次真实生成的加速比为128 token输入1.162、512 token输入1.149、1024 token输入1.020；完整32步生成IDs一致。1024 token预填充加速比0.961，保留这项不利结果。HTTP三条提示词也分别比较了完整返回IDs与调用计数。</p>
+<p>这些结论针对本次Transformers eager、单请求、FP16、贪心生成。没有证明优于成熟推理引擎，也没有实现训练、任意布局、多请求批处理或投机解码。</p>
+<h2 id="结束实验">结束实验</h2>
+<p>在WSL停止本部分自己启动的容器，保留镜像与容器便于下次复用：</p>
+<pre><code class="language-bash">docker stop handmade-llm-part06-service handmade-llm-part06-runtime handmade-llm-part06-dev
+</code></pre>
+<p>只启动过其中一部分时，仅填写实际运行的名字。下一次可分别 <code>docker start</code> 实验容器，在另一个终端 docker exec；服务可 <code>docker start -a</code> 查看日志。</p>
+<h2 id="补充练习与验收">补充练习与验收</h2>
+<p><a href="/resource/04f7db737a68/">本部分练习与参考答案</a>按章提供两道题、提示、答案与验收证据。先写自己的计算和判断，再核对；运行实验后保留真实报告、失败与适用范围。统一记录方式见<a href="/resource/506997cbbc41/">练习说明</a>。</p>
+</article>  <footer class="page-footer" data-pagefind-ignore>从 Python 基础到大模型应用与算子开发 <a href="https://github.com/cbt12123/handmade-llm/tree/simple" target="_blank" rel="noopener noreferrer">GitHub ↗</a></footer> </main> <aside class="page-toc" aria-label="本页目录" data-pagefind-ignore> <div class="toc-title">本页内容</div><a href="#章节与产出">章节与产出</a><a href="#实际采用的环境">实际采用的环境</a><a href="#启动实验容器">启动实验容器</a><a href="#各章脚本与报告">各章脚本与报告</a><a href="#已验证的范围与结果">已验证的范围与结果</a><a href="#结束实验">结束实验</a><a href="#补充练习与验收">补充练习与验收</a> <a class="back-top" href="#main">回到顶部 ↑</a> </aside> </div> <dialog id="search-dialog" aria-label="搜索完整教程"> <div class="dialog-head"><strong>搜索教程</strong><button id="search-close" aria-label="关闭搜索">✕</button></div> <div id="search"></div><p class="search-hint">输入关键词，查找正文、公式说明、练习和附件。</p> </dialog> <dialog id="image-dialog" aria-label="查看大图"><button id="image-close" aria-label="关闭图片">✕</button><img alt=""><p></p></dialog> <script type="module" src="/_astro/Book.astro_astro_type_script_index_0_lang.SvhK8ezw.js"></script> </body> </html>

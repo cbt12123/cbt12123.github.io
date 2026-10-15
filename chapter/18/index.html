@@ -1,0 +1,180 @@
+<!DOCTYPE html><html lang="zh-CN"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="完整中文教程：从 Python 与数学基础，到机器学习、大模型部署、Agent 与 NVIDIA 算子实践。"><title>第18章 HTTP服务与部署实践 · 手写与实践</title><link rel="stylesheet" href="/katex/katex.min.css"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/_astro/Book.ddZgooq8.css"></head> <body> <a class="skip" href="#main">跳转到正文</a> <header class="topbar" data-pagefind-ignore> <button id="menu-toggle" class="menu-toggle" aria-label="打开章节目录" aria-expanded="false" aria-controls="sidebar">☰</button> <a class="brand" href="/"><span class="brand-icon">∑</span><span>手写与实践<small>从 Python 到大模型</small></span></a> <nav class="top-links" aria-label="主导航"> <a href="/resources/">学习附件</a> <a href="/files/output/pdf/course-complete.pdf">完整 PDF <span>↗</span></a> <button id="search-open" class="search-trigger">搜索教程 <kbd>/</kbd></button> </nav> </header> <div id="menu-backdrop" class="menu-backdrop" hidden></div> <aside id="sidebar" class="sidebar" aria-label="章节目录" data-pagefind-ignore> <a class="nav-home" href="/">教程首页</a> <a class="nav-home" href="/overview/">阅读与运行指南</a> <section class="nav-group"> <div class="nav-group-title"><span>01</span>Python与计算基础</div>  <a class="chapter-link" href="/chapter/01/"><span>01</span>Python 基础</a><a class="chapter-link" href="/chapter/02/"><span>02</span>组织代码与数据处理</a><a class="chapter-link" href="/chapter/03/"><span>03</span>NumPy 与数据可视化</a> </section><section class="nav-group"> <div class="nav-group-title"><span>02</span>面向机器学习的数学基础</div> <a class="guide-link" href="/guide/2/">本部分运行指南</a> <a class="chapter-link" href="/chapter/04/"><span>04</span>函数与微积分入门</a><a class="chapter-link" href="/chapter/05/"><span>05</span>线性代数与向量计算</a><a class="chapter-link" href="/chapter/06/"><span>06</span>概率、统计与信息量</a><a class="chapter-link" href="/chapter/07/"><span>07</span>离散数学与算法思维</a> </section><section class="nav-group"> <div class="nav-group-title"><span>03</span>机器学习与深度学习</div> <a class="guide-link" href="/guide/3/">本部分运行指南</a> <a class="chapter-link" href="/chapter/08/"><span>08</span>机器学习任务与模型评价</a><a class="chapter-link" href="/chapter/09/"><span>09</span>模型如何学习与神经网络</a><a class="chapter-link" href="/chapter/10/"><span>10</span>PyTorch训练与模型管理</a><a class="chapter-link" href="/chapter/11/"><span>11</span>CNN与图像识别</a><a class="chapter-link" href="/chapter/12/"><span>12</span>NLP与序列建模</a><a class="chapter-link" href="/chapter/13/"><span>13</span>注意力与Transformer</a> </section><section class="nav-group"> <div class="nav-group-title"><span>04</span>大模型与部署</div> <a class="guide-link" href="/guide/4/">本部分运行指南</a> <a class="chapter-link" href="/chapter/14/"><span>14</span>语言模型与大模型结构</a><a class="chapter-link" href="/chapter/15/"><span>15</span>本地加载与对话输入</a><a class="chapter-link" href="/chapter/16/"><span>16</span>生成策略与KV缓存</a><a class="chapter-link" href="/chapter/17/"><span>17</span>资源预算、量化与参数适配</a><a class="chapter-link active" href="/chapter/18/" aria-current="page"><span>18</span>HTTP服务与部署实践</a><a class="chapter-link" href="/chapter/19/"><span>19</span>提示设计、评价与部署交付</a> </section><section class="nav-group"> <div class="nav-group-title"><span>05</span>Agent</div> <a class="guide-link" href="/guide/5/">本部分运行指南</a> <a class="chapter-link" href="/chapter/20/"><span>20</span>Agent 的组成与运行过程</a><a class="chapter-link" href="/chapter/21/"><span>21</span>编写第一个 Agent 循环</a><a class="chapter-link" href="/chapter/22/"><span>22</span>Rules：规则与执行边界</a><a class="chapter-link" href="/chapter/23/"><span>23</span>Skills：让任务方法可以复用</a><a class="chapter-link" href="/chapter/24/"><span>24</span>Knowledge：读取、检索与引用</a><a class="chapter-link" href="/chapter/25/"><span>25</span>状态、记忆与多步骤任务</a><a class="chapter-link" href="/chapter/26/"><span>26</span>组装完整课程学习助手</a><a class="chapter-link" href="/chapter/27/"><span>27</span>测试、评价与扩展</a> </section><section class="nav-group"> <div class="nav-group-title"><span>06</span>NVIDIA算子开发</div> <a class="guide-link" href="/guide/6/">本部分运行指南</a> <a class="chapter-link" href="/chapter/28/"><span>28</span>从推理瓶颈到 GPU 执行</a><a class="chapter-link" href="/chapter/29/"><span>29</span>第一个 CUDA 程序与数据布局</a><a class="chapter-link" href="/chapter/30/"><span>30</span>归约、共享内存与矩阵复用</a><a class="chapter-link" href="/chapter/31/"><span>31</span>用 Triton 实现融合 RMSNorm</a><a class="chapter-link" href="/chapter/32/"><span>32</span>Softmax、贪心选择与少算一步</a><a class="chapter-link" href="/chapter/33/"><span>33</span>性能测量与瓶颈分析</a><a class="chapter-link" href="/chapter/34/"><span>34</span>把融合算子接入真实推理</a><a class="chapter-link" href="/chapter/35/"><span>35</span>算子部署、评价与交付</a> </section> <section class="nav-group"><div class="nav-group-title">附录与练习</div> <a class="chapter-link" href="/appendix/01/">环境准备与复现</a><a class="chapter-link" href="/appendix/02/">学习路线与前置自测</a><a class="chapter-link" href="/appendix/03/">读懂后续工程代码</a><a class="chapter-link" href="/appendix/04/">数学符号与计算速查</a> <a class="chapter-link" href="/resource/506997cbbc41/">章节练习与产出验收</a> <a class="chapter-link" href="/resources/">全部代码与学习附件</a> </section> <div class="sidebar-note">六个部分 · 35 章<br>按自己的节奏，从第一章开始。</div> </aside> <div class="reading-layout"> <main id="main" class="main-content"> <div class="document-meta" data-pagefind-ignore><span>第 18 章</span><a href="https://github.com/cbt12123/handmade-llm/blob/simple/%E7%AC%AC%E5%9B%9B%E9%83%A8%E5%88%86-%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%8E%E9%83%A8%E7%BD%B2/18-HTTP%E6%9C%8D%E5%8A%A1%E4%B8%8E%E9%83%A8%E7%BD%B2%E5%AE%9E%E8%B7%B5.md" target="_blank" rel="noopener noreferrer">GitHub 源文档 ↗</a></div> <details class="mobile-toc" data-pagefind-ignore><summary>本页目录</summary><a href="#181-从本地函数到http接口">18.1 从本地函数到HTTP接口</a><a href="#182-地址端口方法与请求体">18.2 地址、端口、方法与请求体</a><a href="#183-请求模型先检查哪些错误">18.3 请求模型先检查哪些错误</a><a href="#184-token预算在模板处理后计算">18.4 token预算在模板处理后计算</a><a href="#185-单模型实例怎样处理并发">18.5 单模型实例怎样处理并发</a><a href="#186-为什么启动时加载一次">18.6 为什么启动时加载一次</a><a href="#187-启动服务与客户端">18.7 启动服务与客户端</a><a href="#188-如何理解结束原因与错误码">18.8 如何理解结束原因与错误码</a><a href="#189-完整返回与流式返回">18.9 完整返回与流式返回</a><a href="#1810-从教学服务到推理引擎">18.10 从教学服务到推理引擎</a><a href="#1811-理解wsl镜像容器与挂载">18.11 理解WSL、镜像、容器与挂载</a><a href="#1812-vllm客户端与流式事件">18.12 vLLM客户端与流式事件</a><a href="#1813-本章产出与验收">18.13 本章产出与验收</a></details><article class="prose" data-pagefind-body data-pagefind-weight="1"><h1 id="第18章-http服务与部署实践" data-pagefind-meta="title">第18章 HTTP服务与部署实践</h1>
+<p>目标：把本地模型包装成HTTP服务，明确请求格式、token预算、并发限制与错误响应，再用独立客户端调用。模型加载与生成逻辑沿用第15章，不重新训练。</p>
+<h2 id="181-从本地函数到http接口">18.1 从本地函数到HTTP接口</h2>
+<p>本地推理把消息传给Python函数，返回文本。HTTP服务增加了一个网络接口：客户端发送JSON，服务校验请求、调用常驻模型，再返回JSON。模型参数与生成规则没有因HTTP而改变。</p>
+<p><img src="/files/images/part04-service.png" alt="HTTP客户端、请求校验与常驻模型" loading="lazy" decoding="async"></p>
+<p>本章使用FastAPI声明接口，用Uvicorn运行服务。服务在启动时加载一次模型；多个请求复用这一个实例。避免每次请求都重新载入数GB权重，也避免在代码导入时重复加载。</p>
+<p><code>/health</code>检查服务是否已完成启动；<code>/generate</code>执行文本生成。这里的接口是课程自定义协议，不宣称兼容任何现成SDK。</p>
+<h2 id="182-地址端口方法与请求体">18.2 地址、端口、方法与请求体</h2>
+<p><code>http://127.0.0.1:8000/generate</code>可以分为：协议<code>http</code>、地址<code>127.0.0.1</code>、端口<code>8000</code>、路径<code>/generate</code>。<code>127.0.0.1</code>只表示当前机器。</p>
+<p>客户端用POST提交消息，JSON作为请求体。GET用于健康检查。响应除了状态码，还包含JSON内容：</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;messages&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+    <span class="hljs-punctuation">{</span><span class="hljs-attr">&quot;role&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;system&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">&quot;content&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;请用中文简短回答。&quot;</span><span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-punctuation">{</span><span class="hljs-attr">&quot;role&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;user&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">&quot;content&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;用一句话解释什么是矩阵。&quot;</span><span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;max_new_tokens&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">64</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p><code>messages</code>是有序数组；每项包含角色与文本。<code>max_new_tokens</code>是本次新增token上限，不是字符数，也不是输入与输出总长度。</p>
+<p>请求不是直接传入<code>model.generate</code>的任意Python参数。服务只开放明确支持的字段，方便控制资源和复现评价。本版固定贪心生成，未开放温度或top-p。</p>
+<h2 id="183-请求模型先检查哪些错误">18.3 请求模型先检查哪些错误</h2>
+<p>服务使用Pydantic字段规则：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>本版规则</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>messages</code></td>
+<td>1～32条</td>
+</tr>
+<tr>
+<td><code>role</code></td>
+<td><code>system</code>、<code>user</code>、<code>assistant</code></td>
+</tr>
+<tr>
+<td><code>content</code></td>
+<td>每条1～4000个字符</td>
+</tr>
+<tr>
+<td><code>max_new_tokens</code></td>
+<td>1～128</td>
+</tr>
+<tr>
+<td>角色顺序</td>
+<td>可选开头system，其后user/assistant交替，最后为user</td>
+</tr>
+</tbody>
+</table>
+<p>这些是教学接口的契约，不是所有模型都必须采用的规则。未来Agent可能需要工具消息等类型，应通过新协议明确支持，而不是临时混进当前字段。</p>
+<p>字段校验在生成前执行；不合法请求返回422。比如<code>role=&quot;tool&quot;</code>或<code>max_new_tokens=129</code>都不会进入模型计算。JSON能解析只是第一步，还要检查值的范围与相互关系。</p>
+<h2 id="184-token预算在模板处理后计算">18.4 token预算在模板处理后计算</h2>
+<p>字符限制不能替代token限制，角色标记与历史消息也会占token。服务先使用当前分词器与chat template编码完整消息，再检查：</p>
+<div class="formula"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>T</mi><mtext>input</mtext></msub><mo>+</mo><msub><mi>T</mi><mtext>requested output</mtext></msub><mo>≤</mo><msub><mi>T</mi><mtext>service limit</mtext></msub><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">T_{\text{input}}+T_{\text{requested output}}\leq T_{\text{service limit}}.
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.1389em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3175em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">input</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.1389em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">requested output</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.1389em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">service limit</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord">.</span></span></span></span></span></div><p>本版服务限制为512，输出最多128。若输入500个token、请求64个输出token，则564超过512，返回413；不会截断文本后继续猜测。</p>
+<pre><code class="language-python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">within_budget</span>(<span class="hljs-params">input_tokens, output_limit, context_limit=<span class="hljs-number">512</span></span>):
+    <span class="hljs-keyword">return</span> input_tokens + output_limit &lt;= context_limit
+<span class="hljs-keyword">assert</span> within_budget(<span class="hljs-number">400</span>, <span class="hljs-number">64</span>)
+<span class="hljs-keyword">assert</span> <span class="hljs-keyword">not</span> within_budget(<span class="hljs-number">500</span>, <span class="hljs-number">64</span>)
+</code></pre>
+<p>模型配置支持更长位置范围，不意味着教学服务必须允许同样长度。较小限制使CPU实验时间和内存更可控。若扩大限制，需要重新检查第17章的资源预算和第19章的延迟。</p>
+<p>这里采用请求上限做预算，即使模型可能提前发出EOS，也先为最大情况留出余量。</p>
+<h2 id="185-单模型实例怎样处理并发">18.5 单模型实例怎样处理并发</h2>
+<p>本版一次只允许一个生成请求。使用非阻塞锁获取执行资格；模型忙时立即返回429，而不是让不受控请求无限等待或同时占用缓存。</p>
+<p>关键流程为：</p>
+<pre><code class="language-text">获取执行资格
+    失败 → 429
+    成功 → 编码 → token预算 → 生成 → 返回
+          无论成功或异常，finally释放锁
+</code></pre>
+<p>这个设计便于观察单请求行为，不是高吞吐调度器。它没有连续批处理、请求队列或跨请求前缀共享。健康检查仍可响应，返回<code>busy</code>说明当前状态。</p>
+<p>并发不等于线程数量多就更快。多个模型前向可能同时争夺CPU或GPU内存；让每个请求各自加载一份模型，通常又会扩大常驻占用。先确认资源与策略，再增加并发。</p>
+<h2 id="186-为什么启动时加载一次">18.6 为什么启动时加载一次</h2>
+<p>FastAPI的lifespan负责启动和关闭阶段。启动成功后，模型和分词器放在<code>app.state</code>；请求处理只读取它们，不重新执行<code>from_pretrained</code>。<a href="https://fastapi.tiangolo.com/advanced/events/">FastAPI生命周期说明</a></p>
+<p>本版使用一个进程、一个模型实例。Uvicorn的<code>workers=4</code>通常意味着四个进程，不能理解成免费增加四条计算线程；每个进程都可能独立加载模型。GPU场景尤其需要先算容量。</p>
+<p>本实验关闭自动重载。开发模式的reload适合普通代码调试，但修改文件会重启进程并重载权重，不适合作为稳定测量方式。</p>
+<h2 id="187-启动服务与客户端">18.7 启动服务与客户端</h2>
+<p>在工作区根目录打开第一个VS Code终端，使用运行指南中新建的 <code>handmade-llm</code> 环境和模型路径。复用已有环境时，将两个终端的激活命令都改为该环境名；作者已有环境名为 <code>vllm</code>：</p>
+<pre><code class="language-powershell">conda activate handmade<span class="hljs-literal">-llm</span>
+<span class="hljs-variable">$env:LLM_MODEL_PATH</span> = <span class="hljs-string">&#x27;G:\models\qwen2_5_1.5b_instruct&#x27;</span>
+python script/part04/<span class="hljs-number">18</span>_server.py
+</code></pre>
+<p>启动完成后，服务监听<code>127.0.0.1:8000</code>。第二个终端运行：</p>
+<pre><code class="language-powershell">conda activate handmade<span class="hljs-literal">-llm</span>
+python script/part04/<span class="hljs-number">18</span>_client.py
+</code></pre>
+<p>客户端先GET <code>/health</code>，再POST <code>/generate</code>。其网络连接与读取都有超时；<code>raise_for_status()</code>让失败状态明确报错。请求回环地址时关闭环境代理，避免本地流量误走代理服务器。</p>
+<p>本机实际返回示例包含：</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;model&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Qwen/Qwen2.5-1.5B-Instruct&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;finish_reason&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;eos&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;text&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;矩阵是一种数学结构，由多个元素按特定方式排列而成的矩形数组。&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;input_tokens&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">26</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;output_tokens&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">19</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p>完整响应还包含请求ID和生成耗时，见<code>outputs/part04/18_http.json</code>。这里的输出token数包括生成的特殊结束标记，显示文本会隐藏它，因此不等于回答字符数。</p>
+<h2 id="188-如何理解结束原因与错误码">18.8 如何理解结束原因与错误码</h2>
+<table>
+<thead>
+<tr>
+<th>状态</th>
+<th>本版含义</th>
+<th>客户端行动</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td>生成成功</td>
+<td>读取文本、token数和结束原因</td>
+</tr>
+<tr>
+<td>422</td>
+<td>字段或角色顺序不合法</td>
+<td>修改请求，不直接重试相同内容</td>
+</tr>
+<tr>
+<td>413</td>
+<td>输入加输出预算超过512</td>
+<td>减少历史或请求输出长度</td>
+</tr>
+<tr>
+<td>429</td>
+<td>模型正在处理另一请求</td>
+<td>等当前请求结束，再有限重试</td>
+</tr>
+<tr>
+<td>500</td>
+<td>生成内部失败</td>
+<td>用请求ID检查服务日志</td>
+</tr>
+</tbody>
+</table>
+<p><code>finish_reason=eos</code>表示最后生成的是结束ID；<code>length</code>表示没有在本次上限内正常发出结束标记。200不表示回答内容必然正确，仍需要下一章的任务评价。</p>
+<p>客户端读超时也不表示服务已经停止计算。当前教学实现没有请求取消机制，客户端断开后生成可能继续到结束条件。实际应用要进一步设计取消、队列、资源回收和重试策略。</p>
+<p>本版只记录请求ID、token数和耗时，不在常规请求日志里打印全文。错误日志供本机定位；HTTP错误响应不直接泄露内部堆栈。</p>
+<h2 id="189-完整返回与流式返回">18.9 完整返回与流式返回</h2>
+<p>当前<code>/generate</code>等待整段生成结束，再返回一个JSON对象。第一段可见文本的时间接近整段完成时间，所以它不能用来测真实流式首token延迟。</p>
+<p>流式服务在生成过程中持续返回事件，常见协议有SSE。网络事件、token和可读字符并不一一对应：可能需要拼接字节或累积文本后才显示完整字符。结束事件还需要携带结束原因与统计量。</p>
+<p>本版没有实现流式接口，不能把完整回答切成几段后发送称为降低了模型首token延迟。后续切换推理引擎时，可使用它正式支持的stream协议，并编写对应客户端。</p>
+<h2 id="1810-从教学服务到推理引擎">18.10 从教学服务到推理引擎</h2>
+<p>当目标变为多用户同时访问，优先考虑具备批处理和缓存管理的推理引擎。连续批处理允许不同请求在不同生成阶段加入和退出；分页缓存管理减少固定大块预留造成的浪费。它们与本版“一个锁限制一个请求”有明显区别。</p>
+<p>vLLM是GPU部署扩展。官方版本主要面向Linux环境，Windows可通过WSL2与合适的容器运行；不是在Windows创建一个名叫<code>vllm</code>的conda环境就完成安装。<a href="https://docs.vllm.ai/en/v0.20.1/getting_started/installation/gpu/">vLLM安装说明</a></p>
+<p>已有WSL镜像和容器时，先检查容器内Python、PyTorch CUDA、vLLM版本与GPU访问，再决定是否复用。模型和源码通过只读或适当读写挂载进入容器；Windows的<code>G:\models</code>在WSL通常对应<code>/mnt/g/models</code>。</p>
+<p>支持vLLM的Linux环境中，部署命令形式为：</p>
+<pre><code class="language-bash">vllm serve /models/qwen2_5_1.5b_instruct \
+  --served-model-name tutorial-qwen \
+  --host 0.0.0.0 --port 8000 \
+  --max-model-len 2048 --gpu-memory-utilization 0.6
+</code></pre>
+<p>这是引擎扩展命令，实际镜像、版本及本机验证步骤以<a href="/guide/4/">运行指南</a>为准。模型名、路由和返回结构与课程自定义服务不同，客户端也需要改用对应协议；不能直接把<code>18_client.py</code>当作所有后端的通用客户端。<a href="https://docs.vllm.ai/en/v0.20.1/serving/openai_compatible_server/">vLLM服务协议</a></p>
+<h2 id="1811-理解wsl镜像容器与挂载">18.11 理解WSL、镜像、容器与挂载</h2>
+<p>WSL2提供Linux运行环境，Docker在其中管理镜像和容器。镜像保存打包好的文件与依赖；容器是使用镜像启动的运行实例。已有镜像可以创建多个容器，不需要重复下载。停止容器不会删除镜像，也不等于删除挂载在宿主机的模型文件。</p>
+<p>本机镜像名为<code>vllm/vllm-openai:v0.20.1-cu129-ubuntu2404</code>，新建教学容器名为<code>handmade-llm-part04-vllm</code>。模型从Windows磁盘映射到WSL，再只读挂载到容器：</p>
+<pre><code class="language-text">Windows  G:\models\qwen2_5_1.5b_instruct
+WSL      /mnt/g/models/qwen2_5_1.5b_instruct
+容器     /models/qwen
+</code></pre>
+<p>容器内程序使用<code>/models/qwen</code>，不能直接使用Windows路径。只读挂载的<code>:ro</code>允许模型读取文件，不允许容器修改这份宿主权重；缓存和日志另由容器运行目录处理。</p>
+<p>端口映射<code>127.0.0.1:8001:8000</code>表示宿主回环地址8001转发到容器8000。容器内监听<code>0.0.0.0</code>使转发能够到达服务，并不要求把宿主端口开放给局域网。Windows调用8001，教学CPU服务仍用8000。</p>
+<p>镜像里可能没有<code>python</code>别名，本机镜像的检查命令使用<code>python3</code>。它的默认入口已经是<code>vllm serve</code>，启动时只传模型路径和选项；额外重复写一次<code>vllm serve</code>会改变参数解析。</p>
+<h2 id="1812-vllm客户端与流式事件">18.12 vLLM客户端与流式事件</h2>
+<p>GPU服务启动成功后，从Windows conda环境运行：</p>
+<pre><code class="language-powershell">python script/part04/<span class="hljs-number">18</span>_vllm_client.py
+</code></pre>
+<p><a href="/file/a549f520f391/">独立客户端</a>先查看<code>/v1/models</code>，确认<code>tutorial-qwen</code>已注册，再调用<code>/v1/chat/completions</code>。该协议的输出上限字段为<code>max_tokens</code>；响应文本在<code>choices[0].message.content</code>，统计在<code>usage</code>，与课程自定义协议不同。</p>
+<p>随后以<code>stream=true</code>发送同一贪心请求。SSE事件用<code>data:</code>行承载JSON，客户端从<code>delta.content</code>拼接文本，记录第一次非空文本片段到达的时间，最后确认<code>[DONE]</code>和结束原因。流式输出拼接后应与同配置的完整回答相同。</p>
+<p>第一段可见文本到达时间包含网络、事件缓冲和模型生成，不能直接称为服务内部精确TTFT。客户端使用较小读取块减少本地缓冲影响，并分别保存首次可见与完整结束时间。</p>
+<p>客户端还发送JSON schema约束，要求<code>name</code>为字符串、<code>age</code>为整数且没有额外字段。这是在解码时限制合法输出结构，不只是提示词写“只输出JSON”。schema有效仍需检查字段值是否正确，第19章会把格式与内容分开评价。</p>
+<h2 id="1813-本章产出与验收">18.13 本章产出与验收</h2>
+<p>产出为<a href="/file/4082b80c6b86/">服务</a>、<a href="/file/2fe3f5d02aa4/">客户端</a>及HTTP报告。课程核验还会真实发送非法角色、超出输出上限、超出上下文和并发请求，检查422、413与429。</p>
+<p>验收不只看一次200：确认模型只在启动时加载，失败后执行资格会释放，健康检查能响应，结束原因和token数能读懂。运行结束后在服务终端按<code>Ctrl+C</code>停止进程。</p>
+<p>下一章用固定用例评价格式、内容与延迟，并整理可复核的部署材料。</p>
+<h3 id="补充练习与验收">补充练习与验收</h3>
+<p>先独立完成<a href="/resource/a004e510c9a8/#%E7%AC%AC18%E7%AB%A0">本章两道练习</a>，再核对参考答案和本章验收证据。记录自己的输入、结果与边界案例，不要求复制作者的实验数值。</p>
+</article> <nav class="chapter-pagination" aria-label="连续阅读" data-pagefind-ignore><a href="/chapter/17/"><small>← 上一章</small>第17章 资源预算、量化与参数适配</a><a href="/chapter/19/"><small>下一章 →</small>第19章 提示设计、评价与部署交付</a></nav> <footer class="page-footer" data-pagefind-ignore>从 Python 基础到大模型应用与算子开发 <a href="https://github.com/cbt12123/handmade-llm/tree/simple" target="_blank" rel="noopener noreferrer">GitHub ↗</a></footer> </main> <aside class="page-toc" aria-label="本页目录" data-pagefind-ignore> <div class="toc-title">本页内容</div><a href="#181-从本地函数到http接口">18.1 从本地函数到HTTP接口</a><a href="#182-地址端口方法与请求体">18.2 地址、端口、方法与请求体</a><a href="#183-请求模型先检查哪些错误">18.3 请求模型先检查哪些错误</a><a href="#184-token预算在模板处理后计算">18.4 token预算在模板处理后计算</a><a href="#185-单模型实例怎样处理并发">18.5 单模型实例怎样处理并发</a><a href="#186-为什么启动时加载一次">18.6 为什么启动时加载一次</a><a href="#187-启动服务与客户端">18.7 启动服务与客户端</a><a href="#188-如何理解结束原因与错误码">18.8 如何理解结束原因与错误码</a><a href="#189-完整返回与流式返回">18.9 完整返回与流式返回</a><a href="#1810-从教学服务到推理引擎">18.10 从教学服务到推理引擎</a><a href="#1811-理解wsl镜像容器与挂载">18.11 理解WSL、镜像、容器与挂载</a><a href="#1812-vllm客户端与流式事件">18.12 vLLM客户端与流式事件</a><a href="#1813-本章产出与验收">18.13 本章产出与验收</a><a class="toc-sub" href="#补充练习与验收">补充练习与验收</a> <a class="back-top" href="#main">回到顶部 ↑</a> </aside> </div> <dialog id="search-dialog" aria-label="搜索完整教程"> <div class="dialog-head"><strong>搜索教程</strong><button id="search-close" aria-label="关闭搜索">✕</button></div> <div id="search"></div><p class="search-hint">输入关键词，查找正文、公式说明、练习和附件。</p> </dialog> <dialog id="image-dialog" aria-label="查看大图"><button id="image-close" aria-label="关闭图片">✕</button><img alt=""><p></p></dialog> <script type="module" src="/_astro/Book.astro_astro_type_script_index_0_lang.SvhK8ezw.js"></script> </body> </html>

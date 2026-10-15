@@ -1,0 +1,92 @@
+<!DOCTYPE html><html lang="zh-CN"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="完整中文教程：从 Python 与数学基础，到机器学习、大模型部署、Agent 与 NVIDIA 算子实践。"><title>第21章 编写第一个 Agent 循环 · 手写与实践</title><link rel="stylesheet" href="/katex/katex.min.css"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/_astro/Book.ddZgooq8.css"></head> <body> <a class="skip" href="#main">跳转到正文</a> <header class="topbar" data-pagefind-ignore> <button id="menu-toggle" class="menu-toggle" aria-label="打开章节目录" aria-expanded="false" aria-controls="sidebar">☰</button> <a class="brand" href="/"><span class="brand-icon">∑</span><span>手写与实践<small>从 Python 到大模型</small></span></a> <nav class="top-links" aria-label="主导航"> <a href="/resources/">学习附件</a> <a href="/files/output/pdf/course-complete.pdf">完整 PDF <span>↗</span></a> <button id="search-open" class="search-trigger">搜索教程 <kbd>/</kbd></button> </nav> </header> <div id="menu-backdrop" class="menu-backdrop" hidden></div> <aside id="sidebar" class="sidebar" aria-label="章节目录" data-pagefind-ignore> <a class="nav-home" href="/">教程首页</a> <a class="nav-home" href="/overview/">阅读与运行指南</a> <section class="nav-group"> <div class="nav-group-title"><span>01</span>Python与计算基础</div>  <a class="chapter-link" href="/chapter/01/"><span>01</span>Python 基础</a><a class="chapter-link" href="/chapter/02/"><span>02</span>组织代码与数据处理</a><a class="chapter-link" href="/chapter/03/"><span>03</span>NumPy 与数据可视化</a> </section><section class="nav-group"> <div class="nav-group-title"><span>02</span>面向机器学习的数学基础</div> <a class="guide-link" href="/guide/2/">本部分运行指南</a> <a class="chapter-link" href="/chapter/04/"><span>04</span>函数与微积分入门</a><a class="chapter-link" href="/chapter/05/"><span>05</span>线性代数与向量计算</a><a class="chapter-link" href="/chapter/06/"><span>06</span>概率、统计与信息量</a><a class="chapter-link" href="/chapter/07/"><span>07</span>离散数学与算法思维</a> </section><section class="nav-group"> <div class="nav-group-title"><span>03</span>机器学习与深度学习</div> <a class="guide-link" href="/guide/3/">本部分运行指南</a> <a class="chapter-link" href="/chapter/08/"><span>08</span>机器学习任务与模型评价</a><a class="chapter-link" href="/chapter/09/"><span>09</span>模型如何学习与神经网络</a><a class="chapter-link" href="/chapter/10/"><span>10</span>PyTorch训练与模型管理</a><a class="chapter-link" href="/chapter/11/"><span>11</span>CNN与图像识别</a><a class="chapter-link" href="/chapter/12/"><span>12</span>NLP与序列建模</a><a class="chapter-link" href="/chapter/13/"><span>13</span>注意力与Transformer</a> </section><section class="nav-group"> <div class="nav-group-title"><span>04</span>大模型与部署</div> <a class="guide-link" href="/guide/4/">本部分运行指南</a> <a class="chapter-link" href="/chapter/14/"><span>14</span>语言模型与大模型结构</a><a class="chapter-link" href="/chapter/15/"><span>15</span>本地加载与对话输入</a><a class="chapter-link" href="/chapter/16/"><span>16</span>生成策略与KV缓存</a><a class="chapter-link" href="/chapter/17/"><span>17</span>资源预算、量化与参数适配</a><a class="chapter-link" href="/chapter/18/"><span>18</span>HTTP服务与部署实践</a><a class="chapter-link" href="/chapter/19/"><span>19</span>提示设计、评价与部署交付</a> </section><section class="nav-group"> <div class="nav-group-title"><span>05</span>Agent</div> <a class="guide-link" href="/guide/5/">本部分运行指南</a> <a class="chapter-link" href="/chapter/20/"><span>20</span>Agent 的组成与运行过程</a><a class="chapter-link active" href="/chapter/21/" aria-current="page"><span>21</span>编写第一个 Agent 循环</a><a class="chapter-link" href="/chapter/22/"><span>22</span>Rules：规则与执行边界</a><a class="chapter-link" href="/chapter/23/"><span>23</span>Skills：让任务方法可以复用</a><a class="chapter-link" href="/chapter/24/"><span>24</span>Knowledge：读取、检索与引用</a><a class="chapter-link" href="/chapter/25/"><span>25</span>状态、记忆与多步骤任务</a><a class="chapter-link" href="/chapter/26/"><span>26</span>组装完整课程学习助手</a><a class="chapter-link" href="/chapter/27/"><span>27</span>测试、评价与扩展</a> </section><section class="nav-group"> <div class="nav-group-title"><span>06</span>NVIDIA算子开发</div> <a class="guide-link" href="/guide/6/">本部分运行指南</a> <a class="chapter-link" href="/chapter/28/"><span>28</span>从推理瓶颈到 GPU 执行</a><a class="chapter-link" href="/chapter/29/"><span>29</span>第一个 CUDA 程序与数据布局</a><a class="chapter-link" href="/chapter/30/"><span>30</span>归约、共享内存与矩阵复用</a><a class="chapter-link" href="/chapter/31/"><span>31</span>用 Triton 实现融合 RMSNorm</a><a class="chapter-link" href="/chapter/32/"><span>32</span>Softmax、贪心选择与少算一步</a><a class="chapter-link" href="/chapter/33/"><span>33</span>性能测量与瓶颈分析</a><a class="chapter-link" href="/chapter/34/"><span>34</span>把融合算子接入真实推理</a><a class="chapter-link" href="/chapter/35/"><span>35</span>算子部署、评价与交付</a> </section> <section class="nav-group"><div class="nav-group-title">附录与练习</div> <a class="chapter-link" href="/appendix/01/">环境准备与复现</a><a class="chapter-link" href="/appendix/02/">学习路线与前置自测</a><a class="chapter-link" href="/appendix/03/">读懂后续工程代码</a><a class="chapter-link" href="/appendix/04/">数学符号与计算速查</a> <a class="chapter-link" href="/resource/506997cbbc41/">章节练习与产出验收</a> <a class="chapter-link" href="/resources/">全部代码与学习附件</a> </section> <div class="sidebar-note">六个部分 · 35 章<br>按自己的节奏，从第一章开始。</div> </aside> <div class="reading-layout"> <main id="main" class="main-content"> <div class="document-meta" data-pagefind-ignore><span>第 21 章</span><a href="https://github.com/cbt12123/handmade-llm/blob/simple/%E7%AC%AC%E4%BA%94%E9%83%A8%E5%88%86-Agent/21-%E7%BC%96%E5%86%99%E7%AC%AC%E4%B8%80%E4%B8%AAAgent%E5%BE%AA%E7%8E%AF.md" target="_blank" rel="noopener noreferrer">GitHub 源文档 ↗</a></div> <details class="mobile-toc" data-pagefind-ignore><summary>本页目录</summary><a href="#211-先给出循环">21.1 先给出循环</a><a href="#212-模型动作需要什么结构">21.2 模型动作需要什么结构</a><a href="#213-模型怎样知道有哪些工具">21.3 模型怎样知道有哪些工具</a><a href="#214-接入真实-http-模型">21.4 接入真实 HTTP 模型</a><a href="#215-真实循环比示意代码多了什么">21.5 真实循环比示意代码多了什么</a><a href="#216-结束条件与预算">21.6 结束条件与预算</a><a href="#217-如何阅读执行记录">21.7 如何阅读执行记录</a><a href="#218-随堂检查与产出">21.8 随堂检查与产出</a></details><article class="prose" data-pagefind-body data-pagefind-weight="1"><h1 id="第21章-编写第一个-agent-循环" data-pagefind-meta="title">第21章 编写第一个 Agent 循环</h1>
+<p>这一章先看一个只有几十行的循环，再把它接到第四部分的模型服务。核心过程只有四步：读取当前状态、请求下一动作、执行动作、保存结果。完整项目增加的权限、检索和数据库仍围绕这个过程展开。</p>
+<h2 id="211-先给出循环">21.1 先给出循环</h2>
+<pre><code class="language-python">observation = <span class="hljs-literal">None</span>
+tools = {<span class="hljs-string">&quot;multiply&quot;</span>: <span class="hljs-keyword">lambda</span> a, b: a * b}
+
+<span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">3</span>):
+    action = next_action(observation)
+    <span class="hljs-keyword">if</span> action[<span class="hljs-string">&quot;action&quot;</span>] == <span class="hljs-string">&quot;finish&quot;</span>:
+        <span class="hljs-built_in">print</span>(action[<span class="hljs-string">&quot;answer&quot;</span>])
+        <span class="hljs-keyword">break</span>
+    observation = tools[action[<span class="hljs-string">&quot;action&quot;</span>]](**action[<span class="hljs-string">&quot;args&quot;</span>])
+<span class="hljs-keyword">else</span>:
+    <span class="hljs-keyword">raise</span> RuntimeError(<span class="hljs-string">&quot;未在预算内完成&quot;</span>)
+</code></pre>
+<p>这里的 next_action 可以由模型实现，也可以先用固定函数代替。教学脚本<a href="/file/c0424ca4d69b/">21_minimal_loop.py</a>用固定函数提出“3×4”，收到 12 后结束；<strong>它只演示协议，运行结果不属于模型能力实验。</strong></p>
+<p>先运行：</p>
+<pre><code class="language-powershell">conda activate base
+python script/part05/<span class="hljs-number">21</span>_minimal_loop.py
+</code></pre>
+<p>第一次得到工具动作，第二次得到 finish。for 后面的 else 只在循环没有 break 时运行，适合检查达到预算却未完成的情况。</p>
+<h2 id="212-模型动作需要什么结构">21.2 模型动作需要什么结构</h2>
+<p>完整助手的动作统一有四个字段：</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;action&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;search&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;args&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span><span class="hljs-attr">&quot;query&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;梯度下降&quot;</span><span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;answer&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;citations&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">]</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p>工具动作的 args 保存参数。最终动作使用 action=&quot;finish&quot;，args 为空，answer 写回答，citations 列资料 ID。</p>
+<p>为什么不用“请帮我查一下梯度下降”作为工具请求？自然语言可以有很多表达，程序难以确定工具和参数。JSON 把接口变成可以逐字段检查的数据结构。</p>
+<p>这个自定义动作协议可以帮助初学者看清调用过程。它没有使用服务商原生的 tools/tool_calls 接口；以后迁移到原生接口时，可以保留同一个工具注册表、权限检查和任务状态，只更换模型适配层。</p>
+<h2 id="213-模型怎样知道有哪些工具">21.3 模型怎样知道有哪些工具</h2>
+<p><a href="http://model.py">model.py</a> 把规则、工具说明和当前任务状态组成请求。工具说明包含固定名字与参数示例：</p>
+<pre><code class="language-text">search: {&quot;query&quot;:&quot;一个概念关键词&quot;}
+quiz: {&quot;topic&quot;:&quot;梯度下降|概率|矩阵&quot;,&quot;count&quot;:2}
+grade: {&quot;question_id&quot;:&quot;gd-01&quot;,&quot;answer&quot;:&quot;1.6&quot;}
+</code></pre>
+<p>当前状态会告诉模型已经加载什么技能、已经拿到什么结果、还有几步可以执行。模型需要依据这些信息提出下一动作；程序不在幕后按用户关键词预先替它完成整个流程。</p>
+<p>技能尚未加载时，模型先接受一个简短的分类请求，只看用户任务与技能描述。后续请求再加入规则、当前技能和工具结果。这避免把出题示例混进分类输入，导致小模型把示例当作真实问题。</p>
+<p>输出后先用 json.loads 解析，再检查字段和工具参数。解析失败与工具执行失败不同：前者意味着没有接受到有效动作；后者意味着动作已解析，但其名称、权限或参数不符合约定。</p>
+<h2 id="214-接入真实-http-模型">21.4 接入真实 HTTP 模型</h2>
+<p>vLLM 请求的关键部分是：</p>
+<pre><code class="language-python">payload = {
+    <span class="hljs-string">&quot;model&quot;</span>: <span class="hljs-string">&quot;tutorial-agent&quot;</span>,
+    <span class="hljs-string">&quot;messages&quot;</span>: messages,
+    <span class="hljs-string">&quot;temperature&quot;</span>: <span class="hljs-number">0</span>,
+    <span class="hljs-string">&quot;max_tokens&quot;</span>: <span class="hljs-number">500</span>,
+    <span class="hljs-string">&quot;structured_outputs&quot;</span>: {<span class="hljs-string">&quot;json&quot;</span>: ACTION_SCHEMA},
+}
+</code></pre>
+<p>结构约束让服务在指定 JSON Schema 范围内生成。本教程仍会在客户端重新检查，工具层还会检查每个动作需要的字段。模型把 grade 的 answer 写成错误数值，即使完全符合 Schema，仍然是错误动作。结构约束也不保证任务能完成。<a href="https://docs.vllm.ai/en/stable/examples/features/structured_outputs/">vLLM 官方说明</a>介绍了相应服务接口。</p>
+<p>最终实现按动作建立不同 Schema 分支，并依据状态限制候选：工具动作的 answer 与 citations 为空，search 只能带 query，已取题后不重复 quiz，已评分后不重复 grade。没有知识结果的解释任务，最终回答必须以“资料不足”开头。具体约定同时接受 Python 检查，完整代码见<a href="/file/da007891a36e/">model.py</a>。</p>
+<p>第四部分的容器上下文上限是 512 token，适合短对话；这部分要装入规则、技能和工具结果，参考容器提高到 4096。部署命令与模型路径见<a href="/guide/5/">运行指南</a>，仍使用已有 Qwen2.5-1.5B-Instruct 和现成镜像。</p>
+<p>第四部分的自定义 /generate 接口也有适配，但原服务的 512 输入预算与 128 输出上限通常不足以承载完整助手。本部分实际验证使用 vLLM，不能把这两个入口看作在旧配置下直接等效。</p>
+<h2 id="215-真实循环比示意代码多了什么">21.5 真实循环比示意代码多了什么</h2>
+<p><a href="/file/2bf124a810ca/">runner.py</a>把工作拆为以下步骤：</p>
+<ol>
+<li>根据已提交状态请求模型动作，HTTP 请求在数据库事务之外执行。</li>
+<li>复制状态并增加步数，检查动作。</li>
+<li>在事务内执行工具，添加观察结果并保存检查点。</li>
+<li>工具检查失败时回滚，保存明确错误；模型可以在下一步修正。</li>
+<li>finish 通过检查后结束；最多八步，超出后状态为 exhausted。</li>
+</ol>
+<p>复制状态的原因是工具执行可能修改字典后才失败。数据库可以回滚，但普通字典不会自动回滚；需要丢弃这份候选状态，重新从已提交状态出发。</p>
+<p>网络或动作解析失败会结束为 failed，不自动换成预设回答。用户看到失败，可以根据 HTTP 错误、输出截断或 JSON 内容判断问题。这比只显示“暂时不可用”更便于学习和排查。</p>
+<h2 id="216-结束条件与预算">21.6 结束条件与预算</h2>
+<p>模型可以反复查询同一个词，也可以重复加载技能。循环必须有代码预算，不能只在提示里写“请尽快完成”。</p>
+<p>本项目最多八次决策，每次最多生成 500 token，HTTP 有连接和读取超时。八步是教学项目的配置选择，不是所有 Agent 的标准；任务更长时先评估是否应该拆成独立任务。</p>
+<pre><code class="language-text">running   正在运行，或已主动暂停在检查点
+done      模型提交的最终动作通过检查
+failed    模型调用或协议解析失败
+exhausted 达到八步但未完成
+</code></pre>
+<p>done 只表示程序流程结束；回答质量还要另行检查。第27章会区分运行状态和任务评价。</p>
+<h2 id="217-如何阅读执行记录">21.7 如何阅读执行记录</h2>
+<p>每个 event 保存 step、action 与 observation，失败则保存 error。它记录外部可观察的动作，不要求模型输出内部推理。</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;step&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">2</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;action&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span><span class="hljs-attr">&quot;action&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;search&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-attr">&quot;args&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-punctuation">{</span><span class="hljs-attr">&quot;query&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;梯度下降&quot;</span><span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span><span class="hljs-attr">&quot;answer&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-attr">&quot;citations&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-punctuation">[</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;observation&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span><span class="hljs-attr">&quot;matches&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">}</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p>matches 为空时，模型应改查询或说明资料不足。动作记录可以区分“没有执行检索”“检索没命中”“拿到资料但解释不对”，三个问题需要不同修复。</p>
+<h2 id="218-随堂检查与产出">21.8 随堂检查与产出</h2>
+<p>运行最小循环，把乘法工具改为加法，并观察动作参数如何传入。然后阅读真实循环，找出八步预算、HTTP 错误和工具错误各自在哪里处理。</p>
+<p>本章产出是能读懂动作与观察结果的循环。下章再把“能执行”收紧到“在什么条件下能执行”。</p>
+<h3 id="补充练习与验收">补充练习与验收</h3>
+<p>先独立完成<a href="/resource/d1ab98a69bdd/#%E7%AC%AC21%E7%AB%A0">本章两道练习</a>，再核对参考答案和本章验收证据。记录自己的输入、结果与边界案例，不要求复制作者的实验数值。</p>
+<p><a href="/chapter/20/">上一章</a> · <a href="/chapter/22/">下一章：Rules</a></p>
+</article> <nav class="chapter-pagination" aria-label="连续阅读" data-pagefind-ignore><a href="/chapter/20/"><small>← 上一章</small>第20章 Agent 的组成与运行过程</a><a href="/chapter/22/"><small>下一章 →</small>第22章 Rules：规则与执行边界</a></nav> <footer class="page-footer" data-pagefind-ignore>从 Python 基础到大模型应用与算子开发 <a href="https://github.com/cbt12123/handmade-llm/tree/simple" target="_blank" rel="noopener noreferrer">GitHub ↗</a></footer> </main> <aside class="page-toc" aria-label="本页目录" data-pagefind-ignore> <div class="toc-title">本页内容</div><a href="#211-先给出循环">21.1 先给出循环</a><a href="#212-模型动作需要什么结构">21.2 模型动作需要什么结构</a><a href="#213-模型怎样知道有哪些工具">21.3 模型怎样知道有哪些工具</a><a href="#214-接入真实-http-模型">21.4 接入真实 HTTP 模型</a><a href="#215-真实循环比示意代码多了什么">21.5 真实循环比示意代码多了什么</a><a href="#216-结束条件与预算">21.6 结束条件与预算</a><a href="#217-如何阅读执行记录">21.7 如何阅读执行记录</a><a href="#218-随堂检查与产出">21.8 随堂检查与产出</a><a class="toc-sub" href="#补充练习与验收">补充练习与验收</a> <a class="back-top" href="#main">回到顶部 ↑</a> </aside> </div> <dialog id="search-dialog" aria-label="搜索完整教程"> <div class="dialog-head"><strong>搜索教程</strong><button id="search-close" aria-label="关闭搜索">✕</button></div> <div id="search"></div><p class="search-hint">输入关键词，查找正文、公式说明、练习和附件。</p> </dialog> <dialog id="image-dialog" aria-label="查看大图"><button id="image-close" aria-label="关闭图片">✕</button><img alt=""><p></p></dialog> <script type="module" src="/_astro/Book.astro_astro_type_script_index_0_lang.SvhK8ezw.js"></script> </body> </html>

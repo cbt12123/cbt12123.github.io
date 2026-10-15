@@ -1,0 +1,249 @@
+<!DOCTYPE html><html lang="zh-CN"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="完整中文教程：从 Python 与数学基础，到机器学习、大模型部署、Agent 与 NVIDIA 算子实践。"><title>24_retrieval_before.json · 手写与实践</title><link rel="stylesheet" href="/katex/katex.min.css"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/_astro/Book.ddZgooq8.css"></head> <body> <a class="skip" href="#main">跳转到正文</a> <header class="topbar" data-pagefind-ignore> <button id="menu-toggle" class="menu-toggle" aria-label="打开章节目录" aria-expanded="false" aria-controls="sidebar">☰</button> <a class="brand" href="/"><span class="brand-icon">∑</span><span>手写与实践<small>从 Python 到大模型</small></span></a> <nav class="top-links" aria-label="主导航"> <a href="/resources/">学习附件</a> <a href="/files/output/pdf/course-complete.pdf">完整 PDF <span>↗</span></a> <button id="search-open" class="search-trigger">搜索教程 <kbd>/</kbd></button> </nav> </header> <div id="menu-backdrop" class="menu-backdrop" hidden></div> <aside id="sidebar" class="sidebar" aria-label="章节目录" data-pagefind-ignore> <a class="nav-home" href="/">教程首页</a> <a class="nav-home" href="/overview/">阅读与运行指南</a> <section class="nav-group"> <div class="nav-group-title"><span>01</span>Python与计算基础</div>  <a class="chapter-link" href="/chapter/01/"><span>01</span>Python 基础</a><a class="chapter-link" href="/chapter/02/"><span>02</span>组织代码与数据处理</a><a class="chapter-link" href="/chapter/03/"><span>03</span>NumPy 与数据可视化</a> </section><section class="nav-group"> <div class="nav-group-title"><span>02</span>面向机器学习的数学基础</div> <a class="guide-link" href="/guide/2/">本部分运行指南</a> <a class="chapter-link" href="/chapter/04/"><span>04</span>函数与微积分入门</a><a class="chapter-link" href="/chapter/05/"><span>05</span>线性代数与向量计算</a><a class="chapter-link" href="/chapter/06/"><span>06</span>概率、统计与信息量</a><a class="chapter-link" href="/chapter/07/"><span>07</span>离散数学与算法思维</a> </section><section class="nav-group"> <div class="nav-group-title"><span>03</span>机器学习与深度学习</div> <a class="guide-link" href="/guide/3/">本部分运行指南</a> <a class="chapter-link" href="/chapter/08/"><span>08</span>机器学习任务与模型评价</a><a class="chapter-link" href="/chapter/09/"><span>09</span>模型如何学习与神经网络</a><a class="chapter-link" href="/chapter/10/"><span>10</span>PyTorch训练与模型管理</a><a class="chapter-link" href="/chapter/11/"><span>11</span>CNN与图像识别</a><a class="chapter-link" href="/chapter/12/"><span>12</span>NLP与序列建模</a><a class="chapter-link" href="/chapter/13/"><span>13</span>注意力与Transformer</a> </section><section class="nav-group"> <div class="nav-group-title"><span>04</span>大模型与部署</div> <a class="guide-link" href="/guide/4/">本部分运行指南</a> <a class="chapter-link" href="/chapter/14/"><span>14</span>语言模型与大模型结构</a><a class="chapter-link" href="/chapter/15/"><span>15</span>本地加载与对话输入</a><a class="chapter-link" href="/chapter/16/"><span>16</span>生成策略与KV缓存</a><a class="chapter-link" href="/chapter/17/"><span>17</span>资源预算、量化与参数适配</a><a class="chapter-link" href="/chapter/18/"><span>18</span>HTTP服务与部署实践</a><a class="chapter-link" href="/chapter/19/"><span>19</span>提示设计、评价与部署交付</a> </section><section class="nav-group"> <div class="nav-group-title"><span>05</span>Agent</div> <a class="guide-link" href="/guide/5/">本部分运行指南</a> <a class="chapter-link" href="/chapter/20/"><span>20</span>Agent 的组成与运行过程</a><a class="chapter-link" href="/chapter/21/"><span>21</span>编写第一个 Agent 循环</a><a class="chapter-link" href="/chapter/22/"><span>22</span>Rules：规则与执行边界</a><a class="chapter-link" href="/chapter/23/"><span>23</span>Skills：让任务方法可以复用</a><a class="chapter-link" href="/chapter/24/"><span>24</span>Knowledge：读取、检索与引用</a><a class="chapter-link" href="/chapter/25/"><span>25</span>状态、记忆与多步骤任务</a><a class="chapter-link" href="/chapter/26/"><span>26</span>组装完整课程学习助手</a><a class="chapter-link" href="/chapter/27/"><span>27</span>测试、评价与扩展</a> </section><section class="nav-group"> <div class="nav-group-title"><span>06</span>NVIDIA算子开发</div> <a class="guide-link" href="/guide/6/">本部分运行指南</a> <a class="chapter-link" href="/chapter/28/"><span>28</span>从推理瓶颈到 GPU 执行</a><a class="chapter-link" href="/chapter/29/"><span>29</span>第一个 CUDA 程序与数据布局</a><a class="chapter-link" href="/chapter/30/"><span>30</span>归约、共享内存与矩阵复用</a><a class="chapter-link" href="/chapter/31/"><span>31</span>用 Triton 实现融合 RMSNorm</a><a class="chapter-link" href="/chapter/32/"><span>32</span>Softmax、贪心选择与少算一步</a><a class="chapter-link" href="/chapter/33/"><span>33</span>性能测量与瓶颈分析</a><a class="chapter-link" href="/chapter/34/"><span>34</span>把融合算子接入真实推理</a><a class="chapter-link" href="/chapter/35/"><span>35</span>算子部署、评价与交付</a> </section> <section class="nav-group"><div class="nav-group-title">附录与练习</div> <a class="chapter-link" href="/appendix/01/">环境准备与复现</a><a class="chapter-link" href="/appendix/02/">学习路线与前置自测</a><a class="chapter-link" href="/appendix/03/">读懂后续工程代码</a><a class="chapter-link" href="/appendix/04/">数学符号与计算速查</a> <a class="chapter-link" href="/resource/506997cbbc41/">章节练习与产出验收</a> <a class="chapter-link" href="/resources/">全部代码与学习附件</a> </section> <div class="sidebar-note">六个部分 · 35 章<br>按自己的节奏，从第一章开始。</div> </aside> <div class="reading-layout"> <main id="main" class="main-content"> <div class="document-meta" data-pagefind-ignore><span>学习附件</span><a href="https://github.com/cbt12123/handmade-llm/blob/simple/outputs/part05/24_retrieval_before.json" target="_blank" rel="noopener noreferrer">GitHub 源文档 ↗</a><a href="/files/outputs/part05/24_retrieval_before.json" download>下载原文件 ↓</a></div> <article class="prose" data-pagefind-body data-pagefind-weight="0.3"><h1 data-pagefind-meta="title">24_retrieval_before.json</h1><p class="source-path">outputs/part05/24_retrieval_before.json</p><pre><code class="hljs language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;scope&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Original paragraph index before retrieval revision&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;sources&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">19</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;chunks&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1081</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;queries&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+    <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;query&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;梯度下降&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;hits&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-punctuation">{</span>
+          <span class="hljs-attr">&quot;id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;4c10ae008c3f&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;source&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;第二部分-面向机器学习的数学基础/04-函数与微积分入门.md&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;heading&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;4.9 梯度下降与学习率&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;line&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">219</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;text&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;w 依次为 0.6、1.08、1.464、1.7712、2.017，损失逐渐下降。&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;score&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">4.459683</span>
+        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-punctuation">{</span>
+          <span class="hljs-attr">&quot;id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;3ba0ba4ab44e&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;source&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;第二部分-面向机器学习的数学基础/04-函数与微积分入门.md&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;heading&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;4.9 梯度下降与学习率&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;line&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">225</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;text&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;导数为 0 不一定是最小值，例如 `-x²` 在 0 的导数也是 0，但那里是最大值。复杂模型也不保证梯度下降找到全局最优。&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;score&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">4.443848</span>
+        <span class="hljs-punctuation">}</span>
+      <span class="hljs-punctuation">]</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;query&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;学习率&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;hits&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-punctuation">{</span>
+          <span class="hljs-attr">&quot;id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;714e9a47002e&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;source&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;第二部分-面向机器学习的数学基础/04-函数与微积分入门.md&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;heading&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;4.9 梯度下降与学习率&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;line&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">208</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;text&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;η 是学习率，表示每次按导数走多大一步。w=0、η=0.1 时，第一次变成 0-0.1×(-6)=0.6。&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;score&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">3.763403</span>
+        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-punctuation">{</span>
+          <span class="hljs-attr">&quot;id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;4366c3fbcc43&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;source&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;第三部分-机器学习与深度学习/09-模型如何学习与神经网络.md&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;heading&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;9.4 梯度下降、学习率与收敛&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;line&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">79</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;text&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;$`\\theta`$代表全部参数，$`\\eta`$是学习率。以$`L(w)=(w-3)^2`$为例，$`w=0`$时梯度$`-6`$，取$`\\eta=0.1`$，更新后$`w=0.6`$，向最小值3靠近。学习率太大可能跳过最低点并发散；太小会很慢。&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;score&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">3.684189</span>
+        <span class="hljs-punctuation">}</span>
+      <span class="hljs-punctuation">]</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;query&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;条件概率&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;hits&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-punctuation">{</span>
+          <span class="hljs-attr">&quot;id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;d7f910201d70&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;source&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;第二部分-面向机器学习的数学基础/06-概率统计与信息量.md&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;heading&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;6.3 条件概率与独立性&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;line&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">43</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;text&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;条件概率 `P(A|B)` 表示已知 B 发生时 A 的概率。当 P(B)&gt;0：&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;score&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">5.396864</span>
+        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-punctuation">{</span>
+          <span class="hljs-attr">&quot;id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;5692fa2bd983&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;source&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;第二部分-面向机器学习的数学基础/06-概率统计与信息量.md&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;heading&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;6.3 条件概率与独立性&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;line&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">59</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;text&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;以后语言模型中的 `P(下一个词|前文)` 是条件概率，前文改变了候选词的分布。&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;score&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">4.858774</span>
+        <span class="hljs-punctuation">}</span>
+      <span class="hljs-punctuation">]</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;query&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;矩阵乘法&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;hits&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-punctuation">{</span>
+          <span class="hljs-attr">&quot;id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;489ae8b4925b&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;source&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;第一部分-Python与计算基础/03-NumPy与数据可视化.md&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;heading&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;3.8 逐元素乘法与矩阵乘法&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;line&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">164</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;text&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;`*` 对应位置相乘，`@` 是矩阵乘法。第二个结果左上角为 `1×10 + 2×30 = 70`。二维规则为 `(m, k) @ (k, n) → (m, n)`；字母只是表示长度。&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;score&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">4.730817</span>
+        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-punctuation">{</span>
+          <span class="hljs-attr">&quot;id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;ff9786dd0a8d&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;source&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;第一部分-Python与计算基础/03-NumPy与数据可视化.md&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;heading&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;3.8 逐元素乘法与矩阵乘法&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;line&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">166</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;text&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;一个更贴近数据的例子：每科给一个权重，得到每个人的加权成绩。&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;score&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">4.209866</span>
+        <span class="hljs-punctuation">}</span>
+      <span class="hljs-punctuation">]</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;query&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;KV缓存&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;hits&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-punctuation">{</span>
+          <span class="hljs-attr">&quot;id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;5789539c9836&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;source&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;第四部分-大模型与部署/16-生成策略与KV缓存.md&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;heading&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;第16章 生成策略与KV缓存&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;line&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">3</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;text&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;目标：从logits计算选token规则，区分prefill与decode，并检查真实模型的缓存计算。需要第6章的概率、第13章的因果注意力与第15章的本地推理。&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;score&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">3.299236</span>
+        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-punctuation">{</span>
+          <span class="hljs-attr">&quot;id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;897379e222ae&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;source&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;第四部分-大模型与部署/17-资源预算量化与参数适配.md&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;heading&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;17.3 KV Cache预算从张量形状推出来&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;line&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">44</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;text&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2表示Key和Value两份；$`L`$为层数；$`B`$为批量或同时保留的序列数；$`T`$为已缓存长度；$`H_{kv}`$为KV头数；$`d_h`$为头维度；$`s_{kv}`$为缓存元素字节数。&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;score&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1.888009</span>
+        <span class="hljs-punctuation">}</span>
+      <span class="hljs-punctuation">]</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;query&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Rules&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;hits&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">]</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;query&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Skills&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;hits&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-punctuation">{</span>
+          <span class="hljs-attr">&quot;id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;14bc38ba629f&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;source&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;第四部分-大模型与部署/19-提示设计评价与部署交付.md&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;heading&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;19.10 本部分与两条分支的连接&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;line&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">161</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;text&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;第五部分将在可调用模型基础上增加规则、skills、工具与知识资料。当前已具备消息输入、明确响应、错误码、token预算和可检查评价；接入工具后，还需要定义行动权限、工具结果与任务验收。&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;score&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">2.671205</span>
+        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-punctuation">{</span>
+          <span class="hljs-attr">&quot;id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2e8c42a82c83&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;source&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;第四部分-大模型与部署/14-语言模型与大模型结构.md&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;heading&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;14.3 预训练、指令微调与偏好优化&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;line&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">68</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;text&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;提示词、检索与微调需要区分：提示词改变当前输入；检索先找资料，再把资料加入输入；微调通过训练更新一部分或全部参数。第五部分会进一步讨论Agent、规则、skills与知识资料的组织，本部分先把模型接口做清楚。&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;score&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">2.631453</span>
+        <span class="hljs-punctuation">}</span>
+      <span class="hljs-punctuation">]</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;query&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Knowledge&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;hits&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">]</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;query&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;融合RMSNorm&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;hits&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-punctuation">{</span>
+          <span class="hljs-attr">&quot;id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;540f2d3e6b79&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;source&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;第四部分-大模型与部署/14-语言模型与大模型结构.md&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;heading&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;RMSNorm：按均方根缩放&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;line&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">149</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;text&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;上面的示例为便于手算，令$`\\gamma=1`$并省略$`\\epsilon`$；实际实现必须保留稳定项。&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;score&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1.006336</span>
+        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-punctuation">{</span>
+          <span class="hljs-attr">&quot;id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;efe540d3d274&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;source&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;第四部分-大模型与部署/14-语言模型与大模型结构.md&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;heading&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;14.7 RMSNorm、RoPE与SwiGLU&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;line&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">130</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;text&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;这三个模块先理解其输入输出与作用，不要求首次阅读就重写全部模型。&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;score&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.960914</span>
+        <span class="hljs-punctuation">}</span>
+      <span class="hljs-punctuation">]</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;query&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;整体加速比&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;hits&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-punctuation">{</span>
+          <span class="hljs-attr">&quot;id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;962200e17bb8&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;source&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;第四部分-大模型与部署/19-提示设计评价与部署交付.md&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;heading&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;GPU后端与受约束输出的对照&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;line&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">109</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;text&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;本机GPU串行用例p50约0.11秒、p95约0.41秒；只针对这组短输入短输出、当前FP16与eager设置。CPU与GPU两条路线的精度、注意力实现和缓存策略不同，不把延迟比当成单独的硬件或框架加速比。&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;score&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1.379583</span>
+        <span class="hljs-punctuation">}</span>
+      <span class="hljs-punctuation">]</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;query&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;深复制&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;hits&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-punctuation">{</span>
+          <span class="hljs-attr">&quot;id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;558ea19c5b34&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;source&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;第一部分-Python与计算基础/03-NumPy与数据可视化.md&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;heading&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;3.4 视图与复制：修改会影响谁&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;line&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">78</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;text&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;普通数组切片通常共享原来的数据，称为视图。&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;score&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.852645</span>
+        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-punctuation">{</span>
+          <span class="hljs-attr">&quot;id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;c1d5b193fb0b&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;source&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;第一部分-Python与计算基础/01-Python基础.md&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;heading&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;1.6 索引、切片与对象共享&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;line&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">274</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;text&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;另一个容易误解的地方是：赋值给另一个名字，不一定复制数据。&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;score&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.797577</span>
+        <span class="hljs-punctuation">}</span>
+      <span class="hljs-punctuation">]</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;query&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;量子纠缠的贝尔不等式&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;hits&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">]</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;query&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;GPU归约&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;hits&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-punctuation">{</span>
+          <span class="hljs-attr">&quot;id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;962200e17bb8&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;source&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;第四部分-大模型与部署/19-提示设计评价与部署交付.md&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;heading&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;GPU后端与受约束输出的对照&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;line&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">109</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;text&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;本机GPU串行用例p50约0.11秒、p95约0.41秒；只针对这组短输入短输出、当前FP16与eager设置。CPU与GPU两条路线的精度、注意力实现和缓存策略不同，不把延迟比当成单独的硬件或框架加速比。&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;score&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.977046</span>
+        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-punctuation">{</span>
+          <span class="hljs-attr">&quot;id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;61cf6060bac9&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;source&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;第四部分-大模型与部署/15-本地加载与对话输入.md&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;heading&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;15.2 环境名、驱动与PyTorch是三个不同检查&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;line&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">36</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;text&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;若在已有可用GPU环境中运行，设置`LLM_DEVICE=cuda`。脚本会在CUDA不可用时明确报错，而不是偷偷切回CPU。默认`auto`只在`torch.cuda.is_available()`为真时选择GPU。&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;score&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.938736</span>
+        <span class="hljs-punctuation">}</span>
+      <span class="hljs-punctuation">]</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;query&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;KV缓存节省什么计算&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;hits&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-punctuation">{</span>
+          <span class="hljs-attr">&quot;id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;484ca7eea228&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;source&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;第四部分-大模型与部署/16-生成策略与KV缓存.md&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;heading&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;16.9 KV Cache减少什么，不减少什么&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;line&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">146</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;text&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;缓存还增加内存占用。序列更长、并发请求更多、KV头更多，缓存通常也更大。第17章使用真实配置计算字节数。&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;score&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">2.540704</span>
+        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-punctuation">{</span>
+          <span class="hljs-attr">&quot;id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2fd29ac2bb1f&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;source&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;第四部分-大模型与部署/14-语言模型与大模型结构.md&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;heading&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;14.6 GQA为什么有12个Query头，却只有2个KV头&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;line&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">124</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;text&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;各Query头仍分别计算注意力分数，因此不是把12个输出头直接合并成2个。减少的是KV投影和缓存的头数量。相同序列长度与数据类型下，2个KV头所需缓存是12个KV头的六分之一；实际运行时间还取决于实现与硬件。[GQA原论文](https://arxiv.org/abs/2305.13245)&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;score&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1.825667</span>
+        <span class="hljs-punctuation">}</span>
+      <span class="hljs-punctuation">]</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;query&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Rules vs Skills&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;hits&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">]</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;additional_query_scope&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Three observed model queries replayed with algorithm from baseline_revision and unchanged original 19 chapter sources.&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;baseline_revision&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;a520b867fa028626a7e9f12f944c29d57b626f99&quot;</span>
+<span class="hljs-punctuation">}</span>
+</code></pre></article>  <footer class="page-footer" data-pagefind-ignore>从 Python 基础到大模型应用与算子开发 <a href="https://github.com/cbt12123/handmade-llm/tree/simple" target="_blank" rel="noopener noreferrer">GitHub ↗</a></footer> </main> <aside class="page-toc" aria-label="本页目录" data-pagefind-ignore>  <a class="back-top" href="#main">回到顶部 ↑</a> </aside> </div> <dialog id="search-dialog" aria-label="搜索完整教程"> <div class="dialog-head"><strong>搜索教程</strong><button id="search-close" aria-label="关闭搜索">✕</button></div> <div id="search"></div><p class="search-hint">输入关键词，查找正文、公式说明、练习和附件。</p> </dialog> <dialog id="image-dialog" aria-label="查看大图"><button id="image-close" aria-label="关闭图片">✕</button><img alt=""><p></p></dialog> <script type="module" src="/_astro/Book.astro_astro_type_script_index_0_lang.SvhK8ezw.js"></script> </body> </html>

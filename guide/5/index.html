@@ -1,0 +1,169 @@
+<!DOCTYPE html><html lang="zh-CN"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="完整中文教程：从 Python 与数学基础，到机器学习、大模型部署、Agent 与 NVIDIA 算子实践。"><title>第五部分：Agent 与课程学习助手 · 手写与实践</title><link rel="stylesheet" href="/katex/katex.min.css"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/_astro/Book.ddZgooq8.css"></head> <body> <a class="skip" href="#main">跳转到正文</a> <header class="topbar" data-pagefind-ignore> <button id="menu-toggle" class="menu-toggle" aria-label="打开章节目录" aria-expanded="false" aria-controls="sidebar">☰</button> <a class="brand" href="/"><span class="brand-icon">∑</span><span>手写与实践<small>从 Python 到大模型</small></span></a> <nav class="top-links" aria-label="主导航"> <a href="/resources/">学习附件</a> <a href="/files/output/pdf/course-complete.pdf">完整 PDF <span>↗</span></a> <button id="search-open" class="search-trigger">搜索教程 <kbd>/</kbd></button> </nav> </header> <div id="menu-backdrop" class="menu-backdrop" hidden></div> <aside id="sidebar" class="sidebar" aria-label="章节目录" data-pagefind-ignore> <a class="nav-home" href="/">教程首页</a> <a class="nav-home" href="/overview/">阅读与运行指南</a> <section class="nav-group"> <div class="nav-group-title"><span>01</span>Python与计算基础</div>  <a class="chapter-link" href="/chapter/01/"><span>01</span>Python 基础</a><a class="chapter-link" href="/chapter/02/"><span>02</span>组织代码与数据处理</a><a class="chapter-link" href="/chapter/03/"><span>03</span>NumPy 与数据可视化</a> </section><section class="nav-group"> <div class="nav-group-title"><span>02</span>面向机器学习的数学基础</div> <a class="guide-link" href="/guide/2/">本部分运行指南</a> <a class="chapter-link" href="/chapter/04/"><span>04</span>函数与微积分入门</a><a class="chapter-link" href="/chapter/05/"><span>05</span>线性代数与向量计算</a><a class="chapter-link" href="/chapter/06/"><span>06</span>概率、统计与信息量</a><a class="chapter-link" href="/chapter/07/"><span>07</span>离散数学与算法思维</a> </section><section class="nav-group"> <div class="nav-group-title"><span>03</span>机器学习与深度学习</div> <a class="guide-link" href="/guide/3/">本部分运行指南</a> <a class="chapter-link" href="/chapter/08/"><span>08</span>机器学习任务与模型评价</a><a class="chapter-link" href="/chapter/09/"><span>09</span>模型如何学习与神经网络</a><a class="chapter-link" href="/chapter/10/"><span>10</span>PyTorch训练与模型管理</a><a class="chapter-link" href="/chapter/11/"><span>11</span>CNN与图像识别</a><a class="chapter-link" href="/chapter/12/"><span>12</span>NLP与序列建模</a><a class="chapter-link" href="/chapter/13/"><span>13</span>注意力与Transformer</a> </section><section class="nav-group"> <div class="nav-group-title"><span>04</span>大模型与部署</div> <a class="guide-link" href="/guide/4/">本部分运行指南</a> <a class="chapter-link" href="/chapter/14/"><span>14</span>语言模型与大模型结构</a><a class="chapter-link" href="/chapter/15/"><span>15</span>本地加载与对话输入</a><a class="chapter-link" href="/chapter/16/"><span>16</span>生成策略与KV缓存</a><a class="chapter-link" href="/chapter/17/"><span>17</span>资源预算、量化与参数适配</a><a class="chapter-link" href="/chapter/18/"><span>18</span>HTTP服务与部署实践</a><a class="chapter-link" href="/chapter/19/"><span>19</span>提示设计、评价与部署交付</a> </section><section class="nav-group"> <div class="nav-group-title"><span>05</span>Agent</div> <a class="guide-link active" href="/guide/5/">本部分运行指南</a> <a class="chapter-link" href="/chapter/20/"><span>20</span>Agent 的组成与运行过程</a><a class="chapter-link" href="/chapter/21/"><span>21</span>编写第一个 Agent 循环</a><a class="chapter-link" href="/chapter/22/"><span>22</span>Rules：规则与执行边界</a><a class="chapter-link" href="/chapter/23/"><span>23</span>Skills：让任务方法可以复用</a><a class="chapter-link" href="/chapter/24/"><span>24</span>Knowledge：读取、检索与引用</a><a class="chapter-link" href="/chapter/25/"><span>25</span>状态、记忆与多步骤任务</a><a class="chapter-link" href="/chapter/26/"><span>26</span>组装完整课程学习助手</a><a class="chapter-link" href="/chapter/27/"><span>27</span>测试、评价与扩展</a> </section><section class="nav-group"> <div class="nav-group-title"><span>06</span>NVIDIA算子开发</div> <a class="guide-link" href="/guide/6/">本部分运行指南</a> <a class="chapter-link" href="/chapter/28/"><span>28</span>从推理瓶颈到 GPU 执行</a><a class="chapter-link" href="/chapter/29/"><span>29</span>第一个 CUDA 程序与数据布局</a><a class="chapter-link" href="/chapter/30/"><span>30</span>归约、共享内存与矩阵复用</a><a class="chapter-link" href="/chapter/31/"><span>31</span>用 Triton 实现融合 RMSNorm</a><a class="chapter-link" href="/chapter/32/"><span>32</span>Softmax、贪心选择与少算一步</a><a class="chapter-link" href="/chapter/33/"><span>33</span>性能测量与瓶颈分析</a><a class="chapter-link" href="/chapter/34/"><span>34</span>把融合算子接入真实推理</a><a class="chapter-link" href="/chapter/35/"><span>35</span>算子部署、评价与交付</a> </section> <section class="nav-group"><div class="nav-group-title">附录与练习</div> <a class="chapter-link" href="/appendix/01/">环境准备与复现</a><a class="chapter-link" href="/appendix/02/">学习路线与前置自测</a><a class="chapter-link" href="/appendix/03/">读懂后续工程代码</a><a class="chapter-link" href="/appendix/04/">数学符号与计算速查</a> <a class="chapter-link" href="/resource/506997cbbc41/">章节练习与产出验收</a> <a class="chapter-link" href="/resources/">全部代码与学习附件</a> </section> <div class="sidebar-note">六个部分 · 35 章<br>按自己的节奏，从第一章开始。</div> </aside> <div class="reading-layout"> <main id="main" class="main-content"> <div class="document-meta" data-pagefind-ignore><span>阅读指南</span><a href="https://github.com/cbt12123/handmade-llm/blob/simple/%E7%AC%AC%E4%BA%94%E9%83%A8%E5%88%86-Agent/README.md" target="_blank" rel="noopener noreferrer">GitHub 源文档 ↗</a></div> <details class="mobile-toc" data-pagefind-ignore><summary>本页目录</summary><a href="#章节与产出">章节与产出</a><a href="#附件与源码">附件与源码</a><a href="#环境与依赖">环境与依赖</a><a href="#准备知识索引">准备知识索引</a><a href="#启动真实模型服务">启动真实模型服务</a><a href="#运行完整学习流程">运行完整学习流程</a><a href="#核验与真实评价">核验与真实评价</a><a href="#可选语义检索">可选语义检索</a><a href="#文件与运行记录">文件与运行记录</a><a href="#检索与解释质量复核">检索与解释质量复核</a><a href="#补充练习与验收">补充练习与验收</a></details><article class="prose" data-pagefind-body data-pagefind-weight="1"><h1 id="第五部分agent-与课程学习助手" data-pagefind-meta="title">第五部分：Agent 与课程学习助手</h1>
+<p>这一部分从手写执行循环开始，围绕 Rules、Skills、Knowledge 完成一个课程学习助手：查询教程、给出引用、提供练习、检查数值答案、保存复习记录、恢复任务，并留下可检查的动作轨迹。</p>
+<p>正文讲结构与必要片段，完整规则、技能、题库和代码保存在仓库附件。读完后应能为自己的领域定义任务、工具、权限、知识来源、状态和评价方法。</p>
+<h2 id="章节与产出">章节与产出</h2>
+<table>
+<thead>
+<tr>
+<th>章节</th>
+<th>内容</th>
+<th>产出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="/chapter/20/">20. Agent 的组成与运行过程</a></td>
+<td>目标、工具、状态、三类附件</td>
+<td>项目范围与验收条件</td>
+</tr>
+<tr>
+<td><a href="/chapter/21/">21. 编写第一个 Agent 循环</a></td>
+<td>动作协议、模型接口、结束预算</td>
+<td>最小循环与真实适配层</td>
+</tr>
+<tr>
+<td><a href="/chapter/22/">22. Rules</a></td>
+<td>规则与权限、参数、注入边界</td>
+<td>可执行的检查</td>
+</tr>
+<tr>
+<td><a href="/chapter/23/">23. Skills</a></td>
+<td>目录、按需加载、任务方法</td>
+<td>解释、练习、复习技能</td>
+</tr>
+<tr>
+<td><a href="/chapter/24/">24. Knowledge</a></td>
+<td>分块、关键词、向量、引用</td>
+<td>可追溯课程索引</td>
+</tr>
+<tr>
+<td><a href="/chapter/25/">25. 状态与记忆</a></td>
+<td>检查点、事务、恢复、计划</td>
+<td>可恢复的任务与记录</td>
+</tr>
+<tr>
+<td><a href="/chapter/26/">26. 组装完整助手</a></td>
+<td>CLI、HTTP、完整学习流程</td>
+<td>可运行项目</td>
+</tr>
+<tr>
+<td><a href="/chapter/27/">27. 测试、评价与扩展</a></td>
+<td>真实失败、分层评价、领域迁移</td>
+<td>核验与评价报告</td>
+</tr>
+</tbody>
+</table>
+<h2 id="附件与源码">附件与源码</h2>
+<p><a href="/resource/0ddb8617c1c9/">assets/part05/README.md</a>列出规则、技能和题库全文。技能采用本项目自己的目录与加载约定，并不要求某个商业 Agent 产品。</p>
+<p>核心源码：<a href="/file/2bf124a810ca/">循环</a>、<a href="/file/da007891a36e/">模型适配</a>、<a href="/file/604809d9e63b/">工具</a>、<a href="/file/c3ec8a6a2021/">知识检索</a>、<a href="/file/5ff6b25bca88/">数据库</a>、<a href="/file/4e7ff676ae92/">结果展示</a>、<a href="/file/52630dc87205/">命令行</a>、<a href="/file/072146ec86ce/">HTTP 入口</a>。</p>
+<h2 id="环境与依赖">环境与依赖</h2>
+<p>进入本部分前做<a href="/appendix/02/#6-%E7%AC%AC%E4%BA%94%E9%83%A8%E5%88%86%E5%85%A5%E5%8F%A3%E6%8A%8A%E6%95%B0%E6%8D%AE%E5%86%B3%E5%AE%9A%E5%92%8C%E6%89%A7%E8%A1%8C%E5%88%86%E5%BC%80">Agent 入口自测</a>。重点是嵌套 JSON、接口检查与实际工具执行；高级数学不是离线循环的门槛。第25章的状态复制与事务、第26章的服务入口可按需查<a href="/appendix/03/">工程 Python 补读</a>。</p>
+<p>还没有第四部分的服务环境时，按<a href="/appendix/01/">环境准备与复现</a>准备；离线循环与工具练习可先运行，不需要 GPU 或模型权重。</p>
+<p>统一使用 conda + VS Code，在仓库根目录运行命令。默认索引、循环和 SQLite 只用标准库；真实模型客户端需要 requests。已有 base 可以完成大部分操作，不新建环境，也不把 Torch 加载进 Agent 进程。</p>
+<pre><code class="language-powershell">conda activate base
+python <span class="hljs-literal">-m</span> pip install requests==<span class="hljs-number">2.32</span>.<span class="hljs-number">5</span> <span class="hljs-literal">-i</span> https://pypi.tuna.tsinghua.edu.cn/simple
+</code></pre>
+<p>若已经有可用 requests，无需重新安装。清华镜像也可用于 Matplotlib、FastAPI 等普通 Python 包；GPU Torch 和容器镜像不能直接套用这个安装地址。镜像来源与第四部分保持一致。</p>
+<p>可选 HTTP 入口使用第四部分中新建的 <code>handmade-llm</code> conda 环境，其中已有 FastAPI 与 uvicorn。若复用作者已有环境，可将激活命令改为 <code>conda activate vllm</code>：</p>
+<pre><code class="language-powershell">conda activate handmade<span class="hljs-literal">-llm</span>
+python <span class="hljs-literal">-m</span> uvicorn api:app <span class="hljs-literal">--app-dir</span> script/part05 <span class="hljs-literal">--host</span> <span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span> <span class="hljs-literal">--port</span> <span class="hljs-number">8010</span> <span class="hljs-literal">--workers</span> <span class="hljs-number">1</span>
+</code></pre>
+<p>若你的环境没有这两个库，可安装本机验证使用的版本：</p>
+<pre><code class="language-powershell">python <span class="hljs-literal">-m</span> pip install fastapi==<span class="hljs-number">0.135</span>.<span class="hljs-number">1</span> uvicorn==<span class="hljs-number">0.41</span>.<span class="hljs-number">0</span> <span class="hljs-literal">-i</span> https://pypi.tuna.tsinghua.edu.cn/simple
+</code></pre>
+<p>当前 HTTP 入口是本地单用户示例，learner 只是记录分组，不是身份认证。保持 127.0.0.1 和一个 worker。</p>
+<h2 id="准备知识索引">准备知识索引</h2>
+<pre><code class="language-powershell">conda activate base
+python script/part05/index_course.py
+python tools/verify_part05.py
+python script/part05/<span class="hljs-number">21</span>_minimal_loop.py
+python script/part05/<span class="hljs-number">24</span>_vector_demo.py
+</code></pre>
+<p>索引默认读取六部分35章与4份学习附录，保留数学围栏、纯文本流程与相邻说明，排除可执行代码围栏与图片。目标700字符，短邻段重叠200字符；原文单元不强行截断。知识块保存路径、标题、起止行、逐段范围与内容 ID。旧格式索引或源文件新增、删除、修改后都需要重建；可选语义向量也需重新生成。知识范围扩展不表示四道数值题库已经覆盖全部课程。</p>
+<p>离线核验使用预设动作测试循环和工具，不能当作大模型成功率。完整报告见<a href="/file/fffa3508e35a/">verification.json</a>。</p>
+<h2 id="启动真实模型服务">启动真实模型服务</h2>
+<p>本机验证复用了第四部分的 WSL2 Ubuntu、RTX 4060 Ti 16GB、vLLM 镜像和 Qwen2.5-1.5B-Instruct 权重，因此本次没有拉取新镜像或下载整模型。读者已有资源时也可复用；首次准备则按<a href="/appendix/01/">统一环境指南</a>拉取镜像与下载权重。模型路径以自己的实际目录为准。</p>
+<p>进入 WSL：</p>
+<pre><code class="language-powershell">wsl <span class="hljs-literal">-d</span> Ubuntu
+</code></pre>
+<p>在 Ubuntu 终端执行，保留该终端运行：</p>
+<pre><code class="language-bash">docker run --gpus all --ipc=host \
+  --name handmade-llm-part05-vllm \
+  -p 127.0.0.1:8002:8000 \
+  -v /mnt/g/models/qwen2_5_1.5b_instruct:/models/qwen:ro \
+  -e HF_HUB_OFFLINE=1 -e VLLM_NO_USAGE_STATS=1 \
+  vllm/vllm-openai:v0.20.1-cu129-ubuntu2404 \
+  /models/qwen --served-model-name tutorial-agent \
+  --dtype float16 --max-model-len 4096 --max-num-seqs 1 \
+  --gpu-memory-utilization 0.4 --enforce-eager
+</code></pre>
+<p>容器已经创建但停止时，不重复 run，用：</p>
+<pre><code class="language-bash">docker start -a handmade-llm-part05-vllm
+</code></pre>
+<p>第四部分原容器保留，未修改其配置。这次新建 part05 容器使用 8002、4096 上下文和一个并发序列。输入与最多500输出 token 的总量需要在4096内；多轮大资料可能超出，错误会进入报告。</p>
+<p>实际验证结束后只停止本部分容器，保留便于读者再次启动。WSL 在作者机器出现过会话启动警告，因此采用前台终端，不能仅因看到警告就认定模型启动失败。</p>
+<p>实际环境版本、镜像 ID 和启动参数见<a href="/file/f0d969253007/">environment.json</a>。Agent 客户端使用已有 base，HTTP 入口验证使用已有 vllm conda 环境；本部分没有调整推理库或下载模型。</p>
+<p>在 Windows 检查健康：</p>
+<pre><code class="language-powershell"><span class="hljs-built_in">Invoke-RestMethod</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">8002</span>/health
+</code></pre>
+<p>返回成功后再运行 Agent。第四部分自定义 /generate 有适配参数，但旧512输入与128输出限制不足以容纳本项目，完整参考验证使用 vLLM 的结构输出。</p>
+<h2 id="运行完整学习流程">运行完整学习流程</h2>
+<pre><code class="language-powershell">conda activate base
+python script/part05/cli.py <span class="hljs-string">&quot;请根据教程解释梯度下降，给出出处。&quot;</span> <span class="hljs-literal">--learner</span> demo
+python script/part05/cli.py <span class="hljs-string">&quot;请给我两道梯度下降练习，先不要给答案。&quot;</span> <span class="hljs-literal">--learner</span> demo
+python script/part05/cli.py <span class="hljs-string">&quot;gd-01 的答案是 2，请检查并保存复习记录。&quot;</span> <span class="hljs-literal">--learner</span> demo <span class="hljs-literal">--allow-record</span>
+python script/part05/cli.py <span class="hljs-string">&quot;请查看我的最近学习记录。&quot;</span> <span class="hljs-literal">--learner</span> demo <span class="hljs-literal">--require-tool</span> progress
+</code></pre>
+<p>--allow-record 表示本任务要保存产生的评分。省略时不能写记录；开启且产生评分时，结束前必须完成 record。不要在“不保存”的任务中加这个参数。</p>
+<p>默认题库有梯度下降两题、概率一题和点积一题。题库工具不返回答案；评分接受有限数值，拒绝表达式。多个题号与复杂文本答案应改用结构化答题入口，当前轻量抽取不是通用自然语言解析器。</p>
+<p>暂停与恢复：</p>
+<pre><code class="language-powershell">python script/part05/cli.py <span class="hljs-string">&quot;请解释梯度下降，给出处&quot;</span> <span class="hljs-literal">--stop-after</span> <span class="hljs-number">2</span>
+python script/part05/cli.py <span class="hljs-literal">--resume</span> <span class="hljs-string">&quot;输出的任务ID&quot;</span> <span class="hljs-literal">--learner</span> demo
+</code></pre>
+<p>恢复使用原任务权限。done、failed、exhausted 不会自动继续；原始报告与错误用于排查，网络失败不会被替换成预设成功回答。</p>
+<p>本机还实际验证了CLI暂停与恢复，结果见<a href="/file/a19ed094c4c0/">26_cli.json</a>，同样使用临时数据库。个人数据库默认在 outputs/part05/learning.sqlite3；开发核验可用 AGENT_DB_PATH 指定隔离数据库。</p>
+<h2 id="核验与真实评价">核验与真实评价</h2>
+<pre><code class="language-powershell">python tools/verify_part05.py
+python tools/verify_part05_retrieval.py
+python script/part05/evaluate.py
+python script/part05/<span class="hljs-number">26</span>_demo.py
+</code></pre>
+<p>真实评价必须有上述模型服务，使用临时数据库，不污染个人记录。<a href="/file/9cc3fd0db8e0/">最终报告</a>保留原始输出与状态；<a href="/file/52233f7df32a/">初始失败报告</a>对应改进前实现。</p>
+<p>26_demo.py 在临时数据库中真实运行“解释—取题—批改保存—查询进度”四个任务，报告见<a href="/file/96911fea92ef/">26_demo.json</a>。CLI 的正常使用仍保存到个人本地数据库。</p>
+<p>这个固定学习流程通过 required_tools 检查必需操作，避免模型未读记录就结束回答。CLI 用 --require-tool 指定同类要求；任务恢复不会改变已保存的要求或权限。</p>
+<p>练习、评分和学习记录由入口直接展示工具事实，不拼接可能编造结果的模型说明；原始文本保留在状态与报告中用于诊断。解释类输出仍需核对引用和内容。</p>
+<p>本机八条自动检查均通过，但人工检查发现学习率解释错误，详见<a href="/file/fa4427c60596/">内容核对记录</a>。通过数只对应这些窄范围检查，不代表教学内容全部正确。</p>
+<p>上面的八条结果是此前版本的历史记录。本次改进另保留<a href="/file/c97213187b2c/">改进前检索</a>与<a href="/file/115ffc4414f8/">改进后检索核验</a>。新增解释筛查可识别已知的方向错误，仍要求内容核对；五条新解释用例运行方式见<a href="/chapter/27/">第27章</a>，新报告另存，不覆盖历史原始回答。</p>
+<p>HTTP 入口还实际验证了422、429以及评分保存，报告见<a href="/file/c116276d7516/">26_http.json</a>。复现时先保持模型服务运行、停止自己占用8010的Agent入口，再在有FastAPI的环境运行 <code>python tools/verify_part05_http.py</code>。核验启动并清理自己的入口进程，使用临时数据库。</p>
+<p>评价只有八条手写教学用例，部分检查工具边界，部分检查题库或保存结果，不能当作通用 Agent 基准。关键词命中、引用存在、JSON 合法都不能自动证明教学解释正确。</p>
+<h2 id="可选语义检索">可选语义检索</h2>
+<p>默认没有额外嵌入模型，使用中文二字词元和英文词频检索。手工向量图仅说明余弦。</p>
+<p>需要语义扩展时，在独立或已有合适的 conda 环境安装 Sentence Transformers：</p>
+<pre><code class="language-powershell">python <span class="hljs-literal">-m</span> pip install sentence<span class="hljs-literal">-transformers</span> <span class="hljs-literal">-i</span> https://pypi.tuna.tsinghua.edu.cn/simple
+python script/part05/semantic_search.py <span class="hljs-literal">--model-path</span> <span class="hljs-string">&quot;已有本地嵌入模型目录&quot;</span> <span class="hljs-literal">--build</span>
+python script/part05/semantic_search.py <span class="hljs-literal">--model-path</span> <span class="hljs-string">&quot;已有本地嵌入模型目录&quot;</span> <span class="hljs-literal">--query</span> <span class="hljs-string">&quot;每步更新太大怎么办&quot;</span>
+</code></pre>
+<p>这是可选扩展，作者没有为本部分下载或验证一个新嵌入模型，因此不提供已测语义检索效果。库版本与模型结构兼容需要单独验证；避免把未固定依赖直接装进已经验证的推理环境。</p>
+<h2 id="文件与运行记录">文件与运行记录</h2>
+<pre><code class="language-text">第五部分-Agent/         # 八章正文与本指南
+assets/part05/          # 规则、技能、来源约定与题库全文
+script/part05/          # 完整 Agent 与实验
+data/part05/            # 真实评价用例
+images/part05-*.png     # 原创 matplotlib 插图
+outputs/part05/         # 索引、报告、个人数据库
+</code></pre>
+<p>个人数据库、last_task、索引缓存与服务日志由 Git 忽略；公开报告只保存教学用例和验证结果，不上传模型权重或读者个人记录。</p>
+<p>复现图与正文检查：</p>
+<pre><code class="language-powershell">python tools/draw_part05.py
+python tools/review_markdown.py
+</code></pre>
+<p>绘图需要已有 base 的 Matplotlib。本地审阅使用 CommonMark、表格与 MathJax，属于 GitHub 渲染的近似检查，不是线上页面验证。</p>
+<p>正文代码含局部片段与接口示意，变量由上下文说明；需要直接运行时使用对应完整脚本。向量扩展未做真实模型验证，其余核验范围均在报告中注明。</p>
+<h2 id="检索与解释质量复核">检索与解释质量复核</h2>
+<p>新增检索回归为15/15；新增五条真实解释经过逐项内容核对，1条满足、2条部分满足、2条存在错误。请结合<a href="/chapter/27/">第27章的分析</a>、<a href="/file/36a8c2d5d221/">原始回答</a>和<a href="/file/486689a35e41/">内容核对报告</a>阅读，不能把任务通过率当作知识正确率。</p>
+<p>启动本节模型服务后，可运行以下命令复测，输出文件名可自行指定，以保留历史结果：</p>
+<pre><code class="language-powershell">python script/part05/evaluate.py <span class="hljs-literal">--dataset</span> <span class="hljs-keyword">data</span>/part05/evaluation_quality.jsonl <span class="hljs-literal">--output-name</span> <span class="hljs-number">27</span>_evaluation_quality_local.json
+</code></pre>
+<h2 id="补充练习与验收">补充练习与验收</h2>
+<p><a href="/resource/d1ab98a69bdd/">本部分练习与参考答案</a>按章提供两道题、提示、答案与验收证据。先写自己的计算和判断，再核对；运行实验后保留真实报告、失败与适用范围。统一记录方式见<a href="/resource/506997cbbc41/">练习说明</a>。</p>
+</article>  <footer class="page-footer" data-pagefind-ignore>从 Python 基础到大模型应用与算子开发 <a href="https://github.com/cbt12123/handmade-llm/tree/simple" target="_blank" rel="noopener noreferrer">GitHub ↗</a></footer> </main> <aside class="page-toc" aria-label="本页目录" data-pagefind-ignore> <div class="toc-title">本页内容</div><a href="#章节与产出">章节与产出</a><a href="#附件与源码">附件与源码</a><a href="#环境与依赖">环境与依赖</a><a href="#准备知识索引">准备知识索引</a><a href="#启动真实模型服务">启动真实模型服务</a><a href="#运行完整学习流程">运行完整学习流程</a><a href="#核验与真实评价">核验与真实评价</a><a href="#可选语义检索">可选语义检索</a><a href="#文件与运行记录">文件与运行记录</a><a href="#检索与解释质量复核">检索与解释质量复核</a><a href="#补充练习与验收">补充练习与验收</a> <a class="back-top" href="#main">回到顶部 ↑</a> </aside> </div> <dialog id="search-dialog" aria-label="搜索完整教程"> <div class="dialog-head"><strong>搜索教程</strong><button id="search-close" aria-label="关闭搜索">✕</button></div> <div id="search"></div><p class="search-hint">输入关键词，查找正文、公式说明、练习和附件。</p> </dialog> <dialog id="image-dialog" aria-label="查看大图"><button id="image-close" aria-label="关闭图片">✕</button><img alt=""><p></p></dialog> <script type="module" src="/_astro/Book.astro_astro_type_script_index_0_lang.SvhK8ezw.js"></script> </body> </html>

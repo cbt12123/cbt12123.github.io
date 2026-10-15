@@ -1,0 +1,720 @@
+<!DOCTYPE html><html lang="zh-CN"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="完整中文教程：从 Python 与数学基础，到机器学习、大模型部署、Agent 与 NVIDIA 算子实践。"><title>34_real_inference.json · 手写与实践</title><link rel="stylesheet" href="/katex/katex.min.css"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/_astro/Book.ddZgooq8.css"></head> <body> <a class="skip" href="#main">跳转到正文</a> <header class="topbar" data-pagefind-ignore> <button id="menu-toggle" class="menu-toggle" aria-label="打开章节目录" aria-expanded="false" aria-controls="sidebar">☰</button> <a class="brand" href="/"><span class="brand-icon">∑</span><span>手写与实践<small>从 Python 到大模型</small></span></a> <nav class="top-links" aria-label="主导航"> <a href="/resources/">学习附件</a> <a href="/files/output/pdf/course-complete.pdf">完整 PDF <span>↗</span></a> <button id="search-open" class="search-trigger">搜索教程 <kbd>/</kbd></button> </nav> </header> <div id="menu-backdrop" class="menu-backdrop" hidden></div> <aside id="sidebar" class="sidebar" aria-label="章节目录" data-pagefind-ignore> <a class="nav-home" href="/">教程首页</a> <a class="nav-home" href="/overview/">阅读与运行指南</a> <section class="nav-group"> <div class="nav-group-title"><span>01</span>Python与计算基础</div>  <a class="chapter-link" href="/chapter/01/"><span>01</span>Python 基础</a><a class="chapter-link" href="/chapter/02/"><span>02</span>组织代码与数据处理</a><a class="chapter-link" href="/chapter/03/"><span>03</span>NumPy 与数据可视化</a> </section><section class="nav-group"> <div class="nav-group-title"><span>02</span>面向机器学习的数学基础</div> <a class="guide-link" href="/guide/2/">本部分运行指南</a> <a class="chapter-link" href="/chapter/04/"><span>04</span>函数与微积分入门</a><a class="chapter-link" href="/chapter/05/"><span>05</span>线性代数与向量计算</a><a class="chapter-link" href="/chapter/06/"><span>06</span>概率、统计与信息量</a><a class="chapter-link" href="/chapter/07/"><span>07</span>离散数学与算法思维</a> </section><section class="nav-group"> <div class="nav-group-title"><span>03</span>机器学习与深度学习</div> <a class="guide-link" href="/guide/3/">本部分运行指南</a> <a class="chapter-link" href="/chapter/08/"><span>08</span>机器学习任务与模型评价</a><a class="chapter-link" href="/chapter/09/"><span>09</span>模型如何学习与神经网络</a><a class="chapter-link" href="/chapter/10/"><span>10</span>PyTorch训练与模型管理</a><a class="chapter-link" href="/chapter/11/"><span>11</span>CNN与图像识别</a><a class="chapter-link" href="/chapter/12/"><span>12</span>NLP与序列建模</a><a class="chapter-link" href="/chapter/13/"><span>13</span>注意力与Transformer</a> </section><section class="nav-group"> <div class="nav-group-title"><span>04</span>大模型与部署</div> <a class="guide-link" href="/guide/4/">本部分运行指南</a> <a class="chapter-link" href="/chapter/14/"><span>14</span>语言模型与大模型结构</a><a class="chapter-link" href="/chapter/15/"><span>15</span>本地加载与对话输入</a><a class="chapter-link" href="/chapter/16/"><span>16</span>生成策略与KV缓存</a><a class="chapter-link" href="/chapter/17/"><span>17</span>资源预算、量化与参数适配</a><a class="chapter-link" href="/chapter/18/"><span>18</span>HTTP服务与部署实践</a><a class="chapter-link" href="/chapter/19/"><span>19</span>提示设计、评价与部署交付</a> </section><section class="nav-group"> <div class="nav-group-title"><span>05</span>Agent</div> <a class="guide-link" href="/guide/5/">本部分运行指南</a> <a class="chapter-link" href="/chapter/20/"><span>20</span>Agent 的组成与运行过程</a><a class="chapter-link" href="/chapter/21/"><span>21</span>编写第一个 Agent 循环</a><a class="chapter-link" href="/chapter/22/"><span>22</span>Rules：规则与执行边界</a><a class="chapter-link" href="/chapter/23/"><span>23</span>Skills：让任务方法可以复用</a><a class="chapter-link" href="/chapter/24/"><span>24</span>Knowledge：读取、检索与引用</a><a class="chapter-link" href="/chapter/25/"><span>25</span>状态、记忆与多步骤任务</a><a class="chapter-link" href="/chapter/26/"><span>26</span>组装完整课程学习助手</a><a class="chapter-link" href="/chapter/27/"><span>27</span>测试、评价与扩展</a> </section><section class="nav-group"> <div class="nav-group-title"><span>06</span>NVIDIA算子开发</div> <a class="guide-link" href="/guide/6/">本部分运行指南</a> <a class="chapter-link" href="/chapter/28/"><span>28</span>从推理瓶颈到 GPU 执行</a><a class="chapter-link" href="/chapter/29/"><span>29</span>第一个 CUDA 程序与数据布局</a><a class="chapter-link" href="/chapter/30/"><span>30</span>归约、共享内存与矩阵复用</a><a class="chapter-link" href="/chapter/31/"><span>31</span>用 Triton 实现融合 RMSNorm</a><a class="chapter-link" href="/chapter/32/"><span>32</span>Softmax、贪心选择与少算一步</a><a class="chapter-link" href="/chapter/33/"><span>33</span>性能测量与瓶颈分析</a><a class="chapter-link" href="/chapter/34/"><span>34</span>把融合算子接入真实推理</a><a class="chapter-link" href="/chapter/35/"><span>35</span>算子部署、评价与交付</a> </section> <section class="nav-group"><div class="nav-group-title">附录与练习</div> <a class="chapter-link" href="/appendix/01/">环境准备与复现</a><a class="chapter-link" href="/appendix/02/">学习路线与前置自测</a><a class="chapter-link" href="/appendix/03/">读懂后续工程代码</a><a class="chapter-link" href="/appendix/04/">数学符号与计算速查</a> <a class="chapter-link" href="/resource/506997cbbc41/">章节练习与产出验收</a> <a class="chapter-link" href="/resources/">全部代码与学习附件</a> </section> <div class="sidebar-note">六个部分 · 35 章<br>按自己的节奏，从第一章开始。</div> </aside> <div class="reading-layout"> <main id="main" class="main-content"> <div class="document-meta" data-pagefind-ignore><span>学习附件</span><a href="https://github.com/cbt12123/handmade-llm/blob/simple/outputs/part06/34_real_inference.json" target="_blank" rel="noopener noreferrer">GitHub 源文档 ↗</a><a href="/files/outputs/part06/34_real_inference.json" download>下载原文件 ↓</a></div> <article class="prose" data-pagefind-body data-pagefind-weight="0.3"><h1 data-pagefind-meta="title">34_real_inference.json</h1><p class="source-path">outputs/part06/34_real_inference.json</p><pre><code class="hljs language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;model_type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;qwen2&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;hidden_size&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1536</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;num_layers&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">28</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;dtype&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;float16&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;attention&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;sdpa&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;batch_size&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;logits_to_keep&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;selector&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;argmax&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;fixed_steps_ignore_eos_for_timing&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;repeats&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">9</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;verification&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+    <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;prompt&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;用一句话解释什么是矩阵。&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;input_tokens&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">35</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;same_ids&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;baseline_ids&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-punctuation">[</span>
+          <span class="hljs-number">115000</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">101158</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">104552</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">100166</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">3837</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">67071</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">101213</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">102268</span>
+        <span class="hljs-punctuation">]</span>
+      <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;fused_ids&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-punctuation">[</span>
+          <span class="hljs-number">115000</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">101158</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">104552</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">100166</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">3837</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">67071</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">101213</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">102268</span>
+        <span class="hljs-punctuation">]</span>
+      <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;baseline_text&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;矩阵是一种数学结构，由多个元素&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;fused_text&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;矩阵是一种数学结构，由多个元素&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;max_logit_errors&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-number">0.03125</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0.04296875</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0.03125</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0.0390625</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0.03515625</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0.0390625</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0.0390625</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0.03125</span>
+      <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;patch&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;patched_modules&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">57</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;names&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+          <span class="hljs-string">&quot;model.layers.0.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.0.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.1.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.1.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.2.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.2.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.3.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.3.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.4.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.4.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.5.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.5.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.6.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.6.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.7.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.7.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.8.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.8.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.9.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.9.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.10.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.10.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.11.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.11.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.12.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.12.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.13.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.13.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.14.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.14.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.15.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.15.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.16.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.16.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.17.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.17.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.18.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.18.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.19.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.19.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.20.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.20.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.21.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.21.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.22.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.22.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.23.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.23.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.24.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.24.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.25.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.25.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.26.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.26.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.27.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.27.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.norm&quot;</span>
+        <span class="hljs-punctuation">]</span>
+      <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;prompt&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;梯度下降中学习率有什么作用？&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;input_tokens&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">38</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;same_ids&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;baseline_ids&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-punctuation">[</span>
+          <span class="hljs-number">100546</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">26381</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">102008</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">101158</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">103983</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">107018</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">3837</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">100751</span>
+        <span class="hljs-punctuation">]</span>
+      <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;fused_ids&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-punctuation">[</span>
+          <span class="hljs-number">100546</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">26381</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">102008</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">101158</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">103983</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">107018</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">3837</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">100751</span>
+        <span class="hljs-punctuation">]</span>
+      <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;baseline_text&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;梯度下降是一种优化算法，用于&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;fused_text&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;梯度下降是一种优化算法，用于&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;max_logit_errors&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-number">0.0234375</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0.0390625</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0.0390625</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0.0234375</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0.03125</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0.033203125</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0.025390625</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0.0234375</span>
+      <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;patch&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;patched_modules&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">57</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;names&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+          <span class="hljs-string">&quot;model.layers.0.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.0.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.1.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.1.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.2.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.2.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.3.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.3.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.4.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.4.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.5.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.5.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.6.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.6.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.7.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.7.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.8.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.8.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.9.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.9.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.10.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.10.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.11.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.11.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.12.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.12.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.13.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.13.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.14.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.14.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.15.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.15.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.16.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.16.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.17.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.17.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.18.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.18.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.19.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.19.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.20.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.20.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.21.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.21.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.22.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.22.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.23.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.23.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.24.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.24.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.25.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.25.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.26.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.26.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.27.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.27.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.norm&quot;</span>
+        <span class="hljs-punctuation">]</span>
+      <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;prompt&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;公平硬币抛两次，两次正面的概率是多少？&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;input_tokens&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">40</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;same_ids&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;baseline_ids&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-punctuation">[</span>
+          <span class="hljs-number">102511</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">99927</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">99945</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">102599</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">105177</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">3837</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">105177</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">106557</span>
+        <span class="hljs-punctuation">]</span>
+      <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;fused_ids&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-punctuation">[</span>
+          <span class="hljs-number">102511</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">99927</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">99945</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">102599</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">105177</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">3837</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">105177</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">106557</span>
+        <span class="hljs-punctuation">]</span>
+      <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;baseline_text&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;公平硬币抛两次，两次正面&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;fused_text&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;公平硬币抛两次，两次正面&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;max_logit_errors&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-number">0.03125</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0.03125</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0.0390625</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0.03125</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0.03125</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0.029296875</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0.0234375</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">0.0234375</span>
+      <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;patch&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;patched_modules&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">57</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;names&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+          <span class="hljs-string">&quot;model.layers.0.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.0.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.1.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.1.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.2.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.2.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.3.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.3.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.4.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.4.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.5.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.5.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.6.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.6.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.7.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.7.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.8.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.8.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.9.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.9.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.10.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.10.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.11.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.11.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.12.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.12.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.13.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.13.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.14.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.14.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.15.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.15.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.16.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.16.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.17.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.17.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.18.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.18.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.19.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.19.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.20.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.20.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.21.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.21.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.22.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.22.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.23.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.23.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.24.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.24.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.25.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.25.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.26.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.26.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.27.input_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.layers.27.post_attention_layernorm&quot;</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-string">&quot;model.norm&quot;</span>
+        <span class="hljs-punctuation">]</span>
+      <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;measurements&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+    <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;input_tokens&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">128</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;generated_tokens_fixed&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">32</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;total_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;baseline&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+          <span class="hljs-number">1492.74114800005</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">1087.087664999899</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">1254.9622960000306</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">1126.486148999902</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">1042.8535260000444</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">1144.838171000174</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">1045.111105999922</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">966.9398419998743</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">1106.1431650000486</span>
+        <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;fused&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+          <span class="hljs-number">1232.8712959999848</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">1123.9724079998723</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">972.2255750000386</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">976.6033309999784</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">854.4672820000869</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">869.1230849999556</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">951.8489199999749</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">848.4579179998946</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">911.6989520000516</span>
+        <span class="hljs-punctuation">]</span>
+      <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;prefill_only_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;baseline&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+          <span class="hljs-number">42.94516300001305</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">54.03319000015472</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">46.082620999868595</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">45.80898100016384</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">35.67873400015742</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">44.982455000081245</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">51.785713000072064</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">50.29911099995843</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">41.182993999882456</span>
+        <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;fused&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+          <span class="hljs-number">48.52033399993161</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">49.37643299990668</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">41.965999000012744</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">32.143876999953136</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">43.98466499992537</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">32.534060999978465</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">36.73431099991831</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">32.13801800006877</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">43.43461399980697</span>
+        <span class="hljs-punctuation">]</span>
+      <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;total_median_speedup&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1.1620995115486161</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;prefill_median_speedup&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1.091573704706754</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;baseline_total_median_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1106.1431650000486</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;fused_total_median_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">951.8489199999749</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;same_full_generated_ids&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;generated_ids&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;baseline&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+          <span class="hljs-punctuation">[</span>
+            <span class="hljs-number">3465</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">553</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">54364</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">14817</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">13</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">1446</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">525</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">264</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">10950</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">17847</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">13</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">151645</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">198</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">151643</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">33975</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">25</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">220</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">109194</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">100007</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">37029</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">30280</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">9370</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">80427</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">44956</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">116073</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">46944</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">105172</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">99699</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">43268</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">28029</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">94432</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">18493</span>
+          <span class="hljs-punctuation">]</span>
+        <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;fused&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+          <span class="hljs-punctuation">[</span>
+            <span class="hljs-number">3465</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">553</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">54364</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">14817</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">13</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">1446</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">525</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">264</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">10950</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">17847</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">13</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">151645</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">198</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">151643</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">33975</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">25</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">220</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">109194</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">100007</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">37029</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">30280</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">9370</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">80427</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">44956</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">116073</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">46944</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">105172</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">99699</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">43268</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">28029</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">94432</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">18493</span>
+          <span class="hljs-punctuation">]</span>
+        <span class="hljs-punctuation">]</span>
+      <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;input_tokens&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">512</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;generated_tokens_fixed&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">32</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;total_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;baseline&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+          <span class="hljs-number">1065.6818519998978</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">1002.0876460000636</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">1060.9643939999387</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">1243.3005660000163</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">1221.928564000109</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">1121.920302000035</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">1153.281748999916</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">1118.9301680001336</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">1027.1365460000652</span>
+        <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;fused&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+          <span class="hljs-number">894.7332640000241</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">899.7126680001202</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">970.7871919999889</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">974.0809690001697</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">1043.2292319999306</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">1004.1844059999221</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">1035.0126629998613</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">1029.4718479999574</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">669.8412800001279</span>
+        <span class="hljs-punctuation">]</span>
+      <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;prefill_only_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;baseline&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+          <span class="hljs-number">109.68105699998887</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">78.01082699984363</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">94.58804600012627</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">112.35400800001116</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">120.23351700008789</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">125.72287199986931</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">126.92229099980068</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">116.50857100016765</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">78.06421000009323</span>
+        <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;fused&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+          <span class="hljs-number">92.37218300017958</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">90.4539329999352</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">89.96548599998277</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">89.90688300013971</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">99.1940369999611</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">112.45276099998591</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">122.38276699986272</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">85.18372200001068</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">98.46480599981078</span>
+        <span class="hljs-punctuation">]</span>
+      <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;total_median_speedup&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1.148703448285867</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;prefill_median_speedup&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1.2163186399935222</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;baseline_total_median_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1118.9301680001336</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;fused_total_median_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">974.0809690001697</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;same_full_generated_ids&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;generated_ids&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;baseline&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+          <span class="hljs-punctuation">[</span>
+            <span class="hljs-number">50007</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">32665</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">1773</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">151645</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">198</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">151644</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">77091</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">198</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">100546</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">26381</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">102008</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">101158</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">103983</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">107018</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">3837</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">100751</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">108801</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">32108</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">32804</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">1773</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">18493</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">100546</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">26381</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">102008</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">15946</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">3837</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">97639</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">107835</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">99393</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">100546</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">26381</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">100696</span>
+          <span class="hljs-punctuation">]</span>
+        <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;fused&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+          <span class="hljs-punctuation">[</span>
+            <span class="hljs-number">50007</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">32665</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">1773</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">151645</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">198</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">151644</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">77091</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">198</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">100546</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">26381</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">102008</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">101158</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">103983</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">107018</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">3837</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">100751</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">108801</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">32108</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">32804</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">1773</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">18493</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">100546</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">26381</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">102008</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">15946</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">3837</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">97639</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">107835</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">99393</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">100546</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">26381</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">100696</span>
+          <span class="hljs-punctuation">]</span>
+        <span class="hljs-punctuation">]</span>
+      <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;input_tokens&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1024</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;generated_tokens_fixed&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">32</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;total_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;baseline&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+          <span class="hljs-number">877.8786050002054</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">836.3954100000228</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">892.1337669999048</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">1145.5098369999632</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">1147.6296600001206</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">1326.962027000036</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">1311.6675829999167</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">1224.7314730000198</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">1166.8598189999102</span>
+        <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;fused&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+          <span class="hljs-number">731.063155000129</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">688.8462160000017</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">1053.7099660000422</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">1018.0884330000026</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">1166.4736000000175</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">1151.5022590001536</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">1192.386709999937</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">1145.086067999955</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">1124.9325310000131</span>
+        <span class="hljs-punctuation">]</span>
+      <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;prefill_only_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;baseline&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+          <span class="hljs-number">86.04508799999167</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">91.53680800000075</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">121.7509500002052</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">156.36033300006602</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">175.13997799983372</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">182.88257800008978</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">172.5903480000852</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">157.84392599994135</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">153.4919189998618</span>
+        <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;fused&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+          <span class="hljs-number">85.75549299985141</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">85.63987899992753</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">152.99212600007195</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">150.13275599994813</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">170.25474600018242</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">168.69326599999113</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">162.6298390001466</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">167.92997999982617</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-number">177.3467499999697</span>
+        <span class="hljs-punctuation">]</span>
+      <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;total_median_speedup&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1.0201764358080487</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;prefill_median_speedup&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.9614492270383731</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;baseline_total_median_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1147.6296600001206</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;fused_total_median_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1124.9325310000131</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;same_full_generated_ids&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;generated_ids&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;baseline&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+          <span class="hljs-punctuation">[</span>
+            <span class="hljs-number">100546</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">26381</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">102008</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">100288</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">99393</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">100546</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">26381</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">100696</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">50007</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">32665</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">1773</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">151645</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">198</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">151644</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">77091</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">198</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">100546</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">26381</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">102008</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">101158</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">103983</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">107018</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">3837</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">100751</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">108801</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">32108</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">32804</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">9370</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">25511</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">1773</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">18493</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">102182</span>
+          <span class="hljs-punctuation">]</span>
+        <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;fused&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+          <span class="hljs-punctuation">[</span>
+            <span class="hljs-number">100546</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">26381</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">102008</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">100288</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">99393</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">100546</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">26381</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">100696</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">50007</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">32665</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">1773</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">151645</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">198</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">151644</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">77091</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">198</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">100546</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">26381</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">102008</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">101158</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">103983</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">107018</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">3837</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">100751</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">108801</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">32108</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">32804</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">9370</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">25511</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">1773</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">18493</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">102182</span>
+          <span class="hljs-punctuation">]</span>
+        <span class="hljs-punctuation">]</span>
+      <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;config_sha256&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;98d2ff8cc47488d08a2b0b3acf4eb99ef210779b42bd48605f6b8e36acdbf670&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;scope&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Real Qwen greedy GPU inference, original HF eager RMSNorm vs course Triton replacement; no vLLM or full-model torch.compile speed claim.&quot;</span>
+<span class="hljs-punctuation">}</span></code></pre></article>  <footer class="page-footer" data-pagefind-ignore>从 Python 基础到大模型应用与算子开发 <a href="https://github.com/cbt12123/handmade-llm/tree/simple" target="_blank" rel="noopener noreferrer">GitHub ↗</a></footer> </main> <aside class="page-toc" aria-label="本页目录" data-pagefind-ignore>  <a class="back-top" href="#main">回到顶部 ↑</a> </aside> </div> <dialog id="search-dialog" aria-label="搜索完整教程"> <div class="dialog-head"><strong>搜索教程</strong><button id="search-close" aria-label="关闭搜索">✕</button></div> <div id="search"></div><p class="search-hint">输入关键词，查找正文、公式说明、练习和附件。</p> </dialog> <dialog id="image-dialog" aria-label="查看大图"><button id="image-close" aria-label="关闭图片">✕</button><img alt=""><p></p></dialog> <script type="module" src="/_astro/Book.astro_astro_type_script_index_0_lang.SvhK8ezw.js"></script> </body> </html>

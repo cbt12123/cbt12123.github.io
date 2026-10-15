@@ -1,0 +1,231 @@
+<!DOCTYPE html><html lang="zh-CN"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="完整中文教程：从 Python 与数学基础，到机器学习、大模型部署、Agent 与 NVIDIA 算子实践。"><title>第 6 章：概率、统计与信息量 · 手写与实践</title><link rel="stylesheet" href="/katex/katex.min.css"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/_astro/Book.ddZgooq8.css"></head> <body> <a class="skip" href="#main">跳转到正文</a> <header class="topbar" data-pagefind-ignore> <button id="menu-toggle" class="menu-toggle" aria-label="打开章节目录" aria-expanded="false" aria-controls="sidebar">☰</button> <a class="brand" href="/"><span class="brand-icon">∑</span><span>手写与实践<small>从 Python 到大模型</small></span></a> <nav class="top-links" aria-label="主导航"> <a href="/resources/">学习附件</a> <a href="/files/output/pdf/course-complete.pdf">完整 PDF <span>↗</span></a> <button id="search-open" class="search-trigger">搜索教程 <kbd>/</kbd></button> </nav> </header> <div id="menu-backdrop" class="menu-backdrop" hidden></div> <aside id="sidebar" class="sidebar" aria-label="章节目录" data-pagefind-ignore> <a class="nav-home" href="/">教程首页</a> <a class="nav-home" href="/overview/">阅读与运行指南</a> <section class="nav-group"> <div class="nav-group-title"><span>01</span>Python与计算基础</div>  <a class="chapter-link" href="/chapter/01/"><span>01</span>Python 基础</a><a class="chapter-link" href="/chapter/02/"><span>02</span>组织代码与数据处理</a><a class="chapter-link" href="/chapter/03/"><span>03</span>NumPy 与数据可视化</a> </section><section class="nav-group"> <div class="nav-group-title"><span>02</span>面向机器学习的数学基础</div> <a class="guide-link" href="/guide/2/">本部分运行指南</a> <a class="chapter-link" href="/chapter/04/"><span>04</span>函数与微积分入门</a><a class="chapter-link" href="/chapter/05/"><span>05</span>线性代数与向量计算</a><a class="chapter-link active" href="/chapter/06/" aria-current="page"><span>06</span>概率、统计与信息量</a><a class="chapter-link" href="/chapter/07/"><span>07</span>离散数学与算法思维</a> </section><section class="nav-group"> <div class="nav-group-title"><span>03</span>机器学习与深度学习</div> <a class="guide-link" href="/guide/3/">本部分运行指南</a> <a class="chapter-link" href="/chapter/08/"><span>08</span>机器学习任务与模型评价</a><a class="chapter-link" href="/chapter/09/"><span>09</span>模型如何学习与神经网络</a><a class="chapter-link" href="/chapter/10/"><span>10</span>PyTorch训练与模型管理</a><a class="chapter-link" href="/chapter/11/"><span>11</span>CNN与图像识别</a><a class="chapter-link" href="/chapter/12/"><span>12</span>NLP与序列建模</a><a class="chapter-link" href="/chapter/13/"><span>13</span>注意力与Transformer</a> </section><section class="nav-group"> <div class="nav-group-title"><span>04</span>大模型与部署</div> <a class="guide-link" href="/guide/4/">本部分运行指南</a> <a class="chapter-link" href="/chapter/14/"><span>14</span>语言模型与大模型结构</a><a class="chapter-link" href="/chapter/15/"><span>15</span>本地加载与对话输入</a><a class="chapter-link" href="/chapter/16/"><span>16</span>生成策略与KV缓存</a><a class="chapter-link" href="/chapter/17/"><span>17</span>资源预算、量化与参数适配</a><a class="chapter-link" href="/chapter/18/"><span>18</span>HTTP服务与部署实践</a><a class="chapter-link" href="/chapter/19/"><span>19</span>提示设计、评价与部署交付</a> </section><section class="nav-group"> <div class="nav-group-title"><span>05</span>Agent</div> <a class="guide-link" href="/guide/5/">本部分运行指南</a> <a class="chapter-link" href="/chapter/20/"><span>20</span>Agent 的组成与运行过程</a><a class="chapter-link" href="/chapter/21/"><span>21</span>编写第一个 Agent 循环</a><a class="chapter-link" href="/chapter/22/"><span>22</span>Rules：规则与执行边界</a><a class="chapter-link" href="/chapter/23/"><span>23</span>Skills：让任务方法可以复用</a><a class="chapter-link" href="/chapter/24/"><span>24</span>Knowledge：读取、检索与引用</a><a class="chapter-link" href="/chapter/25/"><span>25</span>状态、记忆与多步骤任务</a><a class="chapter-link" href="/chapter/26/"><span>26</span>组装完整课程学习助手</a><a class="chapter-link" href="/chapter/27/"><span>27</span>测试、评价与扩展</a> </section><section class="nav-group"> <div class="nav-group-title"><span>06</span>NVIDIA算子开发</div> <a class="guide-link" href="/guide/6/">本部分运行指南</a> <a class="chapter-link" href="/chapter/28/"><span>28</span>从推理瓶颈到 GPU 执行</a><a class="chapter-link" href="/chapter/29/"><span>29</span>第一个 CUDA 程序与数据布局</a><a class="chapter-link" href="/chapter/30/"><span>30</span>归约、共享内存与矩阵复用</a><a class="chapter-link" href="/chapter/31/"><span>31</span>用 Triton 实现融合 RMSNorm</a><a class="chapter-link" href="/chapter/32/"><span>32</span>Softmax、贪心选择与少算一步</a><a class="chapter-link" href="/chapter/33/"><span>33</span>性能测量与瓶颈分析</a><a class="chapter-link" href="/chapter/34/"><span>34</span>把融合算子接入真实推理</a><a class="chapter-link" href="/chapter/35/"><span>35</span>算子部署、评价与交付</a> </section> <section class="nav-group"><div class="nav-group-title">附录与练习</div> <a class="chapter-link" href="/appendix/01/">环境准备与复现</a><a class="chapter-link" href="/appendix/02/">学习路线与前置自测</a><a class="chapter-link" href="/appendix/03/">读懂后续工程代码</a><a class="chapter-link" href="/appendix/04/">数学符号与计算速查</a> <a class="chapter-link" href="/resource/506997cbbc41/">章节练习与产出验收</a> <a class="chapter-link" href="/resources/">全部代码与学习附件</a> </section> <div class="sidebar-note">六个部分 · 35 章<br>按自己的节奏，从第一章开始。</div> </aside> <div class="reading-layout"> <main id="main" class="main-content"> <div class="document-meta" data-pagefind-ignore><span>第 06 章</span><a href="https://github.com/cbt12123/handmade-llm/blob/simple/%E7%AC%AC%E4%BA%8C%E9%83%A8%E5%88%86-%E9%9D%A2%E5%90%91%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/06-%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%8E%E4%BF%A1%E6%81%AF%E9%87%8F.md" target="_blank" rel="noopener noreferrer">GitHub 源文档 ↗</a></div> <details class="mobile-toc" data-pagefind-ignore><summary>本页目录</summary><a href="#61-事件样本空间与概率">6.1 事件、样本空间与概率</a><a href="#62-频率与概率多次实验看到什么">6.2 频率与概率：多次实验看到什么</a><a href="#63-条件概率与独立性">6.3 条件概率与独立性</a><a href="#64-贝叶斯公式把条件方向反过来">6.4 贝叶斯公式：把条件方向反过来</a><a href="#65-随机变量与常见分布">6.5 随机变量与常见分布</a><a href="#66-期望方差与标准差">6.6 期望、方差与标准差</a><a href="#67-抽样估计与不确定性">6.7 抽样、估计与不确定性</a><a href="#68-似然与最大似然估计">6.8 似然与最大似然估计</a><a href="#69-信息量与熵">6.9 信息量与熵</a><a href="#610-交叉熵与-kl-散度">6.10 交叉熵与 KL 散度</a><a href="#611-从计数到文本概率与困惑度">6.11 从计数到文本概率与困惑度</a><a href="#612-章末产出概率模拟与文本信息量实验">6.12 章末产出：概率模拟与文本信息量实验</a><a href="#613-自检">6.13 自检</a></details><article class="prose" data-pagefind-body data-pagefind-weight="1"><h1 id="第-6-章概率统计与信息量" data-pagefind-meta="title">第 6 章：概率、统计与信息量</h1>
+<p>模型经常给出“这个类别的概率”，训练时又会看到交叉熵。这一章从抛硬币和计数开始，逐步连接条件概率、统计估计与预测信息量。</p>
+<p><strong>先修：</strong> 循环、NumPy 均值与随机数，第 4 章的指数、对数和积分直觉。不需要先掌握概率分布的专业术语。</p>
+<h2 id="61-事件样本空间与概率">6.1 事件、样本空间与概率</h2>
+<p>一次掷骰子的可能结果是 <code>{1,2,3,4,5,6}</code>，称样本空间。事件是其中一组结果，例如“偶数”对应 <code>{2,4,6}</code>。</p>
+<p>若骰子公平，六个结果等可能，则偶数概率为 3/6=1/2。概率在 [0,1] 之间：0 表示零概率，1 表示必然事件的概率。连续变量里零概率事件不一定是不可能的，后面会说明。</p>
+<pre><code class="language-python">outcomes = <span class="hljs-built_in">set</span>(<span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, <span class="hljs-number">7</span>))
+even = {<span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">6</span>}
+<span class="hljs-built_in">print</span>(<span class="hljs-built_in">len</span>(even) / <span class="hljs-built_in">len</span>(outcomes))  <span class="hljs-comment"># 0.5</span>
+</code></pre>
+<p>“有利结果数/总结果数”只适用于有限且各结果等可能的情况，不适用于任何随机问题。</p>
+<p>互斥事件不能同时发生，例如骰子为 1 和为 2；其并集概率直接相加。一般情况要减去重叠：<code>P(A∪B)=P(A)+P(B)-P(A∩B)</code>。</p>
+<h2 id="62-频率与概率多次实验看到什么">6.2 频率与概率：多次实验看到什么</h2>
+<p>概率是模型中的量；频率是有限次实验观察到的比例。公平硬币也可能连续几次正面，不要求每两次恰好一正一反。</p>
+<pre><code class="language-python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+
+rng = np.random.default_rng(<span class="hljs-number">42</span>)
+heads = rng.integers(<span class="hljs-number">0</span>, <span class="hljs-number">2</span>, size=<span class="hljs-number">10000</span>)
+frequency = np.cumsum(heads) / np.arange(<span class="hljs-number">1</span>, <span class="hljs-built_in">len</span>(heads) + <span class="hljs-number">1</span>)
+<span class="hljs-built_in">print</span>(<span class="hljs-built_in">round</span>(<span class="hljs-built_in">float</span>(frequency[-<span class="hljs-number">1</span>]), <span class="hljs-number">3</span>))
+<span class="hljs-keyword">assert</span> <span class="hljs-built_in">abs</span>(frequency[-<span class="hljs-number">1</span>] - <span class="hljs-number">0.5</span>) &lt; <span class="hljs-number">0.03</span>
+</code></pre>
+<p><img src="/files/images/part02-frequency.png" alt="硬币正面频率随实验次数变化" loading="lazy" decoding="async"></p>
+<p>对于独立同分布、具有相应期望的实验，大数定律说明样本平均会以适当意义靠近期望。频率不会保证单调靠近 0.5，也不是“前面正面多，后面必须补反面”。</p>
+<h2 id="63-条件概率与独立性">6.3 条件概率与独立性</h2>
+<p>条件概率 <code>P(A|B)</code> 表示已知 B 发生时 A 的概率。当 P(B)&gt;0：</p>
+<div class="formula"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>P</mi><mo stretchy="false">(</mo><mi>A</mi><mi mathvariant="normal">∣</mi><mi>B</mi><mo stretchy="false">)</mo><mo>=</mo><mfrac><mrow><mi>P</mi><mo stretchy="false">(</mo><mi>A</mi><mo>∩</mo><mi>B</mi><mo stretchy="false">)</mo></mrow><mrow><mi>P</mi><mo stretchy="false">(</mo><mi>B</mi><mo stretchy="false">)</mo></mrow></mfrac></mrow><annotation encoding="application/x-tex">P(A|B)=\frac{P(A\cap B)}{P(B)}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.1389em;">P</span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mord">∣</span><span class="mord mathnormal" style="margin-right:0.0502em;">B</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.363em;vertical-align:-0.936em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.427em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.1389em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.0502em;">B</span><span class="mclose">)</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.1389em;">P</span><span class="mopen">(</span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∩</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal" style="margin-right:0.0502em;">B</span><span class="mclose">)</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.936em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></div><p>公平骰子已知为偶数，则只在 <code>{2,4,6}</code> 中判断。大于 3 的结果有 <code>{4,6}</code>，条件概率为 2/3；没有这个条件时，大于 3 的概率为 1/2。</p>
+<pre><code class="language-python">even = {<span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">6</span>}
+greater_than_three = {<span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>}
+<span class="hljs-built_in">print</span>(<span class="hljs-built_in">len</span>(even &amp; greater_than_three) / <span class="hljs-built_in">len</span>(even))  <span class="hljs-comment"># 0.666...</span>
+</code></pre>
+<p>两个事件独立时 <code>P(A∩B)=P(A)P(B)</code>，也就是知道一个不改变另一个的概率。互斥不等于独立：两个有正概率的互斥事件知道一个发生后，另一个就不能发生。</p>
+<p>以后语言模型中的 <code>P(下一个词|前文)</code> 是条件概率，前文改变了候选词的分布。</p>
+<h2 id="64-贝叶斯公式把条件方向反过来">6.4 贝叶斯公式：把条件方向反过来</h2>
+<p>假设某种缺陷比例为 1%，检测对有缺陷样品的阳性率为 90%，对无缺陷样品的误报率为 5%。检测阳性后，真的有缺陷的概率不是 90%。</p>
+<p>想象 10000 个样品：100 个有缺陷，预期 90 个阳性；9900 个无缺陷，预期 495 个误报。阳性里有缺陷的比例为 <code>90/(90+495)≈15.38%</code>。</p>
+<p><img src="/files/images/part02-bayes.png" alt="贝叶斯计算中的阳性来源" loading="lazy" decoding="async"></p>
+<div class="formula"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>P</mi><mo stretchy="false">(</mo><mi>D</mi><mi mathvariant="normal">∣</mi><mo>+</mo><mo stretchy="false">)</mo><mo>=</mo><mfrac><mrow><mi>P</mi><mo stretchy="false">(</mo><mo>+</mo><mi mathvariant="normal">∣</mi><mi>D</mi><mo stretchy="false">)</mo><mi>P</mi><mo stretchy="false">(</mo><mi>D</mi><mo stretchy="false">)</mo></mrow><mrow><mi>P</mi><mo stretchy="false">(</mo><mo>+</mo><mi mathvariant="normal">∣</mi><mi>D</mi><mo stretchy="false">)</mo><mi>P</mi><mo stretchy="false">(</mo><mi>D</mi><mo stretchy="false">)</mo><mo>+</mo><mi>P</mi><mo stretchy="false">(</mo><mo>+</mo><mi mathvariant="normal">∣</mi><mi mathvariant="normal">¬</mi><mi>D</mi><mo stretchy="false">)</mo><mi>P</mi><mo stretchy="false">(</mo><mi mathvariant="normal">¬</mi><mi>D</mi><mo stretchy="false">)</mo></mrow></mfrac></mrow><annotation encoding="application/x-tex">P(D|+) = \frac{P(+|D)P(D)}{P(+|D)P(D)+P(+|\neg D)P(\neg D)}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.1389em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.0278em;">D</span><span class="mord">∣</span><span class="mord">+</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.363em;vertical-align:-0.936em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.427em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.1389em;">P</span><span class="mopen">(</span><span class="mord">+</span><span class="mord">∣</span><span class="mord mathnormal" style="margin-right:0.0278em;">D</span><span class="mclose">)</span><span class="mord mathnormal" style="margin-right:0.1389em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.0278em;">D</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal" style="margin-right:0.1389em;">P</span><span class="mopen">(</span><span class="mord">+</span><span class="mord">∣¬</span><span class="mord mathnormal" style="margin-right:0.0278em;">D</span><span class="mclose">)</span><span class="mord mathnormal" style="margin-right:0.1389em;">P</span><span class="mopen">(</span><span class="mord">¬</span><span class="mord mathnormal" style="margin-right:0.0278em;">D</span><span class="mclose">)</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.1389em;">P</span><span class="mopen">(</span><span class="mord">+</span><span class="mord">∣</span><span class="mord mathnormal" style="margin-right:0.0278em;">D</span><span class="mclose">)</span><span class="mord mathnormal" style="margin-right:0.1389em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.0278em;">D</span><span class="mclose">)</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.936em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></div><pre><code class="language-python">prevalence = <span class="hljs-number">0.01</span>
+sensitivity = <span class="hljs-number">0.90</span>
+false_positive = <span class="hljs-number">0.05</span>
+positive = sensitivity * prevalence + false_positive * (<span class="hljs-number">1</span> - prevalence)
+posterior = sensitivity * prevalence / positive
+<span class="hljs-built_in">print</span>(<span class="hljs-built_in">round</span>(posterior, <span class="hljs-number">4</span>))  <span class="hljs-comment"># 0.1538</span>
+</code></pre>
+<p>D 是有缺陷，<code>¬D</code> 是无缺陷。先验是观察检测前的缺陷概率，后验是看见阳性后的概率。这是人为假设的计算示例，不是具体产品或医疗检测的参数。</p>
+<h2 id="65-随机变量与常见分布">6.5 随机变量与常见分布</h2>
+<p>随机变量把随机结果对应成数值。硬币正面记为 1、反面记为 0，是取两个值的随机变量。</p>
+<table>
+<thead>
+<tr>
+<th>分布</th>
+<th>描述</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>伯努利</td>
+<td>一次 0/1 结果</td>
+<td>是否正面</td>
+</tr>
+<tr>
+<td>二项</td>
+<td>固定次数独立伯努利实验的成功数</td>
+<td>10 次中正面次数</td>
+</tr>
+<tr>
+<td>离散均匀</td>
+<td>有限结果等可能</td>
+<td>公平骰子</td>
+</tr>
+<tr>
+<td>正态</td>
+<td>中间较集中、两边较少的连续模型</td>
+<td>某些测量误差的近似</td>
+</tr>
+</tbody>
+</table>
+<p><img src="/files/images/part02-distributions.png" alt="离散概率与连续概率密度" loading="lazy" decoding="async"></p>
+<p>离散变量在每个值上有概率，概率相加为 1。连续变量用<strong>密度</strong>描述，区间概率是密度曲线下的积分；密度高度不是点概率，也可能大于 1。通常的连续密度模型中，一个精确点的概率为 0，区间仍有正概率。</p>
+<pre><code class="language-python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+
+rng = np.random.default_rng(<span class="hljs-number">7</span>)
+normal = rng.normal(loc=<span class="hljs-number">0</span>, scale=<span class="hljs-number">1</span>, size=<span class="hljs-number">10000</span>)
+within_one = np.mean((normal &gt;= -<span class="hljs-number">1</span>) &amp; (normal &lt;= <span class="hljs-number">1</span>))
+<span class="hljs-built_in">print</span>(<span class="hljs-built_in">round</span>(<span class="hljs-built_in">float</span>(within_one), <span class="hljs-number">3</span>))  <span class="hljs-comment"># 接近 0.68，不要求固定小数</span>
+<span class="hljs-keyword">assert</span> <span class="hljs-number">0.64</span> &lt; within_one &lt; <span class="hljs-number">0.72</span>
+</code></pre>
+<p>不是所有数据都正态分布，要结合来源与图形判断。调用生成器模拟正态数据，并不能证明真实数据服从正态分布。</p>
+<h2 id="66-期望方差与标准差">6.6 期望、方差与标准差</h2>
+<p>离散变量的期望是按概率加权的平均：<code>E[X]=ΣxP(X=x)</code>。公平骰子的期望是 <code>(1+2+3+4+5+6)/6=3.5</code>，虽然单次不可能掷出 3.5。</p>
+<p>方差描述围绕期望的平方偏离：<code>Var(X)=E[(X-E[X])²]</code>。标准差是方差的平方根，单位与原数值一致。</p>
+<pre><code class="language-python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+
+values = np.arange(<span class="hljs-number">1</span>, <span class="hljs-number">7</span>, dtype=<span class="hljs-built_in">float</span>)
+probabilities = np.full(<span class="hljs-number">6</span>, <span class="hljs-number">1</span> / <span class="hljs-number">6</span>)
+mean = np.<span class="hljs-built_in">sum</span>(values * probabilities)
+variance = np.<span class="hljs-built_in">sum</span>((values - mean) ** <span class="hljs-number">2</span> * probabilities)
+<span class="hljs-built_in">print</span>(mean)  <span class="hljs-comment"># 3.5</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-built_in">round</span>(<span class="hljs-built_in">float</span>(variance), <span class="hljs-number">6</span>))  <span class="hljs-comment"># 2.916667</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-built_in">round</span>(<span class="hljs-built_in">float</span>(np.sqrt(variance)), <span class="hljs-number">6</span>))  <span class="hljs-comment"># 1.707825</span>
+</code></pre>
+<p>在样本统计中，NumPy var 默认除以 n；若用样本估计总体方差，在独立同分布等条件下，<code>var(ddof=1)</code> 除以 n-1，得到常见的无偏样本方差估计。先说明自己算的是给定数据的描述量，还是总体的估计量。</p>
+<h2 id="67-抽样估计与不确定性">6.7 抽样、估计与不确定性</h2>
+<p>只看到一小批数据时，样本均值不一定等于总体期望。多取几批同样大小的样本，可以看到均值本身也会变化。</p>
+<pre><code class="language-python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+
+rng = np.random.default_rng(<span class="hljs-number">10</span>)
+small = rng.normal(size=(<span class="hljs-number">1000</span>, <span class="hljs-number">10</span>)).mean(axis=<span class="hljs-number">1</span>)
+large = rng.normal(size=(<span class="hljs-number">1000</span>, <span class="hljs-number">100</span>)).mean(axis=<span class="hljs-number">1</span>)
+<span class="hljs-built_in">print</span>(<span class="hljs-built_in">round</span>(<span class="hljs-built_in">float</span>(small.std()), <span class="hljs-number">3</span>), <span class="hljs-built_in">round</span>(<span class="hljs-built_in">float</span>(large.std()), <span class="hljs-number">3</span>))
+<span class="hljs-keyword">assert</span> large.std() &lt; small.std()
+</code></pre>
+<p>这比较的是 1000 批样本均值的波动。本例独立样本的均值标准差随 <code>1/√n</code> 缩小；样本更多并不保证消除抽样偏差，例如只调查同一类人。</p>
+<p><img src="/files/images/part02-sampling.png" alt="不同样本数下的均值波动" loading="lazy" decoding="async"></p>
+<p>以后评估分类模型，不能只报告某一次测试准确率，还需要关注样本量、类别比例和数据是否代表实际使用场景。</p>
+<h2 id="68-似然与最大似然估计">6.8 似然与最大似然估计</h2>
+<p>概率通常是“参数已知，观察什么数据”。似然则是“数据已见，哪个参数更能解释它”，把同一个表达式视为参数的函数；它不是参数本身的概率分布。</p>
+<p>10 次硬币中 7 次正面、3 次反面，设正面概率为 p。对这组独立观察的序列：</p>
+<div class="formula"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>L</mi><mo stretchy="false">(</mo><mi>p</mi><mo stretchy="false">)</mo><mo>=</mo><msup><mi>p</mi><mn>7</mn></msup><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><mi>p</mi><msup><mo stretchy="false">)</mo><mn>3</mn></msup></mrow><annotation encoding="application/x-tex">L(p)=p^7(1-p)^3
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">L</span><span class="mopen">(</span><span class="mord mathnormal">p</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.1141em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal">p</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">7</span></span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.1141em;vertical-align:-0.25em;"></span><span class="mord mathnormal">p</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span></span></span></span></span></span></span></span></span></div><p>取对数为 <code>7ln(p)+3ln(1-p)</code>；求导并令其为 0，可得 p=0.7。这里既用到了第 4 章的对数，也用到了求导。</p>
+<pre><code class="language-python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+
+candidates = np.linspace(<span class="hljs-number">0.01</span>, <span class="hljs-number">0.99</span>, <span class="hljs-number">99</span>)
+log_likelihood = <span class="hljs-number">7</span> * np.log(candidates) + <span class="hljs-number">3</span> * np.log(<span class="hljs-number">1</span> - candidates)
+best = candidates[np.argmax(log_likelihood)]
+<span class="hljs-built_in">print</span>(<span class="hljs-built_in">round</span>(<span class="hljs-built_in">float</span>(best), <span class="hljs-number">2</span>))  <span class="hljs-comment"># 0.7</span>
+</code></pre>
+<p>若只关心正面次数，二项分布还包含组合系数；它不依赖 p，因此不影响这里的最大值位置。小样本估计可能过于极端，后面 n-gram 平滑会再次遇到这个问题。</p>
+<h2 id="69-信息量与熵">6.9 信息量与熵</h2>
+<p>少见事件发生时更出人意料。用 <code>I(x)=-ln P(x)</code> 描述信息量：概率 1 时为 0，概率越小越大。这里自然对数的单位为 nat；使用 log₂ 时单位为 bit。</p>
+<p>熵是平均信息量：</p>
+<div class="formula"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>H</mi><mo stretchy="false">(</mo><mi>P</mi><mo stretchy="false">)</mo><mo>=</mo><mo>−</mo><munder><mo>∑</mo><mi>i</mi></munder><msub><mi>p</mi><mi>i</mi></msub><mi>ln</mi><mo>⁡</mo><msub><mi>p</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">H(P)=-\sum_i p_i\ln p_i
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0813em;">H</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.1389em;">P</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.3277em;vertical-align:-1.2777em;"></span><span class="mord">−</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.05em;"><span style="top:-1.8723em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span><span style="top:-3.05em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.2777em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop">ln</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span></div><pre><code class="language-python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">entropy</span>(<span class="hljs-params">p</span>):
+    p = np.asarray(p, dtype=<span class="hljs-built_in">float</span>)
+    positive = p &gt; <span class="hljs-number">0</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">float</span>(-np.<span class="hljs-built_in">sum</span>(p[positive] * np.log(p[positive])))
+
+<span class="hljs-built_in">print</span>(<span class="hljs-built_in">round</span>(entropy([<span class="hljs-number">0.5</span>, <span class="hljs-number">0.5</span>]), <span class="hljs-number">6</span>))  <span class="hljs-comment"># 0.693147</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-built_in">round</span>(entropy([<span class="hljs-number">0.9</span>, <span class="hljs-number">0.1</span>]), <span class="hljs-number">6</span>))  <span class="hljs-comment"># 0.325083</span>
+<span class="hljs-built_in">print</span>(entropy([<span class="hljs-number">1.0</span>, <span class="hljs-number">0.0</span>]))            <span class="hljs-comment"># -0.0，数值意义为 0</span>
+</code></pre>
+<p>每个分布先满足非负且总和为 1。0ln0 在熵中按极限约定为 0，所以跳过零项。对固定类别数，均匀分布熵最大；某一类几乎确定时熵较低。</p>
+<h2 id="610-交叉熵与-kl-散度">6.10 交叉熵与 KL 散度</h2>
+<p>P 是真实分布，Q 是预测分布。交叉熵是用 Q 的信息量评价 P：</p>
+<div class="formula"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>H</mi><mo stretchy="false">(</mo><mi>P</mi><mo separator="true">,</mo><mi>Q</mi><mo stretchy="false">)</mo><mo>=</mo><mo>−</mo><munder><mo>∑</mo><mi>i</mi></munder><msub><mi>p</mi><mi>i</mi></msub><mi>ln</mi><mo>⁡</mo><msub><mi>q</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">H(P,Q)=-\sum_i p_i\ln q_i
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0813em;">H</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.1389em;">P</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">Q</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.3277em;vertical-align:-1.2777em;"></span><span class="mord">−</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.05em;"><span style="top:-1.8723em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span><span style="top:-3.05em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.2777em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop">ln</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0359em;">q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span></div><p>若真实标签为第 0 类，P=[1,0]，交叉熵就是 <code>-ln q₀</code>。预测给正确类别 0.9，比给它 0.1 的损失小。</p>
+<pre><code class="language-python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+
+good = -np.log(<span class="hljs-number">0.9</span>)
+bad = -np.log(<span class="hljs-number">0.1</span>)
+<span class="hljs-built_in">print</span>(<span class="hljs-built_in">round</span>(<span class="hljs-built_in">float</span>(good), <span class="hljs-number">6</span>), <span class="hljs-built_in">round</span>(<span class="hljs-built_in">float</span>(bad), <span class="hljs-number">6</span>))  <span class="hljs-comment"># 0.105361 2.302585</span>
+<span class="hljs-keyword">assert</span> good &lt; bad
+
+p = np.array([<span class="hljs-number">0.8</span>, <span class="hljs-number">0.2</span>])
+q = np.array([<span class="hljs-number">0.6</span>, <span class="hljs-number">0.4</span>])
+h_p = -np.<span class="hljs-built_in">sum</span>(p * np.log(p))
+cross_entropy = -np.<span class="hljs-built_in">sum</span>(p * np.log(q))
+kl = np.<span class="hljs-built_in">sum</span>(p * np.log(p / q))
+<span class="hljs-keyword">assert</span> np.isclose(cross_entropy, h_p + kl)
+<span class="hljs-keyword">assert</span> kl &gt;= <span class="hljs-number">0</span>
+</code></pre>
+<p>KL 散度为 <code>Σpᵢln(pᵢ/qᵢ)</code>，满足 <code>H(P,Q)=H(P)+KL(P||Q)</code>。它一般不对称，不是普通几何距离；若 P 某处为正而 Q 为 0，该项为无穷大。</p>
+<p><img src="/files/images/part02-cross-entropy.png" alt="二分类预测的交叉熵损失" loading="lazy" decoding="async"></p>
+<p>训练分类模型时，希望提高正确类别的概率，从而降低损失。真实任务还需要用独立数据评估泛化能力，不能只看训练交叉熵。</p>
+<h2 id="611-从计数到文本概率与困惑度">6.11 从计数到文本概率与困惑度</h2>
+<p>先用三个 token 的小词表。训练文本中“猫”出现两次，“狗”和“鸟”各一次，计数归一化得到概率 <code>[0.5,0.25,0.25]</code>。</p>
+<pre><code class="language-python"><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> Counter
+<span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+
+tokens = [<span class="hljs-string">&quot;猫&quot;</span>, <span class="hljs-string">&quot;狗&quot;</span>, <span class="hljs-string">&quot;猫&quot;</span>, <span class="hljs-string">&quot;鸟&quot;</span>]
+counts = Counter(tokens)
+probabilities = {token: count / <span class="hljs-built_in">len</span>(tokens) <span class="hljs-keyword">for</span> token, count <span class="hljs-keyword">in</span> counts.items()}
+test = [<span class="hljs-string">&quot;猫&quot;</span>, <span class="hljs-string">&quot;狗&quot;</span>]
+mean_loss = -np.mean([np.log(probabilities[token]) <span class="hljs-keyword">for</span> token <span class="hljs-keyword">in</span> test])
+perplexity = np.exp(mean_loss)
+<span class="hljs-built_in">print</span>(<span class="hljs-built_in">round</span>(<span class="hljs-built_in">float</span>(mean_loss), <span class="hljs-number">6</span>))  <span class="hljs-comment"># 1.039721</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-built_in">round</span>(<span class="hljs-built_in">float</span>(perplexity), <span class="hljs-number">6</span>))  <span class="hljs-comment"># 2.828427</span>
+</code></pre>
+<p>困惑度是自然对数下平均负对数概率的指数。这个例子没有利用前文，是最简单的 unigram；后面的语言模型会预测条件概率。比较困惑度时，要保持测试集和分词方式一致。</p>
+<p>未见 token 概率为 0，直接出现无穷损失。可为固定词表的每个词计数加一个小正数再归一化，称平滑；词表外的词还需未知词策略。平滑不是无条件提高所有测试结果。</p>
+<h2 id="612-章末产出概率模拟与文本信息量实验">6.12 章末产出：概率模拟与文本信息量实验</h2>
+<p>运行 <code>python script/part02/06_probability.py</code>，保存硬币累计频率图、贝叶斯结果、熵与文本困惑度：</p>
+<ul>
+<li><code>outputs/part02/06-probability.json</code></li>
+<li><code>outputs/part02/06-frequency.png</code></li>
+</ul>
+<p><strong>验收：</strong> 能手算阳性后验概率；说明均匀分布熵为什么较大；解释未见词为何产生问题；给出固定词表平滑前后测试困惑度。改变样本数或种子，不要求每次频率精确为 0.5。</p>
+<h2 id="613-自检">6.13 自检</h2>
+<table>
+<thead>
+<tr>
+<th>问题</th>
+<th>答案</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P(A</td>
+<td>B) 与 P(B</td>
+</tr>
+<tr>
+<td>互斥是否等于独立？</td>
+<td>不是。</td>
+</tr>
+<tr>
+<td>连续密度高度是点概率吗？</td>
+<td>不是，区间概率通过积分得到。</td>
+</tr>
+<tr>
+<td>期望必须是可出现的单次值吗？</td>
+<td>不必，如骰子期望 3.5。</td>
+</tr>
+<tr>
+<td>似然是参数的概率吗？</td>
+<td>不是；固定数据，把表达式视为参数函数。</td>
+</tr>
+<tr>
+<td>交叉熵何时大？</td>
+<td>对真实会发生的结果，预测概率给得小。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="补充练习与验收">补充练习与验收</h3>
+<p>先独立完成<a href="/resource/bfb5a0707445/#%E7%AC%AC06%E7%AB%A0">本章两道练习</a>，再核对参考答案和本章验收证据。记录自己的输入、结果与边界案例，不要求复制作者的实验数值。</p>
+<p><a href="/chapter/05/">上一章</a> · <a href="/guide/2/">本部分目录</a> · <a href="/chapter/07/">下一章：离散数学与算法思维</a></p>
+</article> <nav class="chapter-pagination" aria-label="连续阅读" data-pagefind-ignore><a href="/chapter/05/"><small>← 上一章</small>第 5 章：线性代数与向量计算</a><a href="/chapter/07/"><small>下一章 →</small>第 7 章：离散数学与算法思维</a></nav> <footer class="page-footer" data-pagefind-ignore>从 Python 基础到大模型应用与算子开发 <a href="https://github.com/cbt12123/handmade-llm/tree/simple" target="_blank" rel="noopener noreferrer">GitHub ↗</a></footer> </main> <aside class="page-toc" aria-label="本页目录" data-pagefind-ignore> <div class="toc-title">本页内容</div><a href="#61-事件样本空间与概率">6.1 事件、样本空间与概率</a><a href="#62-频率与概率多次实验看到什么">6.2 频率与概率：多次实验看到什么</a><a href="#63-条件概率与独立性">6.3 条件概率与独立性</a><a href="#64-贝叶斯公式把条件方向反过来">6.4 贝叶斯公式：把条件方向反过来</a><a href="#65-随机变量与常见分布">6.5 随机变量与常见分布</a><a href="#66-期望方差与标准差">6.6 期望、方差与标准差</a><a href="#67-抽样估计与不确定性">6.7 抽样、估计与不确定性</a><a href="#68-似然与最大似然估计">6.8 似然与最大似然估计</a><a href="#69-信息量与熵">6.9 信息量与熵</a><a href="#610-交叉熵与-kl-散度">6.10 交叉熵与 KL 散度</a><a href="#611-从计数到文本概率与困惑度">6.11 从计数到文本概率与困惑度</a><a href="#612-章末产出概率模拟与文本信息量实验">6.12 章末产出：概率模拟与文本信息量实验</a><a href="#613-自检">6.13 自检</a><a class="toc-sub" href="#补充练习与验收">补充练习与验收</a> <a class="back-top" href="#main">回到顶部 ↑</a> </aside> </div> <dialog id="search-dialog" aria-label="搜索完整教程"> <div class="dialog-head"><strong>搜索教程</strong><button id="search-close" aria-label="关闭搜索">✕</button></div> <div id="search"></div><p class="search-hint">输入关键词，查找正文、公式说明、练习和附件。</p> </dialog> <dialog id="image-dialog" aria-label="查看大图"><button id="image-close" aria-label="关闭图片">✕</button><img alt=""><p></p></dialog> <script type="module" src="/_astro/Book.astro_astro_type_script_index_0_lang.SvhK8ezw.js"></script> </body> </html>

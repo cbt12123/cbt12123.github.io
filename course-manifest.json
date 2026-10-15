@@ -1,0 +1,1163 @@
+{
+  "chapters": 35,
+  "documents": [
+    {
+      "source": "README.md",
+      "url": "/overview/",
+      "title": "从 Python 基础到大模型应用与算子开发",
+      "kind": "overview"
+    },
+    {
+      "source": "第一部分-Python与计算基础/01-Python基础.md",
+      "url": "/chapter/01/",
+      "title": "第 1 章：Python 基础",
+      "kind": "chapter"
+    },
+    {
+      "source": "第一部分-Python与计算基础/02-组织代码与数据处理.md",
+      "url": "/chapter/02/",
+      "title": "第 2 章：组织代码与数据处理",
+      "kind": "chapter"
+    },
+    {
+      "source": "第一部分-Python与计算基础/03-NumPy与数据可视化.md",
+      "url": "/chapter/03/",
+      "title": "第 3 章：NumPy 与数据可视化",
+      "kind": "chapter"
+    },
+    {
+      "source": "第二部分-面向机器学习的数学基础/04-函数与微积分入门.md",
+      "url": "/chapter/04/",
+      "title": "第 4 章：函数与微积分入门",
+      "kind": "chapter"
+    },
+    {
+      "source": "第二部分-面向机器学习的数学基础/05-线性代数与向量计算.md",
+      "url": "/chapter/05/",
+      "title": "第 5 章：线性代数与向量计算",
+      "kind": "chapter"
+    },
+    {
+      "source": "第二部分-面向机器学习的数学基础/06-概率统计与信息量.md",
+      "url": "/chapter/06/",
+      "title": "第 6 章：概率、统计与信息量",
+      "kind": "chapter"
+    },
+    {
+      "source": "第二部分-面向机器学习的数学基础/07-离散数学与算法思维.md",
+      "url": "/chapter/07/",
+      "title": "第 7 章：离散数学与算法思维",
+      "kind": "chapter"
+    },
+    {
+      "source": "第二部分-面向机器学习的数学基础/README.md",
+      "url": "/guide/2/",
+      "title": "第二部分：面向机器学习的数学基础",
+      "kind": "guide"
+    },
+    {
+      "source": "第三部分-机器学习与深度学习/08-机器学习任务与模型评价.md",
+      "url": "/chapter/08/",
+      "title": "第8章 机器学习任务与模型评价",
+      "kind": "chapter"
+    },
+    {
+      "source": "第三部分-机器学习与深度学习/09-模型如何学习与神经网络.md",
+      "url": "/chapter/09/",
+      "title": "第9章 模型如何学习与神经网络",
+      "kind": "chapter"
+    },
+    {
+      "source": "第三部分-机器学习与深度学习/10-PyTorch训练与模型管理.md",
+      "url": "/chapter/10/",
+      "title": "第10章 PyTorch训练与模型管理",
+      "kind": "chapter"
+    },
+    {
+      "source": "第三部分-机器学习与深度学习/11-CNN与图像识别.md",
+      "url": "/chapter/11/",
+      "title": "第11章 CNN与图像识别",
+      "kind": "chapter"
+    },
+    {
+      "source": "第三部分-机器学习与深度学习/12-NLP与序列建模.md",
+      "url": "/chapter/12/",
+      "title": "第12章 NLP与序列建模",
+      "kind": "chapter"
+    },
+    {
+      "source": "第三部分-机器学习与深度学习/13-注意力与Transformer.md",
+      "url": "/chapter/13/",
+      "title": "第13章 注意力与Transformer",
+      "kind": "chapter"
+    },
+    {
+      "source": "第三部分-机器学习与深度学习/README.md",
+      "url": "/guide/3/",
+      "title": "第三部分：机器学习与深度学习",
+      "kind": "guide"
+    },
+    {
+      "source": "第四部分-大模型与部署/14-语言模型与大模型结构.md",
+      "url": "/chapter/14/",
+      "title": "第14章 语言模型与大模型结构",
+      "kind": "chapter"
+    },
+    {
+      "source": "第四部分-大模型与部署/15-本地加载与对话输入.md",
+      "url": "/chapter/15/",
+      "title": "第15章 本地加载与对话输入",
+      "kind": "chapter"
+    },
+    {
+      "source": "第四部分-大模型与部署/16-生成策略与KV缓存.md",
+      "url": "/chapter/16/",
+      "title": "第16章 生成策略与KV缓存",
+      "kind": "chapter"
+    },
+    {
+      "source": "第四部分-大模型与部署/17-资源预算量化与参数适配.md",
+      "url": "/chapter/17/",
+      "title": "第17章 资源预算、量化与参数适配",
+      "kind": "chapter"
+    },
+    {
+      "source": "第四部分-大模型与部署/18-HTTP服务与部署实践.md",
+      "url": "/chapter/18/",
+      "title": "第18章 HTTP服务与部署实践",
+      "kind": "chapter"
+    },
+    {
+      "source": "第四部分-大模型与部署/19-提示设计评价与部署交付.md",
+      "url": "/chapter/19/",
+      "title": "第19章 提示设计、评价与部署交付",
+      "kind": "chapter"
+    },
+    {
+      "source": "第四部分-大模型与部署/README.md",
+      "url": "/guide/4/",
+      "title": "第四部分：大模型与部署",
+      "kind": "guide"
+    },
+    {
+      "source": "第五部分-Agent/20-Agent的组成与运行过程.md",
+      "url": "/chapter/20/",
+      "title": "第20章 Agent 的组成与运行过程",
+      "kind": "chapter"
+    },
+    {
+      "source": "第五部分-Agent/21-编写第一个Agent循环.md",
+      "url": "/chapter/21/",
+      "title": "第21章 编写第一个 Agent 循环",
+      "kind": "chapter"
+    },
+    {
+      "source": "第五部分-Agent/22-Rules规则与执行边界.md",
+      "url": "/chapter/22/",
+      "title": "第22章 Rules：规则与执行边界",
+      "kind": "chapter"
+    },
+    {
+      "source": "第五部分-Agent/23-Skills让任务方法可以复用.md",
+      "url": "/chapter/23/",
+      "title": "第23章 Skills：让任务方法可以复用",
+      "kind": "chapter"
+    },
+    {
+      "source": "第五部分-Agent/24-Knowledge读取检索与引用.md",
+      "url": "/chapter/24/",
+      "title": "第24章 Knowledge：读取、检索与引用",
+      "kind": "chapter"
+    },
+    {
+      "source": "第五部分-Agent/25-状态记忆与多步骤任务.md",
+      "url": "/chapter/25/",
+      "title": "第25章 状态、记忆与多步骤任务",
+      "kind": "chapter"
+    },
+    {
+      "source": "第五部分-Agent/26-组装完整课程学习助手.md",
+      "url": "/chapter/26/",
+      "title": "第26章 组装完整课程学习助手",
+      "kind": "chapter"
+    },
+    {
+      "source": "第五部分-Agent/27-测试评价与扩展.md",
+      "url": "/chapter/27/",
+      "title": "第27章 测试、评价与扩展",
+      "kind": "chapter"
+    },
+    {
+      "source": "第五部分-Agent/README.md",
+      "url": "/guide/5/",
+      "title": "第五部分：Agent 与课程学习助手",
+      "kind": "guide"
+    },
+    {
+      "source": "第六部分-NVIDIA算子开发/28-从推理瓶颈到GPU执行.md",
+      "url": "/chapter/28/",
+      "title": "第28章 从推理瓶颈到 GPU 执行",
+      "kind": "chapter"
+    },
+    {
+      "source": "第六部分-NVIDIA算子开发/29-第一个CUDA程序与数据布局.md",
+      "url": "/chapter/29/",
+      "title": "第29章 第一个 CUDA 程序与数据布局",
+      "kind": "chapter"
+    },
+    {
+      "source": "第六部分-NVIDIA算子开发/30-归约共享内存与矩阵复用.md",
+      "url": "/chapter/30/",
+      "title": "第30章 归约、共享内存与矩阵复用",
+      "kind": "chapter"
+    },
+    {
+      "source": "第六部分-NVIDIA算子开发/31-用Triton实现融合RMSNorm.md",
+      "url": "/chapter/31/",
+      "title": "第31章 用 Triton 实现融合 RMSNorm",
+      "kind": "chapter"
+    },
+    {
+      "source": "第六部分-NVIDIA算子开发/32-Softmax贪心选择与少算一步.md",
+      "url": "/chapter/32/",
+      "title": "32 Softmax、贪心选择与少算一步",
+      "kind": "chapter"
+    },
+    {
+      "source": "第六部分-NVIDIA算子开发/33-性能测量与瓶颈分析.md",
+      "url": "/chapter/33/",
+      "title": "33 性能测量与瓶颈分析",
+      "kind": "chapter"
+    },
+    {
+      "source": "第六部分-NVIDIA算子开发/34-把融合算子接入真实推理.md",
+      "url": "/chapter/34/",
+      "title": "34 把融合算子接入真实推理",
+      "kind": "chapter"
+    },
+    {
+      "source": "第六部分-NVIDIA算子开发/35-算子部署评价与交付.md",
+      "url": "/chapter/35/",
+      "title": "35 算子部署、评价与交付",
+      "kind": "chapter"
+    },
+    {
+      "source": "第六部分-NVIDIA算子开发/README.md",
+      "url": "/guide/6/",
+      "title": "第六部分：NVIDIA 算子开发",
+      "kind": "guide"
+    },
+    {
+      "source": "附录/01-环境准备与复现.md",
+      "url": "/appendix/01/",
+      "title": "附录：环境准备与复现",
+      "kind": "appendix"
+    },
+    {
+      "source": "附录/02-学习路线与前置自测.md",
+      "url": "/appendix/02/",
+      "title": "学习路线与前置自测",
+      "kind": "appendix"
+    },
+    {
+      "source": "附录/03-读懂后续工程代码.md",
+      "url": "/appendix/03/",
+      "title": "读懂后续工程代码",
+      "kind": "appendix"
+    },
+    {
+      "source": "附录/04-数学符号与计算速查.md",
+      "url": "/appendix/04/",
+      "title": "数学符号与计算速查",
+      "kind": "appendix"
+    },
+    {
+      "source": "assets/part05/knowledge/README.md",
+      "url": "/resource/dc5093e5540e/",
+      "title": "知识资料的来源",
+      "kind": "attachment"
+    },
+    {
+      "source": "assets/part05/README.md",
+      "url": "/resource/0ddb8617c1c9/",
+      "title": "第五部分完整附件",
+      "kind": "attachment"
+    },
+    {
+      "source": "assets/part05/rules/agent.md",
+      "url": "/resource/40450a67e30f/",
+      "title": "课程学习助手规则",
+      "kind": "attachment"
+    },
+    {
+      "source": "assets/part05/skills/explain/SKILL.md",
+      "url": "/resource/e87fbc2f649c/",
+      "title": "explain：查询与解释",
+      "kind": "attachment"
+    },
+    {
+      "source": "assets/part05/skills/practice/SKILL.md",
+      "url": "/resource/a18833c4c505/",
+      "title": "practice：生成练习",
+      "kind": "attachment"
+    },
+    {
+      "source": "assets/part05/skills/review/SKILL.md",
+      "url": "/resource/9fd16a9a3992/",
+      "title": "review：检查答案与复习",
+      "kind": "attachment"
+    },
+    {
+      "source": "assets/part06/README.md",
+      "url": "/resource/5018034eb341/",
+      "title": "第六部分附件：原生CUDA源码与实现入口",
+      "kind": "attachment"
+    },
+    {
+      "source": "assets/practice/part01.md",
+      "url": "/resource/e2cac5d9affd/",
+      "title": "第一部分随堂练习与参考答案",
+      "kind": "practice"
+    },
+    {
+      "source": "assets/practice/part02.md",
+      "url": "/resource/bfb5a0707445/",
+      "title": "第二部分练习、答案与产出验收",
+      "kind": "practice"
+    },
+    {
+      "source": "assets/practice/part03.md",
+      "url": "/resource/34193444b17f/",
+      "title": "第三部分练习、答案与模型交付验收",
+      "kind": "practice"
+    },
+    {
+      "source": "assets/practice/part04.md",
+      "url": "/resource/a004e510c9a8/",
+      "title": "第四部分练习、答案与部署验收",
+      "kind": "practice"
+    },
+    {
+      "source": "assets/practice/part05.md",
+      "url": "/resource/d1ab98a69bdd/",
+      "title": "第五部分练习、答案与Agent验收",
+      "kind": "practice"
+    },
+    {
+      "source": "assets/practice/part06.md",
+      "url": "/resource/04f7db737a68/",
+      "title": "第六部分练习、答案与算子实践验收",
+      "kind": "practice"
+    },
+    {
+      "source": "assets/practice/README.md",
+      "url": "/resource/506997cbbc41/",
+      "title": "章节练习与产出验收",
+      "kind": "practice"
+    },
+    {
+      "source": "data/part03/README.md",
+      "url": "/resource/5036e4a20954/",
+      "title": "SMS Spam Collection 数据来源",
+      "kind": "attachment"
+    }
+  ],
+  "attachments": [
+    {
+      "source": "script/part02/04_calculus.py",
+      "url": "/file/c6884f3d2f4c/"
+    },
+    {
+      "source": "script/part02/05_linear_algebra.py",
+      "url": "/file/1dccb5cb6aeb/"
+    },
+    {
+      "source": "script/part02/06_probability.py",
+      "url": "/file/1850997236e2/"
+    },
+    {
+      "source": "script/part02/07_discrete.py",
+      "url": "/file/e6a1a2c9115c/"
+    },
+    {
+      "source": "script/part02/_common.py",
+      "url": "/file/60790299930c/"
+    },
+    {
+      "source": "script/part03/08_sklearn_task.py",
+      "url": "/file/5f7cdc2898ae/"
+    },
+    {
+      "source": "script/part03/09_numpy_network.py",
+      "url": "/file/af7be997ad9c/"
+    },
+    {
+      "source": "script/part03/10_torch_training.py",
+      "url": "/file/1bbe82d61218/"
+    },
+    {
+      "source": "script/part03/11_cnn.py",
+      "url": "/file/cf5aec5a04ef/"
+    },
+    {
+      "source": "script/part03/11_numpy_cnn.py",
+      "url": "/file/2a373e63132a/"
+    },
+    {
+      "source": "script/part03/11_transfer_learning.py",
+      "url": "/file/5aa211733ea1/"
+    },
+    {
+      "source": "script/part03/12_real_sms.py",
+      "url": "/file/9b130f8aee46/"
+    },
+    {
+      "source": "script/part03/12_text.py",
+      "url": "/file/46d7ad8620c4/"
+    },
+    {
+      "source": "script/part03/13_transformer.py",
+      "url": "/file/c157b8770f72/"
+    },
+    {
+      "source": "script/part03/learning_card_demo.py",
+      "url": "/file/050e7c98240c/"
+    },
+    {
+      "source": "script/part03/_common.py",
+      "url": "/file/ee797866747a/"
+    },
+    {
+      "source": "script/part03/_torch_models.py",
+      "url": "/file/3f50075dbef5/"
+    },
+    {
+      "source": "script/part04/14_model_structure.py",
+      "url": "/file/a0600b4c7722/"
+    },
+    {
+      "source": "script/part04/15_local_inference.py",
+      "url": "/file/3cc2c0f4cf09/"
+    },
+    {
+      "source": "script/part04/16_generation_cache.py",
+      "url": "/file/a88aa173c178/"
+    },
+    {
+      "source": "script/part04/17_memory_quantization.py",
+      "url": "/file/9f1f2f288b0c/"
+    },
+    {
+      "source": "script/part04/18_client.py",
+      "url": "/file/2fe3f5d02aa4/"
+    },
+    {
+      "source": "script/part04/18_server.py",
+      "url": "/file/4082b80c6b86/"
+    },
+    {
+      "source": "script/part04/18_vllm_client.py",
+      "url": "/file/a549f520f391/"
+    },
+    {
+      "source": "script/part04/19_evaluate.py",
+      "url": "/file/6a14b64c1a43/"
+    },
+    {
+      "source": "script/part04/19_release_manifest.py",
+      "url": "/file/9b85d0225170/"
+    },
+    {
+      "source": "script/part04/download_model.py",
+      "url": "/file/e4d3740b31b6/"
+    },
+    {
+      "source": "script/part04/_common.py",
+      "url": "/file/8890150a06c9/"
+    },
+    {
+      "source": "script/part05/21_minimal_loop.py",
+      "url": "/file/c0424ca4d69b/"
+    },
+    {
+      "source": "script/part05/24_vector_demo.py",
+      "url": "/file/48e603ef3a6c/"
+    },
+    {
+      "source": "script/part05/26_demo.py",
+      "url": "/file/3f9c0fdc75fd/"
+    },
+    {
+      "source": "script/part05/api.py",
+      "url": "/file/072146ec86ce/"
+    },
+    {
+      "source": "script/part05/cli.py",
+      "url": "/file/52630dc87205/"
+    },
+    {
+      "source": "script/part05/common.py",
+      "url": "/file/053e639866df/"
+    },
+    {
+      "source": "script/part05/content_review.py",
+      "url": "/file/8348f2945776/"
+    },
+    {
+      "source": "script/part05/evaluate.py",
+      "url": "/file/4f44f4bb25af/"
+    },
+    {
+      "source": "script/part05/index_course.py",
+      "url": "/file/5e4691e8adba/"
+    },
+    {
+      "source": "script/part05/knowledge.py",
+      "url": "/file/c3ec8a6a2021/"
+    },
+    {
+      "source": "script/part05/model.py",
+      "url": "/file/da007891a36e/"
+    },
+    {
+      "source": "script/part05/presentation.py",
+      "url": "/file/4e7ff676ae92/"
+    },
+    {
+      "source": "script/part05/runner.py",
+      "url": "/file/2bf124a810ca/"
+    },
+    {
+      "source": "script/part05/semantic_search.py",
+      "url": "/file/221ba8f3419b/"
+    },
+    {
+      "source": "script/part05/store.py",
+      "url": "/file/5ff6b25bca88/"
+    },
+    {
+      "source": "script/part05/toolbox.py",
+      "url": "/file/604809d9e63b/"
+    },
+    {
+      "source": "script/part06/28_cost_model.py",
+      "url": "/file/4d0ee001a2e2/"
+    },
+    {
+      "source": "script/part06/28_environment.py",
+      "url": "/file/f76afe0dbc91/"
+    },
+    {
+      "source": "script/part06/29_cuda_examples.py",
+      "url": "/file/5f8887612eb9/"
+    },
+    {
+      "source": "script/part06/31_verify_and_benchmark.py",
+      "url": "/file/3784e144e9e6/"
+    },
+    {
+      "source": "script/part06/32_selection.py",
+      "url": "/file/232908c41128/"
+    },
+    {
+      "source": "script/part06/33_profile_model.py",
+      "url": "/file/6cdfee9ca411/"
+    },
+    {
+      "source": "script/part06/34_model_benchmark.py",
+      "url": "/file/55b3d796e2e0/"
+    },
+    {
+      "source": "script/part06/35_client.py",
+      "url": "/file/be406b902d5f/"
+    },
+    {
+      "source": "script/part06/35_release.py",
+      "url": "/file/7e780019bead/"
+    },
+    {
+      "source": "script/part06/35_server.py",
+      "url": "/file/3499b72d8cb8/"
+    },
+    {
+      "source": "script/part06/common.py",
+      "url": "/file/0ab4d5cbc66b/"
+    },
+    {
+      "source": "script/part06/inference.py",
+      "url": "/file/268212ccf686/"
+    },
+    {
+      "source": "script/part06/kernels.py",
+      "url": "/file/ef478c58a391/"
+    },
+    {
+      "source": "script/part06/model_adapter.py",
+      "url": "/file/97e78cdd8621/"
+    },
+    {
+      "source": "assets/appendix/cli_demo.py",
+      "url": "/file/aa49643d7139/"
+    },
+    {
+      "source": "assets/part05/knowledge/questions.json",
+      "url": "/file/5462c621e64e/"
+    },
+    {
+      "source": "assets/part05/skills/catalog.json",
+      "url": "/file/0f0f1c0511ce/"
+    },
+    {
+      "source": "assets/part06/cuda/matmul.cu",
+      "url": "/file/37b5c226ba29/"
+    },
+    {
+      "source": "assets/part06/cuda/rms_norm.cu",
+      "url": "/file/1b897904490a/"
+    },
+    {
+      "source": "assets/part06/cuda/vector_add.cu",
+      "url": "/file/176530249f6a/"
+    },
+    {
+      "source": "assets/part06/environment/Dockerfile",
+      "url": "/file/4b0b944491f8/"
+    },
+    {
+      "source": "data/part05/content_regression.json",
+      "url": "/file/8f36f465bb74/"
+    },
+    {
+      "source": "data/part05/retrieval_cases.json",
+      "url": "/file/343b3826a120/"
+    },
+    {
+      "source": "outputs/environment/cuda-dev.json",
+      "url": "/file/3fda5ee23003/"
+    },
+    {
+      "source": "outputs/environment/cuda-image.json",
+      "url": "/file/2781e0b52374/"
+    },
+    {
+      "source": "outputs/environment/native-cuda.json",
+      "url": "/file/d05430d890bc/"
+    },
+    {
+      "source": "outputs/environment/verification.json",
+      "url": "/file/8954698e3a25/"
+    },
+    {
+      "source": "outputs/learning/practice_checks.json",
+      "url": "/file/8c0e86b7767f/"
+    },
+    {
+      "source": "outputs/learning/verification.json",
+      "url": "/file/5a30ca3d56bc/"
+    },
+    {
+      "source": "outputs/part02/04-calculus.json",
+      "url": "/file/c921be910333/"
+    },
+    {
+      "source": "outputs/part02/05-linear-algebra.json",
+      "url": "/file/07b0587be5ef/"
+    },
+    {
+      "source": "outputs/part02/06-probability.json",
+      "url": "/file/e1c247f73985/"
+    },
+    {
+      "source": "outputs/part02/07-discrete.json",
+      "url": "/file/d179b46d9fa1/"
+    },
+    {
+      "source": "outputs/part03/08-report.json",
+      "url": "/file/9b7d2692f14d/"
+    },
+    {
+      "source": "outputs/part03/09-report.json",
+      "url": "/file/3adf3dbd613f/"
+    },
+    {
+      "source": "outputs/part03/10_report.json",
+      "url": "/file/373141f83354/"
+    },
+    {
+      "source": "outputs/part03/11_numpy_report.json",
+      "url": "/file/b79787e0aff3/"
+    },
+    {
+      "source": "outputs/part03/11_report.json",
+      "url": "/file/e7f8b643f645/"
+    },
+    {
+      "source": "outputs/part03/11_transfer_report.json",
+      "url": "/file/b6ea0709ffe2/"
+    },
+    {
+      "source": "outputs/part03/12_report.json",
+      "url": "/file/bce3b8baa7d8/"
+    },
+    {
+      "source": "outputs/part03/12_sms_report.json",
+      "url": "/file/f2841137e998/"
+    },
+    {
+      "source": "outputs/part03/13_report.json",
+      "url": "/file/4106ec63c918/"
+    },
+    {
+      "source": "outputs/part03/learning_card_demo.json",
+      "url": "/file/384ac6b898f0/"
+    },
+    {
+      "source": "outputs/part03/requirements-verified.txt",
+      "url": "/file/43abaabb8b97/"
+    },
+    {
+      "source": "outputs/part03/verification.json",
+      "url": "/file/f9a929869f30/"
+    },
+    {
+      "source": "outputs/part04/14_structure.json",
+      "url": "/file/e6ba224e671a/"
+    },
+    {
+      "source": "outputs/part04/15_inference.json",
+      "url": "/file/72f09465c731/"
+    },
+    {
+      "source": "outputs/part04/16_cache.json",
+      "url": "/file/719d825884c8/"
+    },
+    {
+      "source": "outputs/part04/17_memory.json",
+      "url": "/file/f57de66c38b3/"
+    },
+    {
+      "source": "outputs/part04/18_container.json",
+      "url": "/file/6c31d50e3890/"
+    },
+    {
+      "source": "outputs/part04/18_http.json",
+      "url": "/file/c5174a3977b4/"
+    },
+    {
+      "source": "outputs/part04/18_http_boundaries.json",
+      "url": "/file/e278f7a4e2df/"
+    },
+    {
+      "source": "outputs/part04/18_vllm_http.json",
+      "url": "/file/e3cf798da7d1/"
+    },
+    {
+      "source": "outputs/part04/19_evaluation.json",
+      "url": "/file/8d34584aa514/"
+    },
+    {
+      "source": "outputs/part04/19_evaluation_vllm.json",
+      "url": "/file/3fb94ec2c02e/"
+    },
+    {
+      "source": "outputs/part04/19_manifest.json",
+      "url": "/file/7e3f07c7c219/"
+    },
+    {
+      "source": "outputs/part04/requirements-verified.txt",
+      "url": "/file/283aed9b6aae/"
+    },
+    {
+      "source": "outputs/part04/verification.json",
+      "url": "/file/fdd085ee053b/"
+    },
+    {
+      "source": "outputs/part04/verification_vllm.json",
+      "url": "/file/f67f168abb95/"
+    },
+    {
+      "source": "outputs/part05/24_retrieval_after.json",
+      "url": "/file/115ffc4414f8/"
+    },
+    {
+      "source": "outputs/part05/24_retrieval_before.json",
+      "url": "/file/c97213187b2c/"
+    },
+    {
+      "source": "outputs/part05/24_vectors.json",
+      "url": "/file/baf38a2f73c8/"
+    },
+    {
+      "source": "outputs/part05/26_cli.json",
+      "url": "/file/a19ed094c4c0/"
+    },
+    {
+      "source": "outputs/part05/26_demo.json",
+      "url": "/file/96911fea92ef/"
+    },
+    {
+      "source": "outputs/part05/26_http.json",
+      "url": "/file/c116276d7516/"
+    },
+    {
+      "source": "outputs/part05/27_content_review.json",
+      "url": "/file/fa4427c60596/"
+    },
+    {
+      "source": "outputs/part05/27_content_review_rag.json",
+      "url": "/file/486689a35e41/"
+    },
+    {
+      "source": "outputs/part05/27_evaluation.json",
+      "url": "/file/9cc3fd0db8e0/"
+    },
+    {
+      "source": "outputs/part05/27_evaluation_initial.json",
+      "url": "/file/52233f7df32a/"
+    },
+    {
+      "source": "outputs/part05/27_evaluation_rag.json",
+      "url": "/file/36a8c2d5d221/"
+    },
+    {
+      "source": "outputs/part05/27_evaluation_rag_initial.json",
+      "url": "/file/00402b2075e9/"
+    },
+    {
+      "source": "outputs/part05/27_evaluation_rag_query_guard.json",
+      "url": "/file/2774dbc78873/"
+    },
+    {
+      "source": "outputs/part05/27_evaluation_rag_short_query.json",
+      "url": "/file/8a631ce8888c/"
+    },
+    {
+      "source": "outputs/part05/27_evaluation_regression.json",
+      "url": "/file/b48a5b3c43e4/"
+    },
+    {
+      "source": "outputs/part05/27_evaluation_regression_initial.json",
+      "url": "/file/1afa3c7b08cd/"
+    },
+    {
+      "source": "outputs/part05/27_evaluation_regression_query_guard.json",
+      "url": "/file/68ba48039900/"
+    },
+    {
+      "source": "outputs/part05/course_index.json",
+      "url": "/file/b125c83cbee7/"
+    },
+    {
+      "source": "outputs/part05/environment.json",
+      "url": "/file/f0d969253007/"
+    },
+    {
+      "source": "outputs/part05/verification.json",
+      "url": "/file/fffa3508e35a/"
+    },
+    {
+      "source": "outputs/part06/28_cost_model.json",
+      "url": "/file/25e7d52d1db3/"
+    },
+    {
+      "source": "outputs/part06/28_environment.json",
+      "url": "/file/61e6f549e6ad/"
+    },
+    {
+      "source": "outputs/part06/29_native_cuda.json",
+      "url": "/file/36c08eae799b/"
+    },
+    {
+      "source": "outputs/part06/31_correctness.json",
+      "url": "/file/d30e8a0d7fb3/"
+    },
+    {
+      "source": "outputs/part06/31_microbenchmark.json",
+      "url": "/file/7f9d5c9cd3bb/"
+    },
+    {
+      "source": "outputs/part06/32_last_logits.json",
+      "url": "/file/a6b8005a27c3/"
+    },
+    {
+      "source": "outputs/part06/32_selection.json",
+      "url": "/file/d609db2e58a9/"
+    },
+    {
+      "source": "outputs/part06/33_profile.json",
+      "url": "/file/b3a3a4263c99/"
+    },
+    {
+      "source": "outputs/part06/34_real_inference.json",
+      "url": "/file/ae04bb9db82a/"
+    },
+    {
+      "source": "outputs/part06/35_http.json",
+      "url": "/file/a675d8d400f5/"
+    },
+    {
+      "source": "outputs/part06/35_manifest.json",
+      "url": "/file/87738c95a382/"
+    },
+    {
+      "source": "tools/check_environment.py",
+      "url": "/file/9ca073eb7ba3/"
+    }
+  ],
+  "files": [
+    "images/environment-overview.png",
+    "images/learning-route.png",
+    "images/part01-array.png",
+    "images/part01-branch.png",
+    "images/part01-broadcast.png",
+    "images/part01-chart-types.png",
+    "images/part01-cleaning.png",
+    "images/part01-environment.png",
+    "images/part01-function.png",
+    "images/part01-paths.png",
+    "images/part01-score-heatmap.png",
+    "images/part01-slice.png",
+    "images/part01-study-time.png",
+    "images/part02-bayes.png",
+    "images/part02-chain.png",
+    "images/part02-complexity.png",
+    "images/part02-cross-entropy.png",
+    "images/part02-derivative.png",
+    "images/part02-distributions.png",
+    "images/part02-frequency.png",
+    "images/part02-functions.png",
+    "images/part02-gradient.png",
+    "images/part02-graph.png",
+    "images/part02-integral.png",
+    "images/part02-learning-rate.png",
+    "images/part02-least-squares.png",
+    "images/part02-mask.png",
+    "images/part02-sampling.png",
+    "images/part02-sets.png",
+    "images/part02-transforms.png",
+    "images/part02-vectors.png",
+    "images/part03-activations.png",
+    "images/part03-attention.png",
+    "images/part03-backprop.png",
+    "images/part03-causal-mask.png",
+    "images/part03-confusion.png",
+    "images/part03-convolution.png",
+    "images/part03-hand-cnn-backward.png",
+    "images/part03-hand-cnn-window.png",
+    "images/part03-nlp.png",
+    "images/part03-result-08-predictions.png",
+    "images/part03-result-09-boundary.png",
+    "images/part03-result-09-digits-training.png",
+    "images/part03-result-09-training.png",
+    "images/part03-result-10_curves.png",
+    "images/part03-result-11_curves.png",
+    "images/part03-result-11_feature_maps.png",
+    "images/part03-result-11_numpy_training.png",
+    "images/part03-result-13_training_attention.png",
+    "images/part03-reversal.png",
+    "images/part03-story-binary.png",
+    "images/part03-story-image-layout.png",
+    "images/part03-story-overview.png",
+    "images/part03-story-teacher-forcing.png",
+    "images/part03-story-text-order.png",
+    "images/part03-training.png",
+    "images/part03-transformer.png",
+    "images/part03-workflow.png",
+    "images/part04-cache.png",
+    "images/part04-evaluation.png",
+    "images/part04-gqa.png",
+    "images/part04-memory.png",
+    "images/part04-model-files.png",
+    "images/part04-model-flow.png",
+    "images/part04-quantization.png",
+    "images/part04-sampling.png",
+    "images/part04-service.png",
+    "images/part05-architecture.png",
+    "images/part05-boundaries.png",
+    "images/part05-components.png",
+    "images/part05-evaluation.png",
+    "images/part05-knowledge.png",
+    "images/part05-loop.png",
+    "images/part05-memory.png",
+    "images/part05-retrieval-review.png",
+    "images/part05-skills.png",
+    "images/part05-vectors.png",
+    "images/part06-deployment.png",
+    "images/part06-evidence.png",
+    "images/part06-fusion.png",
+    "images/part06-index.png",
+    "images/part06-inference.png",
+    "images/part06-microbenchmark.png",
+    "images/part06-profile.png",
+    "images/part06-reduction.png",
+    "images/part06-results.png",
+    "images/part06-selection.png",
+    "images/part06-stack.png",
+    "images/part06-tiles.png",
+    "script/part02/04_calculus.py",
+    "script/part02/05_linear_algebra.py",
+    "script/part02/06_probability.py",
+    "script/part02/07_discrete.py",
+    "script/part02/_common.py",
+    "script/part03/08_sklearn_task.py",
+    "script/part03/09_numpy_network.py",
+    "script/part03/10_torch_training.py",
+    "script/part03/11_cnn.py",
+    "script/part03/11_numpy_cnn.py",
+    "script/part03/11_transfer_learning.py",
+    "script/part03/12_real_sms.py",
+    "script/part03/12_text.py",
+    "script/part03/13_transformer.py",
+    "script/part03/learning_card_demo.py",
+    "script/part03/_common.py",
+    "script/part03/_torch_models.py",
+    "script/part04/14_model_structure.py",
+    "script/part04/15_local_inference.py",
+    "script/part04/16_generation_cache.py",
+    "script/part04/17_memory_quantization.py",
+    "script/part04/18_client.py",
+    "script/part04/18_server.py",
+    "script/part04/18_vllm_client.py",
+    "script/part04/19_evaluate.py",
+    "script/part04/19_release_manifest.py",
+    "script/part04/download_model.py",
+    "script/part04/_common.py",
+    "script/part05/21_minimal_loop.py",
+    "script/part05/24_vector_demo.py",
+    "script/part05/26_demo.py",
+    "script/part05/api.py",
+    "script/part05/cli.py",
+    "script/part05/common.py",
+    "script/part05/content_review.py",
+    "script/part05/evaluate.py",
+    "script/part05/index_course.py",
+    "script/part05/knowledge.py",
+    "script/part05/model.py",
+    "script/part05/presentation.py",
+    "script/part05/runner.py",
+    "script/part05/semantic_search.py",
+    "script/part05/store.py",
+    "script/part05/toolbox.py",
+    "script/part06/28_cost_model.py",
+    "script/part06/28_environment.py",
+    "script/part06/29_cuda_examples.py",
+    "script/part06/31_verify_and_benchmark.py",
+    "script/part06/32_selection.py",
+    "script/part06/33_profile_model.py",
+    "script/part06/34_model_benchmark.py",
+    "script/part06/35_client.py",
+    "script/part06/35_release.py",
+    "script/part06/35_server.py",
+    "script/part06/common.py",
+    "script/part06/inference.py",
+    "script/part06/kernels.py",
+    "script/part06/model_adapter.py",
+    "assets/appendix/cli_demo.py",
+    "assets/part05/knowledge/questions.json",
+    "assets/part05/knowledge/README.md",
+    "assets/part05/README.md",
+    "assets/part05/rules/agent.md",
+    "assets/part05/skills/catalog.json",
+    "assets/part05/skills/explain/SKILL.md",
+    "assets/part05/skills/practice/SKILL.md",
+    "assets/part05/skills/review/SKILL.md",
+    "assets/part06/cuda/matmul.cu",
+    "assets/part06/cuda/rms_norm.cu",
+    "assets/part06/cuda/vector_add.cu",
+    "assets/part06/environment/Dockerfile",
+    "assets/part06/README.md",
+    "assets/practice/part01.md",
+    "assets/practice/part02.md",
+    "assets/practice/part03.md",
+    "assets/practice/part04.md",
+    "assets/practice/part05.md",
+    "assets/practice/part06.md",
+    "assets/practice/README.md",
+    "data/part03/README.md",
+    "data/part05/content_regression.json",
+    "data/part05/retrieval_cases.json",
+    "outputs/environment/cuda-dev.json",
+    "outputs/environment/cuda-image.json",
+    "outputs/environment/native-cuda.json",
+    "outputs/environment/verification.json",
+    "outputs/learning/practice_checks.json",
+    "outputs/learning/verification.json",
+    "outputs/part02/04-calculus.json",
+    "outputs/part02/04-learning-rates.png",
+    "outputs/part02/05-linear-algebra.json",
+    "outputs/part02/05-transforms.png",
+    "outputs/part02/06-frequency.png",
+    "outputs/part02/06-probability.json",
+    "outputs/part02/07-discrete.json",
+    "outputs/part02/07-graph.png",
+    "outputs/part03/08-predictions.png",
+    "outputs/part03/08-report.json",
+    "outputs/part03/09-boundary.png",
+    "outputs/part03/09-digits-training.png",
+    "outputs/part03/09-report.json",
+    "outputs/part03/09-training.png",
+    "outputs/part03/10_curves.png",
+    "outputs/part03/10_report.json",
+    "outputs/part03/11_curves.png",
+    "outputs/part03/11_example_digit.png",
+    "outputs/part03/11_feature_maps.png",
+    "outputs/part03/11_numpy_report.json",
+    "outputs/part03/11_numpy_training.png",
+    "outputs/part03/11_report.json",
+    "outputs/part03/11_transfer_report.json",
+    "outputs/part03/12_report.json",
+    "outputs/part03/12_sms_report.json",
+    "outputs/part03/13_report.json",
+    "outputs/part03/13_training_attention.png",
+    "outputs/part03/learning_card_demo.json",
+    "outputs/part03/requirements-verified.txt",
+    "outputs/part03/verification.json",
+    "outputs/part04/14_structure.json",
+    "outputs/part04/15_inference.json",
+    "outputs/part04/16_cache.json",
+    "outputs/part04/17_memory.json",
+    "outputs/part04/18_container.json",
+    "outputs/part04/18_http.json",
+    "outputs/part04/18_http_boundaries.json",
+    "outputs/part04/18_vllm_http.json",
+    "outputs/part04/19_evaluation.json",
+    "outputs/part04/19_evaluation_vllm.json",
+    "outputs/part04/19_manifest.json",
+    "outputs/part04/requirements-verified.txt",
+    "outputs/part04/verification.json",
+    "outputs/part04/verification_vllm.json",
+    "outputs/part05/24_retrieval_after.json",
+    "outputs/part05/24_retrieval_before.json",
+    "outputs/part05/24_vectors.json",
+    "outputs/part05/26_cli.json",
+    "outputs/part05/26_demo.json",
+    "outputs/part05/26_http.json",
+    "outputs/part05/27_content_review.json",
+    "outputs/part05/27_content_review_rag.json",
+    "outputs/part05/27_evaluation.json",
+    "outputs/part05/27_evaluation_initial.json",
+    "outputs/part05/27_evaluation_rag.json",
+    "outputs/part05/27_evaluation_rag_initial.json",
+    "outputs/part05/27_evaluation_rag_query_guard.json",
+    "outputs/part05/27_evaluation_rag_short_query.json",
+    "outputs/part05/27_evaluation_regression.json",
+    "outputs/part05/27_evaluation_regression_initial.json",
+    "outputs/part05/27_evaluation_regression_query_guard.json",
+    "outputs/part05/course_index.json",
+    "outputs/part05/environment.json",
+    "outputs/part05/verification.json",
+    "outputs/part06/28_cost_model.json",
+    "outputs/part06/28_environment.json",
+    "outputs/part06/29_native_cuda.json",
+    "outputs/part06/31_correctness.json",
+    "outputs/part06/31_microbenchmark.json",
+    "outputs/part06/32_last_logits.json",
+    "outputs/part06/32_selection.json",
+    "outputs/part06/33_profile.json",
+    "outputs/part06/34_real_inference.json",
+    "outputs/part06/35_http.json",
+    "outputs/part06/35_manifest.json",
+    "output/pdf/course-complete.pdf",
+    "tools/check_environment.py"
+  ]
+}

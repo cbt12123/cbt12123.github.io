@@ -1,0 +1,155 @@
+<!DOCTYPE html><html lang="zh-CN"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="完整中文教程：从 Python 与数学基础，到机器学习、大模型部署、Agent 与 NVIDIA 算子实践。"><title>第四部分：大模型与部署 · 手写与实践</title><link rel="stylesheet" href="/katex/katex.min.css"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/_astro/Book.ddZgooq8.css"></head> <body> <a class="skip" href="#main">跳转到正文</a> <header class="topbar" data-pagefind-ignore> <button id="menu-toggle" class="menu-toggle" aria-label="打开章节目录" aria-expanded="false" aria-controls="sidebar">☰</button> <a class="brand" href="/"><span class="brand-icon">∑</span><span>手写与实践<small>从 Python 到大模型</small></span></a> <nav class="top-links" aria-label="主导航"> <a href="/resources/">学习附件</a> <a href="/files/output/pdf/course-complete.pdf">完整 PDF <span>↗</span></a> <button id="search-open" class="search-trigger">搜索教程 <kbd>/</kbd></button> </nav> </header> <div id="menu-backdrop" class="menu-backdrop" hidden></div> <aside id="sidebar" class="sidebar" aria-label="章节目录" data-pagefind-ignore> <a class="nav-home" href="/">教程首页</a> <a class="nav-home" href="/overview/">阅读与运行指南</a> <section class="nav-group"> <div class="nav-group-title"><span>01</span>Python与计算基础</div>  <a class="chapter-link" href="/chapter/01/"><span>01</span>Python 基础</a><a class="chapter-link" href="/chapter/02/"><span>02</span>组织代码与数据处理</a><a class="chapter-link" href="/chapter/03/"><span>03</span>NumPy 与数据可视化</a> </section><section class="nav-group"> <div class="nav-group-title"><span>02</span>面向机器学习的数学基础</div> <a class="guide-link" href="/guide/2/">本部分运行指南</a> <a class="chapter-link" href="/chapter/04/"><span>04</span>函数与微积分入门</a><a class="chapter-link" href="/chapter/05/"><span>05</span>线性代数与向量计算</a><a class="chapter-link" href="/chapter/06/"><span>06</span>概率、统计与信息量</a><a class="chapter-link" href="/chapter/07/"><span>07</span>离散数学与算法思维</a> </section><section class="nav-group"> <div class="nav-group-title"><span>03</span>机器学习与深度学习</div> <a class="guide-link" href="/guide/3/">本部分运行指南</a> <a class="chapter-link" href="/chapter/08/"><span>08</span>机器学习任务与模型评价</a><a class="chapter-link" href="/chapter/09/"><span>09</span>模型如何学习与神经网络</a><a class="chapter-link" href="/chapter/10/"><span>10</span>PyTorch训练与模型管理</a><a class="chapter-link" href="/chapter/11/"><span>11</span>CNN与图像识别</a><a class="chapter-link" href="/chapter/12/"><span>12</span>NLP与序列建模</a><a class="chapter-link" href="/chapter/13/"><span>13</span>注意力与Transformer</a> </section><section class="nav-group"> <div class="nav-group-title"><span>04</span>大模型与部署</div> <a class="guide-link active" href="/guide/4/">本部分运行指南</a> <a class="chapter-link" href="/chapter/14/"><span>14</span>语言模型与大模型结构</a><a class="chapter-link" href="/chapter/15/"><span>15</span>本地加载与对话输入</a><a class="chapter-link" href="/chapter/16/"><span>16</span>生成策略与KV缓存</a><a class="chapter-link" href="/chapter/17/"><span>17</span>资源预算、量化与参数适配</a><a class="chapter-link" href="/chapter/18/"><span>18</span>HTTP服务与部署实践</a><a class="chapter-link" href="/chapter/19/"><span>19</span>提示设计、评价与部署交付</a> </section><section class="nav-group"> <div class="nav-group-title"><span>05</span>Agent</div> <a class="guide-link" href="/guide/5/">本部分运行指南</a> <a class="chapter-link" href="/chapter/20/"><span>20</span>Agent 的组成与运行过程</a><a class="chapter-link" href="/chapter/21/"><span>21</span>编写第一个 Agent 循环</a><a class="chapter-link" href="/chapter/22/"><span>22</span>Rules：规则与执行边界</a><a class="chapter-link" href="/chapter/23/"><span>23</span>Skills：让任务方法可以复用</a><a class="chapter-link" href="/chapter/24/"><span>24</span>Knowledge：读取、检索与引用</a><a class="chapter-link" href="/chapter/25/"><span>25</span>状态、记忆与多步骤任务</a><a class="chapter-link" href="/chapter/26/"><span>26</span>组装完整课程学习助手</a><a class="chapter-link" href="/chapter/27/"><span>27</span>测试、评价与扩展</a> </section><section class="nav-group"> <div class="nav-group-title"><span>06</span>NVIDIA算子开发</div> <a class="guide-link" href="/guide/6/">本部分运行指南</a> <a class="chapter-link" href="/chapter/28/"><span>28</span>从推理瓶颈到 GPU 执行</a><a class="chapter-link" href="/chapter/29/"><span>29</span>第一个 CUDA 程序与数据布局</a><a class="chapter-link" href="/chapter/30/"><span>30</span>归约、共享内存与矩阵复用</a><a class="chapter-link" href="/chapter/31/"><span>31</span>用 Triton 实现融合 RMSNorm</a><a class="chapter-link" href="/chapter/32/"><span>32</span>Softmax、贪心选择与少算一步</a><a class="chapter-link" href="/chapter/33/"><span>33</span>性能测量与瓶颈分析</a><a class="chapter-link" href="/chapter/34/"><span>34</span>把融合算子接入真实推理</a><a class="chapter-link" href="/chapter/35/"><span>35</span>算子部署、评价与交付</a> </section> <section class="nav-group"><div class="nav-group-title">附录与练习</div> <a class="chapter-link" href="/appendix/01/">环境准备与复现</a><a class="chapter-link" href="/appendix/02/">学习路线与前置自测</a><a class="chapter-link" href="/appendix/03/">读懂后续工程代码</a><a class="chapter-link" href="/appendix/04/">数学符号与计算速查</a> <a class="chapter-link" href="/resource/506997cbbc41/">章节练习与产出验收</a> <a class="chapter-link" href="/resources/">全部代码与学习附件</a> </section> <div class="sidebar-note">六个部分 · 35 章<br>按自己的节奏，从第一章开始。</div> </aside> <div class="reading-layout"> <main id="main" class="main-content"> <div class="document-meta" data-pagefind-ignore><span>阅读指南</span><a href="https://github.com/cbt12123/handmade-llm/blob/simple/%E7%AC%AC%E5%9B%9B%E9%83%A8%E5%88%86-%E5%A4%A7%E6%A8%A1%E5%9E%8B%E4%B8%8E%E9%83%A8%E7%BD%B2/README.md" target="_blank" rel="noopener noreferrer">GitHub 源文档 ↗</a></div> <details class="mobile-toc" data-pagefind-ignore><summary>本页目录</summary><a href="#章节与产出">章节与产出</a><a href="#环境与模型准备">环境与模型准备</a><a href="#基础实验顺序">基础实验顺序</a><a href="#wsl2与现成gpu镜像">WSL2与现成GPU镜像</a><a href="#核验与页面预览">核验与页面预览</a><a href="#已验证范围与限制">已验证范围与限制</a><a href="#补充练习与验收">补充练习与验收</a></details><article class="prose" data-pagefind-body data-pagefind-weight="1"><h1 id="第四部分大模型与部署" data-pagefind-meta="title">第四部分：大模型与部署</h1>
+<p>本部分从第13章的序列生成进入真实开放权重模型。先理解语言模型与结构配置，再加载现成权重，分析生成和KV Cache，估算资源，最后完成HTTP服务与评价。</p>
+<p>正文直接讲解概念与计算，局部公式先给定义和例子，组合过程按依赖顺序展开。每章都有可运行脚本和可复核产出，不要求重新预训练大模型。</p>
+<h2 id="章节与产出">章节与产出</h2>
+<table>
+<thead>
+<tr>
+<th>章节</th>
+<th>内容</th>
+<th>产出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="/chapter/14/">14 语言模型与大模型结构</a></td>
+<td>语言模型目标、训练阶段、GQA与模型配置</td>
+<td>真实配置、张量形状和环境报告</td>
+</tr>
+<tr>
+<td><a href="/chapter/15/">15 本地加载与对话输入</a></td>
+<td>文件、分词、消息模板、权重加载与生成</td>
+<td>本地回答、token与候选概率报告</td>
+</tr>
+<tr>
+<td><a href="/chapter/16/">16 生成策略与KV缓存</a></td>
+<td>贪心、温度、top-p、prefill与decode</td>
+<td>缓存等价性和逐步耗时</td>
+</tr>
+<tr>
+<td><a href="/chapter/17/">17 资源预算、量化与参数适配</a></td>
+<td>权重与KV内存、INT8小矩阵、LoRA合并</td>
+<td>预算表、量化误差与合并验证</td>
+</tr>
+<tr>
+<td><a href="/chapter/18/">18 HTTP服务与部署实践</a></td>
+<td>常驻模型、接口校验、并发限制、容器引擎</td>
+<td>HTTP服务、客户端和状态码验证</td>
+</tr>
+<tr>
+<td><a href="/chapter/19/">19 提示设计、评价与部署交付</a></td>
+<td>输出契约、任务评价、延迟与文件版本</td>
+<td>原始失败记录、评价报告与manifest</td>
+</tr>
+</tbody>
+</table>
+<p>图片在根目录<code>images/</code>，生成源码为<a href="https://github.com/cbt12123/handmade-llm/blob/simple/tools/draw_part04.py">tools/draw_part04.py</a>。实验在<code>script/part04/</code>，报告在<code>outputs/part04/</code>，教学评价数据在<code>data/part04/</code>。</p>
+<h2 id="环境与模型准备">环境与模型准备</h2>
+<p>先做<a href="/appendix/02/#5-%E7%AC%AC%E5%9B%9B%E9%83%A8%E5%88%86%E5%85%A5%E5%8F%A3%E4%BB%8E%E8%AE%AD%E7%BB%83%E8%BD%AC%E5%88%B0%E5%8A%A0%E8%BD%BD%E4%B8%8E%E7%94%9F%E6%88%90">第四部分入口自测</a>：区分位置与词表轴、条件概率乘法、训练与推理。这里加载现有权重，不延续第三部分的训练任务；生成会改变 token 与缓存，不默认更新权重。</p>
+<p>首次安装 WSL、Docker，或尚未准备模型时，先看<a href="/appendix/01/">统一环境准备指南</a>。下面区分作者已有环境与读者新建环境，不要求你的电脑预先存在名为 <code>vllm</code> 的 conda 环境。</p>
+<p>继续使用VS Code编辑Markdown与源码。已有环境和模型优先复用，不根据环境名字判断功能是否可用。</p>
+<p>本机检查到：Windows conda的<code>vllm</code>环境提供Python 3.10.20、PyTorch 2.10.0+cpu、Transformers 4.57.6、FastAPI 0.135.1与Uvicorn 0.41.0。其CPU路径用于结构、分词、缓存和自定义HTTP教学实验；WSL2 Docker中的现成vLLM镜像用于GPU引擎部署。两条路线的库版本、精度和协议分别记录，不能混称。</p>
+<h3 id="复用本地conda环境">复用本地conda环境</h3>
+<pre><code class="language-powershell">conda activate vllm
+python <span class="hljs-literal">-c</span> <span class="hljs-string">&quot;import sys,torch,transformers; print(sys.executable); print(torch.__version__,torch.version.cuda,torch.cuda.is_available()); print(transformers.__version__)&quot;</span>
+<span class="hljs-variable">$env:LLM_MODEL_PATH</span> = <span class="hljs-string">&#x27;G:\models\qwen2_5_1.5b_instruct&#x27;</span>
+<span class="hljs-variable">$env:LLM_CPU_THREADS</span> = <span class="hljs-string">&#x27;4&#x27;</span>
+</code></pre>
+<p>这是本机已有模型目录，其他电脑修改为自己的路径。所有本地推理脚本只读取文件，默认不联网下载模型。运行脚本前应在同一个终端设置变量；新终端不会自动继承另一个终端临时设置的值。</p>
+<p>初次真实加载发现torch 2.10.0与torchvision 0.20.1、torchaudio 2.5.1不匹配，触发<code>torchvision::nms</code>错误。本机已只修复配套附属库，保留原CPU版torch：</p>
+<pre><code class="language-powershell">python <span class="hljs-literal">-m</span> pip install torchvision==<span class="hljs-number">0.25</span>.<span class="hljs-number">0</span> torchaudio==<span class="hljs-number">2.10</span>.<span class="hljs-number">0</span> <span class="hljs-literal">--no-deps</span> <span class="hljs-literal">--index-url</span> https://download.pytorch.org/whl/cpu
+</code></pre>
+<p>这条命令仅适用于这里的torch 2.10.0 CPU组合，不要求其他读者不经检查直接执行。官方轮子与版本配套见<a href="https://pytorch.org/get-started/previous-versions/">PyTorch版本表</a>。本机Windows环境虽然名为<code>vllm</code>，不作为原生Windows vLLM GPU运行环境。</p>
+<h3 id="没有可复用环境时">没有可复用环境时</h3>
+<p>以下是重建课程CPU路径的固定版本示例，不需要已具备环境的读者重复安装：</p>
+<pre><code class="language-powershell">conda create <span class="hljs-literal">-n</span> handmade<span class="hljs-literal">-llm</span> python=<span class="hljs-number">3.10</span> <span class="hljs-literal">-y</span>
+conda activate handmade<span class="hljs-literal">-llm</span>
+python <span class="hljs-literal">-m</span> pip install torch==<span class="hljs-number">2.10</span>.<span class="hljs-number">0</span> <span class="hljs-literal">--index-url</span> https://download.pytorch.org/whl/cpu
+python <span class="hljs-literal">-m</span> pip install transformers==<span class="hljs-number">4.57</span>.<span class="hljs-number">6</span> fastapi==<span class="hljs-number">0.135</span>.<span class="hljs-number">1</span> uvicorn==<span class="hljs-number">0.41</span>.<span class="hljs-number">0</span> requests==<span class="hljs-number">2.32</span>.<span class="hljs-number">5</span> numpy==<span class="hljs-number">2.2</span>.<span class="hljs-number">6</span> <span class="hljs-literal">-i</span> https://pypi.tuna.tsinghua.edu.cn/simple
+</code></pre>
+<p>后续章节的启动命令统一以 <code>handmade-llm</code> 为例。若复用本机已有的 <code>vllm</code> 环境，将对应激活命令换成 <code>conda activate vllm</code>；环境名称不会改变脚本或服务协议。</p>
+<p>清华PyPI镜像用于普通Python包；PyTorch CPU/CUDA轮子使用官方对应索引。已有模型时不需要Hub下载镜像。首次下载失败时先检查代理或模型平台连接，不能把Python包镜像当成模型权重镜像。</p>
+<p>当前基础模型为<a href="https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct">Qwen2.5-1.5B-Instruct</a>。已有完整权重时直接使用；没有时可明确执行：</p>
+<pre><code class="language-powershell">python script/part04/download_model.py
+</code></pre>
+<p>首次会下载约3GB权重及分词器文件，放在<code>models/qwen2.5-1.5b-instruct</code>。该目录被Git忽略。使用此默认目录可不设置<code>LLM_MODEL_PATH</code>；正文第15章的短示例直接读取该变量，可设置为自己的完整路径。</p>
+<h2 id="基础实验顺序">基础实验顺序</h2>
+<p>从工作区根目录运行：</p>
+<pre><code class="language-powershell">python script/part04/<span class="hljs-number">14</span>_model_structure.py
+python script/part04/<span class="hljs-number">15</span>_local_inference.py
+python script/part04/<span class="hljs-number">16</span>_generation_cache.py
+python script/part04/<span class="hljs-number">17</span>_memory_quantization.py
+</code></pre>
+<p>14只读配置，15和16分别加载真实模型，17操作小矩阵并读取配置。CPU路径使用FP32，权重内存约6.17GB，加载和运算还要留额外空间。生成速度取决于CPU与内存，短输出实验优先。</p>
+<h3 id="自定义http教学服务">自定义HTTP教学服务</h3>
+<p>终端一保留模型路径变量并启动：</p>
+<pre><code class="language-powershell">python script/part04/<span class="hljs-number">18</span>_server.py
+</code></pre>
+<p>终端二使用同样环境调用：</p>
+<pre><code class="language-powershell">python script/part04/<span class="hljs-number">18</span>_client.py
+python script/part04/<span class="hljs-number">19</span>_evaluate.py
+</code></pre>
+<p>CPU服务监听<code>127.0.0.1:8000</code>，一个常驻模型、一次一个请求、总token预算512、输出上限128。非流式返回。启动后可访问<code>/health</code>；结束时在服务终端按<code>Ctrl+C</code>。</p>
+<h3 id="文件版本与交付">文件版本与交付</h3>
+<pre><code class="language-powershell">python script/part04/<span class="hljs-number">19</span>_release_manifest.py
+</code></pre>
+<p>这条命令需要读取模型文件计算哈希，但不复制或上传权重。许可与来源随模型记录，完整实验成绩保存为JSON。</p>
+<h2 id="wsl2与现成gpu镜像">WSL2与现成GPU镜像</h2>
+<p>本机Ubuntu WSL2中已有Docker和<code>vllm/vllm-openai:v0.20.1-cu129-ubuntu2404</code>镜像，也能识别RTX 4060 Ti 16GB。先进入Ubuntu终端检查：</p>
+<pre><code class="language-bash">docker image <span class="hljs-built_in">ls</span>
+docker container <span class="hljs-built_in">ls</span> -a
+nvidia-smi
+docker run --<span class="hljs-built_in">rm</span> --gpus all --entrypoint python3 \
+  vllm/vllm-openai:v0.20.1-cu129-ubuntu2404 \
+  -c <span class="hljs-string">&#x27;import torch; print(torch.__version__, torch.version.cuda, torch.cuda.is_available())&#x27;</span>
+</code></pre>
+<p>容器的<code>--gpus all</code>与CUDA检查需要成功，只有WSL中的<code>nvidia-smi</code>成功还不足以证明容器能用GPU。镜像原始入口是<code>vllm serve</code>，检查Python时需要覆盖入口；Ubuntu镜像里的命令可能叫<code>python3</code>，不能假设一定有<code>python</code>别名。</p>
+<p>以下从WSL终端启动一个独立教学容器，使用已有权重，不下载模型：</p>
+<pre><code class="language-bash">docker run --name handmade-llm-part04-vllm \
+  --gpus all --ipc=host \
+  -e HF_HUB_OFFLINE=1 -e VLLM_NO_USAGE_STATS=1 \
+  -p 127.0.0.1:8001:8000 \
+  -v /mnt/g/models/qwen2_5_1.5b_instruct:/models/qwen:ro \
+  vllm/vllm-openai:v0.20.1-cu129-ubuntu2404 \
+  /models/qwen --served-model-name tutorial-qwen \
+  --host 0.0.0.0 --port 8000 --dtype float16 \
+  --max-model-len 512 --max-num-seqs 4 \
+  --gpu-memory-utilization 0.4 --enforce-eager
+</code></pre>
+<p>路径是本机映射示例，应替换成自己的模型路径。模型目录只读挂载。容器内部监听所有接口，但宿主端口只发布到回环地址，Windows调用端使用8001，避免与CPU教学服务的8000混淆。这里前台启动，保留Ubuntu终端查看日志，再从另一个Windows终端调用。</p>
+<p><code>--enforce-eager</code>先省去图捕获与编译优化，便于完成基础部署；不是最优性能配置。显存比例、最大长度和并发数是资源设置，不能解释成模型质量参数。</p>
+<pre><code class="language-bash">docker logs --<span class="hljs-built_in">tail</span> 80 handmade-llm-part04-vllm
+docker stop handmade-llm-part04-vllm
+docker start handmade-llm-part04-vllm
+</code></pre>
+<p>同名容器已存在时用<code>docker start</code>恢复，不重复创建；需要保持前台并查看实时输出时用<code>docker start -a handmade-llm-part04-vllm</code>。本机首次后台启动曾无日志退出，保持WSL终端并以前台方式重启后完成了验证。WSL自身运行状态也应检查，不能只根据Docker返回容器ID判断服务就绪。</p>
+<p>同一端口已有服务时先检查归属，不要为了跑课程停止其他项目的容器。</p>
+<p>在Windows conda终端调用GPU引擎。HTTP客户端只需要requests，评价另用NumPy；本机<code>base</code>已有这些库，无需在Windows再装GPU推理环境：</p>
+<pre><code class="language-powershell">conda activate base
+python script/part04/<span class="hljs-number">18</span>_vllm_client.py
+python script/part04/<span class="hljs-number">19</span>_evaluate.py <span class="hljs-literal">--backend</span> vllm <span class="hljs-literal">--url</span> http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">8001</span>
+python tools/verify_part04_vllm.py
+python tools/record_part04_container.py
+</code></pre>
+<p>客户端使用<code>/v1/chat/completions</code>协议，检查完整回答、SSE流式事件和JSON schema约束。它与自定义服务的<code>/generate</code>客户端分开。GPU评价保存为<code>19_evaluation_vllm.json</code>，不覆盖CPU基线。核验工具再次执行客户端与评价，再检查四个并发请求；不需要先重复运行全部命令。环境记录工具读取指定容器的镜像ID、命令和实际依赖。</p>
+<p>本机镜像内实际为Python 3.12.13、PyTorch 2.11.0+cu129、Transformers 5.7.0、vLLM 0.20.1，CUDA可用。服务使用FP16、FlashAttention 2，模型加载约2.89GiB，KV Cache预分配约3.33GiB。日志显示的缓存理论容量不是实际请求并发上限，本次调度配置仍是<code>max-num-seqs=4</code>。</p>
+<h2 id="核验与页面预览">核验与页面预览</h2>
+<pre><code class="language-powershell">python tools/verify_part04.py
+</code></pre>
+<p>使用第四部分环境运行。工具执行真实模型脚本、临时启动自定义HTTP服务、发送边界请求、运行评价和manifest，再检查正文Python例子。它只停止自己启动的服务；端口8000被占用会报错，请先结束自己的教学服务。</p>
+<p>只复查已有报告和正文时：</p>
+<pre><code class="language-powershell">python tools/verify_part04.py <span class="hljs-literal">--check-only</span>
+</code></pre>
+<p>生成图片与HTML预览使用前面已有Matplotlib及预览依赖的<code>handmade-ml</code>环境，避免为推理环境再装绘图库：</p>
+<pre><code class="language-powershell">conda activate handmade<span class="hljs-literal">-ml</span>
+python tools/draw_part04.py
+python tools/review_markdown.py
+</code></pre>
+<h2 id="已验证范围与限制">已验证范围与限制</h2>
+<p>本机已验证真实本地CPU模型、分词往返、八步缓存等价性、小矩阵量化与LoRA合并、自定义HTTP请求和严格格式评价。量化与LoRA不是整模型训练或压缩实验。基础服务也没有流式生成、队列与生产级高并发调度。</p>
+<p>CPU评价8条教学用例严格通过3条：JSON提取值正确但带围栏，缺失信息回答多句号。完整失败记录保留，不能只根据总分判断知识能力。GPU容器已验证完整响应、流式拼接一致与JSON schema约束输出，结果见<code>18_vllm_http.json</code>；不同后端和精度的评价分别保存。</p>
+<p>本机核验完成后已停止教学容器，保留其配置；镜像及本地权重继续复用，使用前述<code>docker start -a</code>恢复。四个并发请求的功能结果、流式与schema检查见<code>verification_vllm.json</code>。本部分未做真实整模型量化、微调或大规模吞吐压测。</p>
+<p>第四部分先完成模型加载、部署与评价。第五部分再进入Agent与知识组织，第六部分进入NVIDIA算子开发。</p>
+<h2 id="补充练习与验收">补充练习与验收</h2>
+<p><a href="/resource/a004e510c9a8/">本部分练习与参考答案</a>按章提供两道题、提示、答案与验收证据。先写自己的计算和判断，再核对；运行实验后保留真实报告、失败与适用范围。统一记录方式见<a href="/resource/506997cbbc41/">练习说明</a>。</p>
+</article>  <footer class="page-footer" data-pagefind-ignore>从 Python 基础到大模型应用与算子开发 <a href="https://github.com/cbt12123/handmade-llm/tree/simple" target="_blank" rel="noopener noreferrer">GitHub ↗</a></footer> </main> <aside class="page-toc" aria-label="本页目录" data-pagefind-ignore> <div class="toc-title">本页内容</div><a href="#章节与产出">章节与产出</a><a href="#环境与模型准备">环境与模型准备</a><a class="toc-sub" href="#复用本地conda环境">复用本地conda环境</a><a class="toc-sub" href="#没有可复用环境时">没有可复用环境时</a><a href="#基础实验顺序">基础实验顺序</a><a class="toc-sub" href="#自定义http教学服务">自定义HTTP教学服务</a><a class="toc-sub" href="#文件版本与交付">文件版本与交付</a><a href="#wsl2与现成gpu镜像">WSL2与现成GPU镜像</a><a href="#核验与页面预览">核验与页面预览</a><a href="#已验证范围与限制">已验证范围与限制</a><a href="#补充练习与验收">补充练习与验收</a> <a class="back-top" href="#main">回到顶部 ↑</a> </aside> </div> <dialog id="search-dialog" aria-label="搜索完整教程"> <div class="dialog-head"><strong>搜索教程</strong><button id="search-close" aria-label="关闭搜索">✕</button></div> <div id="search"></div><p class="search-hint">输入关键词，查找正文、公式说明、练习和附件。</p> </dialog> <dialog id="image-dialog" aria-label="查看大图"><button id="image-close" aria-label="关闭图片">✕</button><img alt=""><p></p></dialog> <script type="module" src="/_astro/Book.astro_astro_type_script_index_0_lang.SvhK8ezw.js"></script> </body> </html>

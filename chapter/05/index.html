@@ -1,0 +1,181 @@
+<!DOCTYPE html><html lang="zh-CN"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="完整中文教程：从 Python 与数学基础，到机器学习、大模型部署、Agent 与 NVIDIA 算子实践。"><title>第 5 章：线性代数与向量计算 · 手写与实践</title><link rel="stylesheet" href="/katex/katex.min.css"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/_astro/Book.ddZgooq8.css"></head> <body> <a class="skip" href="#main">跳转到正文</a> <header class="topbar" data-pagefind-ignore> <button id="menu-toggle" class="menu-toggle" aria-label="打开章节目录" aria-expanded="false" aria-controls="sidebar">☰</button> <a class="brand" href="/"><span class="brand-icon">∑</span><span>手写与实践<small>从 Python 到大模型</small></span></a> <nav class="top-links" aria-label="主导航"> <a href="/resources/">学习附件</a> <a href="/files/output/pdf/course-complete.pdf">完整 PDF <span>↗</span></a> <button id="search-open" class="search-trigger">搜索教程 <kbd>/</kbd></button> </nav> </header> <div id="menu-backdrop" class="menu-backdrop" hidden></div> <aside id="sidebar" class="sidebar" aria-label="章节目录" data-pagefind-ignore> <a class="nav-home" href="/">教程首页</a> <a class="nav-home" href="/overview/">阅读与运行指南</a> <section class="nav-group"> <div class="nav-group-title"><span>01</span>Python与计算基础</div>  <a class="chapter-link" href="/chapter/01/"><span>01</span>Python 基础</a><a class="chapter-link" href="/chapter/02/"><span>02</span>组织代码与数据处理</a><a class="chapter-link" href="/chapter/03/"><span>03</span>NumPy 与数据可视化</a> </section><section class="nav-group"> <div class="nav-group-title"><span>02</span>面向机器学习的数学基础</div> <a class="guide-link" href="/guide/2/">本部分运行指南</a> <a class="chapter-link" href="/chapter/04/"><span>04</span>函数与微积分入门</a><a class="chapter-link active" href="/chapter/05/" aria-current="page"><span>05</span>线性代数与向量计算</a><a class="chapter-link" href="/chapter/06/"><span>06</span>概率、统计与信息量</a><a class="chapter-link" href="/chapter/07/"><span>07</span>离散数学与算法思维</a> </section><section class="nav-group"> <div class="nav-group-title"><span>03</span>机器学习与深度学习</div> <a class="guide-link" href="/guide/3/">本部分运行指南</a> <a class="chapter-link" href="/chapter/08/"><span>08</span>机器学习任务与模型评价</a><a class="chapter-link" href="/chapter/09/"><span>09</span>模型如何学习与神经网络</a><a class="chapter-link" href="/chapter/10/"><span>10</span>PyTorch训练与模型管理</a><a class="chapter-link" href="/chapter/11/"><span>11</span>CNN与图像识别</a><a class="chapter-link" href="/chapter/12/"><span>12</span>NLP与序列建模</a><a class="chapter-link" href="/chapter/13/"><span>13</span>注意力与Transformer</a> </section><section class="nav-group"> <div class="nav-group-title"><span>04</span>大模型与部署</div> <a class="guide-link" href="/guide/4/">本部分运行指南</a> <a class="chapter-link" href="/chapter/14/"><span>14</span>语言模型与大模型结构</a><a class="chapter-link" href="/chapter/15/"><span>15</span>本地加载与对话输入</a><a class="chapter-link" href="/chapter/16/"><span>16</span>生成策略与KV缓存</a><a class="chapter-link" href="/chapter/17/"><span>17</span>资源预算、量化与参数适配</a><a class="chapter-link" href="/chapter/18/"><span>18</span>HTTP服务与部署实践</a><a class="chapter-link" href="/chapter/19/"><span>19</span>提示设计、评价与部署交付</a> </section><section class="nav-group"> <div class="nav-group-title"><span>05</span>Agent</div> <a class="guide-link" href="/guide/5/">本部分运行指南</a> <a class="chapter-link" href="/chapter/20/"><span>20</span>Agent 的组成与运行过程</a><a class="chapter-link" href="/chapter/21/"><span>21</span>编写第一个 Agent 循环</a><a class="chapter-link" href="/chapter/22/"><span>22</span>Rules：规则与执行边界</a><a class="chapter-link" href="/chapter/23/"><span>23</span>Skills：让任务方法可以复用</a><a class="chapter-link" href="/chapter/24/"><span>24</span>Knowledge：读取、检索与引用</a><a class="chapter-link" href="/chapter/25/"><span>25</span>状态、记忆与多步骤任务</a><a class="chapter-link" href="/chapter/26/"><span>26</span>组装完整课程学习助手</a><a class="chapter-link" href="/chapter/27/"><span>27</span>测试、评价与扩展</a> </section><section class="nav-group"> <div class="nav-group-title"><span>06</span>NVIDIA算子开发</div> <a class="guide-link" href="/guide/6/">本部分运行指南</a> <a class="chapter-link" href="/chapter/28/"><span>28</span>从推理瓶颈到 GPU 执行</a><a class="chapter-link" href="/chapter/29/"><span>29</span>第一个 CUDA 程序与数据布局</a><a class="chapter-link" href="/chapter/30/"><span>30</span>归约、共享内存与矩阵复用</a><a class="chapter-link" href="/chapter/31/"><span>31</span>用 Triton 实现融合 RMSNorm</a><a class="chapter-link" href="/chapter/32/"><span>32</span>Softmax、贪心选择与少算一步</a><a class="chapter-link" href="/chapter/33/"><span>33</span>性能测量与瓶颈分析</a><a class="chapter-link" href="/chapter/34/"><span>34</span>把融合算子接入真实推理</a><a class="chapter-link" href="/chapter/35/"><span>35</span>算子部署、评价与交付</a> </section> <section class="nav-group"><div class="nav-group-title">附录与练习</div> <a class="chapter-link" href="/appendix/01/">环境准备与复现</a><a class="chapter-link" href="/appendix/02/">学习路线与前置自测</a><a class="chapter-link" href="/appendix/03/">读懂后续工程代码</a><a class="chapter-link" href="/appendix/04/">数学符号与计算速查</a> <a class="chapter-link" href="/resource/506997cbbc41/">章节练习与产出验收</a> <a class="chapter-link" href="/resources/">全部代码与学习附件</a> </section> <div class="sidebar-note">六个部分 · 35 章<br>按自己的节奏，从第一章开始。</div> </aside> <div class="reading-layout"> <main id="main" class="main-content"> <div class="document-meta" data-pagefind-ignore><span>第 05 章</span><a href="https://github.com/cbt12123/handmade-llm/blob/simple/%E7%AC%AC%E4%BA%8C%E9%83%A8%E5%88%86-%E9%9D%A2%E5%90%91%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/05-%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E4%B8%8E%E5%90%91%E9%87%8F%E8%AE%A1%E7%AE%97.md" target="_blank" rel="noopener noreferrer">GitHub 源文档 ↗</a></div> <details class="mobile-toc" data-pagefind-ignore><summary>本页目录</summary><a href="#51-标量向量矩阵与张量">5.1 标量、向量、矩阵与张量</a><a href="#52-向量加法与缩放">5.2 向量加法与缩放</a><a href="#53-长度点积与相似度">5.3 长度、点积与相似度</a><a href="#54-矩阵乘法是怎样组合数据的">5.4 矩阵乘法是怎样组合数据的</a><a href="#55-批量数据转置与形状核验">5.5 批量数据、转置与形状核验</a><a href="#56-线性方程组找出未知量">5.6 线性方程组：找出未知量</a><a href="#57-逆矩阵秩与信息丢失">5.7 逆矩阵、秩与信息丢失</a><a href="#58-最小二乘数据不完全落在直线上">5.8 最小二乘：数据不完全落在直线上</a><a href="#59-特征值与特征向量选修">5.9 特征值与特征向量〔选修〕</a><a href="#510-低秩近似与降维选修">5.10 低秩近似与降维〔选修〕</a><a href="#511-章末产出相似度检索与线性变换实验">5.11 章末产出：相似度检索与线性变换实验</a><a href="#512-自检">5.12 自检</a></details><article class="prose" data-pagefind-body data-pagefind-weight="1"><h1 id="第-5-章线性代数与向量计算" data-pagefind-meta="title">第 5 章：线性代数与向量计算</h1>
+<p>上一章学习一个或多个输入怎样影响输出。这一章把多维数据看成向量，理解矩阵怎样组合、变换这些数据。它连接机器学习的特征、线性层和文本向量。</p>
+<p><strong>先修：</strong> NumPy 的 shape、索引、广播、<code>*</code> 与 <code>@</code>。本章先在二维空间建立直觉，再写通用形状。</p>
+<h2 id="51-标量向量矩阵与张量">5.1 标量、向量、矩阵与张量</h2>
+<p>一个数字是标量；按顺序排列的一组数字是向量；二维数字表是矩阵。张量在本书的数组计算语境中表示带若干轴的多维数值数据，也包含低维情况。</p>
+<p>例如一个人的两科成绩 <code>[80,90]</code> 是向量，三个人的成绩表是矩阵。</p>
+<pre><code class="language-python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+
+scalar = np.array(<span class="hljs-number">3.0</span>)
+vector = np.array([<span class="hljs-number">80</span>, <span class="hljs-number">90</span>])
+matrix = np.array([[<span class="hljs-number">80</span>, <span class="hljs-number">90</span>], [<span class="hljs-number">60</span>, <span class="hljs-number">70</span>], [<span class="hljs-number">100</span>, <span class="hljs-number">80</span>]])
+<span class="hljs-built_in">print</span>(scalar.shape, vector.shape, matrix.shape)  <span class="hljs-comment"># () (2,) (3, 2)</span>
+</code></pre>
+<p>先确认每个位置是什么意思，再看形状。shape 相同不代表含义相同：身高体重和语文数学虽然都是两列，不能随意交换。</p>
+<h2 id="52-向量加法与缩放">5.2 向量加法与缩放</h2>
+<p>二维向量可以画成从原点指向某个位置的箭头，例如 <code>[2,1]</code> 表示横向 2、纵向 1。</p>
+<p><img src="/files/images/part02-vectors.png" alt="向量相加与基向量的线性组合" loading="lazy" decoding="async"></p>
+<pre><code class="language-python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+
+u = np.array([<span class="hljs-number">2.0</span>, <span class="hljs-number">1.0</span>])
+v = np.array([<span class="hljs-number">1.0</span>, <span class="hljs-number">2.0</span>])
+<span class="hljs-built_in">print</span>(u + v)  <span class="hljs-comment"># [3. 3.]</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-number">2</span> * u)  <span class="hljs-comment"># [4. 2.]</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-number">0.5</span> * u - v)  <span class="hljs-comment"># [0. -1.5]</span>
+</code></pre>
+<p>线性组合指给向量乘系数后相加。二维标准基向量 <code>e₁=[1,0]</code>、<code>e₂=[0,1]</code>，任意 <code>[a,b]</code> 都可写成 <code>a e₁+b e₂</code>。</p>
+<p>如果两个向量只是同一方向的不同倍数，它们只能组合出一条线；如果方向独立，则可以覆盖整个二维平面。这是后面理解“秩”的起点。</p>
+<h2 id="53-长度点积与相似度">5.3 长度、点积与相似度</h2>
+<p>向量 <code>[3,4]</code> 的欧氏长度为 <code>√(3²+4²)=5</code>，写成 <code>||v||</code>。点积把对应元素相乘后求和：<code>u·v=Σuᵢvᵢ</code>。</p>
+<pre><code class="language-python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+
+u = np.array([<span class="hljs-number">3.0</span>, <span class="hljs-number">4.0</span>])
+v = np.array([<span class="hljs-number">1.0</span>, <span class="hljs-number">0.0</span>])
+<span class="hljs-built_in">print</span>(np.linalg.norm(u))  <span class="hljs-comment"># 5.0</span>
+<span class="hljs-built_in">print</span>(u @ v)             <span class="hljs-comment"># 3.0</span>
+cosine = (u @ v) / (np.linalg.norm(u) * np.linalg.norm(v))
+<span class="hljs-built_in">print</span>(cosine)            <span class="hljs-comment"># 0.6</span>
+</code></pre>
+<p>对非零向量，点积满足 <code>u·v=||u||||v||cosθ</code>。余弦相似度比较方向，取值在 [-1,1]：同向为 1，垂直为 0，反向为 -1。零向量没有定义好的方向，因此不能直接计算余弦。</p>
+<p>用“学习时间、阅读量”表示两个人时，相似方向可以反映比例近似；但必须先考虑单位和尺度。这里不是说任意两个数字的夹角都有实际意义。</p>
+<h2 id="54-矩阵乘法是怎样组合数据的">5.4 矩阵乘法是怎样组合数据的</h2>
+<p>下面统一数学约定：用列向量 x 表示一个输入，变换写成 <code>y=Ax</code>。NumPy 的一维数组可以在计算中承担向量角色，先用 shape 说明清楚。</p>
+<pre><code class="language-python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+
+a = np.array([[<span class="hljs-number">2.0</span>, <span class="hljs-number">0.0</span>], [<span class="hljs-number">0.0</span>, <span class="hljs-number">0.5</span>]])
+x = np.array([<span class="hljs-number">1.0</span>, <span class="hljs-number">2.0</span>])
+y = a @ x
+<span class="hljs-built_in">print</span>(y)  <span class="hljs-comment"># [2. 1.]</span>
+</code></pre>
+<p>A 的每一行与 x 点积，得到一个输出。这个 A 把横坐标放大两倍、纵坐标缩小一半。</p>
+<p><img src="/files/images/part02-transforms.png" alt="缩放、旋转与投影的线性变换" loading="lazy" decoding="async"></p>
+<p>矩阵的每一列告诉你一个标准基向量被送到哪里。要验证线性，可看 <code>A(u+v)=Au+Av</code> 和 <code>A(cu)=cAu</code>，即保持加法与缩放关系。</p>
+<pre><code class="language-python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+
+a = np.array([[<span class="hljs-number">2.</span>, <span class="hljs-number">1.</span>], [<span class="hljs-number">0.</span>, <span class="hljs-number">1.</span>]])
+u, v = np.array([<span class="hljs-number">1.</span>, <span class="hljs-number">2.</span>]), np.array([<span class="hljs-number">3.</span>, -<span class="hljs-number">1.</span>])
+<span class="hljs-keyword">assert</span> np.allclose(a @ (u + v), a @ u + a @ v)
+<span class="hljs-keyword">assert</span> np.allclose(a @ (<span class="hljs-number">3</span> * u), <span class="hljs-number">3</span> * (a @ u))
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;线性性质核验通过&quot;</span>)
+</code></pre>
+<p>加上固定偏置的 <code>Ax+b</code> 通常称仿射变换，b≠0 时不再满足上面的线性关系。神经网络中的 Linear 层常包含这个偏置。</p>
+<h2 id="55-批量数据转置与形状核验">5.5 批量数据、转置与形状核验</h2>
+<p>机器学习常把每个样本放在一行，数据 <code>X</code> 的形状为 <code>(n,d)</code>，n 是样本数、d 是特征数。为了得到每个样本的 k 个输出，可写：</p>
+<div class="formula"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>Y</mi><mo>=</mo><mi>X</mi><mi>W</mi><mo>+</mo><mi>b</mi><mo separator="true">,</mo><mspace width="1em"/><mi>X</mi><mo>:</mo><mo stretchy="false">(</mo><mi>n</mi><mo separator="true">,</mo><mi>d</mi><mo stretchy="false">)</mo><mo separator="true">,</mo><mtext> </mtext><mi>W</mi><mo>:</mo><mo stretchy="false">(</mo><mi>d</mi><mo separator="true">,</mo><mi>k</mi><mo stretchy="false">)</mo><mo separator="true">,</mo><mtext> </mtext><mi>b</mi><mo>:</mo><mo stretchy="false">(</mo><mi>k</mi><mo separator="true">,</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">Y=XW+b,\quad X:(n,d),\ W:(d,k),\ b:(k,)
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.2222em;">Y</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.0785em;">X</span><span class="mord mathnormal" style="margin-right:0.1389em;">W</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">b</span><span class="mpunct">,</span><span class="mspace" style="margin-right:1em;"></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.0785em;">X</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">d</span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace"> </span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.1389em;">W</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">d</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.0315em;">k</span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace"> </span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">b</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.0315em;">k</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mclose">)</span></span></span></span></span></div><pre><code class="language-python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+
+x = np.array([[<span class="hljs-number">1.</span>, <span class="hljs-number">2.</span>], [<span class="hljs-number">3.</span>, <span class="hljs-number">4.</span>], [<span class="hljs-number">5.</span>, <span class="hljs-number">6.</span>]])
+w = np.array([[<span class="hljs-number">2.</span>, -<span class="hljs-number">1.</span>], [<span class="hljs-number">1.</span>, <span class="hljs-number">0.</span>]])
+b = np.array([<span class="hljs-number">0.5</span>, <span class="hljs-number">1.</span>])
+y = x @ w + b
+<span class="hljs-built_in">print</span>(y.shape)  <span class="hljs-comment"># (3, 2)</span>
+<span class="hljs-built_in">print</span>(y[<span class="hljs-number">0</span>])     <span class="hljs-comment"># [4.5 0.]</span>
+</code></pre>
+<p>这是按行存放样本后的约定，不是与列向量公式矛盾。框架可能把权重存成 <code>(k,d)</code>，前向就写 <code>X @ W.T + b</code>，阅读时先看存储形状。</p>
+<p>二维转置 <code>.T</code> 交换行列，并满足 <code>(AB)ᵀ=BᵀAᵀ</code>，顺序要反过来。矩阵乘法一般不能交换：AB 和 BA 可能不同，甚至一方没有定义。</p>
+<h2 id="56-线性方程组找出未知量">5.6 线性方程组：找出未知量</h2>
+<p>两个条件：<code>2x+y=5</code>、<code>x-y=1</code>。把系数放在矩阵里，未知量放进向量，写成 <code>Az=b</code>。</p>
+<pre><code class="language-python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+
+a = np.array([[<span class="hljs-number">2.</span>, <span class="hljs-number">1.</span>], [<span class="hljs-number">1.</span>, -<span class="hljs-number">1.</span>]])
+b = np.array([<span class="hljs-number">5.</span>, <span class="hljs-number">1.</span>])
+z = np.linalg.solve(a, b)
+<span class="hljs-built_in">print</span>(z)  <span class="hljs-comment"># [2. 1.]</span>
+<span class="hljs-keyword">assert</span> np.allclose(a @ z, b)
+</code></pre>
+<p>solve 用来求解这里的可逆方阵系统。方程可能无解、有唯一解或有很多解；不能看到一组系数就默认能求唯一解。</p>
+<h2 id="57-逆矩阵秩与信息丢失">5.7 逆矩阵、秩与信息丢失</h2>
+<p>逆矩阵相当于撤销一个可逆变换：<code>A⁻¹A=I</code>，I 是单位矩阵。不是把每个元素取倒数。</p>
+<p>如果变换把二维平面压到一条线，不同输入可能得到同一输出，无法唯一恢复。矩阵的秩描述独立列的数量，也描述它能保留多少独立方向。</p>
+<pre><code class="language-python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+
+full = np.array([[<span class="hljs-number">2.</span>, <span class="hljs-number">0.</span>], [<span class="hljs-number">0.</span>, <span class="hljs-number">1.</span>]])
+collapsed = np.array([[<span class="hljs-number">1.</span>, <span class="hljs-number">2.</span>], [<span class="hljs-number">2.</span>, <span class="hljs-number">4.</span>]])
+<span class="hljs-built_in">print</span>(np.linalg.matrix_rank(full))       <span class="hljs-comment"># 2</span>
+<span class="hljs-built_in">print</span>(np.linalg.matrix_rank(collapsed))  <span class="hljs-comment"># 1</span>
+<span class="hljs-keyword">assert</span> np.allclose(np.linalg.inv(full) @ full, np.eye(<span class="hljs-number">2</span>))
+</code></pre>
+<p>collapsed 的第二列是第一列的两倍，不能提供新的方向。数值库判断秩时有容差；非常接近相关的列可能使问题对小扰动敏感。</p>
+<p>求解方程组优先用 solve，而不是先显式求逆再乘；矩形数据拟合可以用下一节的 lstsq。</p>
+<h2 id="58-最小二乘数据不完全落在直线上">5.8 最小二乘：数据不完全落在直线上</h2>
+<p>假设观察 <code>(x,y)</code>，用 <code>y≈wx+b</code> 拟合。通常没有一条直线穿过所有带噪声的数据，所以最小化误差平方和：</p>
+<div class="formula"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><munder><mo>∑</mo><mi>i</mi></munder><mo stretchy="false">(</mo><mi>w</mi><msub><mi>x</mi><mi>i</mi></msub><mo>+</mo><mi>b</mi><mo>−</mo><msub><mi>y</mi><mi>i</mi></msub><msup><mo stretchy="false">)</mo><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">\sum_i(wx_i+b-y_i)^2
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.3277em;vertical-align:-1.2777em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.05em;"><span style="top:-1.8723em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span><span style="top:-3.05em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.2777em;"><span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.0269em;">w</span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7778em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">b</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.1141em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0359em;">y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em;"><span style="top:-2.55em;margin-left:-0.0359em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span></div><p>平方使正负误差不会抵消，也让大误差受到更大惩罚。把 x 和常数 1 放在两列，参数向量是 <code>[w,b]</code>。</p>
+<pre><code class="language-python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+
+x = np.array([<span class="hljs-number">0.</span>, <span class="hljs-number">1.</span>, <span class="hljs-number">2.</span>, <span class="hljs-number">3.</span>])
+y = np.array([<span class="hljs-number">1.1</span>, <span class="hljs-number">2.9</span>, <span class="hljs-number">5.2</span>, <span class="hljs-number">6.8</span>])
+design = np.column_stack([x, np.ones_like(x)])
+parameters, _, _, _ = np.linalg.lstsq(design, y, rcond=<span class="hljs-literal">None</span>)
+prediction = design @ parameters
+<span class="hljs-built_in">print</span>(np.<span class="hljs-built_in">round</span>(parameters, <span class="hljs-number">3</span>))  <span class="hljs-comment"># [1.94 1.09]</span>
+mse = np.mean((prediction - y) ** <span class="hljs-number">2</span>)
+<span class="hljs-keyword">assert</span> mse &lt; np.mean((y.mean() - y) ** <span class="hljs-number">2</span>)
+</code></pre>
+<p><img src="/files/images/part02-least-squares.png" alt="带噪声的数据与最小二乘拟合" loading="lazy" decoding="async"></p>
+<p>下划线表示暂时不用的返回值。这里用 lstsq 避免要求你先掌握求逆公式；下一部分会把“拟合参数”连接到线性回归与梯度下降。</p>
+<h2 id="59-特征值与特征向量选修">5.9 特征值与特征向量〔选修〕</h2>
+<p>有些方向经过矩阵变换后仍沿原来的直线，只被缩放或反向。若非零向量 v 满足 <code>Av=λv</code>，v 是特征向量，λ 是对应特征值。</p>
+<pre><code class="language-python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+
+a = np.array([[<span class="hljs-number">2.</span>, <span class="hljs-number">0.</span>], [<span class="hljs-number">0.</span>, <span class="hljs-number">3.</span>]])
+v = np.array([<span class="hljs-number">1.</span>, <span class="hljs-number">0.</span>])
+<span class="hljs-keyword">assert</span> np.allclose(a @ v, <span class="hljs-number">2</span> * v)
+<span class="hljs-built_in">print</span>(np.linalg.eigvalsh(a))  <span class="hljs-comment"># [2. 3.]，本例是实对称矩阵</span>
+</code></pre>
+<p>一般矩阵不保证有足够多的实特征向量；不要把这个简单例子推广到所有矩阵。这里先理解“某些方向的变化可以用一个倍数描述”，以后再用于理解方差、优化和系统稳定性。</p>
+<h2 id="510-低秩近似与降维选修">5.10 低秩近似与降维〔选修〕</h2>
+<p>如果数据中很多方向重复，可以用较少方向近似表示。SVD 将矩阵拆成 <code>A=UΣVᵀ</code>；保留前 r 个较大的奇异值和对应方向，得到秩至多为 r 的近似。</p>
+<pre><code class="language-python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+
+a = np.array([[<span class="hljs-number">1.</span>, <span class="hljs-number">2.</span>, <span class="hljs-number">3.</span>], [<span class="hljs-number">2.</span>, <span class="hljs-number">4.</span>, <span class="hljs-number">6.</span>], [<span class="hljs-number">3.</span>, <span class="hljs-number">6.</span>, <span class="hljs-number">9.</span>]])
+u, s, vt = np.linalg.svd(a, full_matrices=<span class="hljs-literal">False</span>)
+rank_one = (u[:, :<span class="hljs-number">1</span>] * s[:<span class="hljs-number">1</span>]) @ vt[:<span class="hljs-number">1</span>, :]
+<span class="hljs-keyword">assert</span> np.allclose(rank_one, a)
+<span class="hljs-built_in">print</span>(np.linalg.matrix_rank(a))  <span class="hljs-comment"># 1</span>
+</code></pre>
+<p>本例本来就只有一个独立方向，所以秩 1 可以恢复；实际数据可能只能近似恢复。LoRA 后面会用两个小矩阵的乘积表达低秩权重更新，并不是说任意模型权重都能无损压缩。</p>
+<h2 id="511-章末产出相似度检索与线性变换实验">5.11 章末产出：相似度检索与线性变换实验</h2>
+<p><strong>任务：</strong> 为四条小记录构造三维特征，用余弦相似度选最接近查询的记录；画出二维图形在缩放、旋转、投影后的样子；比较秩 1、秩 2 近似误差。</p>
+<p>运行 <code>python script/part02/05_linear_algebra.py</code>，生成：</p>
+<ul>
+<li><code>outputs/part02/05-linear-algebra.json</code>：检索排名、矩阵秩和低秩误差。</li>
+<li><code>outputs/part02/05-transforms.png</code>：变换对比。</li>
+</ul>
+<p><strong>验收：</strong> 能手算一个点积，说明零向量为什么不能直接算余弦；说明投影后为什么不能唯一恢复；秩 2 近似误差不高于秩 1。再改变查询方向，观察排名变化。</p>
+<p>这些特征是人为设计的，说明的是向量检索计算流程，不等于训练出来的语义搜索。</p>
+<h2 id="512-自检">5.12 自检</h2>
+<table>
+<thead>
+<tr>
+<th>问题</th>
+<th>答案</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>向量点积怎样计算？</td>
+<td>对应元素相乘，再求和。</td>
+</tr>
+<tr>
+<td>余弦相似度关注长度还是方向？</td>
+<td>方向；输入必须非零。</td>
+</tr>
+<tr>
+<td>矩阵乘法能交换顺序吗？</td>
+<td>一般不能。</td>
+</tr>
+<tr>
+<td>秩不足会怎样？</td>
+<td>独立方向不足，可能丢失可恢复信息。</td>
+</tr>
+<tr>
+<td>拟合有噪声数据为什么用最小二乘？</td>
+<td>通常无法精确满足全部方程，改为最小化平方误差。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="补充练习与验收">补充练习与验收</h3>
+<p>先独立完成<a href="/resource/bfb5a0707445/#%E7%AC%AC05%E7%AB%A0">本章两道练习</a>，再核对参考答案和本章验收证据。记录自己的输入、结果与边界案例，不要求复制作者的实验数值。</p>
+<p><a href="/chapter/04/">上一章</a> · <a href="/guide/2/">本部分目录</a> · <a href="/chapter/06/">下一章：概率、统计与信息量</a></p>
+</article> <nav class="chapter-pagination" aria-label="连续阅读" data-pagefind-ignore><a href="/chapter/04/"><small>← 上一章</small>第 4 章：函数与微积分入门</a><a href="/chapter/06/"><small>下一章 →</small>第 6 章：概率、统计与信息量</a></nav> <footer class="page-footer" data-pagefind-ignore>从 Python 基础到大模型应用与算子开发 <a href="https://github.com/cbt12123/handmade-llm/tree/simple" target="_blank" rel="noopener noreferrer">GitHub ↗</a></footer> </main> <aside class="page-toc" aria-label="本页目录" data-pagefind-ignore> <div class="toc-title">本页内容</div><a href="#51-标量向量矩阵与张量">5.1 标量、向量、矩阵与张量</a><a href="#52-向量加法与缩放">5.2 向量加法与缩放</a><a href="#53-长度点积与相似度">5.3 长度、点积与相似度</a><a href="#54-矩阵乘法是怎样组合数据的">5.4 矩阵乘法是怎样组合数据的</a><a href="#55-批量数据转置与形状核验">5.5 批量数据、转置与形状核验</a><a href="#56-线性方程组找出未知量">5.6 线性方程组：找出未知量</a><a href="#57-逆矩阵秩与信息丢失">5.7 逆矩阵、秩与信息丢失</a><a href="#58-最小二乘数据不完全落在直线上">5.8 最小二乘：数据不完全落在直线上</a><a href="#59-特征值与特征向量选修">5.9 特征值与特征向量〔选修〕</a><a href="#510-低秩近似与降维选修">5.10 低秩近似与降维〔选修〕</a><a href="#511-章末产出相似度检索与线性变换实验">5.11 章末产出：相似度检索与线性变换实验</a><a href="#512-自检">5.12 自检</a><a class="toc-sub" href="#补充练习与验收">补充练习与验收</a> <a class="back-top" href="#main">回到顶部 ↑</a> </aside> </div> <dialog id="search-dialog" aria-label="搜索完整教程"> <div class="dialog-head"><strong>搜索教程</strong><button id="search-close" aria-label="关闭搜索">✕</button></div> <div id="search"></div><p class="search-hint">输入关键词，查找正文、公式说明、练习和附件。</p> </dialog> <dialog id="image-dialog" aria-label="查看大图"><button id="image-close" aria-label="关闭图片">✕</button><img alt=""><p></p></dialog> <script type="module" src="/_astro/Book.astro_astro_type_script_index_0_lang.SvhK8ezw.js"></script> </body> </html>

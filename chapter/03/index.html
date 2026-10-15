@@ -1,0 +1,344 @@
+<!DOCTYPE html><html lang="zh-CN"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="完整中文教程：从 Python 与数学基础，到机器学习、大模型部署、Agent 与 NVIDIA 算子实践。"><title>第 3 章：NumPy 与数据可视化 · 手写与实践</title><link rel="stylesheet" href="/katex/katex.min.css"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/_astro/Book.ddZgooq8.css"></head> <body> <a class="skip" href="#main">跳转到正文</a> <header class="topbar" data-pagefind-ignore> <button id="menu-toggle" class="menu-toggle" aria-label="打开章节目录" aria-expanded="false" aria-controls="sidebar">☰</button> <a class="brand" href="/"><span class="brand-icon">∑</span><span>手写与实践<small>从 Python 到大模型</small></span></a> <nav class="top-links" aria-label="主导航"> <a href="/resources/">学习附件</a> <a href="/files/output/pdf/course-complete.pdf">完整 PDF <span>↗</span></a> <button id="search-open" class="search-trigger">搜索教程 <kbd>/</kbd></button> </nav> </header> <div id="menu-backdrop" class="menu-backdrop" hidden></div> <aside id="sidebar" class="sidebar" aria-label="章节目录" data-pagefind-ignore> <a class="nav-home" href="/">教程首页</a> <a class="nav-home" href="/overview/">阅读与运行指南</a> <section class="nav-group"> <div class="nav-group-title"><span>01</span>Python与计算基础</div>  <a class="chapter-link" href="/chapter/01/"><span>01</span>Python 基础</a><a class="chapter-link" href="/chapter/02/"><span>02</span>组织代码与数据处理</a><a class="chapter-link active" href="/chapter/03/" aria-current="page"><span>03</span>NumPy 与数据可视化</a> </section><section class="nav-group"> <div class="nav-group-title"><span>02</span>面向机器学习的数学基础</div> <a class="guide-link" href="/guide/2/">本部分运行指南</a> <a class="chapter-link" href="/chapter/04/"><span>04</span>函数与微积分入门</a><a class="chapter-link" href="/chapter/05/"><span>05</span>线性代数与向量计算</a><a class="chapter-link" href="/chapter/06/"><span>06</span>概率、统计与信息量</a><a class="chapter-link" href="/chapter/07/"><span>07</span>离散数学与算法思维</a> </section><section class="nav-group"> <div class="nav-group-title"><span>03</span>机器学习与深度学习</div> <a class="guide-link" href="/guide/3/">本部分运行指南</a> <a class="chapter-link" href="/chapter/08/"><span>08</span>机器学习任务与模型评价</a><a class="chapter-link" href="/chapter/09/"><span>09</span>模型如何学习与神经网络</a><a class="chapter-link" href="/chapter/10/"><span>10</span>PyTorch训练与模型管理</a><a class="chapter-link" href="/chapter/11/"><span>11</span>CNN与图像识别</a><a class="chapter-link" href="/chapter/12/"><span>12</span>NLP与序列建模</a><a class="chapter-link" href="/chapter/13/"><span>13</span>注意力与Transformer</a> </section><section class="nav-group"> <div class="nav-group-title"><span>04</span>大模型与部署</div> <a class="guide-link" href="/guide/4/">本部分运行指南</a> <a class="chapter-link" href="/chapter/14/"><span>14</span>语言模型与大模型结构</a><a class="chapter-link" href="/chapter/15/"><span>15</span>本地加载与对话输入</a><a class="chapter-link" href="/chapter/16/"><span>16</span>生成策略与KV缓存</a><a class="chapter-link" href="/chapter/17/"><span>17</span>资源预算、量化与参数适配</a><a class="chapter-link" href="/chapter/18/"><span>18</span>HTTP服务与部署实践</a><a class="chapter-link" href="/chapter/19/"><span>19</span>提示设计、评价与部署交付</a> </section><section class="nav-group"> <div class="nav-group-title"><span>05</span>Agent</div> <a class="guide-link" href="/guide/5/">本部分运行指南</a> <a class="chapter-link" href="/chapter/20/"><span>20</span>Agent 的组成与运行过程</a><a class="chapter-link" href="/chapter/21/"><span>21</span>编写第一个 Agent 循环</a><a class="chapter-link" href="/chapter/22/"><span>22</span>Rules：规则与执行边界</a><a class="chapter-link" href="/chapter/23/"><span>23</span>Skills：让任务方法可以复用</a><a class="chapter-link" href="/chapter/24/"><span>24</span>Knowledge：读取、检索与引用</a><a class="chapter-link" href="/chapter/25/"><span>25</span>状态、记忆与多步骤任务</a><a class="chapter-link" href="/chapter/26/"><span>26</span>组装完整课程学习助手</a><a class="chapter-link" href="/chapter/27/"><span>27</span>测试、评价与扩展</a> </section><section class="nav-group"> <div class="nav-group-title"><span>06</span>NVIDIA算子开发</div> <a class="guide-link" href="/guide/6/">本部分运行指南</a> <a class="chapter-link" href="/chapter/28/"><span>28</span>从推理瓶颈到 GPU 执行</a><a class="chapter-link" href="/chapter/29/"><span>29</span>第一个 CUDA 程序与数据布局</a><a class="chapter-link" href="/chapter/30/"><span>30</span>归约、共享内存与矩阵复用</a><a class="chapter-link" href="/chapter/31/"><span>31</span>用 Triton 实现融合 RMSNorm</a><a class="chapter-link" href="/chapter/32/"><span>32</span>Softmax、贪心选择与少算一步</a><a class="chapter-link" href="/chapter/33/"><span>33</span>性能测量与瓶颈分析</a><a class="chapter-link" href="/chapter/34/"><span>34</span>把融合算子接入真实推理</a><a class="chapter-link" href="/chapter/35/"><span>35</span>算子部署、评价与交付</a> </section> <section class="nav-group"><div class="nav-group-title">附录与练习</div> <a class="chapter-link" href="/appendix/01/">环境准备与复现</a><a class="chapter-link" href="/appendix/02/">学习路线与前置自测</a><a class="chapter-link" href="/appendix/03/">读懂后续工程代码</a><a class="chapter-link" href="/appendix/04/">数学符号与计算速查</a> <a class="chapter-link" href="/resource/506997cbbc41/">章节练习与产出验收</a> <a class="chapter-link" href="/resources/">全部代码与学习附件</a> </section> <div class="sidebar-note">六个部分 · 35 章<br>按自己的节奏，从第一章开始。</div> </aside> <div class="reading-layout"> <main id="main" class="main-content"> <div class="document-meta" data-pagefind-ignore><span>第 03 章</span><a href="https://github.com/cbt12123/handmade-llm/blob/simple/%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86-Python%E4%B8%8E%E8%AE%A1%E7%AE%97%E5%9F%BA%E7%A1%80/03-NumPy%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96.md" target="_blank" rel="noopener noreferrer">GitHub 源文档 ↗</a></div> <details class="mobile-toc" data-pagefind-ignore><summary>本页目录</summary><a href="#31-安装检查与学习对象">3.1 安装检查与学习对象</a><a href="#32-创建数组值形状与类型">3.2 创建数组：值、形状与类型</a><a href="#33-索引切片与布尔筛选">3.3 索引、切片与布尔筛选</a><a href="#34-视图与复制修改会影响谁">3.4 视图与复制：修改会影响谁</a><a href="#35-批量运算与按轴汇总">3.5 批量运算与按轴汇总</a><a href="#36-reshape转置与拼接">3.6 reshape、转置与拼接</a><a href="#37-广播形状不同也能配合计算">3.7 广播：形状不同也能配合计算</a><a href="#38-逐元素乘法与矩阵乘法">3.8 逐元素乘法与矩阵乘法</a><a href="#39-缺失值非有限值与数值误差">3.9 缺失值、非有限值与数值误差</a><a href="#310-随机数与可复现实验">3.10 随机数与可复现实验</a><a href="#311-从-csv-到数组再保存">3.11 从 CSV 到数组，再保存</a><a href="#312-matplotlib一张图由什么组成">3.12 Matplotlib：一张图由什么组成</a><a href="#313-折线图与柱状图">3.13 折线图与柱状图</a><a href="#314-散点图与直方图">3.14 散点图与直方图</a><a href="#315-用热力图查看二维数据">3.15 用热力图查看二维数据</a><a href="#316-图像可读性与常见问题">3.16 图像可读性与常见问题</a><a href="#317-本章自检与数学部分入口">3.17 本章自检与数学部分入口</a></details><article class="prose" data-pagefind-body data-pagefind-weight="1"><h1 id="第-3-章numpy-与数据可视化" data-pagefind-meta="title">第 3 章：NumPy 与数据可视化</h1>
+<p>上一章解决了“怎样读到可靠的数据”。本章学习把数字组织成数组、进行批量计算，并画出能解释数据的图。继续使用 conda base + VS Code，不设置章末作品。</p>
+<p>每个 Python 代码块都可单独运行。数组输出的空格和小数显示可能不同，重点看值、类型和形状。绘图例子使用英文标签以避免中文字体问题，图片写入当前工作目录的 <code>learning_plots/</code>。</p>
+<h2 id="31-安装检查与学习对象">3.1 安装检查与学习对象</h2>
+<p>在已激活 base 的终端运行：</p>
+<pre><code class="language-bash">python -c <span class="hljs-string">&quot;import sys, numpy, matplotlib; print(sys.executable); print(numpy.__version__); print(matplotlib.__version__)&quot;</span>
+</code></pre>
+<p>缺库时再安装：</p>
+<pre><code class="language-bash">python -m pip install numpy matplotlib -i https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple
+</code></pre>
+<p>镜像与安装范围见<a href="https://mirrors.tuna.tsinghua.edu.cn/help/pypi/">清华 PyPI 镜像说明</a>。无需重新安装已经可用的库。</p>
+<p>本章约定二维表格中“行是样本，列是特征”。三个人各有两科成绩，就形成 3 行、2 列的数组。</p>
+<p><img src="/files/images/part01-array.png" alt="二维数组的行、列与轴" loading="lazy" decoding="async"></p>
+<h2 id="32-创建数组值形状与类型">3.2 创建数组：值、形状与类型</h2>
+<pre><code class="language-python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+
+scores = np.array([[<span class="hljs-number">80</span>, <span class="hljs-number">90</span>], [<span class="hljs-number">60</span>, <span class="hljs-number">70</span>], [<span class="hljs-number">100</span>, <span class="hljs-number">80</span>]], dtype=np.float64)
+<span class="hljs-built_in">print</span>(scores.shape)  <span class="hljs-comment"># (3, 2)</span>
+<span class="hljs-built_in">print</span>(scores.ndim)   <span class="hljs-comment"># 2</span>
+<span class="hljs-built_in">print</span>(scores.size)   <span class="hljs-comment"># 6</span>
+<span class="hljs-built_in">print</span>(scores.dtype)  <span class="hljs-comment"># float64</span>
+<span class="hljs-built_in">print</span>(np.zeros((<span class="hljs-number">2</span>, <span class="hljs-number">3</span>)))
+<span class="hljs-built_in">print</span>(np.ones((<span class="hljs-number">1</span>, <span class="hljs-number">2</span>)))
+<span class="hljs-built_in">print</span>(np.arange(<span class="hljs-number">0</span>, <span class="hljs-number">6</span>, <span class="hljs-number">2</span>))  <span class="hljs-comment"># [0 2 4]</span>
+<span class="hljs-built_in">print</span>(np.linspace(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">3</span>))  <span class="hljs-comment"># [0.  0.5 1. ]</span>
+</code></pre>
+<p>shape 是每个轴的长度，ndim 是轴的数量，size 是元素总数，dtype 是元素存储类型。zeros 创建全 0，ones 创建全 1。arange 按步长取数、不包含终点；linspace 指定数量，默认包含两端。</p>
+<p>整数数组和浮点数组不同。<code>np.array([1, 2]).astype(float)</code> 返回浮点数组；转换不会凭空提高原始数据的精度。小数转换成整数会丢掉小数部分，应先明确数据含义。</p>
+<h2 id="33-索引切片与布尔筛选">3.3 索引、切片与布尔筛选</h2>
+<pre><code class="language-python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+
+scores = np.array([[<span class="hljs-number">80</span>, <span class="hljs-number">90</span>], [<span class="hljs-number">60</span>, <span class="hljs-number">70</span>], [<span class="hljs-number">100</span>, <span class="hljs-number">80</span>]])
+<span class="hljs-built_in">print</span>(scores[<span class="hljs-number">0</span>, <span class="hljs-number">1</span>])    <span class="hljs-comment"># 90：第 0 行、第 1 列</span>
+<span class="hljs-built_in">print</span>(scores[<span class="hljs-number">0</span>])       <span class="hljs-comment"># [80 90]：一行</span>
+<span class="hljs-built_in">print</span>(scores[:, <span class="hljs-number">0</span>])    <span class="hljs-comment"># [80 60 100]：一列，shape=(3,)</span>
+<span class="hljs-built_in">print</span>(scores[:, <span class="hljs-number">0</span>:<span class="hljs-number">1</span>].shape)  <span class="hljs-comment"># (3, 1)：保留二维形状</span>
+mask = scores[:, <span class="hljs-number">0</span>] &gt;= <span class="hljs-number">80</span>
+<span class="hljs-built_in">print</span>(mask)  <span class="hljs-comment"># [ True False  True]</span>
+<span class="hljs-built_in">print</span>(scores[mask])  <span class="hljs-comment"># 保留第 0、2 行</span>
+</code></pre>
+<p>逗号分隔不同轴的选择，冒号表示全部位置。一个整数索引通常会去掉该轴；切片可以保留它。这就是“看上去都是一列，shape 却不同”的原因。</p>
+<p>两个条件用 <code>&amp;</code>，每个条件都加括号：</p>
+<pre><code class="language-python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+
+values = np.array([<span class="hljs-number">50</span>, <span class="hljs-number">70</span>, <span class="hljs-number">90</span>, <span class="hljs-number">100</span>])
+mask = (values &gt;= <span class="hljs-number">60</span>) &amp; (values &lt; <span class="hljs-number">100</span>)
+<span class="hljs-built_in">print</span>(values[mask])  <span class="hljs-comment"># [70 90]</span>
+</code></pre>
+<p>数组条件不能直接使用 Python 的 and/or，因为你需要的是每个位置分别判断。</p>
+<h2 id="34-视图与复制修改会影响谁">3.4 视图与复制：修改会影响谁</h2>
+<p>普通数组切片通常共享原来的数据，称为视图。</p>
+<pre><code class="language-python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+
+original = np.array([<span class="hljs-number">10</span>, <span class="hljs-number">20</span>, <span class="hljs-number">30</span>])
+view = original[:<span class="hljs-number">2</span>]
+view[<span class="hljs-number">0</span>] = <span class="hljs-number">99</span>
+<span class="hljs-built_in">print</span>(original)  <span class="hljs-comment"># [99 20 30]</span>
+copied = original[:<span class="hljs-number">2</span>].copy()
+copied[<span class="hljs-number">0</span>] = <span class="hljs-number">0</span>
+<span class="hljs-built_in">print</span>(original)  <span class="hljs-comment"># [99 20 30]</span>
+</code></pre>
+<p>想保留原始数组时，明确使用 copy。整数数组索引和布尔筛选通常产生副本，但不要把这种行为推断到所有索引操作。先分清自己要读取还是要修改。</p>
+<h2 id="35-批量运算与按轴汇总">3.5 批量运算与按轴汇总</h2>
+<p>列表的 <code>* 2</code> 重复列表，数组的 <code>* 2</code> 逐元素乘 2：</p>
+<pre><code class="language-python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+
+<span class="hljs-built_in">print</span>([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>] * <span class="hljs-number">2</span>)  <span class="hljs-comment"># [1, 2, 1, 2]</span>
+<span class="hljs-built_in">print</span>(np.array([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>]) * <span class="hljs-number">2</span>)  <span class="hljs-comment"># [2 4]</span>
+scores = np.array([[<span class="hljs-number">80</span>, <span class="hljs-number">90</span>], [<span class="hljs-number">60</span>, <span class="hljs-number">70</span>], [<span class="hljs-number">100</span>, <span class="hljs-number">80</span>]])
+<span class="hljs-built_in">print</span>(scores.mean(axis=<span class="hljs-number">0</span>))  <span class="hljs-comment"># [80. 80.]：每科均值</span>
+<span class="hljs-built_in">print</span>(scores.mean(axis=<span class="hljs-number">1</span>))  <span class="hljs-comment"># [85. 65. 90.]：每人均值</span>
+<span class="hljs-built_in">print</span>(scores.mean())       <span class="hljs-comment"># 80.0：全部元素均值</span>
+<span class="hljs-built_in">print</span>(scores.<span class="hljs-built_in">sum</span>(axis=<span class="hljs-number">1</span>))  <span class="hljs-comment"># [170 130 180]</span>
+</code></pre>
+<p>axis 指定哪条轴被汇总。axis=0 汇总各行，留下每列的结果；axis=1 汇总各列，留下每行的结果。省略 axis 通常汇总全部元素。</p>
+<p><strong>随堂检查：</strong> shape 为 <code>(3, 2)</code> 的成绩数组按 axis=0 求均值，结果 shape 是多少？<code>(2,)</code>，因为行轴被汇总掉。</p>
+<h2 id="36-reshape转置与拼接">3.6 reshape、转置与拼接</h2>
+<pre><code class="language-python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+
+values = np.arange(<span class="hljs-number">6</span>)
+table = values.reshape(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>)
+<span class="hljs-built_in">print</span>(table)  <span class="hljs-comment"># [[0 1 2], [3 4 5]]（按两行显示）</span>
+<span class="hljs-built_in">print</span>(table.T.shape)  <span class="hljs-comment"># (3, 2)</span>
+<span class="hljs-built_in">print</span>(values.reshape(-<span class="hljs-number">1</span>, <span class="hljs-number">1</span>).shape)  <span class="hljs-comment"># (6, 1)</span>
+top = np.array([[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>]])
+bottom = np.array([[<span class="hljs-number">3</span>, <span class="hljs-number">4</span>]])
+<span class="hljs-built_in">print</span>(np.concatenate([top, bottom], axis=<span class="hljs-number">0</span>))  <span class="hljs-comment"># [[1 2], [3 4]]</span>
+<span class="hljs-built_in">print</span>(np.stack([values, values]).shape)  <span class="hljs-comment"># (2, 6)</span>
+</code></pre>
+<p>reshape 保持元素总数；<code>-1</code> 让 NumPy 推算一个维度。二维转置交换行列，不能用一维数组的 <code>.T</code> 创建列向量。</p>
+<p>concatenate 沿已有轴连接，其他轴长度要匹配；stack 新增一个轴，输入数组形状要一致。先打印 shape，再决定操作，避免靠试错乱换 reshape。</p>
+<h2 id="37-广播形状不同也能配合计算">3.7 广播：形状不同也能配合计算</h2>
+<p><img src="/files/images/part01-broadcast.png" alt="广播规则与逐行相加" loading="lazy" decoding="async"></p>
+<pre><code class="language-python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+
+data = np.array([[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>], [<span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>]])
+offset = np.array([<span class="hljs-number">10</span>, <span class="hljs-number">20</span>, <span class="hljs-number">30</span>])
+<span class="hljs-built_in">print</span>(data + offset)  <span class="hljs-comment"># [[11 22 33], [14 25 36]]</span>
+row_offset = np.array([[<span class="hljs-number">100</span>], [<span class="hljs-number">200</span>]])
+<span class="hljs-built_in">print</span>(data + row_offset)  <span class="hljs-comment"># [[101 102 103], [204 205 206]]</span>
+<span class="hljs-built_in">print</span>(data.mean(axis=<span class="hljs-number">0</span>, keepdims=<span class="hljs-literal">True</span>).shape)  <span class="hljs-comment"># (1, 3)</span>
+</code></pre>
+<p>从右对齐维度，相同长度或其中一个为 1 就可以匹配；缺少的维度按 1 处理。<code>(2, 3)</code> 配 <code>(3,)</code> 是每列一个偏移，配 <code>(2, 1)</code> 是每行一个偏移；配 <code>(2,)</code> 则不能直接相加。</p>
+<p>keepdims=True 在汇总后保留长度为 1 的轴，便于后续广播。广播可以理解为在计算中复用数据，不要求实际复制成同样大小的数组。</p>
+<h2 id="38-逐元素乘法与矩阵乘法">3.8 逐元素乘法与矩阵乘法</h2>
+<pre><code class="language-python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+
+a = np.array([[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>], [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>]])
+b = np.array([[<span class="hljs-number">10</span>, <span class="hljs-number">20</span>], [<span class="hljs-number">30</span>, <span class="hljs-number">40</span>]])
+<span class="hljs-built_in">print</span>(a * b)  <span class="hljs-comment"># [[10 40], [90 160]]</span>
+<span class="hljs-built_in">print</span>(a @ b)  <span class="hljs-comment"># [[70 100], [150 220]]</span>
+</code></pre>
+<p><code>*</code> 对应位置相乘，<code>@</code> 是矩阵乘法。第二个结果左上角为 <code>1×10 + 2×30 = 70</code>。二维规则为 <code>(m, k) @ (k, n) → (m, n)</code>；字母只是表示长度。</p>
+<p>一个更贴近数据的例子：每科给一个权重，得到每个人的加权成绩。</p>
+<pre><code class="language-python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+
+scores = np.array([[<span class="hljs-number">80</span>, <span class="hljs-number">90</span>], [<span class="hljs-number">60</span>, <span class="hljs-number">70</span>], [<span class="hljs-number">100</span>, <span class="hljs-number">80</span>]])
+weights = np.array([<span class="hljs-number">0.4</span>, <span class="hljs-number">0.6</span>])
+result = scores @ weights
+<span class="hljs-built_in">print</span>(result)  <span class="hljs-comment"># [86. 66. 88.]</span>
+</code></pre>
+<p>第一个人的结果是 <code>80×0.4 + 90×0.6 = 86</code>。这里右侧是一维向量，结果 shape 为 <code>(3,)</code>。数学部分将继续解释向量和线性变换。</p>
+<h2 id="39-缺失值非有限值与数值误差">3.9 缺失值、非有限值与数值误差</h2>
+<p>NumPy 常用 nan 表示缺失或未定义的浮点值。nan 不等于自身，所以不能用 <code>values == np.nan</code> 找缺失值。</p>
+<pre><code class="language-python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+
+values = np.array([<span class="hljs-number">80.0</span>, np.nan, <span class="hljs-number">100.0</span>])
+<span class="hljs-built_in">print</span>(np.isnan(values))  <span class="hljs-comment"># [False True False]</span>
+<span class="hljs-built_in">print</span>(np.nanmean(values))  <span class="hljs-comment"># 90.0：忽略 nan</span>
+mixed = np.array([<span class="hljs-number">1.0</span>, np.nan, np.inf])
+<span class="hljs-built_in">print</span>(np.isfinite(mixed))  <span class="hljs-comment"># [True False False]</span>
+<span class="hljs-built_in">print</span>(np.isclose(<span class="hljs-number">0.1</span> + <span class="hljs-number">0.2</span>, <span class="hljs-number">0.3</span>))  <span class="hljs-comment"># True</span>
+</code></pre>
+<p>nanmean 忽略缺失值，不代表缺失问题已经解决；如果全部缺失，无法得到正常均值。isfinite 检查既不是 nan 也不是无穷大的值。isclose 用误差容忍比较浮点数；容忍范围应匹配实际任务。</p>
+<h2 id="310-随机数与可复现实验">3.10 随机数与可复现实验</h2>
+<pre><code class="language-python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+
+rng_a = np.random.default_rng(<span class="hljs-number">42</span>)
+rng_b = np.random.default_rng(<span class="hljs-number">42</span>)
+a = rng_a.integers(<span class="hljs-number">0</span>, <span class="hljs-number">10</span>, size=<span class="hljs-number">5</span>)
+b = rng_b.integers(<span class="hljs-number">0</span>, <span class="hljs-number">10</span>, size=<span class="hljs-number">5</span>)
+<span class="hljs-built_in">print</span>(np.array_equal(a, b))  <span class="hljs-comment"># True</span>
+<span class="hljs-built_in">print</span>(rng_a.normal(loc=<span class="hljs-number">0</span>, scale=<span class="hljs-number">1</span>, size=<span class="hljs-number">3</span>).shape)  <span class="hljs-comment"># (3,)</span>
+</code></pre>
+<p>integers 的上界不包含；normal 生成正态分布样本，loc 控制中心，scale 控制分散程度，概率部分会深入解释。同样的种子和调用顺序用于复现，不要每轮重新创建同一种子的生成器。</p>
+<h2 id="311-从-csv-到数组再保存">3.11 从 CSV 到数组，再保存</h2>
+<pre><code class="language-python"><span class="hljs-keyword">import</span> csv
+<span class="hljs-keyword">from</span> pathlib <span class="hljs-keyword">import</span> Path
+<span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+
+path = Path(<span class="hljs-string">&quot;array_scores.csv&quot;</span>)
+path.write_text(<span class="hljs-string">&quot;name,math,english\n小林,80,90\n小周,60,70\n&quot;</span>, encoding=<span class="hljs-string">&quot;utf-8&quot;</span>)
+<span class="hljs-keyword">with</span> path.<span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;r&quot;</span>, encoding=<span class="hljs-string">&quot;utf-8&quot;</span>, newline=<span class="hljs-string">&quot;&quot;</span>) <span class="hljs-keyword">as</span> file:
+    rows = <span class="hljs-built_in">list</span>(csv.DictReader(file))
+names = [row[<span class="hljs-string">&quot;name&quot;</span>] <span class="hljs-keyword">for</span> row <span class="hljs-keyword">in</span> rows]
+scores = np.array([[<span class="hljs-built_in">float</span>(row[<span class="hljs-string">&quot;math&quot;</span>]), <span class="hljs-built_in">float</span>(row[<span class="hljs-string">&quot;english&quot;</span>])] <span class="hljs-keyword">for</span> row <span class="hljs-keyword">in</span> rows])
+<span class="hljs-built_in">print</span>(names)  <span class="hljs-comment"># [&#x27;小林&#x27;, &#x27;小周&#x27;]</span>
+<span class="hljs-built_in">print</span>(scores.shape)  <span class="hljs-comment"># (2, 2)</span>
+np.save(<span class="hljs-string">&quot;array_scores.npy&quot;</span>, scores)
+loaded = np.load(<span class="hljs-string">&quot;array_scores.npy&quot;</span>, allow_pickle=<span class="hljs-literal">False</span>)
+<span class="hljs-built_in">print</span>(np.array_equal(scores, loaded))  <span class="hljs-comment"># True</span>
+</code></pre>
+<p>名字留在列表里，数字进入数组，避免一张混合字符串与数字的数组难以计算。<code>.npy</code> 保存数组形状和 dtype，适合自己程序重新读取；CSV 更便于与人或表格软件交换。</p>
+<h2 id="312-matplotlib一张图由什么组成">3.12 Matplotlib：一张图由什么组成</h2>
+<p>fig 是整张画布，ax 是具体坐标区域。画一张图的过程是“准备数据 → 选择图形 → 标注单位 → 保存或显示”。</p>
+<p><img src="/files/images/part01-chart-types.png" alt="折线、柱状、散点与直方图对照" loading="lazy" decoding="async"></p>
+<table>
+<thead>
+<tr>
+<th>要回答的问题</th>
+<th>图形</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>学习时间怎样随日期变化？</td>
+<td>折线图</td>
+</tr>
+<tr>
+<td>不同类别的数量有何差异？</td>
+<td>柱状图</td>
+</tr>
+<tr>
+<td>两个数值变量之间有何关系？</td>
+<td>散点图</td>
+</tr>
+<tr>
+<td>一组数字集中在哪里？</td>
+<td>直方图</td>
+</tr>
+</tbody>
+</table>
+<p>不同图形传达不同问题，不要仅因为“画得出来”就随意连接没有顺序关系的点。</p>
+<h2 id="313-折线图与柱状图">3.13 折线图与柱状图</h2>
+<pre><code class="language-python"><span class="hljs-keyword">from</span> pathlib <span class="hljs-keyword">import</span> Path
+<span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt
+
+out = Path(<span class="hljs-string">&quot;learning_plots&quot;</span>)
+out.mkdir(exist_ok=<span class="hljs-literal">True</span>)
+fig, axes = plt.subplots(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, figsize=(<span class="hljs-number">10</span>, <span class="hljs-number">4</span>))
+axes[<span class="hljs-number">0</span>].plot([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>], [<span class="hljs-number">10</span>, <span class="hljs-number">20</span>, <span class="hljs-number">15</span>, <span class="hljs-number">30</span>], marker=<span class="hljs-string">&quot;o&quot;</span>)
+axes[<span class="hljs-number">0</span>].<span class="hljs-built_in">set</span>(title=<span class="hljs-string">&quot;Study time&quot;</span>, xlabel=<span class="hljs-string">&quot;Day&quot;</span>, ylabel=<span class="hljs-string">&quot;Minutes&quot;</span>, xticks=[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>])
+axes[<span class="hljs-number">0</span>].grid(alpha=<span class="hljs-number">0.3</span>)
+axes[<span class="hljs-number">1</span>].bar([<span class="hljs-string">&quot;A&quot;</span>, <span class="hljs-string">&quot;B&quot;</span>, <span class="hljs-string">&quot;C&quot;</span>], [<span class="hljs-number">3</span>, <span class="hljs-number">5</span>, <span class="hljs-number">2</span>])
+axes[<span class="hljs-number">1</span>].<span class="hljs-built_in">set</span>(title=<span class="hljs-string">&quot;Group size&quot;</span>, xlabel=<span class="hljs-string">&quot;Group&quot;</span>, ylabel=<span class="hljs-string">&quot;Count&quot;</span>)
+fig.tight_layout()
+fig.savefig(out / <span class="hljs-string">&quot;line_and_bar.png&quot;</span>, dpi=<span class="hljs-number">150</span>)
+plt.show()
+plt.close(fig)
+</code></pre>
+<p>subplots(1, 2) 创建一行两列坐标区域，用 axes[0] 和 axes[1] 选择。tight_layout 调整间距，savefig 保存图片。先保存再 show，减少不同显示后端的差异。</p>
+<h2 id="314-散点图与直方图">3.14 散点图与直方图</h2>
+<pre><code class="language-python"><span class="hljs-keyword">from</span> pathlib <span class="hljs-keyword">import</span> Path
+<span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt
+
+out = Path(<span class="hljs-string">&quot;learning_plots&quot;</span>)
+out.mkdir(exist_ok=<span class="hljs-literal">True</span>)
+hours = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>]
+scores = [<span class="hljs-number">50</span>, <span class="hljs-number">60</span>, <span class="hljs-number">65</span>, <span class="hljs-number">70</span>, <span class="hljs-number">80</span>, <span class="hljs-number">85</span>]
+fig, axes = plt.subplots(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, figsize=(<span class="hljs-number">10</span>, <span class="hljs-number">4</span>))
+axes[<span class="hljs-number">0</span>].scatter(hours, scores)
+axes[<span class="hljs-number">0</span>].<span class="hljs-built_in">set</span>(title=<span class="hljs-string">&quot;Hours and scores&quot;</span>, xlabel=<span class="hljs-string">&quot;Hours&quot;</span>, ylabel=<span class="hljs-string">&quot;Score&quot;</span>)
+axes[<span class="hljs-number">1</span>].hist(scores, bins=[<span class="hljs-number">40</span>, <span class="hljs-number">60</span>, <span class="hljs-number">80</span>, <span class="hljs-number">100</span>], edgecolor=<span class="hljs-string">&quot;white&quot;</span>)
+axes[<span class="hljs-number">1</span>].<span class="hljs-built_in">set</span>(title=<span class="hljs-string">&quot;Score distribution&quot;</span>, xlabel=<span class="hljs-string">&quot;Score&quot;</span>, ylabel=<span class="hljs-string">&quot;Count&quot;</span>)
+fig.tight_layout()
+fig.savefig(out / <span class="hljs-string">&quot;scatter_and_hist.png&quot;</span>, dpi=<span class="hljs-number">150</span>)
+plt.show()
+plt.close(fig)
+</code></pre>
+<p>散点图中一个点代表一对观察值；看到学习时间与成绩一起增长，不能仅凭这几个点证明学习时间是唯一原因。直方图按数值区间统计，bins 规定区间边界；除最后一组外，通常左闭右开，最后一组包含最右端点。</p>
+<p>柱状图比较类别，直方图观察连续数值的分布，二者不能只根据“都有柱子”混用。</p>
+<h2 id="315-用热力图查看二维数据">3.15 用热力图查看二维数据</h2>
+<pre><code class="language-python"><span class="hljs-keyword">from</span> pathlib <span class="hljs-keyword">import</span> Path
+<span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+<span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt
+
+out = Path(<span class="hljs-string">&quot;learning_plots&quot;</span>)
+out.mkdir(exist_ok=<span class="hljs-literal">True</span>)
+scores = np.array([[<span class="hljs-number">80</span>, <span class="hljs-number">90</span>], [<span class="hljs-number">60</span>, <span class="hljs-number">70</span>], [<span class="hljs-number">100</span>, <span class="hljs-number">80</span>]])
+fig, ax = plt.subplots(figsize=(<span class="hljs-number">5</span>, <span class="hljs-number">4</span>))
+image = ax.imshow(scores, cmap=<span class="hljs-string">&quot;Blues&quot;</span>, vmin=<span class="hljs-number">0</span>, vmax=<span class="hljs-number">100</span>)
+ax.set_xticks([<span class="hljs-number">0</span>, <span class="hljs-number">1</span>], labels=[<span class="hljs-string">&quot;Math&quot;</span>, <span class="hljs-string">&quot;English&quot;</span>])
+ax.set_yticks([<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>], labels=[<span class="hljs-string">&quot;Student A&quot;</span>, <span class="hljs-string">&quot;Student B&quot;</span>, <span class="hljs-string">&quot;Student C&quot;</span>])
+<span class="hljs-keyword">for</span> row <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">3</span>):
+    <span class="hljs-keyword">for</span> col <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">2</span>):
+        ax.text(col, row, <span class="hljs-built_in">str</span>(scores[row, col]), ha=<span class="hljs-string">&quot;center&quot;</span>, va=<span class="hljs-string">&quot;center&quot;</span>, color=<span class="hljs-string">&quot;black&quot;</span> <span class="hljs-keyword">if</span> scores[row, col] &lt; <span class="hljs-number">80</span> <span class="hljs-keyword">else</span> <span class="hljs-string">&quot;white&quot;</span>)
+fig.colorbar(image, ax=ax, label=<span class="hljs-string">&quot;Score&quot;</span>)
+fig.tight_layout()
+fig.savefig(out / <span class="hljs-string">&quot;score_heatmap.png&quot;</span>, dpi=<span class="hljs-number">150</span>)
+plt.show()
+plt.close(fig)
+</code></pre>
+<p><img src="/files/images/part01-score-heatmap.png" alt="带数值标注的成绩热力图" loading="lazy" decoding="async"></p>
+<p>颜色表示大小，颜色条说明颜色与数值的关系。比较多个图时使用一致的颜色范围，避免同样的蓝色代表不同分数。以后 CNN 特征图和注意力矩阵也会使用类似方式。</p>
+<h2 id="316-图像可读性与常见问题">3.16 图像可读性与常见问题</h2>
+<p>每张图至少要检查标题、坐标、单位和样本来源。条形图一般从 0 起显示数值轴，避免夸大类别差异；折线图若缩小显示范围，应让范围清楚可见。</p>
+<table>
+<thead>
+<tr>
+<th>现象</th>
+<th>检查方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x 和 y 长度不同</td>
+<td>打印 len(x)、len(y)</td>
+</tr>
+<tr>
+<td>中文变成方框</td>
+<td>选择本机存在的中文字体，或先用英文标签</td>
+</tr>
+<tr>
+<td>图片找不到</td>
+<td>打印输出路径的 resolve()，确认工作目录</td>
+</tr>
+<tr>
+<td>弹窗没有出现</td>
+<td>可能处于无图形界面环境，先查看保存的 PNG</td>
+</tr>
+<tr>
+<td>图例没有显示</td>
+<td>plot 指定 label 后调用 ax.legend()</td>
+</tr>
+<tr>
+<td>多个图互相叠加</td>
+<td>每个例子新建 fig，结束后 close(fig)</td>
+</tr>
+</tbody>
+</table>
+<p>Windows 可以在已安装 Microsoft YaHei 时设置 <code>plt.rcParams[&quot;font.sans-serif&quot;] = [&quot;Microsoft YaHei&quot;]</code>；macOS/Linux 要选各自存在的字体，不能照搬字体名字。</p>
+<h2 id="317-本章自检与数学部分入口">3.17 本章自检与数学部分入口</h2>
+<table>
+<thead>
+<tr>
+<th>问题</th>
+<th>参考答案</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3 个人、2 科成绩的 shape 是什么？</td>
+<td><code>(3, 2)</code>。</td>
+</tr>
+<tr>
+<td>每科均值使用哪条轴？</td>
+<td>axis=0。</td>
+</tr>
+<tr>
+<td><code>(3,)</code> 与 <code>(3, 1)</code> 一样吗？</td>
+<td>不一样，前者一维，后者二维列数组。</td>
+</tr>
+<tr>
+<td>普通切片修改为何影响原数组？</td>
+<td>通常是共享数据的视图。</td>
+</tr>
+<tr>
+<td>广播匹配怎样判断？</td>
+<td>从右对齐，对应长度相同或一方为 1。</td>
+</tr>
+<tr>
+<td><code>(3, 2) @ (2, 4)</code> 结果形状？</td>
+<td><code>(3, 4)</code>。</td>
+</tr>
+<tr>
+<td>判断 nan 应该用什么？</td>
+<td>np.isnan。</td>
+</tr>
+<tr>
+<td>两个数值变量的关系用什么图？</td>
+<td>散点图，关系不等于因果。</td>
+</tr>
+<tr>
+<td>数值分布用什么图？</td>
+<td>直方图，注意区间选择。</td>
+</tr>
+</tbody>
+</table>
+<p>接下来进入数学部分。你已经有了操作数字、观察图形、验证小例子的工具，下一步解释这些计算背后的函数、向量与概率含义。</p>
+<p>进入前可做<a href="/appendix/02/#3-%E7%AC%AC%E4%BA%8C%E9%83%A8%E5%88%86%E5%85%A5%E5%8F%A3%E6%95%B0%E7%BB%84%E4%B8%8E%E5%87%BD%E6%95%B0%E6%98%AF%E5%90%A6%E7%86%9F%E6%82%89">第二部分入口自测</a>。若按轴计算或对象共享还不熟，按题后的补读位置回看即可，不需要提前学习导数。</p>
+<h3 id="补充练习与验收">补充练习与验收</h3>
+<p>先独立完成<a href="/resource/e2cac5d9affd/#%E7%AC%AC03%E7%AB%A0">本章两道练习</a>，再核对参考答案和本章验收证据。本部分不设章末作品。</p>
+<p><a href="/chapter/02/">上一章：组织代码与数据处理</a> · <a href="/guide/2/">下一部分：数学基础</a> · <a href="/overview/">项目目录</a></p>
+</article> <nav class="chapter-pagination" aria-label="连续阅读" data-pagefind-ignore><a href="/chapter/02/"><small>← 上一章</small>第 2 章：组织代码与数据处理</a><a href="/chapter/04/"><small>下一章 →</small>第 4 章：函数与微积分入门</a></nav> <footer class="page-footer" data-pagefind-ignore>从 Python 基础到大模型应用与算子开发 <a href="https://github.com/cbt12123/handmade-llm/tree/simple" target="_blank" rel="noopener noreferrer">GitHub ↗</a></footer> </main> <aside class="page-toc" aria-label="本页目录" data-pagefind-ignore> <div class="toc-title">本页内容</div><a href="#31-安装检查与学习对象">3.1 安装检查与学习对象</a><a href="#32-创建数组值形状与类型">3.2 创建数组：值、形状与类型</a><a href="#33-索引切片与布尔筛选">3.3 索引、切片与布尔筛选</a><a href="#34-视图与复制修改会影响谁">3.4 视图与复制：修改会影响谁</a><a href="#35-批量运算与按轴汇总">3.5 批量运算与按轴汇总</a><a href="#36-reshape转置与拼接">3.6 reshape、转置与拼接</a><a href="#37-广播形状不同也能配合计算">3.7 广播：形状不同也能配合计算</a><a href="#38-逐元素乘法与矩阵乘法">3.8 逐元素乘法与矩阵乘法</a><a href="#39-缺失值非有限值与数值误差">3.9 缺失值、非有限值与数值误差</a><a href="#310-随机数与可复现实验">3.10 随机数与可复现实验</a><a href="#311-从-csv-到数组再保存">3.11 从 CSV 到数组，再保存</a><a href="#312-matplotlib一张图由什么组成">3.12 Matplotlib：一张图由什么组成</a><a href="#313-折线图与柱状图">3.13 折线图与柱状图</a><a href="#314-散点图与直方图">3.14 散点图与直方图</a><a href="#315-用热力图查看二维数据">3.15 用热力图查看二维数据</a><a href="#316-图像可读性与常见问题">3.16 图像可读性与常见问题</a><a href="#317-本章自检与数学部分入口">3.17 本章自检与数学部分入口</a><a class="toc-sub" href="#补充练习与验收">补充练习与验收</a> <a class="back-top" href="#main">回到顶部 ↑</a> </aside> </div> <dialog id="search-dialog" aria-label="搜索完整教程"> <div class="dialog-head"><strong>搜索教程</strong><button id="search-close" aria-label="关闭搜索">✕</button></div> <div id="search"></div><p class="search-hint">输入关键词，查找正文、公式说明、练习和附件。</p> </dialog> <dialog id="image-dialog" aria-label="查看大图"><button id="image-close" aria-label="关闭图片">✕</button><img alt=""><p></p></dialog> <script type="module" src="/_astro/Book.astro_astro_type_script_index_0_lang.SvhK8ezw.js"></script> </body> </html>

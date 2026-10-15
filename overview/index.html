@@ -1,0 +1,223 @@
+<!DOCTYPE html><html lang="zh-CN"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="完整中文教程：从 Python 与数学基础，到机器学习、大模型部署、Agent 与 NVIDIA 算子实践。"><title>从 Python 基础到大模型应用与算子开发 · 手写与实践</title><link rel="stylesheet" href="/katex/katex.min.css"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/_astro/Book.ddZgooq8.css"></head> <body> <a class="skip" href="#main">跳转到正文</a> <header class="topbar" data-pagefind-ignore> <button id="menu-toggle" class="menu-toggle" aria-label="打开章节目录" aria-expanded="false" aria-controls="sidebar">☰</button> <a class="brand" href="/"><span class="brand-icon">∑</span><span>手写与实践<small>从 Python 到大模型</small></span></a> <nav class="top-links" aria-label="主导航"> <a href="/resources/">学习附件</a> <a href="/files/output/pdf/course-complete.pdf">完整 PDF <span>↗</span></a> <button id="search-open" class="search-trigger">搜索教程 <kbd>/</kbd></button> </nav> </header> <div id="menu-backdrop" class="menu-backdrop" hidden></div> <aside id="sidebar" class="sidebar" aria-label="章节目录" data-pagefind-ignore> <a class="nav-home" href="/">教程首页</a> <a class="nav-home active" href="/overview/">阅读与运行指南</a> <section class="nav-group"> <div class="nav-group-title"><span>01</span>Python与计算基础</div>  <a class="chapter-link" href="/chapter/01/"><span>01</span>Python 基础</a><a class="chapter-link" href="/chapter/02/"><span>02</span>组织代码与数据处理</a><a class="chapter-link" href="/chapter/03/"><span>03</span>NumPy 与数据可视化</a> </section><section class="nav-group"> <div class="nav-group-title"><span>02</span>面向机器学习的数学基础</div> <a class="guide-link" href="/guide/2/">本部分运行指南</a> <a class="chapter-link" href="/chapter/04/"><span>04</span>函数与微积分入门</a><a class="chapter-link" href="/chapter/05/"><span>05</span>线性代数与向量计算</a><a class="chapter-link" href="/chapter/06/"><span>06</span>概率、统计与信息量</a><a class="chapter-link" href="/chapter/07/"><span>07</span>离散数学与算法思维</a> </section><section class="nav-group"> <div class="nav-group-title"><span>03</span>机器学习与深度学习</div> <a class="guide-link" href="/guide/3/">本部分运行指南</a> <a class="chapter-link" href="/chapter/08/"><span>08</span>机器学习任务与模型评价</a><a class="chapter-link" href="/chapter/09/"><span>09</span>模型如何学习与神经网络</a><a class="chapter-link" href="/chapter/10/"><span>10</span>PyTorch训练与模型管理</a><a class="chapter-link" href="/chapter/11/"><span>11</span>CNN与图像识别</a><a class="chapter-link" href="/chapter/12/"><span>12</span>NLP与序列建模</a><a class="chapter-link" href="/chapter/13/"><span>13</span>注意力与Transformer</a> </section><section class="nav-group"> <div class="nav-group-title"><span>04</span>大模型与部署</div> <a class="guide-link" href="/guide/4/">本部分运行指南</a> <a class="chapter-link" href="/chapter/14/"><span>14</span>语言模型与大模型结构</a><a class="chapter-link" href="/chapter/15/"><span>15</span>本地加载与对话输入</a><a class="chapter-link" href="/chapter/16/"><span>16</span>生成策略与KV缓存</a><a class="chapter-link" href="/chapter/17/"><span>17</span>资源预算、量化与参数适配</a><a class="chapter-link" href="/chapter/18/"><span>18</span>HTTP服务与部署实践</a><a class="chapter-link" href="/chapter/19/"><span>19</span>提示设计、评价与部署交付</a> </section><section class="nav-group"> <div class="nav-group-title"><span>05</span>Agent</div> <a class="guide-link" href="/guide/5/">本部分运行指南</a> <a class="chapter-link" href="/chapter/20/"><span>20</span>Agent 的组成与运行过程</a><a class="chapter-link" href="/chapter/21/"><span>21</span>编写第一个 Agent 循环</a><a class="chapter-link" href="/chapter/22/"><span>22</span>Rules：规则与执行边界</a><a class="chapter-link" href="/chapter/23/"><span>23</span>Skills：让任务方法可以复用</a><a class="chapter-link" href="/chapter/24/"><span>24</span>Knowledge：读取、检索与引用</a><a class="chapter-link" href="/chapter/25/"><span>25</span>状态、记忆与多步骤任务</a><a class="chapter-link" href="/chapter/26/"><span>26</span>组装完整课程学习助手</a><a class="chapter-link" href="/chapter/27/"><span>27</span>测试、评价与扩展</a> </section><section class="nav-group"> <div class="nav-group-title"><span>06</span>NVIDIA算子开发</div> <a class="guide-link" href="/guide/6/">本部分运行指南</a> <a class="chapter-link" href="/chapter/28/"><span>28</span>从推理瓶颈到 GPU 执行</a><a class="chapter-link" href="/chapter/29/"><span>29</span>第一个 CUDA 程序与数据布局</a><a class="chapter-link" href="/chapter/30/"><span>30</span>归约、共享内存与矩阵复用</a><a class="chapter-link" href="/chapter/31/"><span>31</span>用 Triton 实现融合 RMSNorm</a><a class="chapter-link" href="/chapter/32/"><span>32</span>Softmax、贪心选择与少算一步</a><a class="chapter-link" href="/chapter/33/"><span>33</span>性能测量与瓶颈分析</a><a class="chapter-link" href="/chapter/34/"><span>34</span>把融合算子接入真实推理</a><a class="chapter-link" href="/chapter/35/"><span>35</span>算子部署、评价与交付</a> </section> <section class="nav-group"><div class="nav-group-title">附录与练习</div> <a class="chapter-link" href="/appendix/01/">环境准备与复现</a><a class="chapter-link" href="/appendix/02/">学习路线与前置自测</a><a class="chapter-link" href="/appendix/03/">读懂后续工程代码</a><a class="chapter-link" href="/appendix/04/">数学符号与计算速查</a> <a class="chapter-link" href="/resource/506997cbbc41/">章节练习与产出验收</a> <a class="chapter-link" href="/resources/">全部代码与学习附件</a> </section> <div class="sidebar-note">六个部分 · 35 章<br>按自己的节奏，从第一章开始。</div> </aside> <div class="reading-layout"> <main id="main" class="main-content"> <div class="document-meta" data-pagefind-ignore><span>阅读指南</span><a href="https://github.com/cbt12123/handmade-llm/blob/simple/README.md" target="_blank" rel="noopener noreferrer">GitHub 源文档 ↗</a></div> <details class="mobile-toc" data-pagefind-ignore><summary>本页目录</summary><a href="#阅读与运行">阅读与运行</a><a href="#第一部分章节">第一部分章节</a><a href="#第二部分章节">第二部分章节</a><a href="#第三部分章节">第三部分章节</a><a href="#第四部分章节">第四部分章节</a><a href="#第五部分章节">第五部分章节</a><a href="#第六部分章节">第六部分章节</a></details><article class="prose" data-pagefind-body data-pagefind-weight="1"><h1 id="从-python-基础到大模型应用与算子开发" data-pagefind-meta="title">从 Python 基础到大模型应用与算子开发</h1>
+<p>面向没有 Python 基础、数学知识需要重新补齐的读者。先理解具体例子，再学习抽象概念，最后进入机器学习、大模型与两条应用分支。</p>
+<p>机器学习部分对局部公式先给定义、符号和数值例子，再展开推导；需要多个模块组合的公式则逐步建立。每章配参考实验与验收要求，帮助读者把知识转化为实际产出。</p>
+<p>目前已完成六个部分的初稿。最后一部分将自写融合算子接入真实模型与HTTP服务，保留正确性、调用证据和实际性能结果。</p>
+<table>
+<thead>
+<tr>
+<th>部分</th>
+<th>内容</th>
+<th>状态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>第一部分</td>
+<td>Python 基础、组织代码与数据处理、NumPy 与数据可视化</td>
+<td><a href="/chapter/01/">开始阅读</a></td>
+</tr>
+<tr>
+<td>第二部分</td>
+<td>面向机器学习的数学基础</td>
+<td><a href="/guide/2/">章节与运行指南</a></td>
+</tr>
+<tr>
+<td>第三部分</td>
+<td>机器学习与深度学习</td>
+<td><a href="/guide/3/">章节与运行指南</a></td>
+</tr>
+<tr>
+<td>第四部分</td>
+<td>大模型与部署</td>
+<td><a href="/guide/4/">章节与运行指南</a></td>
+</tr>
+<tr>
+<td>第五部分</td>
+<td>Rules、Skills、Knowledge 与课程学习 Agent</td>
+<td><a href="/guide/5/">章节与运行指南</a></td>
+</tr>
+<tr>
+<td>第六部分</td>
+<td>NVIDIA 算子开发与真实推理优化</td>
+<td><a href="/guide/6/">章节与运行指南</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="阅读与运行">阅读与运行</h2>
+<p>首次准备环境先看<a href="/appendix/01/">环境准备与复现</a>：按学习部分选择 conda 环境，GPU 路线提供 WSL、Docker、模型挂载与 CUDA 开发镜像构建步骤，并用统一入口检查当前环境。</p>
+<p>不确定从哪里开始时，先看<a href="/appendix/02/">学习路线与前置自测</a>。后续源码中的陌生写法可查<a href="/appendix/03/">工程 Python 补读</a>，公式中的符号与局部运算可查<a href="/appendix/04/">数学速查</a>。补充的<a href="/resource/506997cbbc41/">章节练习与产出验收</a>覆盖35章，先独立解题再核对答案；后续实验按具体证据验收。</p>
+<p>这些附录按需阅读，不增加进入第一章的门槛。大模型之后的 Agent 与算子是两条独立分支。</p>
+<p>环境统一使用 <strong>conda + VS Code</strong>。第一部分使用 conda 的 <code>base</code> 环境，不设章末作品；通过短例子、随堂检查与参考答案确认理解。Python 语法示例只使用标准库，数组与绘图示例使用 NumPy、Matplotlib。</p>
+<p>第二部分继续使用<code>base</code>；第三部分使用独立的<code>handmade-ml</code>环境，安装、版本组合与镜像站见<a href="/guide/3/">第三部分运行指南</a>。第五部分的Agent进程继续使用base，通过HTTP复用第四部分的模型与WSL镜像。第六部分继续使用conda和VS Code编辑，GPU实验复用WSL容器；环境及运行步骤见对应部分指南。</p>
+<p>每个部分一个文件夹，章节为 Markdown 文件，图片集中保存在根目录 <code>images/</code>。在 VS Code 打开章节后，按 <code>Ctrl+Shift+V</code> 查看带图片的预览。</p>
+<pre><code class="language-text">handmade-llm/                    # GitHub simple分支；本地编写目录为handmade-llm-normal
+├── README.md
+├── 附录/
+│   ├── 01-环境准备与复现.md      # 首次安装、容器路径与环境检查
+│   ├── 02-学习路线与前置自测.md  # 入口自测、答案与补读位置
+│   ├── 03-读懂后续工程代码.md    # 状态复制、命令行、恢复与服务写法
+│   └── 04-数学符号与计算速查.md  # 公式符号、形状与局部手算
+├── 第一部分-Python与计算基础/
+│   ├── 01-Python基础.md
+│   ├── 02-组织代码与数据处理.md
+│   └── 03-NumPy与数据可视化.md
+├── 第二部分-面向机器学习的数学基础/
+│   ├── README.md
+│   ├── 04-函数与微积分入门.md
+│   ├── 05-线性代数与向量计算.md
+│   ├── 06-概率统计与信息量.md
+│   └── 07-离散数学与算法思维.md
+├── 第三部分-机器学习与深度学习/
+│   ├── README.md
+│   ├── 08-机器学习任务与模型评价.md
+│   ├── 09-模型如何学习与神经网络.md
+│   ├── 10-PyTorch训练与模型管理.md
+│   ├── 11-CNN与图像识别.md
+│   ├── 12-NLP与序列建模.md
+│   └── 13-注意力与Transformer.md
+├── 第四部分-大模型与部署/
+│   ├── README.md
+│   ├── 14-语言模型与大模型结构.md
+│   ├── 15-本地加载与对话输入.md
+│   ├── 16-生成策略与KV缓存.md
+│   ├── 17-资源预算量化与参数适配.md
+│   ├── 18-HTTP服务与部署实践.md
+│   └── 19-提示设计评价与部署交付.md
+├── 第五部分-Agent/
+│   ├── README.md
+│   ├── 20-Agent的组成与运行过程.md
+│   ├── 21-编写第一个Agent循环.md
+│   ├── 22-Rules规则与执行边界.md
+│   ├── 23-Skills让任务方法可以复用.md
+│   ├── 24-Knowledge读取检索与引用.md
+│   ├── 25-状态记忆与多步骤任务.md
+│   ├── 26-组装完整课程学习助手.md
+│   └── 27-测试评价与扩展.md
+├── 第六部分-NVIDIA算子开发/
+│   ├── README.md
+│   ├── 28-从推理瓶颈到GPU执行.md
+│   ├── 29-第一个CUDA程序与数据布局.md
+│   ├── 30-归约共享内存与矩阵复用.md
+│   ├── 31-用Triton实现融合RMSNorm.md
+│   ├── 32-Softmax贪心选择与少算一步.md
+│   ├── 33-性能测量与瓶颈分析.md
+│   ├── 34-把融合算子接入真实推理.md
+│   └── 35-算子部署评价与交付.md
+├── assets/
+│   ├── practice/               # 35章练习、提示、答案与验收清单
+│   ├── appendix/               # 工程补读的完整短脚本
+│   ├── part05/                 # 规则、技能、题库与来源约定全文
+│   └── part06/                 # 原生CUDA源码、实现索引与environment/Dockerfile
+├── images/                     # 所有正文插图与实验图
+│   ├── environment-overview.png # conda与WSL容器的运行关系
+│   ├── learning-route.png       # 课程主线、分支与补读路线
+│   ├── part01-*.png
+│   ├── part02-*.png
+│   ├── part03-*.png
+│   ├── part03-story-*.png
+│   ├── part03-result-*.png
+│   ├── part04-*.png
+│   ├── part05-*.png
+│   └── part06-*.png
+├── script/
+│   ├── part02/                 # 四章数学参考实验
+│   ├── part03/                 # 六章实验与模型演示
+│   ├── part04/                 # 本地LLM、缓存、HTTP服务与评价
+│   ├── part05/                 # 手写Agent、工具、知识、记录与评价
+│   └── part06/                 # CUDA验证、Triton、模型适配与HTTP服务
+├── data/                       # part03短信与part04、part05评价用例
+├── outputs/
+│   ├── environment/            # 统一环境检查与公开镜像构建验证
+│   ├── learning/               # 补读示例、参数与自测数值核验
+│   ├── part02/                 # 数值报告与实验图
+│   ├── part03/                 # 模型、评价、演示与核验报告
+│   ├── part04/                 # 配置、缓存、部署、评价与manifest
+│   ├── part05/                 # Agent评价与恢复核验；个人数据忽略上传
+│   ├── part06/                 # 算子与真实推理报告；忽略编译产物和大trace
+│   └── review/                 # 本地Markdown审阅页与截图
+└── tools/
+    ├── check_environment.py # 分环境检查，不安装或修改配置
+    ├── draw_environment.py  # Windows与容器环境关系图
+    ├── draw_learning_route.py # 课程学习路线图
+    ├── draw_part01.py       # 基础教学插图的生成源码
+    ├── draw_part01_extra.py # 数据处理与可视化插图
+    ├── verify_part01.py     # 第一部分核验
+    ├── draw_part02.py       # 数学教学插图
+    ├── verify_part02.py     # 数学示例与章末产出核验
+    ├── draw_part03.py       # 机器学习原理图
+    ├── draw_part03_story.py # 实验数据与计算流程插图
+    ├── verify_part03.py     # 实验、短例子与演示核验
+    ├── draw_part04.py       # 大模型与部署插图
+    ├── verify_part04.py     # 真实模型、HTTP边界与正文核验
+    ├── draw_part05.py       # Agent原理与实际评价图
+    ├── verify_part05.py     # Agent权限、评分、恢复与事务核验
+    ├── draw_part05_retrieval.py   # 检索回归前后对比图
+    ├── verify_part05_retrieval.py # 公式、来源范围、检索与已知内容错误回归
+    ├── verify_part05_http.py # 实际HTTP入口与并发边界
+    ├── record_part05_environment.py # 已复用环境的实际版本
+    ├── draw_part06.py       # 算子原理与真实性能插图
+    ├── verify_part06_gpu.py # 真实GPU验证、模型基准与Profiler
+    └── review_markdown.py   # Markdown结构与本地审阅页
+</code></pre>
+<p>第一、第二部分核验使用Windows、conda base、Python 3.12.4、Matplotlib 3.8.4；第三部分使用Python 3.12.15、PyTorch 2.5.1 CPU等固定版本，完整记录见该部分目录。无需与作者的安装目录一致。</p>
+<h2 id="第一部分章节">第一部分章节</h2>
+<ol>
+<li><a href="/chapter/01/">Python 基础</a></li>
+<li><a href="/chapter/02/">组织代码与数据处理</a></li>
+<li><a href="/chapter/03/">NumPy 与数据可视化</a></li>
+</ol>
+<h2 id="第二部分章节">第二部分章节</h2>
+<ol start="4">
+<li><a href="/chapter/04/">函数与微积分入门</a></li>
+<li><a href="/chapter/05/">线性代数与向量计算</a></li>
+<li><a href="/chapter/06/">概率、统计与信息量</a></li>
+<li><a href="/chapter/07/">离散数学与算法思维</a></li>
+</ol>
+<p>第二部分继续使用 base，不新增依赖。各章附短实验与验收要求，运行方式见该部分目录。</p>
+<h2 id="第三部分章节">第三部分章节</h2>
+<ol start="8">
+<li><a href="/chapter/08/">机器学习任务与模型评价</a></li>
+<li><a href="/chapter/09/">模型如何学习与神经网络</a></li>
+<li><a href="/chapter/10/">PyTorch训练与模型管理</a></li>
+<li><a href="/chapter/11/">CNN与图像识别</a></li>
+<li><a href="/chapter/12/">NLP与序列建模</a></li>
+<li><a href="/chapter/13/">注意力与Transformer</a></li>
+</ol>
+<p>第三部分使用独立的<code>handmade-ml</code>环境（conda + VS Code），基础实验全部可在CPU离线运行。各章有参考脚本和验收要求；真实短信和预训练ResNet作为可选联网扩展。脚本位于<code>script/part03/</code>，报告和模型位于<code>outputs/part03/</code>，图片集中位于<code>images/</code>。详见<a href="/guide/3/">第三部分运行指南</a>。</p>
+<p>第8～11章使用手写数字分类任务，依次介绍模型评价、手写神经网络、PyTorch训练和CNN。第12章介绍文本分类与字符序列，第13章介绍注意力与受控序列生成。各章区分真实数据、手算示例和辅助实验，并提供统一的命令行演示入口。</p>
+<p>第11章提供完整NumPy CNN实现：从单窗口计算开始，完成卷积、池化、分类头、反向传播和参数更新，再训练真实手写数字模型。PyTorch版本用于进一步学习多层结构与图片预测。</p>
+<h2 id="第四部分章节">第四部分章节</h2>
+<ol start="14">
+<li><a href="/chapter/14/">语言模型与大模型结构</a></li>
+<li><a href="/chapter/15/">本地加载与对话输入</a></li>
+<li><a href="/chapter/16/">生成策略与KV缓存</a></li>
+<li><a href="/chapter/17/">资源预算、量化与参数适配</a></li>
+<li><a href="/chapter/18/">HTTP服务与部署实践</a></li>
+<li><a href="/chapter/19/">提示设计、评价与部署交付</a></li>
+</ol>
+<p>第四部分复用现有Qwen2.5-1.5B-Instruct权重。基础概念和自定义HTTP实验使用已有conda CPU环境，GPU部署使用WSL2中的现成vLLM容器镜像；不要求重新训练或下载整模型。环境、版本及复用方式见<a href="/guide/4/">运行指南</a>。模型目录被Git忽略，实验报告保存在<code>outputs/part04/</code>。</p>
+<h2 id="第五部分章节">第五部分章节</h2>
+<ol start="20">
+<li><a href="/chapter/20/">Agent的组成与运行过程</a></li>
+<li><a href="/chapter/21/">编写第一个Agent循环</a></li>
+<li><a href="/chapter/22/">Rules：规则与执行边界</a></li>
+<li><a href="/chapter/23/">Skills：让任务方法可以复用</a></li>
+<li><a href="/chapter/24/">Knowledge：读取、检索与引用</a></li>
+<li><a href="/chapter/25/">状态、记忆与多步骤任务</a></li>
+<li><a href="/chapter/26/">组装完整课程学习助手</a></li>
+<li><a href="/chapter/27/">测试、评价与扩展</a></li>
+</ol>
+<p>第五部分用普通Python手写Agent，逐章完成查询、练习、评分、复习记录与任务恢复。正文讲结构，完整规则与技能放在<a href="/resource/0ddb8617c1c9/">仓库附件</a>。基础检索与机制核验可离线运行，真实模型实验复用第四部分的权重与WSL镜像，保留小模型的失败轨迹。环境、产出和验证范围见<a href="/guide/5/">运行指南</a>。</p>
+<h2 id="第六部分章节">第六部分章节</h2>
+<ol start="28">
+<li><a href="/chapter/28/">从推理瓶颈到GPU执行</a></li>
+<li><a href="/chapter/29/">第一个CUDA程序与数据布局</a></li>
+<li><a href="/chapter/30/">归约、共享内存与矩阵复用</a></li>
+<li><a href="/chapter/31/">用Triton实现融合RMSNorm</a></li>
+<li><a href="/chapter/32/">Softmax、贪心选择与少算一步</a></li>
+<li><a href="/chapter/33/">性能测量与瓶颈分析</a></li>
+<li><a href="/chapter/34/">把融合算子接入真实推理</a></li>
+<li><a href="/chapter/35/">算子部署、评价与交付</a></li>
+</ol>
+<p>第六部分从原生CUDA索引、归约与分块开始，再实现符合Qwen精度约定的Triton融合RMSNorm，接入实际模型和默认使用它的HTTP服务。每章有可检查产出；完整源码、环境与测量范围见<a href="/guide/6/">运行指南</a>。本次短输入生成观察到约1.15～1.16倍加速，长输入收益有限；保留慢于成熟库和预填充略慢的结果，帮助判断优化是否值得采用。</p>
+</article>  <footer class="page-footer" data-pagefind-ignore>从 Python 基础到大模型应用与算子开发 <a href="https://github.com/cbt12123/handmade-llm/tree/simple" target="_blank" rel="noopener noreferrer">GitHub ↗</a></footer> </main> <aside class="page-toc" aria-label="本页目录" data-pagefind-ignore> <div class="toc-title">本页内容</div><a href="#阅读与运行">阅读与运行</a><a href="#第一部分章节">第一部分章节</a><a href="#第二部分章节">第二部分章节</a><a href="#第三部分章节">第三部分章节</a><a href="#第四部分章节">第四部分章节</a><a href="#第五部分章节">第五部分章节</a><a href="#第六部分章节">第六部分章节</a> <a class="back-top" href="#main">回到顶部 ↑</a> </aside> </div> <dialog id="search-dialog" aria-label="搜索完整教程"> <div class="dialog-head"><strong>搜索教程</strong><button id="search-close" aria-label="关闭搜索">✕</button></div> <div id="search"></div><p class="search-hint">输入关键词，查找正文、公式说明、练习和附件。</p> </dialog> <dialog id="image-dialog" aria-label="查看大图"><button id="image-close" aria-label="关闭图片">✕</button><img alt=""><p></p></dialog> <script type="module" src="/_astro/Book.astro_astro_type_script_index_0_lang.SvhK8ezw.js"></script> </body> </html>

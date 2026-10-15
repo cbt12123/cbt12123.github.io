@@ -1,0 +1,441 @@
+<!DOCTYPE html><html lang="zh-CN"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="完整中文教程：从 Python 与数学基础，到机器学习、大模型部署、Agent 与 NVIDIA 算子实践。"><title>31_microbenchmark.json · 手写与实践</title><link rel="stylesheet" href="/katex/katex.min.css"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/_astro/Book.ddZgooq8.css"></head> <body> <a class="skip" href="#main">跳转到正文</a> <header class="topbar" data-pagefind-ignore> <button id="menu-toggle" class="menu-toggle" aria-label="打开章节目录" aria-expanded="false" aria-controls="sidebar">☰</button> <a class="brand" href="/"><span class="brand-icon">∑</span><span>手写与实践<small>从 Python 到大模型</small></span></a> <nav class="top-links" aria-label="主导航"> <a href="/resources/">学习附件</a> <a href="/files/output/pdf/course-complete.pdf">完整 PDF <span>↗</span></a> <button id="search-open" class="search-trigger">搜索教程 <kbd>/</kbd></button> </nav> </header> <div id="menu-backdrop" class="menu-backdrop" hidden></div> <aside id="sidebar" class="sidebar" aria-label="章节目录" data-pagefind-ignore> <a class="nav-home" href="/">教程首页</a> <a class="nav-home" href="/overview/">阅读与运行指南</a> <section class="nav-group"> <div class="nav-group-title"><span>01</span>Python与计算基础</div>  <a class="chapter-link" href="/chapter/01/"><span>01</span>Python 基础</a><a class="chapter-link" href="/chapter/02/"><span>02</span>组织代码与数据处理</a><a class="chapter-link" href="/chapter/03/"><span>03</span>NumPy 与数据可视化</a> </section><section class="nav-group"> <div class="nav-group-title"><span>02</span>面向机器学习的数学基础</div> <a class="guide-link" href="/guide/2/">本部分运行指南</a> <a class="chapter-link" href="/chapter/04/"><span>04</span>函数与微积分入门</a><a class="chapter-link" href="/chapter/05/"><span>05</span>线性代数与向量计算</a><a class="chapter-link" href="/chapter/06/"><span>06</span>概率、统计与信息量</a><a class="chapter-link" href="/chapter/07/"><span>07</span>离散数学与算法思维</a> </section><section class="nav-group"> <div class="nav-group-title"><span>03</span>机器学习与深度学习</div> <a class="guide-link" href="/guide/3/">本部分运行指南</a> <a class="chapter-link" href="/chapter/08/"><span>08</span>机器学习任务与模型评价</a><a class="chapter-link" href="/chapter/09/"><span>09</span>模型如何学习与神经网络</a><a class="chapter-link" href="/chapter/10/"><span>10</span>PyTorch训练与模型管理</a><a class="chapter-link" href="/chapter/11/"><span>11</span>CNN与图像识别</a><a class="chapter-link" href="/chapter/12/"><span>12</span>NLP与序列建模</a><a class="chapter-link" href="/chapter/13/"><span>13</span>注意力与Transformer</a> </section><section class="nav-group"> <div class="nav-group-title"><span>04</span>大模型与部署</div> <a class="guide-link" href="/guide/4/">本部分运行指南</a> <a class="chapter-link" href="/chapter/14/"><span>14</span>语言模型与大模型结构</a><a class="chapter-link" href="/chapter/15/"><span>15</span>本地加载与对话输入</a><a class="chapter-link" href="/chapter/16/"><span>16</span>生成策略与KV缓存</a><a class="chapter-link" href="/chapter/17/"><span>17</span>资源预算、量化与参数适配</a><a class="chapter-link" href="/chapter/18/"><span>18</span>HTTP服务与部署实践</a><a class="chapter-link" href="/chapter/19/"><span>19</span>提示设计、评价与部署交付</a> </section><section class="nav-group"> <div class="nav-group-title"><span>05</span>Agent</div> <a class="guide-link" href="/guide/5/">本部分运行指南</a> <a class="chapter-link" href="/chapter/20/"><span>20</span>Agent 的组成与运行过程</a><a class="chapter-link" href="/chapter/21/"><span>21</span>编写第一个 Agent 循环</a><a class="chapter-link" href="/chapter/22/"><span>22</span>Rules：规则与执行边界</a><a class="chapter-link" href="/chapter/23/"><span>23</span>Skills：让任务方法可以复用</a><a class="chapter-link" href="/chapter/24/"><span>24</span>Knowledge：读取、检索与引用</a><a class="chapter-link" href="/chapter/25/"><span>25</span>状态、记忆与多步骤任务</a><a class="chapter-link" href="/chapter/26/"><span>26</span>组装完整课程学习助手</a><a class="chapter-link" href="/chapter/27/"><span>27</span>测试、评价与扩展</a> </section><section class="nav-group"> <div class="nav-group-title"><span>06</span>NVIDIA算子开发</div> <a class="guide-link" href="/guide/6/">本部分运行指南</a> <a class="chapter-link" href="/chapter/28/"><span>28</span>从推理瓶颈到 GPU 执行</a><a class="chapter-link" href="/chapter/29/"><span>29</span>第一个 CUDA 程序与数据布局</a><a class="chapter-link" href="/chapter/30/"><span>30</span>归约、共享内存与矩阵复用</a><a class="chapter-link" href="/chapter/31/"><span>31</span>用 Triton 实现融合 RMSNorm</a><a class="chapter-link" href="/chapter/32/"><span>32</span>Softmax、贪心选择与少算一步</a><a class="chapter-link" href="/chapter/33/"><span>33</span>性能测量与瓶颈分析</a><a class="chapter-link" href="/chapter/34/"><span>34</span>把融合算子接入真实推理</a><a class="chapter-link" href="/chapter/35/"><span>35</span>算子部署、评价与交付</a> </section> <section class="nav-group"><div class="nav-group-title">附录与练习</div> <a class="chapter-link" href="/appendix/01/">环境准备与复现</a><a class="chapter-link" href="/appendix/02/">学习路线与前置自测</a><a class="chapter-link" href="/appendix/03/">读懂后续工程代码</a><a class="chapter-link" href="/appendix/04/">数学符号与计算速查</a> <a class="chapter-link" href="/resource/506997cbbc41/">章节练习与产出验收</a> <a class="chapter-link" href="/resources/">全部代码与学习附件</a> </section> <div class="sidebar-note">六个部分 · 35 章<br>按自己的节奏，从第一章开始。</div> </aside> <div class="reading-layout"> <main id="main" class="main-content"> <div class="document-meta" data-pagefind-ignore><span>学习附件</span><a href="https://github.com/cbt12123/handmade-llm/blob/simple/outputs/part06/31_microbenchmark.json" target="_blank" rel="noopener noreferrer">GitHub 源文档 ↗</a><a href="/files/outputs/part06/31_microbenchmark.json" download>下载原文件 ↓</a></div> <article class="prose" data-pagefind-body data-pagefind-weight="0.3"><h1 data-pagefind-meta="title">31_microbenchmark.json</h1><p class="source-path">outputs/part06/31_microbenchmark.json</p><pre><code class="hljs language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;results&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+    <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;shape&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-number">1</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">1536</span>
+      <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;dtype&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;float16&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;measurements&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;torch_eager&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+          <span class="hljs-attr">&quot;iterations_per_repeat&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">80</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;repeats&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">7</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;event_median_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.16437280178070068</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;event_samples_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+            <span class="hljs-number">0.16763999462127685</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.17176320552825927</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.1642624020576477</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.1286911964416504</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.16135679483413695</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.16437280178070068</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.18360320329666138</span>
+          <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;wall_median_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.16589233749897403</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;wall_samples_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+            <span class="hljs-number">0.17474208750059006</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.17295797500054277</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.1656319249988769</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.1301875125008678</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.16283271250046027</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.16589233749897403</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.184949674999757</span>
+          <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;scope&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Repeated eager calls; CUDA event window includes GPU idle gaps caused by host dispatch.&quot;</span>
+        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;torch_compile&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+          <span class="hljs-attr">&quot;iterations_per_repeat&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">80</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;repeats&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">7</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;event_median_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.054067200422286986</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;event_samples_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+            <span class="hljs-number">0.07630079984664917</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.054067200422286986</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.009164799749851228</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.07632920145988464</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.0398719996213913</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.06440960168838501</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.052799999713897705</span>
+          <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;wall_median_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.055023737499482195</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;wall_samples_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+            <span class="hljs-number">0.07701967499968987</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.055023737499482195</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.04646897500037994</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.07686906249944059</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.040713937499958774</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.0648202500002526</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.053641000000936856</span>
+          <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;scope&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Repeated eager calls; CUDA event window includes GPU idle gaps caused by host dispatch.&quot;</span>
+        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;triton_4_warps&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+          <span class="hljs-attr">&quot;iterations_per_repeat&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">80</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;repeats&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">7</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;event_median_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.03078399896621704</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;event_samples_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+            <span class="hljs-number">0.030524399876594544</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.03078399896621704</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.006646800041198731</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.03587839901447296</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.06983680129051209</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.02859880030155182</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.032179200649261476</span>
+          <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;wall_median_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.03270134999979746</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;wall_samples_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+            <span class="hljs-number">0.03191128750046346</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.03127343750009004</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.04543627500055436</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.03658929999943439</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.07060039999942092</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.0293216624996262</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.03270134999979746</span>
+          <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;scope&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Repeated eager calls; CUDA event window includes GPU idle gaps caused by host dispatch.&quot;</span>
+        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;triton_8_warps&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+          <span class="hljs-attr">&quot;iterations_per_repeat&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">80</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;repeats&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">7</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;event_median_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.03163999915122986</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;event_samples_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+            <span class="hljs-number">0.029672399163246155</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.04150919914245606</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.05487359762191772</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.029994800686836243</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.03163999915122986</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.05487080216407776</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.02854599952697754</span>
+          <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;wall_median_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.032122362499364954</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;wall_samples_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+            <span class="hljs-number">0.030546637499639928</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.04199414999987994</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.057947199999830445</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.030581237500371117</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.032122362499364954</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.05550300000010111</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.02937633750121904</span>
+          <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;scope&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Repeated eager calls; CUDA event window includes GPU idle gaps caused by host dispatch.&quot;</span>
+        <span class="hljs-punctuation">}</span>
+      <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;shape&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-number">32</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">1536</span>
+      <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;dtype&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;float16&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;measurements&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;torch_eager&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+          <span class="hljs-attr">&quot;iterations_per_repeat&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">80</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;repeats&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">7</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;event_median_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.21597440242767335</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;event_samples_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+            <span class="hljs-number">0.15677640438079835</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.22407679557800292</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.1814911961555481</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.3091628074645996</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.1783679962158203</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.21597440242767335</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.2203007936477661</span>
+          <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;wall_median_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.21755086249868327</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;wall_samples_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+            <span class="hljs-number">0.15832547500025385</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.22606950000039205</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.1841960124991715</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.3128404750000868</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.17961178750027784</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.21755086249868327</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.2220957749997865</span>
+          <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;scope&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Repeated eager calls; CUDA event window includes GPU idle gaps caused by host dispatch.&quot;</span>
+        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;torch_compile&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+          <span class="hljs-attr">&quot;iterations_per_repeat&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">80</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;repeats&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">7</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;event_median_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.0821727991104126</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;event_samples_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+            <span class="hljs-number">0.07147719860076904</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.08881919980049133</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.0821727991104126</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.07848960161209106</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.09183200001716614</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.07466319799423218</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.13783799409866332</span>
+          <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;wall_median_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.08992521249950869</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;wall_samples_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+            <span class="hljs-number">0.074067674999867</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.08992521249950869</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.08355683750096432</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.11949211249913105</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.09332835000037676</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.07524048749871781</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.14058601250042102</span>
+          <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;scope&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Repeated eager calls; CUDA event window includes GPU idle gaps caused by host dispatch.&quot;</span>
+        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;triton_4_warps&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+          <span class="hljs-attr">&quot;iterations_per_repeat&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">80</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;repeats&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">7</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;event_median_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.0334307998418808</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;event_samples_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+            <span class="hljs-number">0.019905999302864075</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.062413597106933595</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.06289079785346985</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.03467479944229126</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.006963200122117996</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.0334307998418808</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.00727040022611618</span>
+          <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;wall_median_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.04563996249942193</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;wall_samples_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+            <span class="hljs-number">0.058992650001243874</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.06373857499966107</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.06382438750023312</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.03545881250062166</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.04563996249942193</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.03410016249887349</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.045473125000228265</span>
+          <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;scope&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Repeated eager calls; CUDA event window includes GPU idle gaps caused by host dispatch.&quot;</span>
+        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;triton_8_warps&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+          <span class="hljs-attr">&quot;iterations_per_repeat&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">80</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;repeats&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">7</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;event_median_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.06750720143318176</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;event_samples_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+            <span class="hljs-number">0.06056960225105286</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.06750720143318176</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.029515999555587768</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.05185279846191406</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.06858199834823608</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.07425240278244019</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.07683799862861633</span>
+          <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;wall_median_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.06873020000028873</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;wall_samples_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+            <span class="hljs-number">0.06126308749969667</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.06873020000028873</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.030363125000576474</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.05411861250053107</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.0697258375012666</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.07513511249896965</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.07799743750069865</span>
+          <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;scope&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Repeated eager calls; CUDA event window includes GPU idle gaps caused by host dispatch.&quot;</span>
+        <span class="hljs-punctuation">}</span>
+      <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;shape&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-number">512</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">1536</span>
+      <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;dtype&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;float16&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;measurements&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;torch_eager&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+          <span class="hljs-attr">&quot;iterations_per_repeat&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">80</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;repeats&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">7</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;event_median_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.17847039699554443</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;event_samples_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+            <span class="hljs-number">0.22401680946350097</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.17847039699554443</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.1677440047264099</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.16547839641571044</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.14652160406112671</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.20515999794006348</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.2643071889877319</span>
+          <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;wall_median_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.17968142499995565</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;wall_samples_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+            <span class="hljs-number">0.2270043875000738</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.17968142499995565</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.16893458749933643</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.16711875000083865</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.15259322500043027</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.207574325000337</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.2668847750001646</span>
+          <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;scope&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Repeated eager calls; CUDA event window includes GPU idle gaps caused by host dispatch.&quot;</span>
+        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;torch_compile&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+          <span class="hljs-attr">&quot;iterations_per_repeat&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">80</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;repeats&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">7</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;event_median_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.08968160152435303</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;event_samples_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+            <span class="hljs-number">0.08520960211753845</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.0692351996898651</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.06871039867401123</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.13370879888534545</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.08968160152435303</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.13747999668121338</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.10165519714355468</span>
+          <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;wall_median_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.09074638749950736</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;wall_samples_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+            <span class="hljs-number">0.08731498750051969</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.07260097499965923</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.06935563749976836</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.14190061250047847</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.09074638749950736</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.1395361124991723</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.10265669999967031</span>
+          <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;scope&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Repeated eager calls; CUDA event window includes GPU idle gaps caused by host dispatch.&quot;</span>
+        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;triton_4_warps&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+          <span class="hljs-attr">&quot;iterations_per_repeat&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">80</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;repeats&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">7</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;event_median_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.0682752013206482</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;event_samples_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+            <span class="hljs-number">0.0682752013206482</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.0846231997013092</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.06689239740371704</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.07504400014877319</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.0636031985282898</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.07101320028305054</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.0387584000825882</span>
+          <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;wall_median_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.07019526250076069</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;wall_samples_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+            <span class="hljs-number">0.07019526250076069</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.08612791250044438</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.06954451250038574</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.07595711250019122</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.06419907499974897</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.07222478750037453</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.040561162501262515</span>
+          <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;scope&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Repeated eager calls; CUDA event window includes GPU idle gaps caused by host dispatch.&quot;</span>
+        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;triton_8_warps&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+          <span class="hljs-attr">&quot;iterations_per_repeat&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">80</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;repeats&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">7</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;event_median_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.04390400052070618</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;event_samples_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+            <span class="hljs-number">0.03012920022010803</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.04390400052070618</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.07299839854240417</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.07038599848747254</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.03259919881820679</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.009319599717855453</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.06706719994544982</span>
+          <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;wall_median_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.048180087500782065</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;wall_samples_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+            <span class="hljs-number">0.03139634999911323</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.048180087500782065</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.07358897500040484</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.07124901250108451</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.033466749999888634</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.04467631249980286</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.06873402499962822</span>
+          <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;scope&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Repeated eager calls; CUDA event window includes GPU idle gaps caused by host dispatch.&quot;</span>
+        <span class="hljs-punctuation">}</span>
+      <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;shape&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+        <span class="hljs-number">2048</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-number">1536</span>
+      <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;dtype&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;float16&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;measurements&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+        <span class="hljs-attr">&quot;torch_eager&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+          <span class="hljs-attr">&quot;iterations_per_repeat&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">80</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;repeats&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">7</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;event_median_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.3992959976196289</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;event_samples_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+            <span class="hljs-number">0.39679999351501466</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.4373504161834717</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.4425856113433838</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.39799039363861083</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.3751424074172974</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.4219520092010498</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.3992959976196289</span>
+          <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;wall_median_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.401441612500264</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;wall_samples_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+            <span class="hljs-number">0.3986444375001952</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.44190549999996165</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.4445394875006059</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.3997989875003327</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.38074845000011237</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.4264867124987859</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.401441612500264</span>
+          <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;scope&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Repeated eager calls; CUDA event window includes GPU idle gaps caused by host dispatch.&quot;</span>
+        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;torch_compile&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+          <span class="hljs-attr">&quot;iterations_per_repeat&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">80</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;repeats&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">7</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;event_median_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.07852320075035095</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;event_samples_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+            <span class="hljs-number">0.09507840275764465</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.12112640142440796</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.07852320075035095</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.08726919889450073</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.06837559938430786</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.07280640006065368</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.07029759883880615</span>
+          <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;wall_median_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.08033958749962267</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;wall_samples_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+            <span class="hljs-number">0.09818675000019539</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.12211596250040202</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.08033958749962267</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.08863383749968534</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.06915200000037203</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.07372273749979286</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.07085796250123622</span>
+          <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;scope&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Repeated eager calls; CUDA event window includes GPU idle gaps caused by host dispatch.&quot;</span>
+        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;triton_4_warps&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+          <span class="hljs-attr">&quot;iterations_per_repeat&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">80</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;repeats&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">7</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;event_median_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.02873600125312805</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;event_samples_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+            <span class="hljs-number">0.03165279924869537</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.013414399325847625</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.060880798101425174</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.02873600125312805</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.009779199957847595</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.03613159954547882</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.010675200074911118</span>
+          <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;wall_median_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.046938149999675716</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;wall_samples_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+            <span class="hljs-number">0.03215655000019524</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.0485374250004611</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.0617710875005173</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.02965348750052499</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.04929936250022138</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.03682623749909908</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.046938149999675716</span>
+          <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;scope&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Repeated eager calls; CUDA event window includes GPU idle gaps caused by host dispatch.&quot;</span>
+        <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+        <span class="hljs-attr">&quot;triton_8_warps&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+          <span class="hljs-attr">&quot;iterations_per_repeat&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">80</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;repeats&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">7</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;event_median_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.06325799822807313</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;event_samples_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+            <span class="hljs-number">0.013465599715709686</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.06325799822807313</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.03033599853515625</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.045710399746894836</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.06490880250930786</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.07804359793663025</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.07138559818267823</span>
+          <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;wall_median_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.06432546250039195</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;wall_samples_ms&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+            <span class="hljs-number">0.05065358750044879</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.06432546250039195</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.031842024999662044</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.05065708750038311</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.06641715000057502</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.07927847500042162</span><span class="hljs-punctuation">,</span>
+            <span class="hljs-number">0.07236791250022634</span>
+          <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+          <span class="hljs-attr">&quot;scope&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Repeated eager calls; CUDA event window includes GPU idle gaps caused by host dispatch.&quot;</span>
+        <span class="hljs-punctuation">}</span>
+      <span class="hljs-punctuation">}</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;scope&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Isolated RMSNorm on warmed/cached inputs, includes wrapper and allocation; not inference acceleration ratio&quot;</span>
+<span class="hljs-punctuation">}</span></code></pre></article>  <footer class="page-footer" data-pagefind-ignore>从 Python 基础到大模型应用与算子开发 <a href="https://github.com/cbt12123/handmade-llm/tree/simple" target="_blank" rel="noopener noreferrer">GitHub ↗</a></footer> </main> <aside class="page-toc" aria-label="本页目录" data-pagefind-ignore>  <a class="back-top" href="#main">回到顶部 ↑</a> </aside> </div> <dialog id="search-dialog" aria-label="搜索完整教程"> <div class="dialog-head"><strong>搜索教程</strong><button id="search-close" aria-label="关闭搜索">✕</button></div> <div id="search"></div><p class="search-hint">输入关键词，查找正文、公式说明、练习和附件。</p> </dialog> <dialog id="image-dialog" aria-label="查看大图"><button id="image-close" aria-label="关闭图片">✕</button><img alt=""><p></p></dialog> <script type="module" src="/_astro/Book.astro_astro_type_script_index_0_lang.SvhK8ezw.js"></script> </body> </html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html><html lang="zh-CN"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="完整中文教程：从 Python 与数学基础，到机器学习、大模型部署、Agent 与 NVIDIA 算子实践。"><title>第27章 测试、评价与扩展 · 手写与实践</title><link rel="stylesheet" href="/katex/katex.min.css"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/_astro/Book.ddZgooq8.css"></head> <body> <a class="skip" href="#main">跳转到正文</a> <header class="topbar" data-pagefind-ignore> <button id="menu-toggle" class="menu-toggle" aria-label="打开章节目录" aria-expanded="false" aria-controls="sidebar">☰</button> <a class="brand" href="/"><span class="brand-icon">∑</span><span>手写与实践<small>从 Python 到大模型</small></span></a> <nav class="top-links" aria-label="主导航"> <a href="/resources/">学习附件</a> <a href="/files/output/pdf/course-complete.pdf">完整 PDF <span>↗</span></a> <button id="search-open" class="search-trigger">搜索教程 <kbd>/</kbd></button> </nav> </header> <div id="menu-backdrop" class="menu-backdrop" hidden></div> <aside id="sidebar" class="sidebar" aria-label="章节目录" data-pagefind-ignore> <a class="nav-home" href="/">教程首页</a> <a class="nav-home" href="/overview/">阅读与运行指南</a> <section class="nav-group"> <div class="nav-group-title"><span>01</span>Python与计算基础</div>  <a class="chapter-link" href="/chapter/01/"><span>01</span>Python 基础</a><a class="chapter-link" href="/chapter/02/"><span>02</span>组织代码与数据处理</a><a class="chapter-link" href="/chapter/03/"><span>03</span>NumPy 与数据可视化</a> </section><section class="nav-group"> <div class="nav-group-title"><span>02</span>面向机器学习的数学基础</div> <a class="guide-link" href="/guide/2/">本部分运行指南</a> <a class="chapter-link" href="/chapter/04/"><span>04</span>函数与微积分入门</a><a class="chapter-link" href="/chapter/05/"><span>05</span>线性代数与向量计算</a><a class="chapter-link" href="/chapter/06/"><span>06</span>概率、统计与信息量</a><a class="chapter-link" href="/chapter/07/"><span>07</span>离散数学与算法思维</a> </section><section class="nav-group"> <div class="nav-group-title"><span>03</span>机器学习与深度学习</div> <a class="guide-link" href="/guide/3/">本部分运行指南</a> <a class="chapter-link" href="/chapter/08/"><span>08</span>机器学习任务与模型评价</a><a class="chapter-link" href="/chapter/09/"><span>09</span>模型如何学习与神经网络</a><a class="chapter-link" href="/chapter/10/"><span>10</span>PyTorch训练与模型管理</a><a class="chapter-link" href="/chapter/11/"><span>11</span>CNN与图像识别</a><a class="chapter-link" href="/chapter/12/"><span>12</span>NLP与序列建模</a><a class="chapter-link" href="/chapter/13/"><span>13</span>注意力与Transformer</a> </section><section class="nav-group"> <div class="nav-group-title"><span>04</span>大模型与部署</div> <a class="guide-link" href="/guide/4/">本部分运行指南</a> <a class="chapter-link" href="/chapter/14/"><span>14</span>语言模型与大模型结构</a><a class="chapter-link" href="/chapter/15/"><span>15</span>本地加载与对话输入</a><a class="chapter-link" href="/chapter/16/"><span>16</span>生成策略与KV缓存</a><a class="chapter-link" href="/chapter/17/"><span>17</span>资源预算、量化与参数适配</a><a class="chapter-link" href="/chapter/18/"><span>18</span>HTTP服务与部署实践</a><a class="chapter-link" href="/chapter/19/"><span>19</span>提示设计、评价与部署交付</a> </section><section class="nav-group"> <div class="nav-group-title"><span>05</span>Agent</div> <a class="guide-link" href="/guide/5/">本部分运行指南</a> <a class="chapter-link" href="/chapter/20/"><span>20</span>Agent 的组成与运行过程</a><a class="chapter-link" href="/chapter/21/"><span>21</span>编写第一个 Agent 循环</a><a class="chapter-link" href="/chapter/22/"><span>22</span>Rules：规则与执行边界</a><a class="chapter-link" href="/chapter/23/"><span>23</span>Skills：让任务方法可以复用</a><a class="chapter-link" href="/chapter/24/"><span>24</span>Knowledge：读取、检索与引用</a><a class="chapter-link" href="/chapter/25/"><span>25</span>状态、记忆与多步骤任务</a><a class="chapter-link" href="/chapter/26/"><span>26</span>组装完整课程学习助手</a><a class="chapter-link active" href="/chapter/27/" aria-current="page"><span>27</span>测试、评价与扩展</a> </section><section class="nav-group"> <div class="nav-group-title"><span>06</span>NVIDIA算子开发</div> <a class="guide-link" href="/guide/6/">本部分运行指南</a> <a class="chapter-link" href="/chapter/28/"><span>28</span>从推理瓶颈到 GPU 执行</a><a class="chapter-link" href="/chapter/29/"><span>29</span>第一个 CUDA 程序与数据布局</a><a class="chapter-link" href="/chapter/30/"><span>30</span>归约、共享内存与矩阵复用</a><a class="chapter-link" href="/chapter/31/"><span>31</span>用 Triton 实现融合 RMSNorm</a><a class="chapter-link" href="/chapter/32/"><span>32</span>Softmax、贪心选择与少算一步</a><a class="chapter-link" href="/chapter/33/"><span>33</span>性能测量与瓶颈分析</a><a class="chapter-link" href="/chapter/34/"><span>34</span>把融合算子接入真实推理</a><a class="chapter-link" href="/chapter/35/"><span>35</span>算子部署、评价与交付</a> </section> <section class="nav-group"><div class="nav-group-title">附录与练习</div> <a class="chapter-link" href="/appendix/01/">环境准备与复现</a><a class="chapter-link" href="/appendix/02/">学习路线与前置自测</a><a class="chapter-link" href="/appendix/03/">读懂后续工程代码</a><a class="chapter-link" href="/appendix/04/">数学符号与计算速查</a> <a class="chapter-link" href="/resource/506997cbbc41/">章节练习与产出验收</a> <a class="chapter-link" href="/resources/">全部代码与学习附件</a> </section> <div class="sidebar-note">六个部分 · 35 章<br>按自己的节奏，从第一章开始。</div> </aside> <div class="reading-layout"> <main id="main" class="main-content"> <div class="document-meta" data-pagefind-ignore><span>第 27 章</span><a href="https://github.com/cbt12123/handmade-llm/blob/simple/%E7%AC%AC%E4%BA%94%E9%83%A8%E5%88%86-Agent/27-%E6%B5%8B%E8%AF%95%E8%AF%84%E4%BB%B7%E4%B8%8E%E6%89%A9%E5%B1%95.md" target="_blank" rel="noopener noreferrer">GitHub 源文档 ↗</a></div> <details class="mobile-toc" data-pagefind-ignore><summary>本页目录</summary><a href="#271-先给出评价层次">27.1 先给出评价层次</a><a href="#272-先测试确定代码">27.2 先测试确定代码</a><a href="#273-建立真实模型评价集">27.3 建立真实模型评价集</a><a href="#274-怎样理解通过与失败">27.4 怎样理解通过与失败</a><a href="#275-从真实失败改进设计">27.5 从真实失败改进设计</a><a href="#276-给回答内容增加人工检查">27.6 给回答内容增加人工检查</a><a href="#277-换一个领域怎样编写自己的-agent">27.7 换一个领域，怎样编写自己的 Agent</a><a href="#278-适当扩展的优先顺序">27.8 适当扩展的优先顺序</a><a href="#279-本章产出">27.9 本章产出</a><a href="#279-改进后真实回答还存在哪些问题">27.9 改进后真实回答还存在哪些问题</a></details><article class="prose" data-pagefind-body data-pagefind-weight="1"><h1 id="第27章-测试评价与扩展" data-pagefind-meta="title">第27章 测试、评价与扩展</h1>
+<p>Agent 可以调用工具、给出回答，却仍然可能答非所问、漏掉保存、编造评分或重复动作。最后一章把“程序运行了”进一步拆成可检查的要求，并说明怎样把课程学习助手改造成自己的 Agent。</p>
+<h2 id="271-先给出评价层次">27.1 先给出评价层次</h2>
+<table>
+<thead>
+<tr>
+<th>层次</th>
+<th>检查问题</th>
+<th>参考方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>协议</td>
+<td>动作能解析吗，字段正确吗</td>
+<td>JSON 与 Schema 检查</td>
+</tr>
+<tr>
+<td>工具</td>
+<td>权限、参数、计算和写入正确吗</td>
+<td>离线确定测试</td>
+</tr>
+<tr>
+<td>检索</td>
+<td>找到的问题资料相关吗</td>
+<td>已知问题与来源核对</td>
+</tr>
+<tr>
+<td>任务</td>
+<td>模型完成用户要求了吗</td>
+<td>真实模型评价集</td>
+</tr>
+<tr>
+<td>内容</td>
+<td>解释是否准确，是否有误导</td>
+<td>对照原文与人工检查</td>
+</tr>
+</tbody>
+</table>
+<p>模型结构约束通过，不代表工具选得正确。工具评分正确，也不代表模型最后说对了评分。引用存在，也不代表它支持答案。各层需要分别记录。</p>
+<h2 id="272-先测试确定代码">27.2 先测试确定代码</h2>
+<p><a href="https://github.com/cbt12123/handmade-llm/blob/simple/tools/verify_part05.py">verify_part05.py</a>使用明确的预设动作替身，检查权限、数值评分、引用、恢复和回滚。这样失败时不用先猜模型输出是否改变。</p>
+<p>重点检查包括：未知工具不能执行，未加载技能不能搜索，未授权不能保存，题号和数值不能凭空生成，旧知识索引不能继续使用，同一任务恢复后不会重复写入，事务失败不能留下半完成记录。</p>
+<p>预设动作仅用于测试程序机制。把这类脚本展示成“Agent 用真实模型完成任务”会混淆两种证据。本项目把离线核验和真实评价分别保存。</p>
+<pre><code class="language-powershell">python tools/verify_part05.py
+</code></pre>
+<h2 id="273-建立真实模型评价集">27.3 建立真实模型评价集</h2>
+<p><a href="https://github.com/cbt12123/handmade-llm/blob/simple/data/part05/evaluation.jsonl">evaluation.jsonl</a>有八条手工编写的教学用例，覆盖解释、出题、正确答案、错误答案保存、未授权保存、知识外问题、缺少答题信息和干扰指令。</p>
+<p>每条写清请求、任务类型和预期检查。例如错误答案保存不只看 finish，还要检查 grades 判错，并查询数据库确实新增一条记录。</p>
+<pre><code class="language-powershell">python script/part05/evaluate.py
+</code></pre>
+<p>评价使用临时 SQLite，避免污染读者的个人学习记录。每个用例有独立 learner，报告保留完整状态、原始模型动作、token 用量、耗时和错误，失败不会替换成固定成功答案。</p>
+<h2 id="274-怎样理解通过与失败">27.4 怎样理解通过与失败</h2>
+<p>解释用例检查回答包含关键术语并有真实引用；这是自动基线，仍可能漏掉数学错误。练习用例检查题号和题干，不能因此证明模型没有在别处泄露答案。干扰用例只检查动作边界，不代表解释也正确。</p>
+<p>当前解释检查另加预期来源、必要证据与两类已知风险筛查：学习率被说成决定方向，以及没有否定条件的全局最小值保证。<a href="/file/8348f2945776/">content_review.py</a>返回逐项结果与 <code>human_review_required</code>，不把“筛查通过”命名成“内容完全正确”。规则只覆盖有限表达，引用错误说法、复杂否定或新的数学错误仍可能误报、漏报。</p>
+<p>因此图中的通过只对应各自定义的检查，不能把总数宣传为通用准确率。评价脚本遇到模型服务失败也会保留 failed 状态，不能默默跳过。</p>
+<p><img src="/files/images/part05-evaluation.png" alt="实际模型教学用例的自动检查结果" loading="lazy" decoding="async"></p>
+<p>最终结果与完整轨迹见<a href="/file/9cc3fd0db8e0/">27_evaluation.json</a>。初始版本的真实失败记录保存在<a href="/file/52233f7df32a/">27_evaluation_initial.json</a>，它对应改进前的协议和提示，不能当作当前代码的复现结果。</p>
+<p>本机最终运行中八项自动检查均通过，但这不是“八个回答完全正确”。出题检查包含程序直接展示的题库题干，干扰检查仅判断能力边界；它们不要求所有模型补充文字都准确。</p>
+<h2 id="275-从真实失败改进设计">27.5 从真实失败改进设计</h2>
+<p>初始实验中，小模型跳过技能加载，把工具参数放错字段，生成不存在的引用，并不断重复动作。这说明一段总规则加宽泛 JSON Schema 不足以稳定完成任务。</p>
+<p>最终设计把动作分为不同 Schema 分支：search 只能带 query，grade 需要 question_id 和 answer，工具动作不携带最终回答；finish 的引用只能来自本任务证据。技能尚未加载时只允许加载，完成题库与评分后限制重复动作，并设搜索预算。</p>
+<p>同时保留 Python 检查，因为服务端结构约束不是权限系统。提示强调原始用户任务，避免工具示例被当作用户答案；评分工具也验证题号与数值确实来自用户请求。</p>
+<p>这些改进约束协议和执行范围，不证明模型已经理解所有教学内容。若仍漏掉保存或输出错误结论，要继续检查动作和任务验收，必要时把稳定阶段改为固定工作流。</p>
+<p>四阶段真实演示还出现过“查询到一条错题，模型却编造五条完成记录”的情况。最终入口对练习、评分和记录直接展示工具确定结果，不拼接自由生成的说明；原始错误文本保留在报告中。修复了用户看到的确定结果，不等于修复了模型本身的推理能力。</p>
+<h2 id="276-给回答内容增加人工检查">27.6 给回答内容增加人工检查</h2>
+<p>选取几条回答，对照引用段落问：公式符号是否解释清楚？学习率的影响有没有夸大？是否把一次数值演示说成普遍保证？资料不足时有没有强行回答？</p>
+<p>数值评分还有额外检查：工具判错后，模型是否清楚说了错误；工具未保存时，模型是否误称保存成功。自动评价可以检查确定字段，但自然语言反馈需要更完整的量规。</p>
+<p>本次真实解释中，模型说学习率决定“向前移动一小步还是向后移动一大步”。这句话错误：在正学习率下，更新方向由负梯度决定，学习率主要控制步长。用公式核对：</p>
+<div class="formula"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi mathvariant="normal">Δ</mi><mi>w</mi><mo>=</mo><mo>−</mo><mi>α</mi><mi mathvariant="normal">∇</mi><mi>L</mi><mo stretchy="false">(</mo><mi>w</mi><mo stretchy="false">)</mo><mo separator="true">,</mo><mspace width="2em"/><mi>α</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\Delta w=-\alpha\nabla L(w),\qquad \alpha&gt;0
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">Δ</span><span class="mord mathnormal" style="margin-right:0.0269em;">w</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">−</span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span><span class="mord">∇</span><span class="mord mathnormal">L</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.0269em;">w</span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace" style="margin-right:2em;"></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span></span></div><p>改变 α 的大小不会自行翻转负梯度方向；还不能因为使用梯度下降就保证找到全局最小值。这个回答有真实引用、关键术语与合法 JSON，依然包含教学错误。<a href="/file/fa4427c60596/">内容核对记录</a>明确保留这个失败，没有修改原始模型报告。</p>
+<p>实际教程使用时，应核对引用段落，不直接把未经检查的小模型解释当作教材。要提高输出质量，可以改善包含公式与邻段的检索、建立更细内容量规，或在可用资源内比较更强模型；这些改进都需要新实验支持。</p>
+<p>本次先处理检索证据与评价：第24章保留完整公式与邻段，把知识范围扩展到六部分及学习附录，并给定义标题增加权重。解释技能要求先核对公式和适用条件。旧的错误回答不改写，选取的原始状态另存为<a href="/file/8f36f465bb74/">内容回归输入</a>，记录原报告哈希。新筛查能够识别旧自动检查放过的方向错误，不依赖读者本地的最新评价报告仍保留该错误。</p>
+<p>运行确定核验：</p>
+<pre><code class="language-powershell">python tools/verify_part05_retrieval.py
+</code></pre>
+<p><a href="/file/343b3826a120/">15条检索用例</a>检查来源、公式与条件；临时资料验证数学前后文、文本流程图、代码排除、新增或删除资料后的索引失效。源文改动也会失效，旧索引格式需要重建。</p>
+<p>新增<a href="https://github.com/cbt12123/handmade-llm/blob/simple/data/part05/evaluation_quality.jsonl">五条真实解释用例</a>，分别询问学习率、条件概率、KV 缓存、Rules/Skills 和归约。在模型服务健康后运行，另存报告：</p>
+<pre><code class="language-powershell">python script/part05/evaluate.py <span class="hljs-literal">--dataset</span> <span class="hljs-keyword">data</span>/part05/evaluation_quality.jsonl <span class="hljs-literal">--output-name</span> <span class="hljs-number">27</span>_evaluation_rag.json
+</code></pre>
+<p><code>--output-name</code> 只接受一个 JSON 文件名，避免无意覆盖其他目录。旧的八条用例也可另存为 <code>27_evaluation_regression.json</code>。报告记录数据集与知识索引哈希、知识源哈希、逐条筛查和原始回答；真实结果与内容核对要分别记录，不能用预设正确文本替换模型输出。</p>
+<p>可以给每项标为“满足、部分满足、不满足”，保存人工意见。先用少量高质量样例，再扩大数量。用同一个模型评判自己的答复容易带入共同偏差，不能代替核对资料。</p>
+<h2 id="277-换一个领域怎样编写自己的-agent">27.7 换一个领域，怎样编写自己的 Agent</h2>
+<p>以产品文档助手为例，迁移步骤是：</p>
+<ol>
+<li>写出真实任务和验收结果：回答产品配置问题并给出处。</li>
+<li>确定工具：先提供只读检索，是否增加操作工具取决于需求。</li>
+<li>写 Rules：来源要求、资料不足处理、操作权限与执行预算。</li>
+<li>写 Skills：解释配置、排查问题、整理对比，各自有输入输出和失败处理。</li>
+<li>整理 Knowledge：保留版本、路径和段落标识，建立新索引。</li>
+<li>定义状态与持久化：哪些是临时事实，哪些值得长期保存。</li>
+<li>写评价用例：正常、缺信息、来源外问题、工具失败和干扰输入。</li>
+<li>接入入口并运行，依据轨迹改进。</li>
+</ol>
+<p>循环、协议适配和日志可以复用；学习题库、评分逻辑和学习记录字段应重新设计。不要只替换总提示里的“课程”二字，就宣称完成了另一个 Agent。</p>
+<h2 id="278-适当扩展的优先顺序">27.8 适当扩展的优先顺序</h2>
+<p>先改善知识分块和检索，补题库与反馈量规，再增加复习计划与结构化答题入口。需要稳定的多阶段流程时加入显式阶段验收。</p>
+<p>多 Agent、MCP 工具协议、网页搜索或长期自动运行可以作为后续方向，但会增加协调、认证、错误恢复与评价要求。本部分先把一个 Agent 做完整；工具接口与模型适配层已经为迁移留下位置。</p>
+<p>框架可以减少接线代码，却不能替你定义任务、权限或评价标准。理解这里的手写实现后，再选择框架时才能判断它替你处理了什么，哪些责任仍属于应用。</p>
+<h2 id="279-本章产出">27.9 本章产出</h2>
+<p>生成离线核验和真实评价报告，逐条读失败轨迹，写下一个有证据的改进。最后设计一个新领域 Agent 的任务、工具、Rules、Skills、Knowledge、状态和验收条件。</p>
+<p>本部分的完整产出是一个有明确执行边界、可检索、可练习、可评分、可保存和恢复的课程学习助手，以及读者可以复用的编写与评价方法。</p>
+<p><a href="/chapter/26/">上一章</a> · <a href="/guide/5/">返回运行指南</a></p>
+<h2 id="279-改进后真实回答还存在哪些问题">27.9 改进后真实回答还存在哪些问题</h2>
+<p>检索用例满足15/15，原有八条任务断言再次满足8/8；这两项都不能证明解释正确。新增五条解释的<a href="/file/36a8c2d5d221/">真实运行原始报告</a>初次筛查为5/5，逐项对照来源后只有条件概率回答满足本次要求，另外两条部分满足、两条存在明确错误。</p>
+<table>
+<thead>
+<tr>
+<th>问题</th>
+<th>内容核对</th>
+<th>主要发现</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>学习率</td>
+<td>存在错误</td>
+<td>把正学习率说成决定方向，且未给更新公式</td>
+</tr>
+<tr>
+<td>条件概率</td>
+<td>满足本次要求</td>
+<td>条件、公式、独立性说明与资料一致</td>
+</tr>
+<tr>
+<td>KV缓存</td>
+<td>存在错误</td>
+<td>错误声称新Query会改变旧位置表示，缺少缓存条件</td>
+</tr>
+<tr>
+<td>Rules与Skills</td>
+<td>部分满足</td>
+<td>没有讲清技能文件与实际执行工具的Python宿主的区别</td>
+</tr>
+<tr>
+<td>GPU归约</td>
+<td>部分满足</td>
+<td>核心定义正确，但缺少数值例子，补充例子无来源支持</td>
+</tr>
+</tbody>
+</table>
+<p><a href="/file/486689a35e41/">逐项内容核对报告</a>保留原句、来源、原始报告哈希和判断依据。这是作者侧由助手对照资料的核对，不是独立读者盲评。学习率原句中的“是一个关键参数，决定了……”绕过了原来的窄规则；补充这一真实错误回归后，对同一批已保存答案重新筛查为4/5，仍漏掉KV缓存错误。因此，自动筛查应作为检查入口，不能取代内容核对。原有八条用例的解释也仍出现关于非线性模型与SGD的错误区分。</p>
+<p>检索、提示和筛查有改进，但当前1.5B模型尚不能稳定承担准确的课程讲解。换模型或进一步修改提示后，应重跑相同用例并核对真实输出，而不是替换报告中的答案。<a href="/file/00402b2075e9/">初始运行</a>、<a href="/file/2774dbc78873/">失败的查询约束尝试</a>和<a href="/file/8a631ce8888c/">短查询调整后的运行</a>也保留，便于检查改动是否造成退化。</p>
+<h3 id="补充练习与验收">补充练习与验收</h3>
+<p>先独立完成<a href="/resource/d1ab98a69bdd/#%E7%AC%AC27%E7%AB%A0">本章两道练习</a>，再核对参考答案和本章验收证据。记录自己的输入、结果与边界案例，不要求复制作者的实验数值。</p>
+</article> <nav class="chapter-pagination" aria-label="连续阅读" data-pagefind-ignore><a href="/chapter/26/"><small>← 上一章</small>第26章 组装完整课程学习助手</a><a href="/chapter/28/"><small>下一章 →</small>第28章 从推理瓶颈到 GPU 执行</a></nav> <footer class="page-footer" data-pagefind-ignore>从 Python 基础到大模型应用与算子开发 <a href="https://github.com/cbt12123/handmade-llm/tree/simple" target="_blank" rel="noopener noreferrer">GitHub ↗</a></footer> </main> <aside class="page-toc" aria-label="本页目录" data-pagefind-ignore> <div class="toc-title">本页内容</div><a href="#271-先给出评价层次">27.1 先给出评价层次</a><a href="#272-先测试确定代码">27.2 先测试确定代码</a><a href="#273-建立真实模型评价集">27.3 建立真实模型评价集</a><a href="#274-怎样理解通过与失败">27.4 怎样理解通过与失败</a><a href="#275-从真实失败改进设计">27.5 从真实失败改进设计</a><a href="#276-给回答内容增加人工检查">27.6 给回答内容增加人工检查</a><a href="#277-换一个领域怎样编写自己的-agent">27.7 换一个领域，怎样编写自己的 Agent</a><a href="#278-适当扩展的优先顺序">27.8 适当扩展的优先顺序</a><a href="#279-本章产出">27.9 本章产出</a><a href="#279-改进后真实回答还存在哪些问题">27.9 改进后真实回答还存在哪些问题</a><a class="toc-sub" href="#补充练习与验收">补充练习与验收</a> <a class="back-top" href="#main">回到顶部 ↑</a> </aside> </div> <dialog id="search-dialog" aria-label="搜索完整教程"> <div class="dialog-head"><strong>搜索教程</strong><button id="search-close" aria-label="关闭搜索">✕</button></div> <div id="search"></div><p class="search-hint">输入关键词，查找正文、公式说明、练习和附件。</p> </dialog> <dialog id="image-dialog" aria-label="查看大图"><button id="image-close" aria-label="关闭图片">✕</button><img alt=""><p></p></dialog> <script type="module" src="/_astro/Book.astro_astro_type_script_index_0_lang.SvhK8ezw.js"></script> </body> </html>
