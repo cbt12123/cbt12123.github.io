@@ -844,10 +844,6 @@
       "url": "/file/68ba48039900/"
     },
     {
-      "source": "outputs/part05/course_index.json",
-      "url": "/file/b125c83cbee7/"
-    },
-    {
       "source": "outputs/part05/environment.json",
       "url": "/file/f0d969253007/"
     },
@@ -1143,7 +1139,6 @@
     "outputs/part05/27_evaluation_regression.json",
     "outputs/part05/27_evaluation_regression_initial.json",
     "outputs/part05/27_evaluation_regression_query_guard.json",
-    "outputs/part05/course_index.json",
     "outputs/part05/environment.json",
     "outputs/part05/verification.json",
     "outputs/part06/28_cost_model.json",
